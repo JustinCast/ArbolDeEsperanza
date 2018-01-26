@@ -9,16 +9,13 @@ const app = express()
  * Mongoose connection
  */
 function DBConnection() {
-    mongoose.connect(config.db, (err, res) => {
-        if(err) {
-            console.log(`Error al conectar a la base de datos: ${err}`)
+    const MONGO_URI = 'mongodb://localhost/WebsiteComunidad'; 
+    mongoose.connect(MONGO_URI, (err, res) => {
+        if(err){
+            console.log(err)
             return
         }
-        console.log('Conexión exitosa a la base de datos...')
-    
-        app.listen(config.port, () => {
-            console.log(`API REST corriendo en http://localhost:${config.port}`)
-        })
+        console.log("Conexión exitosa con la BD")
     })
 }
 
@@ -48,6 +45,7 @@ function routerConfig() {
             message: 'Initial backend route'
         })
     })
+    app.use('/', router)
     router.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '../dist/index.html'));
     });
