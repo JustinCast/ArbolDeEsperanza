@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
 const path = require('path')
+const api = require('./routes/api')
 /**
  * Mongoose connection
  */
@@ -46,7 +47,7 @@ function routerConfig() {
         })
     })
     app.use('/', router)
-    
+    app.use('/person', api)
     app.use(express.static(path.join(__dirname, 'dist')));
     router.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '../dist/index.html'));

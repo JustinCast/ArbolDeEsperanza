@@ -1,8 +1,10 @@
+import { HouseMember } from './HouseMember';
+
 'use strict'
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Person = require('./Person')
+const HOuseMember = require('./HouseMember')
 
 const PersonSchema = new Schema({
     Name: {
@@ -170,7 +172,8 @@ const PersonSchema = new Schema({
         required: true
     },
     HouseMembers: {
-        type: Person[],
+        type: HouseMember[],
         required: true
     }
 })
+module.exports  = mongoose.model('Person', PersonSchema)
