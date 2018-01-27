@@ -9,7 +9,7 @@ const app = express()
  * Mongoose connection
  */
 function DBConnection() {
-    const MONGO_URI = 'mongodb://localhost/WebsiteComunidad'; 
+    const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
     mongoose.connect(MONGO_URI, (err, res) => {
         if(err){
             console.log(err)
