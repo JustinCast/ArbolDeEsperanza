@@ -4,13 +4,13 @@ const path = require('path');
 const http = require('http');
 
 // API file for interacting with MongoDB
-const Server = require('./server');
+const app = require('./server');
 
 //Set Port
 const port = 3000;
-Server.set('port', port);
+app.set('port', port);
 
-const server = http.createServer(Server);
+const server = http.createServer(app);
 
 server.listen(port, err => {
     if(err){

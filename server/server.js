@@ -10,7 +10,8 @@ const api = require('./routes/api')
  * Mongoose connection
  */
 function DBConnection() {
-    const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
+    // mongodb://justin:cast123@ds149577.mlab.com:49577/ade
+    const MONGO_URI = 'mongodb://localhost/ADE'; 
     mongoose.connect(MONGO_URI, (err, res) => {
         if(err){
             console.log(err)
@@ -40,7 +41,6 @@ function config() {
  */
 function routerConfig() {
     let router = express.Router()
-    // initial server route
     router.get('', (req, res)=>{
         res.json({
             message: 'Initial backend route'
@@ -48,10 +48,10 @@ function routerConfig() {
     })
     app.use('/', router)
     app.use('/person', api)
-    app.use(express.static(path.join(__dirname, 'dist')));
-    router.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../dist/index.html'));
-    });
+    // app.use(express.static(path.join(__dirname, 'dist')));
+    // router.get('*', (req, res) => {
+    //     res.sendFile(path.join(__dirname, '../dist/index.html'));
+    // });
     // demas enrutadores
 }
 

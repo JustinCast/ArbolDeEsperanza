@@ -1,22 +1,26 @@
 'use strict'
 
-const Person = require('../models/PersonSchema') // importacion del modelo
+var Person = require('../models/PersonSchema') // importacion del modelo
 
 function getPersons(req, res) {
-    Person.find({}, (err, persons) => {
-        if(err)
-            return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-        else if(!persons)
-            return res.status(404).send({message: `No existen personas: ${err}`})
-        else{
-            res.status(200).send(persons)
-        }
-    })
+    Person.find({})
+        .then(data => {
+            res.json(data)
+            console.log(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
 }
 
 function savePerson(req, res) {
     console.log(req.body)
     // almacenar en la base de datos
+    console.log(req.body)
     let person = new Person(req.body)
     // para guardar un producto que cuenta con las funciones de mongoose
     person.save((err, personStored) => {

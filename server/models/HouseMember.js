@@ -1,5 +1,5 @@
 'use strict'
-export class HouseMember {
+class HouseMember {
    constructor(name, lastName, clientRelationship, age, occupation, organizationState) {
        this.name = name
        this.lastName = lastName
