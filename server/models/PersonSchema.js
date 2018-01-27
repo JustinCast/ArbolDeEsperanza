@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Person = require('./Person')
 
 const PersonSchema = new Schema({
     Name: {
@@ -168,5 +169,8 @@ const PersonSchema = new Schema({
         type: String,
         required: true
     },
-    Mem
+    HouseMembers: {
+        type: Person[],
+        required: true
+    }
 })
