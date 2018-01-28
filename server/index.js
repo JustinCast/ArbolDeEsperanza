@@ -8,7 +8,7 @@ const app = require('./server');
 
 //Set Port
 const port = 3000;
-app.set('port', port);
+appap.set('port', port);
 
 const server = http.createServer(app);
 
