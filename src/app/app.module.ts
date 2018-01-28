@@ -8,6 +8,8 @@ import {
   MatButtonModule,
   MatExpansionModule
 } from '@angular/material';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/Es';
 import 'hammerjs';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
@@ -24,7 +26,7 @@ import { PersonService } from './person/person.service';
 import { ManagePeopleComponent } from './manage-people/manage-people.component';
 import { ManageEditorComponent } from './manage-editor/manage-editor.component';
 
-
+registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
     AppComponent,
