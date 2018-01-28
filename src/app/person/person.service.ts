@@ -4,14 +4,15 @@ import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
 @Injectable()
 export class PersonService {
-
+  people: Array<Person>
   constructor(private _http: HttpClient) { }
 
   getPersonsRequest() {
-    this._http.get<Person>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
+    this._http.get<Person[]>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
       .subscribe(
         data => {
-          console.log(data)
+          this.people = data
+          console.log(this.people)
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

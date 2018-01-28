@@ -1,15 +1,18 @@
 <h1 class="text-center text-secondary"><strong>Personas</strong></h1>
-<ul>
-  <li>
+<ul id="people">
+  <li *ngFor="let p of personService.people" class="person">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Personal data
+          {{p.Name}}
         </mat-panel-title>
         <mat-panel-description>
-          Type your name and age
+          Presione para más información
         </mat-panel-description>
       </mat-expansion-panel-header>
+      <div class="container">
+
+      </div>
     </mat-expansion-panel>
   </li>
 </ul>
