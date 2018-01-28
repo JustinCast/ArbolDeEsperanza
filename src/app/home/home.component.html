@@ -5,7 +5,7 @@
   </mat-card>
 </div>
 <hr>
-<div id="home-footer" class="container"> 
+<div id="home-footer"> 
   <div class="card link text-center">
 
     <!--Card image-->
@@ -16,10 +16,91 @@
       <h4 class="card-title ">Personas</h4>
       <h1 class="card-icon"><i style="font-size: 50px" class="material-icons">accessibility</i></h1>
       <!--Text-->
+      <hr>
       <p class="card-text">
         Visualizar las personas de la fundación
       </p>
-      <button class="btn btn-primary btn-sm card-btn">
+      <button class="btn btn-primary btn-sm card-btn" [routerLink]="['/person']">
+        Ir
+      </button>
+    </div>
+
+  </div>
+  <div class="card link text-center">
+
+    <!--Card image-->
+    
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title-->
+      <h4 class="card-title ">Gráficos</h4>
+      <h1 class="card-icon"><i style="font-size: 50px" class="material-icons">timeline</i></h1>
+      <!--Text-->
+      <hr>
+      <p class="card-text">
+        Visualizar las personas de la fundación
+      </p>
+      <button class="btn btn-primary btn-sm card-btn" [routerLink]="['/graph']">
+        Ir
+      </button>
+    </div>
+
+  </div>
+  <div class="card link text-center">
+
+    <!--Card image-->
+    
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title-->
+      <h4 class="card-title ">Usuarios</h4>
+      <h1 class="card-icon"><i style="font-size: 50px" class="material-icons" [routerLink]="['/admin']">person_outline</i></h1>
+      <!--Text-->
+      <hr>
+      <p class="card-text">
+        Visualizar las personas de la fundación
+      </p>
+      <button class="btn btn-primary btn-sm card-btn" [routerLink]="['/admin']">
+        Ir
+      </button>
+    </div>
+
+  </div>
+  <div class="card link text-center">
+
+    <!--Card image-->
+    
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title-->
+      <h4 class="card-title ">Configuración</h4>
+      <h1 class="card-icon"><i style="font-size: 50px" class="material-icons">settings</i></h1>
+      <!--Text-->
+      <hr>
+      <p class="card-text">
+        Visualizar las personas de la fundación
+      </p>
+      <button class="btn btn-primary btn-sm card-btn" [routerLink]="['/settings']">
+        Ir
+      </button>
+    </div>
+
+  </div>
+  <div class="card link text-center">
+
+    <!--Card image-->
+    
+    <!--Card content-->
+    <div class="card-body">
+      <!--Title-->
+      <h4 class="card-title ">Acerca de</h4>
+      <h1 class="card-icon"><i style="font-size: 50px" class="material-icons">business</i></h1>
+      <!--Text-->
+      <hr>
+      <p class="card-text">
+        Visualizar las personas de la fundación
+      </p>
+      <button class="btn btn-primary btn-sm card-btn" [routerLink]="['/about']">
         Ir
       </button>
     </div>

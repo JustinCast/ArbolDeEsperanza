@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { GraphComponent } from './graph/graph.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ROUTES } from './app.routing';
     PersonComponent,
     AboutComponent,
     GraphComponent,
-    ErrorHandleComponent
+    ErrorHandleComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

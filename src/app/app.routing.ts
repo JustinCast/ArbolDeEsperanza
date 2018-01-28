@@ -5,6 +5,7 @@ import { GraphComponent } from './graph/graph.component';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
+import { SettingsComponent } from './settings/settings.component';
 
 export const ROUTES: Routes = [
     {
@@ -24,6 +25,9 @@ export const ROUTES: Routes = [
     },
     {
         path: 'admin', component: AdminComponent
+    },
+    {
+        path: 'settings', component: SettingsComponent
     },
     {
         path: '**', component: ErrorHandleComponent
