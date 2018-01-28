@@ -137,7 +137,7 @@ const PersonSchema = new Schema({
         required: false
     },
     SupportInstitutions: {
-        type: String,
+        type: Array,
         required: true
     },
     PersonsInTheHouse: {

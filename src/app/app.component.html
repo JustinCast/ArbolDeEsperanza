@@ -8,8 +8,8 @@
   <links>
 
       <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+      <ul class="navbar-nav mr-auto"  >
+          <li class="nav-item">
               <a class="nav-link waves-light" mdbRippleRadius routerLink="home">Inicio<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
@@ -22,7 +22,8 @@
           <!-- Dropdown -->
           <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
-              Sección de Administrador<span class="caret"></span></a>
+                <i class="fa fa-gear" aria-hidden="true"></i><span class="caret"></span>
+              </a>
               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
                   <a class="dropdown-item waves-light" mdbRippleRadius href="#">Administrar personas</a>
                   <a class="dropdown-item waves-light" mdbRippleRadius href="#">Agregar a un editor</a>

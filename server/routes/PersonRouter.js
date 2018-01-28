@@ -6,7 +6,7 @@ function getPersons(req, res) {
     Person.find({})
         .then(data => {
             res.json(data)
-            console.log(data)
+            //console.log(data)
         })
         .catch(err => {
             const status = req.statusCode

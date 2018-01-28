@@ -4,8 +4,9 @@ import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
-  MatCardModule 
-
+  MatCardModule,
+  MatButtonModule,
+  MatExpansionModule
 } from '@angular/material';
 import 'hammerjs';
 import { HttpClientModule } from "@angular/common/http";
@@ -20,6 +21,8 @@ import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
 import { PersonService } from './person/person.service';
+import { ManagePeopleComponent } from './manage-people/manage-people.component';
+import { ManageEditorComponent } from './manage-editor/manage-editor.component';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { PersonService } from './person/person.service';
     AboutComponent,
     GraphComponent,
     ErrorHandleComponent,
-    SettingsComponent
+    SettingsComponent,
+    ManagePeopleComponent,
+    ManageEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import { PersonService } from './person/person.service';
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatExpansionModule
   ],
   providers: [
     PersonService
