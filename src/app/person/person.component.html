@@ -1,17 +1,46 @@
 <h1 class="text-center text-secondary"><strong>Personas</strong></h1>
 <ul id="people">
   <li *ngFor="let p of personService.people" class="person">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
+    <mat-expansion-panel [expanded]="collapse">
+      <mat-expansion-panel-header (click)="changeCollapse()">
         <mat-panel-title>
-          {{p.Name}}
+            <span class="badge indigo">{{p.Name}}</span>
         </mat-panel-title>
         <mat-panel-description>
           Presione para más información
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="container">
-
+        <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate'}}</p>
+        <p><strong>Activa:</strong> {{p.ActiveOrInactive}}</p>
+        <p><strong>Edad:</strong> {{p.Age}}</p>
+        <p><strong>Fecha de nacimiento:</strong> {{p.BornDate | date: 'fullDate'}}</p>
+        <p><strong>Lee:</strong> {{p.Read}}</p>
+        <p><strong>Escribe:</strong> {{p.Write}}</p>
+        <p><strong>Seguro Social:</strong> {{p.SocialSecurity}}</p>
+        <p><strong>Tipo de seguro:</strong> {{p.SocialSecurityType}}</p>
+        <p><strong>Educación:</strong> {{p.Education}}</p>
+        <p><strong>Nacionalidad:</strong> {{p.Nationality}}</p>
+        <p><strong>Número de teléfono</strong> {{p.PhoneNumber}}</p>
+        <p><strong>Dirección:</strong> {{p.Address}}</p>
+        <p><strong>Correo electrónico:</strong> {{p.Email}}</p>
+        <p><strong>Necesita doctor:</strong> {{p.Need_Doctor}}</p>
+        <p><strong>Necesita oftalmólogo:</strong> {{p.Need_Ophthalmologist}}</p>
+        <p><strong>Necesita mamografía:</strong> {{p.Need_Mammography}}</p>
+        <p><strong>Necesita dentista: </strong> {{p.Need_Dentist}}</p>
+        <p><strong>Necesita ginecólogo</strong> {{p.Need_Gynecologist}}</p>
+        <p><strong>Necesita psicólogo:</strong> {{p.Need_Psychologist}}</p>
+        <p><strong>Ha sido víctima de abuso:</strong> {{p.AbuseVictim}}</p>
+        <p><strong>Ha intentado suicidio:</strong> {{p.SuicideAttempt}}</p>
+        <p><strong>Tiene pensamientos suicidas:</strong> {{p.SuicideToughts}}</p>
+        <p><strong>Tiene problemas de drogas:</strong> {{p.DrugsProblem}}</p>
+        <p><strong>Problemas de alcohol:</strong> {{p.AlcoholProblems}}</p>
+        <p><strong>Toma medicamentos:</strong> {{p.TakeMedication}}</p>
+        <p><strong>Medicamentos:</strong> {{p.Medication}}</p>
+        <p><strong>Situación laboral:</strong> {{p.EmploymentSituation}}</p>
+      </div>
+      <div style="text-align: center">
+        <button mat-button color="warn" (click)="changeCollapse()">Cerrar</button>
       </div>
     </mat-expansion-panel>
   </li>

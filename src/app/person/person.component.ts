@@ -9,9 +9,12 @@ import { PersonService } from './person.service';
 export class PersonComponent implements OnInit {
 
   constructor(public personService: PersonService) { }
-
+  collapse: boolean = false
   ngOnInit() {
     this.personService.getPersonsRequest()
   }
 
+  changeCollapse(){
+    this.collapse = !this.collapse
+  }
 }
