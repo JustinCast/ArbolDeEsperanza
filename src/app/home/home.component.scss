@@ -1,0 +1,42 @@
+#home-header {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+#main-title{
+    margin-top: 13%;
+}
+#description-card{
+    width: 70%;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #E57373;
+    color: white
+}
+#links{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+    padding: 0
+}
+.link{
+    display: inline-block;
+    margin-top: 0.5%;
+    max-width: 25%;
+    width: 25%;
+}
+#home-footer{
+    margin-top: 2%;
+    width: 100%;
+    height: 50%;
+    padding: 0
+}
+.card-icon{
+    text-align: center;
+    margin-top: 1%
+
+}
+.card-btn{
+    text-align: center
+}
