@@ -21,21 +21,94 @@
         <p><strong>Tipo de seguro:</strong> {{p.SocialSecurityType}}</p>
         <p><strong>Educación:</strong> {{p.Education}}</p>
         <p><strong>Nacionalidad:</strong> {{p.Nationality}}</p>
-        <p><strong>Número de teléfono</strong> {{p.PhoneNumber}}</p>
+        <p><strong>Número de teléfono:</strong> {{p.PhoneNumber}}</p>
         <p><strong>Dirección:</strong> {{p.Address}}</p>
         <p><strong>Correo electrónico:</strong> {{p.Email}}</p>
-        <p><strong>Necesita doctor:</strong> {{p.Need_Doctor}}</p>
-        <p><strong>Necesita oftalmólogo:</strong> {{p.Need_Ophthalmologist}}</p>
-        <p><strong>Necesita mamografía:</strong> {{p.Need_Mammography}}</p>
-        <p><strong>Necesita dentista: </strong> {{p.Need_Dentist}}</p>
-        <p><strong>Necesita ginecólogo</strong> {{p.Need_Gynecologist}}</p>
-        <p><strong>Necesita psicólogo:</strong> {{p.Need_Psychologist}}</p>
-        <p><strong>Ha sido víctima de abuso:</strong> {{p.AbuseVictim}}</p>
-        <p><strong>Ha intentado suicidio:</strong> {{p.SuicideAttempt}}</p>
-        <p><strong>Tiene pensamientos suicidas:</strong> {{p.SuicideToughts}}</p>
-        <p><strong>Tiene problemas de drogas:</strong> {{p.DrugsProblem}}</p>
-        <p><strong>Problemas de alcohol:</strong> {{p.AlcoholProblems}}</p>
-        <p><strong>Toma medicamentos:</strong> {{p.TakeMedication}}</p>
+        <!---->
+        <div *ngIf="p.need_Doctor === true;else no"><strong>Necesita Doctor:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #no><strong>Necesita Doctor:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.Need_Ophthalmologist === true;else noOp"><strong>Necesita oftalmólogo:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noOp><strong>Necesita oftalmólogo:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.Need_Mammography === true;else noMam"><strong>Necesita mamografía:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noMam><strong>Necesita mamografía:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.Need_Dentist === true;else noDent"><strong>Necesita dentista:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noDent><strong>Necesita dentista:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.Need_Gynecologist === true;else noGine"><strong>Necesita ginecólogo:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noGine><strong>Necesita ginecólogo:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.Need_Psychologist === true;else noPyscho"><strong>Necesita psicólogo:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noPyscho><strong>Necesita psicólogo:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.AbuseVictim === true;else noAbuse"><strong>Ha sido víctima de abuso:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noAbuse><strong>Ha sido víctima de abuso:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.SuicideAttempt === true;else noSuicideAt"><strong>Ha intentado suicidio:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noSuicideAt><strong>Ha intentado suicidio:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.SuicideToughts === true;else noSuicideT"><strong>Tiene pensamientos suicidas:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noSuicideT><strong>Tiene pensamientos suicidas:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.DrugsProblem === true;else noDrugs"><strong>Tiene problemas de drogas:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noDrugs><strong>Tiene problemas de drogas:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.AlcoholProblems === true;else noAlcohol"><strong>Tiene problemas de alcohol:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noAlcohol><strong>Tiene problemas de alcohol:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
+        <div *ngIf="p.TakeMedication === true;else noAlcohol"><strong>Toma medicamentos:</strong>
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <ng-template #noAlcohol><strong>Toma medicamentos:</strong> 
+          <i class="fa fa-times text-danger" aria-hidden="true"></i>
+        </ng-template>
+        <!---->
         <p><strong>Medicamentos:</strong> {{p.Medication}}</p>
         <p><strong>Situación laboral:</strong> {{p.EmploymentSituation}}</p>
       </div>
