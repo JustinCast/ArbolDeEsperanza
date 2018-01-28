@@ -19,6 +19,7 @@ import { GraphComponent } from './graph/graph.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
+import { PersonService } from './person/person.service';
 
 
 @NgModule({
@@ -38,9 +39,12 @@ import { SettingsComponent } from './settings/settings.component';
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PersonService
+  ],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
