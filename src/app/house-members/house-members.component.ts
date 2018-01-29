@@ -6,7 +6,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./house-members.component.scss']
 })
 export class HouseMembersComponent implements OnInit {
-
   constructor(
     public dialogRef: MatDialogRef<HouseMembersComponent>,
     @Inject(MAT_DIALOG_DATA) public members: Array<any>) 

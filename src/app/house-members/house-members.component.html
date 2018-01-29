@@ -1,3 +1,29 @@
-<ul>
-  <li *ngFor="let m of members">{{m.name}}</li>
-</ul>
+<table class="table table-striped text-center">
+  <thead class="indigo white-text">
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Relación</th>
+      <th>Ocupación</th>
+      <th>Estado en la fundación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of members; let index = index">
+      <td>{{index + 1}}</td>
+      <td>{{m.name}}</td>
+      <td>{{m.lastName}}</td>
+      <td>{{m.age}}</td>
+      <td>{{m.clientRelationship}}</td>
+      <td>{{m.occupation}}</td>
+      <td *ngIf="m.organizationState; else inactive">
+        Activo
+      </td>
+      <div>
+        <ng-template #inactive><td>Inactivo</td></ng-template>
+      </div>
+    </tr>
+  </tbody>
+</table>

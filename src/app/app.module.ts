@@ -8,6 +8,7 @@ import {
   MatButtonModule,
   MatExpansionModule, 
   MatDialogModule,
+  MatTableModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/Es';
@@ -54,6 +55,7 @@ registerLocaleData(es, 'Es');
     MatButtonModule,
     MatExpansionModule,
     MatDialogModule,
+    MatTableModule
   ],
   providers: [
     PersonService
