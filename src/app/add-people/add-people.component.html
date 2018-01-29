@@ -1,3 +1,67 @@
-<p>
-  add-people works!
-</p>
+<form [formGroup]="personGroup" (ngSubmit)="onSubmit(personGroup.value)">
+  <mat-form-field>
+    <input matInput type="text" [formControl]="personGroup.get('name')" name="name" [(ngModel)]="person.name" placeholder="Nombre y apellidos">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="date" [formControl]="personGroup.get('entryDate')" name="entryDate" [(ngModel)]="person.entryDate" placeholder="Fecha de entrada a la organización">
+  </mat-form-field>
+
+  <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
+    <mat-radio-button>Activo</mat-radio-button>
+    <mat-radio-button>Inactivo</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <input matInput type="number" [formControl]="personGroup.get('age')" name="age" [(ngModel)]="person.age" placeholder="Edad">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="date" [formControl]="personGroup.get('bornDate')" name="bornDate" [(ngModel)]="person.bornDate" placeholder="Fecha de nacimiento">
+  </mat-form-field>
+
+  <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.read">
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group [formControl]="personGroup.get('write')" [(ngModel)]="person.write">
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group [formControl]="personGroup.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <input matInput type="text" [formControl]="personGroup.get('socialSecurityType')" name="socialSecurityType" [(ngModel)]="person.socialSecurityType" placeholder="Tipo de seguro social">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Educación" [formControl]="personGroup.get('education')" [(ngModel)]="person.education">
+      <mat-option>Primaria completa</mat-option>
+      <mat-option>Primaria incompleta</mat-option>
+      <mat-option>Secundaria completa</mat-option>
+      <mat-option>Universidad completa</mat-option>
+      <mat-option>Universidad incompleta</mat-option>
+      <mat-option>Ninguno</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Nacionalidad" [formControl]="personGroup.get('nationality')" [(ngModel)]="person.nationality">
+      <mat-option>Costarricense</mat-option>
+      <mat-option>Nicaragüense</mat-option>
+      <mat-option>Salvadoreño</mat-option>
+      <mat-option>Panameño</mat-option>
+      <mat-option>Colombiano</mat-option>
+      <mat-option>Otro</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" [formControl]="personGroup.get('phoneNumber')" name="phoneNumber" [(ngModel)]="person.phoneNumber" placeholder="Número de teléfono">
+  </mat-form-field>
+</form>

@@ -8,11 +8,15 @@ import {
   MatButtonModule,
   MatExpansionModule, 
   MatDialogModule,
-  MatTableModule
+  MatTableModule,
+  MatFormFieldModule,
+  MatRadioModule,
+  MatSelectModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/Es';
 import 'hammerjs';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -59,7 +63,12 @@ registerLocaleData(es, 'Es');
     MatButtonModule,
     MatExpansionModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [
     PeopleService
