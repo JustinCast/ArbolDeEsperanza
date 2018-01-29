@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
 @Injectable()
-export class PersonService {
+export class PeopleService {
   people: Array<Person>
   constructor(private _http: HttpClient) { }
 

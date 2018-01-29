@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from './person.service';
+import { PeopleService } from './people.service';
 import { MatDialog } from '@angular/material';
 import { HouseMembersComponent } from '../house-members/house-members.component';
 
 @Component({
   selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.scss']
+  templateUrl: './show-people.component.html',
+  styleUrls: ['./show-people.component.scss']
 })
-export class PersonComponent implements OnInit {
+export class ShowPeopleComponent implements OnInit {
 
-  constructor(public personService: PersonService, public dialog: MatDialog,) { }
+  constructor(public personService: PeopleService, public dialog: MatDialog,) { }
   collapse: boolean = false
   ngOnInit() {
     this.personService.getPersonsRequest()

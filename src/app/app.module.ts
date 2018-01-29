@@ -18,16 +18,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
-import { PersonComponent } from './person/person.component';
 import { AboutComponent } from './about/about.component';
 import { GraphComponent } from './graph/graph.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
-import { PersonService } from './person/person.service';
+import { PeopleService } from './show-people/people.service';
 import { ManagePeopleComponent } from './manage-people/manage-people.component';
 import { ManageEditorComponent } from './manage-editor/manage-editor.component';
 import { HouseMembersComponent } from './house-members/house-members.component';
+import { ShowPeopleComponent } from './show-people/show-people.component';
+import { AddPeopleComponent } from './add-people/add-people.component';
+import { PeopleComponent } from './people/people.component';
 
 registerLocaleData(es, 'Es');
 @NgModule({
@@ -36,14 +38,16 @@ registerLocaleData(es, 'Es');
     HomeComponent,
     ContactComponent,
     AdminComponent,
-    PersonComponent,
     AboutComponent,
     GraphComponent,
     ErrorHandleComponent,
     SettingsComponent,
     ManagePeopleComponent,
     ManageEditorComponent,
-    HouseMembersComponent
+    HouseMembersComponent,
+    PeopleComponent,
+    ShowPeopleComponent,
+    AddPeopleComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,7 @@ registerLocaleData(es, 'Es');
     MatTableModule
   ],
   providers: [
-    PersonService
+    PeopleService
   ],
   entryComponents: [
     HouseMembersComponent
