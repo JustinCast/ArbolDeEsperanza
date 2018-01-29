@@ -120,7 +120,7 @@ const PersonSchema = new Schema({
         required: true
     },
     Medication: {
-        type: String,
+        type: Array,
         required: false
     },
     EmploymentSituation: {
@@ -170,7 +170,7 @@ const PersonSchema = new Schema({
         required: true
     },
     HouseMembers: {
-        type: Object,
+        type: Array,
         required: true
     }
 })

@@ -7,7 +7,7 @@
           <h6 class="text-secondary"><strong>{{p.Name}}</strong></h6>
         </mat-panel-title>
         <mat-panel-description>
-          Presione para más información
+          Más información
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="container">
@@ -179,7 +179,40 @@
             </ng-template>
           </div>
           <!---->
-          <p><strong>Medicamentos:</strong> {{p.Medication}}</p>
+          <div class="bottom-margin" *ngIf="p.WorkingHours !== 0"><strong>Horas trabajadas:</strong>
+            {{p.WorkingHours}}}
+          </div>
+          <!---->
+          <div class="bottom-margin" *ngIf="p.UnemployedDate !== ''"><strong>Desempleada desde:</strong>
+            {{p.UneployedDate}}
+          </div>
+          <!---->
+          <p><strong>Cantidad de personas en la casa:</strong> {{p.PersonsInTheHouse}}</p>
+          <p><strong>Menores de edad en la casa:</strong> {{p.UnderagePeople}}</p>
+          <p><strong>Discapacitados en la casa:</strong> {{p.DisabilitiePersons}}</p>
+          <p><strong>Ingresos del hogar:</strong> {{p.HouseIncome}}</p>
+          <!---->
+          <div class="bottom-margin" *ngIf="p.IncomeSource !== ''"><strong>Fuente de ingresos:</strong>
+            {{p.IncomeSource}}
+          </div>
+          <!---->
+          <p><strong>La casa es:</strong> {{p.HouseHolding}}</p>
+          <p><strong>La condición de la casa es:</strong> {{p.HouseCondition}}</p>
+          <!---->
+          <strong *ngIf="p.HouseMembers.length !== 0">Miembros de la casa:</strong>
+          <ul *ngIf="p.HouseMembers.length !== 0">
+            <li *ngFor="let h of p.HouseMembers">{{h.name}}</li> 
+          </ul>
+          <!---->
+          <strong *ngIf="p.SupportInstitutions.length !== 0">Instituciones que han apoyado:</strong>
+          <ul *ngIf="p.SupportInstitutions.length !== 0">
+            <li *ngFor="let s of p.SupportInstitutions">{{s}}</li>
+          </ul>
+          <!---->
+          <strong>Medicamentos:</strong>
+          <ul *ngIf="p.Medication.length !== 0">
+            <li *ngFor="let m of p.Medication">{{m}}</li>
+          </ul>
         </mat-expansion-panel>
       </div>
       <div style="text-align: center">

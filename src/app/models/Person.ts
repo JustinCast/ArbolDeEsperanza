@@ -38,6 +38,6 @@ export class Person {
         public IncomeSource: string,
         public HouseHolding: string,
         public HouseCondition: string,
-        public HouseMembers: Object
+        public HouseMembers: Array<Object>
     ) {}
 }
