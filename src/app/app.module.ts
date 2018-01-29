@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatCardModule,
   MatButtonModule,
-  MatExpansionModule
+  MatExpansionModule, 
+  MatDialogModule,
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/Es';
@@ -25,6 +26,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { PersonService } from './person/person.service';
 import { ManagePeopleComponent } from './manage-people/manage-people.component';
 import { ManageEditorComponent } from './manage-editor/manage-editor.component';
+import { HouseMembersComponent } from './house-members/house-members.component';
 
 registerLocaleData(es, 'Es');
 @NgModule({
@@ -39,7 +41,8 @@ registerLocaleData(es, 'Es');
     ErrorHandleComponent,
     SettingsComponent,
     ManagePeopleComponent,
-    ManageEditorComponent
+    ManageEditorComponent,
+    HouseMembersComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +52,14 @@ registerLocaleData(es, 'Es');
     MatCardModule,
     HttpClientModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
   ],
   providers: [
     PersonService
+  ],
+  entryComponents: [
+    HouseMembersComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]

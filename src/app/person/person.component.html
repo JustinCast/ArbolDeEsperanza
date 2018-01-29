@@ -199,10 +199,12 @@
           <p><strong>La casa es:</strong> {{p.HouseHolding}}</p>
           <p><strong>La condición de la casa es:</strong> {{p.HouseCondition}}</p>
           <!---->
-          <strong *ngIf="p.HouseMembers.length !== 0">Miembros de la casa:</strong>
-          <ul *ngIf="p.HouseMembers.length !== 0">
-            <li *ngFor="let h of p.HouseMembers">{{h.name}}</li> 
-          </ul>
+          <div class="bottom-margin">
+            <strong *ngIf="p.HouseMembers.length !== 0">Miembros de la casa: ( {{p.HouseMembers.length}} )</strong>
+            <button mat-icon-button mat-raised-button color="accent" (click)="openHouseMembersDialog(p.HouseMembers)">
+              <i class="material-icons">format_list_numbered</i>
+            </button>
+          </div>
           <!---->
           <strong *ngIf="p.SupportInstitutions.length !== 0">Instituciones que han apoyado:</strong>
           <ul *ngIf="p.SupportInstitutions.length !== 0">
