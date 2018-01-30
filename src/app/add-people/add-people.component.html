@@ -76,5 +76,170 @@
     <label for="phoneNumber" class="">Número de teléfono</label>
   </div>
   <br>
-  <button type="submit" mat-button><i class="material-icons">{{icon}}</i></button>
+  <div class="md-form">
+    <textarea [formControl]="personGroup.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" class="form-control">
+    </textarea>
+    <label for="address" class="">Dirección</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <textarea [formControl]="personGroup.get('email')" [(ngModel)]="person.email" mdbActive type="text" id="email" class="form-control">
+    </textarea>
+    <label for="email" class="">Email</label>
+  </div>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needDoctor')" [(ngModel)]="person.needDoctor">
+    <p>¿Necesita doctor?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needOphthalmologist')" [(ngModel)]="person.needOphthalmologist">
+    <p>¿Necesita Oftalmólogo?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needMammography')" [(ngModel)]="person.needMammography">
+    <p>¿Necesita Mamografía?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needDentist')" [(ngModel)]="person.needDentist">
+    <p>¿Necesita Dentista?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needGynecologist')" [(ngModel)]="person.needGynecologist">
+    <p>¿Necesita Ginecólogo?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needPychologist')" [(ngModel)]="person.needPychologist">
+    <p>¿Necesita Psicólogo?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('abuseVictim')" [(ngModel)]="person.abuseVictim">
+    <p>¿Ha sido víctima de abuso?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('suicideAttempt')" [(ngModel)]="person.suicideAttempt">
+    <p>¿Ha intentado el suicidio?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('suicideToughts')" [(ngModel)]="person.suicideToughts">
+    <p>¿Tiene pensamientos suicidas?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('drugsProblem')" [(ngModel)]="person.drugsProblem">
+    <p>¿Tiene problemas de drogas?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('alcoholProblem')" [(ngModel)]="person.alcoholProblem">
+    <p>¿Tiene problemas de alcohol?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('takeMedication')" [(ngModel)]="person.takeMedication">
+    <p>¿Toma medicamentos?</p>
+    <mat-radio-button>Si</mat-radio-button>
+    <mat-radio-button>No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <div class="md-form">
+    <textarea [formControl]="personGroup.get('medication')" [(ngModel)]="person.medication" mdbActive type="text" id="medication" class="form-control">
+    </textarea>
+    <label for="medication" class="">Medicamentos</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation" mdbActive type="text" id="employnmentSituation" class="form-control">
+    <label for="employnmentSituation" class="">Situación laboral</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.workingHours" mdbActive type="text" id="workingHours" class="form-control">
+    <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.unemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
+    <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <textarea [formControl]="personGroup.get('supportInstitutions')" [(ngModel)]="person.supportInstitutions" mdbActive type="text" id="supportInstitutions" class="form-control">
+    </textarea>
+    <label for="supportInstitutions" class="">Instituciones que la han ayudado</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('peopleInTheHouse')" [(ngModel)]="person.peopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
+    <label for="peopleInTheHouse" class="">Cantidad de personas en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('underagePeople')" [(ngModel)]="person.underagePeople" mdbActive type="number" id="underagePeople" class="form-control">
+    <label for="underagePeople" class="">Cantidad de menores de edad en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('disabilitiePeople')" [(ngModel)]="person.disabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
+    <label for="disabilitiePeople" class="">Cantidad de personas discapacitadas en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('houseIncome')" [(ngModel)]="person.houseIncome" mdbActive type="number" id="houseIncome" class="form-control">
+    <label for="houseIncome" class="">Ingreso mensual</label>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="personGroup.get('houseHolding')" [(ngModel)]="person.houseHolding">
+      <mat-option *ngFor="let holding of houseHolding" [value]="holding">
+        {{ holding }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Condición de la casa" [formControl]="personGroup.get('houseCondition')" [(ngModel)]="person.houseCondition">
+      <mat-option *ngFor="let c of houseCondition" [value]="c">
+        {{ c }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <div class="md-form">
+    <textarea [formControl]="personGroup.get('houseMembers')" [(ngModel)]="person.houseMembers" mdbActive type="text" id="houseMembers" class="form-control">
+    </textarea>
+    <label for="houseMembers" class="">Miembros de la casa</label>
+  </div>
+  <br>
+  <button type="submit" mat-button>Enviar</button>
 </form>

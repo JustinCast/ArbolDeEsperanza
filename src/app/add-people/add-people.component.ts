@@ -26,6 +26,18 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "Universidad completa",
     "Ninguno"
   ]
+  houseHolding = [
+    "Alquilada",
+    "Propia",
+    "Prestada",
+    "Ocupada ilegalmente"
+  ]
+  houseCondition = [
+    "En buenas condiciones",
+    "Parcialmente en buenas condiciones",
+    "En malas condiciones",
+    "En muy malas condiciones"
+  ]
   constructor(private _fb: FormBuilder) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
@@ -54,7 +66,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'drugsProblem': ['', Validators.required],
       'alcoholProblem': ['', Validators.required],
       'takeMedication': ['', Validators.required],
-      'medication': ['', Validators.required],
+      'medication': [''],
       'employnmentSituation': ['', Validators.required],
       'workingHours': ['', Validators.required],
       'unemployedDate': ['', Validators.required],
