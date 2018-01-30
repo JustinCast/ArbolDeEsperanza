@@ -9,7 +9,10 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
   icon: string = 'close'
   person: any = {}
-  startDate = new Date(1990, 0, 1);
+  startDate = new Date(1990, 0, 1)
+  supportInstitutions = [
+
+  ]
   nationality = [
     "Costarricense",
     "Nicaragüense",
@@ -95,6 +98,15 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
+  }
+
+  addSupportInstitution(institution: string) {
+    this.supportInstitutions.unshift(institution)
+    console.log(institution)
+  }
+
+  deleteSupportInstitution(index: number) {
+    this.supportInstitutions.splice(index, 1)
   }
 
 }

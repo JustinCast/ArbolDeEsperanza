@@ -1,4 +1,4 @@
-<form class="text-center container" [formGroup]="personGroup" (ngSubmit)="onSubmit(personGroup.value)">
+<form class="text-center container" [formGroup]="personGroup">
   <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
   <div class="md-form">
     <input [formControl]="personGroup.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
@@ -83,8 +83,7 @@
   </div>
   <br>
   <div class="md-form">
-    <textarea [formControl]="personGroup.get('email')" [(ngModel)]="person.email" mdbActive type="text" id="email" class="form-control">
-    </textarea>
+    <input [formControl]="personGroup.get('email')" [(ngModel)]="person.email" mdbActive type="email" id="email" class="form-control">
     <label for="email" class="">Email</label>
   </div>
   <br>
@@ -173,10 +172,21 @@
   <hr>
   <br>
   <div class="md-form">
-    <textarea [formControl]="personGroup.get('medication')" [(ngModel)]="person.medication" mdbActive type="text" id="medication" class="form-control">
-    </textarea>
-    <label for="medication" class="">Medicamentos</label>
+    <input [formControl]="personGroup.get('supportInstitutions')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="supportInstitutions" class="form-control" #supportInstitution>
+    <label for="supportInstitutions" class="">Instituciones que han apoyado</label>
+    <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">Agregar</button>
   </div>
+  <mat-list role="list" *ngIf="supportInstitutions.length !== 0">
+    <p><strong>Instituciones que han ayudado</strong></p>
+    <mat-list-item role="listitem" *ngFor="let i of supportInstitutions; let index = index">
+      <p>{{i}}</p>
+      <div id="actions-container">
+        <button mat-button (click)="deleteSupportInstitution(index)" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
   <br>
   <div class="md-form">
     <input [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation" mdbActive type="text" id="employnmentSituation" class="form-control">
@@ -241,5 +251,5 @@
     <label for="houseMembers" class="">Miembros de la casa</label>
   </div>
   <br>
-  <button type="submit" mat-button>Enviar</button>
+  <button type="submit" mat-button [disabled]="!personGroup.valid" (click)="onSubmit(personGroup.value)">Enviar</button>
 </form>

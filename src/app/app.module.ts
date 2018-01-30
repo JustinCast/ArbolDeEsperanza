@@ -14,7 +14,8 @@ import {
   MatSelectModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatListModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/Es';
@@ -74,7 +75,8 @@ registerLocaleData(es, 'Es');
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatListModule
   ],
   providers: [
     PeopleService
