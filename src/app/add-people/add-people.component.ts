@@ -1,13 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
   styleUrls: ['./add-people.component.scss']
 })
-export class AddPeopleComponent implements OnInit {
+export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
+  icon: string = 'close'
   person: any = {}
+  startDate = new Date(1990, 0, 1);
+  nationality = [
+    "Costarricense",
+    "Nicaragüense",
+    "Salvadoreño",
+    "Colombiano",
+    "Otro"
+  ]
+  education = [
+    "Primaria incompleta",
+    "Primaria completa",
+    "Secundaria incompleta",
+    "Secundaria completa",
+    "Universidad incompleta",
+    "Universidad completa",
+    "Ninguno"
+  ]
   constructor(private _fb: FormBuilder) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
@@ -20,7 +38,7 @@ export class AddPeopleComponent implements OnInit {
       'socialSecurity': ['', Validators.required],
       'socialSecurityType': ['', Validators.required],
       'education': ['', Validators.required],
-      'nationality': ['', Validators.required],
+      'nationality': [''],
       'phoneNumber': ['', Validators.required],
       'address': ['', Validators.required],
       'email': ['', Validators.email, Validators.required],
@@ -48,6 +66,12 @@ export class AddPeopleComponent implements OnInit {
       'houseHolding': ['', Validators.required],
       'houseCondition': ['', Validators.required],
       'houseMembers': ['', Validators.required],
+    })
+    this.personGroup.valueChanges.subscribe((form) => {
+      if(!this.personGroup.invalid)
+        this.icon = "save"
+      else
+        this.icon = "close"
     }) 
   }
 
@@ -56,6 +80,9 @@ export class AddPeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewChecked() {
   }
 
 }

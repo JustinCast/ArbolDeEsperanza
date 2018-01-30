@@ -11,7 +11,10 @@ import {
   MatTableModule,
   MatFormFieldModule,
   MatRadioModule,
-  MatSelectModule
+  MatSelectModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/Es';
@@ -68,7 +71,10 @@ registerLocaleData(es, 'Es');
     ReactiveFormsModule,
     MatFormFieldModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     PeopleService

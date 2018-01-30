@@ -1,67 +1,80 @@
-<form [formGroup]="personGroup" (ngSubmit)="onSubmit(personGroup.value)">
+<form class="text-center container" [formGroup]="personGroup" (ngSubmit)="onSubmit(personGroup.value)">
+  <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Nombre y Apellidos</label>
+  </div>
+  <br>
   <mat-form-field>
-    <input matInput type="text" [formControl]="personGroup.get('name')" name="name" [(ngModel)]="person.name" placeholder="Nombre y apellidos">
+    <input matInput [matDatepicker]="picker" [formControl]="personGroup.get('entryDate')" [(ngModel)]="person.entryDate" placeholder="Fecha de ingreso a la fundación">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
   </mat-form-field>
-
-  <mat-form-field>
-    <input matInput type="date" [formControl]="personGroup.get('entryDate')" name="entryDate" [(ngModel)]="person.entryDate" placeholder="Fecha de entrada a la organización">
-  </mat-form-field>
-
+  <br>
   <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
+    <p>Estado en la fundación</p>
     <mat-radio-button>Activo</mat-radio-button>
     <mat-radio-button>Inactivo</mat-radio-button>
   </mat-radio-group>
-
+  <hr>
+  <br>
+  <div class="md-form">
+      <input [formControl]="personGroup.get('age')" [(ngModel)]="person.age" mdbActive type="text" id="age" class="form-control">
+      <label for="age" class="">Edad</label>
+  </div>
+  <br>
   <mat-form-field>
-    <input matInput type="number" [formControl]="personGroup.get('age')" name="age" [(ngModel)]="person.age" placeholder="Edad">
+    <input matInput [matDatepicker]="bornDatePicker" [formControl]="personGroup.get('bornDate')" [(ngModel)]="person.bornDate" placeholder="Fecha de nacimiento">
+    <mat-datepicker-toggle matSuffix [for]="bornDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #bornDatePicker startView="year" [startAt]="startDate"></mat-datepicker>
   </mat-form-field>
-
-  <mat-form-field>
-    <input matInput type="date" [formControl]="personGroup.get('bornDate')" name="bornDate" [(ngModel)]="person.bornDate" placeholder="Fecha de nacimiento">
-  </mat-form-field>
-
+  <br>
   <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.read">
+    <p>¿Lee?</p>
     <mat-radio-button>Si</mat-radio-button>
     <mat-radio-button>No</mat-radio-button>
   </mat-radio-group>
-
+  <hr>
+  <br>
   <mat-radio-group [formControl]="personGroup.get('write')" [(ngModel)]="person.write">
+    <p>¿Escribe?</p>
     <mat-radio-button>Si</mat-radio-button>
     <mat-radio-button>No</mat-radio-button>
   </mat-radio-group>
-
+  <hr>
+  <br>
   <mat-radio-group [formControl]="personGroup.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
+    <p>¿Tiene seguro social?</p>
     <mat-radio-button>Si</mat-radio-button>
     <mat-radio-button>No</mat-radio-button>
   </mat-radio-group>
-
-  <mat-form-field>
-    <input matInput type="text" [formControl]="personGroup.get('socialSecurityType')" name="socialSecurityType" [(ngModel)]="person.socialSecurityType" placeholder="Tipo de seguro social">
-  </mat-form-field>
-
+  <hr>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('socialSecurityType')" [(ngModel)]="person.socialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
+    <label for="socialSecurityType" class="">Tipo de seguro social</label>
+  </div>
+  <br>
   <mat-form-field>
     <mat-select placeholder="Educación" [formControl]="personGroup.get('education')" [(ngModel)]="person.education">
-      <mat-option>Primaria completa</mat-option>
-      <mat-option>Primaria incompleta</mat-option>
-      <mat-option>Secundaria completa</mat-option>
-      <mat-option>Universidad completa</mat-option>
-      <mat-option>Universidad incompleta</mat-option>
-      <mat-option>Ninguno</mat-option>
+      <mat-option *ngFor="let e of education" [value]="e">
+        {{ e }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <mat-select placeholder="Nacionalidad" [formControl]="personGroup.get('nationality')" [(ngModel)]="person.nationality">
-      <mat-option>Costarricense</mat-option>
-      <mat-option>Nicaragüense</mat-option>
-      <mat-option>Salvadoreño</mat-option>
-      <mat-option>Panameño</mat-option>
-      <mat-option>Colombiano</mat-option>
-      <mat-option>Otro</mat-option>
+      <mat-option *ngFor="let n of nationality" [value]="n">
+        {{ n }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <mat-form-field>
-    <input matInput type="text" [formControl]="personGroup.get('phoneNumber')" name="phoneNumber" [(ngModel)]="person.phoneNumber" placeholder="Número de teléfono">
-  </mat-form-field>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('phoneNumber')" [(ngModel)]="person.phoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
+    <label for="phoneNumber" class="">Número de teléfono</label>
+  </div>
+  <br>
+  <button type="submit" mat-button><i class="material-icons">{{icon}}</i></button>
 </form>
