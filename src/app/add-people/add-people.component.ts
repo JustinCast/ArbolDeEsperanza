@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
-  styleUrls: ['./add-people.component.scss']
+  styleUrls: ['./add-people.component.scss'],
 })
 export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
@@ -50,10 +50,10 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'socialSecurity': ['', Validators.required],
       'socialSecurityType': ['', Validators.required],
       'education': ['', Validators.required],
-      'nationality': [''],
+      'nationality': ['', Validators.required],
       'phoneNumber': ['', Validators.required],
       'address': ['', Validators.required],
-      'email': ['', Validators.email, Validators.required],
+      'email': ['', Validators.required],
       'needDoctor': ['', Validators.required],
       'needOphthalmologist': ['', Validators.required],
       'needMammography': ['', Validators.required],
@@ -66,7 +66,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'drugsProblem': ['', Validators.required],
       'alcoholProblem': ['', Validators.required],
       'takeMedication': ['', Validators.required],
-      'medication': [''],
+      'medication': ['', Validators.required],
       'employnmentSituation': ['', Validators.required],
       'workingHours': ['', Validators.required],
       'unemployedDate': ['', Validators.required],
@@ -88,7 +88,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
-    console.log(formValue)
+    console.log(this.person)
   }
 
   ngOnInit() {

@@ -13,8 +13,8 @@
   <br>
   <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
     <p>Estado en la fundación</p>
-    <mat-radio-button>Activo</mat-radio-button>
-    <mat-radio-button>Inactivo</mat-radio-button>
+    <mat-radio-button value="true">Activo</mat-radio-button>
+    <mat-radio-button value="false">Inactivo</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
@@ -31,22 +31,22 @@
   <br>
   <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.read">
     <p>¿Lee?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('write')" [(ngModel)]="person.write">
     <p>¿Escribe?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
     <p>¿Tiene seguro social?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
@@ -90,85 +90,85 @@
   <br>
   <mat-radio-group [formControl]="personGroup.get('needDoctor')" [(ngModel)]="person.needDoctor">
     <p>¿Necesita doctor?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needOphthalmologist')" [(ngModel)]="person.needOphthalmologist">
     <p>¿Necesita Oftalmólogo?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needMammography')" [(ngModel)]="person.needMammography">
     <p>¿Necesita Mamografía?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needDentist')" [(ngModel)]="person.needDentist">
-    <p>¿Necesita Dentista?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <p>¿Necesita dentista?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needGynecologist')" [(ngModel)]="person.needGynecologist">
     <p>¿Necesita Ginecólogo?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needPychologist')" [(ngModel)]="person.needPychologist">
     <p>¿Necesita Psicólogo?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('abuseVictim')" [(ngModel)]="person.abuseVictim">
     <p>¿Ha sido víctima de abuso?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('suicideAttempt')" [(ngModel)]="person.suicideAttempt">
     <p>¿Ha intentado el suicidio?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('suicideToughts')" [(ngModel)]="person.suicideToughts">
     <p>¿Tiene pensamientos suicidas?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('drugsProblem')" [(ngModel)]="person.drugsProblem">
     <p>¿Tiene problemas de drogas?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('alcoholProblem')" [(ngModel)]="person.alcoholProblem">
     <p>¿Tiene problemas de alcohol?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="personGroup.get('takeMedication')" [(ngModel)]="person.takeMedication">
     <p>¿Toma medicamentos?</p>
-    <mat-radio-button>Si</mat-radio-button>
-    <mat-radio-button>No</mat-radio-button>
+    <mat-radio-button value="false">Si</mat-radio-button>
+    <mat-radio-button value="true">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
