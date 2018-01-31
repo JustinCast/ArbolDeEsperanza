@@ -284,21 +284,25 @@
       <button class="btn btn-success btn-sm" (click)="addHouseMember()">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
-      <mat-list role="list" *ngIf="houseMembers.length !== 0">
+      <ul class="list-group" *ngIf="houseMembers.length !== 0">
         <p><strong>Miembros de la casa</strong></p>
-        <mat-list-item role="listitem" *ngFor="let houseM of houseMembers; let index = index">
-          <p>{{houseM.fullName}}</p>
-          <p>{{houseM.age}}</p>
-          <p>{{houseM.clientRelationship}}</p>
-          <p>{{houseM.ocupation}}</p>
-          <p>{{houseM.ocupation}}</p>
+        <br>
+        <li class="list-group-item" *ngFor="let houseM of houseMembers; let index = index">
+          <br>
+          <ul class="text-left text-secondary">
+            <li><strong>Nombre completo:</strong> {{houseM.fullName}}</li>
+            <li><strong>Edad:</strong> {{houseM.age}}</li>
+            <li><strong>Ocupación:</strong> {{houseM.occupation}}</li>
+            <li><strong>Relación:</strong> {{houseM.clientRelationship}}</li>
+            <li><strong>Estado en la organización: </strong> {{houseM.organizationState}}</li>
+          </ul>
           <div id="actions-container">
             <button mat-button (click)="deleteHouseMember(index)" color="warn">
-                <mat-icon>delete</mat-icon>
+              <mat-icon>delete</mat-icon>
             </button>
           </div>
-        </mat-list-item>
-      </mat-list>
+        </li>
+      </ul>
     </mat-expansion-panel>
   </mat-accordion>
   <hr>
