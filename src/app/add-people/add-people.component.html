@@ -281,9 +281,24 @@
       </mat-radio-group>
       <hr>
       <br>
-      <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">
+      <button class="btn btn-success btn-sm" (click)="addHouseMember()">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
+      <mat-list role="list" *ngIf="houseMembers.length !== 0">
+        <p><strong>Miembros de la casa</strong></p>
+        <mat-list-item role="listitem" *ngFor="let houseM of houseMembers; let index = index">
+          <p>{{houseM.fullName}}</p>
+          <p>{{houseM.age}}</p>
+          <p>{{houseM.clientRelationship}}</p>
+          <p>{{houseM.ocupation}}</p>
+          <p>{{houseM.ocupation}}</p>
+          <div id="actions-container">
+            <button mat-button (click)="deleteHouseMember(index)" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
     </mat-expansion-panel>
   </mat-accordion>
   <hr>

@@ -11,9 +11,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   person: any = {}
   houseMember: any = {}
   startDate = new Date(1990, 0, 1)
-  supportInstitutions = [
-
-  ]
+  houseMembers = []
+  supportInstitutions = []
   nationality = [
     "Costarricense",
     "Nicaragüense",
@@ -109,6 +108,15 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
 
   deleteSupportInstitution(index: number) {
     this.supportInstitutions.splice(index, 1)
+  }
+  
+  addHouseMember() {
+    this.houseMembers.unshift(this.houseMember)
+    this.houseMember = {}
+  }
+
+  deleteHouseMember(index: number) {
+    this.houseMembers.splice(index, 1)
   }
 
 }
