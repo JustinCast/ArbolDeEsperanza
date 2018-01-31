@@ -9,6 +9,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
   icon: string = 'close'
   person: any = {}
+  houseMember: any = {}
   startDate = new Date(1990, 0, 1)
   supportInstitutions = [
 
@@ -101,8 +102,9 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   addSupportInstitution(institution: string) {
-    this.supportInstitutions.unshift(institution)
-    console.log(institution)
+    if(institution.length !== 0){
+      this.supportInstitutions.unshift(institution)
+    }
   }
 
   deleteSupportInstitution(index: number) {

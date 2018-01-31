@@ -19,8 +19,8 @@
   <hr>
   <br>
   <div class="md-form">
-      <input [formControl]="personGroup.get('age')" [(ngModel)]="person.age" mdbActive type="text" id="age" class="form-control">
-      <label for="age" class="">Edad</label>
+    <input [formControl]="personGroup.get('age')" [(ngModel)]="person.age" mdbActive type="text" id="age" class="form-control">
+    <label for="age" class="">Edad</label>
   </div>
   <br>
   <mat-form-field>
@@ -76,11 +76,10 @@
     <label for="phoneNumber" class="">Número de teléfono</label>
   </div>
   <br>
-  <div class="md-form">
-    <textarea [formControl]="personGroup.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" class="form-control">
+  <mat-form-field>
+    <textarea matInput [formControl]="personGroup.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
     </textarea>
-    <label for="address" class="">Dirección</label>
-  </div>
+  </mat-form-field>
   <br>
   <div class="md-form">
     <input [formControl]="personGroup.get('email')" [(ngModel)]="person.email" mdbActive type="email" id="email" class="form-control">
@@ -174,7 +173,9 @@
   <div class="md-form">
     <input [formControl]="personGroup.get('supportInstitutions')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="supportInstitutions" class="form-control" #supportInstitution>
     <label for="supportInstitutions" class="">Instituciones que han apoyado</label>
-    <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">Agregar</button>
+    <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
   </div>
   <mat-list role="list" *ngIf="supportInstitutions.length !== 0">
     <p><strong>Instituciones que han ayudado</strong></p>
@@ -187,6 +188,7 @@
       </div>
     </mat-list-item>
   </mat-list>
+  <hr>
   <br>
   <div class="md-form">
     <input [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation" mdbActive type="text" id="employnmentSituation" class="form-control">
@@ -201,12 +203,6 @@
   <div class="md-form">
     <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.unemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
     <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
-  </div>
-  <br>
-  <div class="md-form">
-    <textarea [formControl]="personGroup.get('supportInstitutions')" [(ngModel)]="person.supportInstitutions" mdbActive type="text" id="supportInstitutions" class="form-control">
-    </textarea>
-    <label for="supportInstitutions" class="">Instituciones que la han ayudado</label>
   </div>
   <br>
   <div class="md-form">
@@ -245,11 +241,52 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <div class="md-form">
-    <textarea [formControl]="personGroup.get('houseMembers')" [(ngModel)]="person.houseMembers" mdbActive type="text" id="houseMembers" class="form-control">
-    </textarea>
-    <label for="houseMembers" class="">Miembros de la casa</label>
-  </div>
+  <hr>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Añadir miembros de la casa
+        </mat-panel-title>
+        <mat-panel-description>
+            {{panelOpenState ? 'cerrar' : 'abrir'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h4 class="text-primary"><strong> Por favor completa todos los campos </strong></h4>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.fullName" mdbActive type="text" id="fullName" class="form-control">
+        <label for="fullName" class="">Nombre y apellidos</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.age" mdbActive type="text" id="memberAge" class="form-control">
+        <label for="memberAge" class="">Edad</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.clientRelationship" mdbActive type="text" id="clientRelationship" class="form-control">
+        <label for="clientRelationship" class="">Relación con el cliente</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.occupation" mdbActive type="text" id="occupation" class="form-control">
+        <label for="occupation" class="">Ocupación</label>
+      </div>
+      <br>
+      <mat-radio-group required="true" [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.organizationState">
+        <p>Estado en la fundación</p>
+        <mat-radio-button value="true">Activo</mat-radio-button>
+        <mat-radio-button value="false">Inactivo</mat-radio-button>
+      </mat-radio-group>
+      <hr>
+      <br>
+      <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <hr>
   <br>
   <button type="submit" mat-button [disabled]="!personGroup.valid" (click)="onSubmit(personGroup.value)">Enviar</button>
 </form>
