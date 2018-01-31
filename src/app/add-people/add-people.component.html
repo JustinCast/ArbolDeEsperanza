@@ -294,10 +294,17 @@
             <li><strong>Edad:</strong> {{houseM.age}}</li>
             <li><strong>Ocupación:</strong> {{houseM.occupation}}</li>
             <li><strong>Relación:</strong> {{houseM.clientRelationship}}</li>
-            <li><strong>Estado en la organización: </strong> {{houseM.organizationState}}</li>
+            <ng-template [ngIf]="houseM.organizationState == 'true'">
+              <li>
+                <strong>Estado en la organización: </strong> Activo
+              </li>
+            </ng-template>
+            <ng-template [ngIf]="houseM.organizationState == 'false'">
+              <li><strong>Estado en la organización: </strong>Inactivo</li>
+            </ng-template>
           </ul>
           <div id="actions-container">
-            <button mat-button (click)="deleteHouseMember(index)" color="warn">
+            <button class="delete-btn" mat-button (click)="deleteHouseMember(index)" color="warn">
               <mat-icon>delete</mat-icon>
             </button>
           </div>

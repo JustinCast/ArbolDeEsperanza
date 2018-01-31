@@ -111,8 +111,17 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
   
   addHouseMember() {
-    this.houseMembers.unshift(this.houseMember)
-    this.houseMember = {}
+    console.log(this.houseMember)
+    if(('fullName' in this.houseMember)  && 
+        ('age' in this.houseMember) &&
+        ('clientRelationship' in this.houseMember) &&
+        ('occupation' in this.houseMember) &&
+        ('organizationState' in this.houseMember)){
+      this.houseMembers.unshift(this.houseMember)
+      this.houseMember = {}
+      return
+    }
+    alert('Asegúrese de completar los campos!')
   }
 
   deleteHouseMember(index: number) {
