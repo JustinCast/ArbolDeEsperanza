@@ -28,7 +28,7 @@ export class PeopleService {
   }
 
   savePerson(person: Person) {
-    this._http.put(`${environment.SERVER_BASE_URL}person/getAllPersons`, person)
+    this._http.post(`${environment.SERVER_BASE_URL}person/create`, person)
       .subscribe(
         success => {
           console.log(success)

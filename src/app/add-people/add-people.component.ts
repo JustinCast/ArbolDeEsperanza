@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Person } from '../models/Person';
+import { PeopleService } from '../show-people/people.service';
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
@@ -43,7 +44,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "En malas condiciones",
     "En muy malas condiciones"
   ]
-  constructor(private _fb: FormBuilder) { 
+  constructor(private _fb: FormBuilder, public peopleService: PeopleService) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
       'entryDate': ['', Validators.required],
@@ -135,7 +136,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       this.person.houseCondition,
       this.houseMembers
     )
-    console.log(createdPerson)
+    this.peopleService.savePerson(createdPerson as Person)
   }
 
   ngOnInit() {
