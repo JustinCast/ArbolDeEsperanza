@@ -225,6 +225,11 @@
     <label for="houseIncome" class="">Ingreso mensual</label>
   </div>
   <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="number" id="incomeSource" class="form-control">
+    <label for="houseIncome" class="">Fuente de ingresos</label>
+  </div>
+  <br>
   <mat-form-field>
     <mat-select placeholder="Condición de propiedad de la casa" [formControl]="personGroup.get('houseHolding')" [(ngModel)]="person.houseHolding">
       <mat-option *ngFor="let holding of houseHolding" [value]="holding">
