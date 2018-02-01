@@ -28,7 +28,7 @@ export class Person {
         public DrugsProblem: boolean,
         public AlcoholProblems: boolean,
         public TakeMedication: boolean,
-        public Medication: string,
+        public Medication: Array<string>,
         public EmploymentSituation: string,
         public WorkingHours: number,
         public UnemployedDate: string,

@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Person } from '../models/Person';
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
@@ -13,6 +14,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   startDate = new Date(1990, 0, 1)
   houseMembers = []
   supportInstitutions = []
+  medication = []
   nationality = [
     "Costarricense",
     "Nicaragüense",
@@ -91,7 +93,47 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
-    console.log(this.person)
+    let createdPerson: Person = new Person(
+      String(this.person.name),
+      new Date(this.person.entryDate),
+      this.person.activeOrInactive as boolean,
+      this.person.age as number,
+      new Date(this.person.bornDate),
+      this.person.read as boolean,
+      this.person.write as boolean,
+      this.person.socialSecurity as boolean,
+      this.person.socialSecurityType,
+      this.person.education,
+      this.person.nationality,
+      this.person.phoneNumber,
+      this.person.address,
+      this.person.email,
+      this.person.needDoctor as boolean,
+      this.person.needOphthalmologist as boolean,
+      this.person.needMammography as boolean,
+      this.person.needDentist as boolean,
+      this.person.needGynecologist as boolean,
+      this.person.needPychologist as boolean,
+      this.person.abuseVictim as boolean,
+      this.person.suicideAttempt as boolean,
+      this.person.suicideToughts as boolean,
+      this.person.drugsProblem as boolean,
+      this.person.alcoholProblem as boolean,
+      this.person.takeMedication as boolean,
+      this.medication,
+      this.person.employnmentSituation,
+      this.person.workingHours,
+      this.person.unemployedDate,
+      this.supportInstitutions,
+      this.person.personsInTheHouse,
+      this.person.underagePeople,
+      this.person.disabilitiePeople,
+      this.person.houseIncome,
+      this.person.incomeSource,
+      this.person.houseHolding,
+      this.person.houseCondition,
+      this.houseMembers
+    )
   }
 
   ngOnInit() {
