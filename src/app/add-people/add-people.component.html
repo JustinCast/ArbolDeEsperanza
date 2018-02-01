@@ -6,9 +6,15 @@
   </div>
   <br>
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" [formControl]="personGroup.get('entryDate')" [(ngModel)]="person.entryDate" placeholder="Fecha de ingreso a la fundación">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    <input matInput [(ngModel)]="person.entryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="personGroup.get('entryDate')">
+    <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #entryDateDP></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.bornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="personGroup.get('bornDate')">
+    <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #bornDateDP></mat-datepicker>
   </mat-form-field>
   <br>
   <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
@@ -17,17 +23,6 @@
     <mat-radio-button value="false">Inactivo</mat-radio-button>
   </mat-radio-group>
   <hr>
-  <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('age')" [(ngModel)]="person.age" mdbActive type="text" id="age" class="form-control">
-    <label for="age" class="">Edad</label>
-  </div>
-  <br>
-  <mat-form-field>
-    <input matInput [matDatepicker]="bornDatePicker" [formControl]="personGroup.get('bornDate')" [(ngModel)]="person.bornDate" placeholder="Fecha de nacimiento">
-    <mat-datepicker-toggle matSuffix [for]="bornDatePicker"></mat-datepicker-toggle>
-    <mat-datepicker #bornDatePicker startView="year" [startAt]="startDate"></mat-datepicker>
-  </mat-form-field>
   <br>
   <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.read">
     <p>¿Lee?</p>
@@ -190,17 +185,19 @@
   </mat-list>
   <hr>
   <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation" mdbActive type="text" id="employnmentSituation" class="form-control">
-    <label for="employnmentSituation" class="">Situación laboral</label>
-  </div>
+  <mat-form-field>
+    <mat-select placeholder="Situación Laboral" [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation">
+      <mat-option value="Empleada">Empleada</mat-option>
+      <mat-option value="Desempleada">Desempleada</mat-option>
+    </mat-select>
+  </mat-form-field>
   <br>
-  <div class="md-form">
+  <div class="md-form" *ngIf="person.employnmentSituation === 'Empleada'">
     <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.workingHours" mdbActive type="text" id="workingHours" class="form-control">
     <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
   </div>
   <br>
-  <div class="md-form">
+  <div class="md-form" *ngIf="person.employnmentSituation === 'Desempleada'">
     <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.unemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
     <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
   </div>
@@ -226,7 +223,7 @@
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="number" id="incomeSource" class="form-control">
+    <input [formControl]="personGroup.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="text" id="incomeSource" class="form-control">
     <label for="houseIncome" class="">Fuente de ingresos</label>
   </div>
   <br>

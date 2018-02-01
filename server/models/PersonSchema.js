@@ -3,7 +3,6 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const HouseMember = require('./HouseMember')
 
 const PersonSchema = new Schema({
     Name: {

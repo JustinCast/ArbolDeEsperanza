@@ -1,11 +1,34 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Person } from '../models/Person';
 import { PeopleService } from '../show-people/people.service';
+import * as _moment from 'moment';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+const moment =  _moment;
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
   styleUrls: ['./add-people.component.scss'],
+  providers: [
+    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+    // application's root module. We provide it at the component level here, due to limitations of
+    // our example generation script.
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
 export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
@@ -47,10 +70,9 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   constructor(private _fb: FormBuilder, public peopleService: PeopleService) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
-      'entryDate': ['', Validators.required],
+      'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
-      'age': ['', Validators.required],
-      'bornDate': ['', Validators.required],
+      'bornDate': [moment([2000, 11, 11]), Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
       'socialSecurity': ['', Validators.required],
@@ -74,8 +96,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'takeMedication': ['', Validators.required],
       'medication': ['', Validators.required],
       'employnmentSituation': ['', Validators.required],
-      'workingHours': ['', Validators.required],
-      'unemployedDate': ['', Validators.required],
+      'workingHours': [''],
+      'unemployedDate': [''],
       'supportInstitutions': ['', Validators.required],
       'peopleInTheHouse': ['', Validators.required],
       'underagePeople': ['', Validators.required],
@@ -95,11 +117,12 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
+    console.log(this.person.entryDate.year())
     let createdPerson: Person = new Person(
       String(this.person.name),
       new Date(this.person.entryDate),
       (this.person.activeOrInactive === "true"),
-      this.person.age as number,
+      this.calculateAge(this.person.bornDate.year()),
       new Date(this.person.bornDate),
       (this.person.read === "true"),
       (this.person.write === "true"),
@@ -136,6 +159,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       this.person.houseCondition,
       this.houseMembers
     )
+    console.log(createdPerson)
     this.peopleService.savePerson(createdPerson as Person)
   }
 
@@ -171,6 +195,11 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
 
   deleteHouseMember(index: number) {
     this.houseMembers.splice(index, 1)
+  }
+
+  calculateAge(bornYear: number): number {
+    let age = moment().year() - bornYear
+    return age
   }
 
 }
