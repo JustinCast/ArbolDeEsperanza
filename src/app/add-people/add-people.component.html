@@ -182,7 +182,7 @@
     <mat-list-item role="listitem" *ngFor="let i of supportInstitutions; let index = index">
       <p>{{i}}</p>
       <div id="actions-container">
-        <button mat-button (click)="deleteSupportInstitution(index)" color="warn">
+        <button mat-button class="delete-btn" (click)="deleteSupportInstitution(index)" color="warn">
             <mat-icon>delete</mat-icon>
         </button>
       </div>
@@ -314,5 +314,5 @@
   </mat-accordion>
   <hr>
   <br>
-  <button type="submit" mat-button [disabled]="!personGroup.valid" (click)="onSubmit(personGroup.value)">Enviar</button>
+  <button type="submit" mat-button (click)="onSubmit(personGroup.value)">Enviar</button>
 </form>

@@ -1,3 +1,5 @@
+import { HouseMember } from "./HouseMember";
+
 export class Person {
     constructor(
         public Name: string,
@@ -38,6 +40,6 @@ export class Person {
         public IncomeSource: string,
         public HouseHolding: string,
         public HouseCondition: string,
-        public HouseMembers: Array<Object>
+        public HouseMembers: Array<HouseMember>
     ) {}
 }
