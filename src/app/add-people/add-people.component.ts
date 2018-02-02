@@ -38,7 +38,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   startDate = new Date(1990, 0, 1)
   houseMembers = []
   supportInstitutions = []
-  medication = []
+  medicationList = []
   nationality = [
     "Costarricense",
     "Nicaragüense",
@@ -144,7 +144,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       (this.person.drugsProblem === "true"),
       (this.person.alcoholProblem === "true"),
       (this.person.takeMedication === "true"),
-      this.medication,
+      this.medicationList,
       this.person.employnmentSituation,
       this.person.workingHours,
       this.person.unemployedDate,
@@ -176,6 +176,16 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
 
   deleteSupportInstitution(index: number) {
     this.supportInstitutions.splice(index, 1)
+  }
+
+  addMedication(medication: string) {
+    if(medication.length !== 0){
+      this.medicationList.unshift(medication)
+    }
+  }
+
+  deleteMedication(index: number) {
+    this.medicationList.splice(index, 1)
   }
   
   addHouseMember() {

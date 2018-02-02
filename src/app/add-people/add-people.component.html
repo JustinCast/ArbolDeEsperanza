@@ -164,6 +164,25 @@
     <mat-radio-button value="true">No</mat-radio-button>
   </mat-radio-group>
   <hr>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('medication')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="medication" class="form-control" #medication>
+    <label for="medication" class="">Ingrese el medicamento</label>
+    <button class="btn btn-success btn-sm" (click)="addMedication(medication.value)">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
+  <mat-list role="list" *ngIf="medicationList.length !== 0">
+    <p><strong>Medicamentos ingresados</strong></p>
+    <mat-list-item role="listitem" *ngFor="let med of medicationList; let index = index">
+      <p>{{med}}</p>
+      <div id="actions-container">
+        <button mat-button class="delete-btn" (click)="deleteMedication(index)" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+  <hr>
   <br>
   <div class="md-form">
     <input [formControl]="personGroup.get('supportInstitutions')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="supportInstitutions" class="form-control" #supportInstitution>
