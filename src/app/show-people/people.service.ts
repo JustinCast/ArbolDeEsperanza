@@ -12,7 +12,6 @@ export class PeopleService {
       .subscribe(
         data => {
           this.people = data
-          console.log(this.people)
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -44,6 +43,16 @@ export class PeopleService {
           }
         }
       )
+  }
+
+  getPersonById(_id: string): Person {
+    let foundPerson: Person = null
+    this.people.forEach(person => {
+      if(person._id === _id){
+        foundPerson = person
+      }
+    })
+    return foundPerson
   }
 
 }

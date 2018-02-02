@@ -29,7 +29,8 @@ export class ShowPeopleComponent implements OnInit {
 
   }
 
-  onEditPerson(personId) {
-    this.router.navigate(['edit-person', {id: personId}])
+  onEditPerson(index) {
+    let personId = this.personService.people[index]._id
+    this.router.navigate(['people/edit-person', personId])
   }
 }
