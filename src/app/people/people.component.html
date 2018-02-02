@@ -3,7 +3,10 @@
   <button mat-raised-button color="primary"routerLinkActive="active-link" routerLink="show-people">Ver <i class="material-icons">visibility</i></button>
   <button mat-raised-button color="accent" routerLinkActive="active-link" routerLink="add-person">Añadir <i class="material-icons">add</i></button>
 </div>
-
+<div class="text-center">
+  <h6 class="text-secondary">Si desea eliminar personas vaya a la parte de Administrador e inicie sesión</h6>
+  <button [routerLink]="['/admin']" mat-raised-button ><i class="material-icons">arrow_forward</i></button>
+</div>
 <div>
     <router-outlet></router-outlet>
 </div>
