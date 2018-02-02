@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeopleService } from './people.service';
 import { MatDialog } from '@angular/material';
 import { HouseMembersComponent } from '../house-members/house-members.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person',
@@ -10,7 +11,7 @@ import { HouseMembersComponent } from '../house-members/house-members.component'
 })
 export class ShowPeopleComponent implements OnInit {
 
-  constructor(public personService: PeopleService, public dialog: MatDialog,) { }
+  constructor(public personService: PeopleService, public dialog: MatDialog, public router: Router) { }
   collapse: Array<boolean> = new Array()
   ngOnInit() {
     this.personService.getPersonsRequest()
@@ -26,5 +27,9 @@ export class ShowPeopleComponent implements OnInit {
       data: members
     });
 
+  }
+
+  onEditPerson(personId) {
+    this.router.navigate(['edit-person', {id: personId}])
   }
 }

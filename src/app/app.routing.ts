@@ -8,6 +8,7 @@ import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PeopleComponent } from './people/people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
+import { EditPersonComponent } from './edit-person/edit-person.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -16,6 +17,7 @@ export const ROUTES: Routes = [
             children: [
                 { path: 'show-people', component: ShowPeopleComponent },
                 { path: 'add-person', component: AddPeopleComponent },
+                { path: 'edit-person/:id', component: EditPersonComponent}
             ]
     },
     {path: 'graph', component: GraphComponent},

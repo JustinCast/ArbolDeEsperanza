@@ -40,6 +40,7 @@ export class Person {
         public IncomeSource: string,
         public HouseHolding: string,
         public HouseCondition: string,
-        public HouseMembers: Array<HouseMember>
+        public HouseMembers: Array<HouseMember>,
+        public _id?: string
     ) {}
 }

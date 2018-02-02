@@ -33,7 +33,6 @@ import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
 import { PeopleService } from './show-people/people.service';
-import { ManagePeopleComponent } from './manage-people/manage-people.component';
 import { ManageEditorComponent } from './manage-editor/manage-editor.component';
 import { HouseMembersComponent } from './house-members/house-members.component';
 import { ShowPeopleComponent } from './show-people/show-people.component';
@@ -52,7 +51,6 @@ registerLocaleData(es, 'Es');
     GraphComponent,
     ErrorHandleComponent,
     SettingsComponent,
-    ManagePeopleComponent,
     ManageEditorComponent,
     HouseMembersComponent,
     PeopleComponent,
