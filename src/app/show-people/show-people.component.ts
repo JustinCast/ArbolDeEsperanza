@@ -11,13 +11,13 @@ import { HouseMembersComponent } from '../house-members/house-members.component'
 export class ShowPeopleComponent implements OnInit {
 
   constructor(public personService: PeopleService, public dialog: MatDialog,) { }
-  collapse: boolean = false
+  collapse: Array<boolean> = new Array()
   ngOnInit() {
     this.personService.getPersonsRequest()
   }
 
-  changeCollapse(){
-    this.collapse = !this.collapse
+  changeCollapse(index){
+    this.collapse[index] = !this.collapse[index]
   }
 
   openHouseMembersDialog(members: Array<any>): void {

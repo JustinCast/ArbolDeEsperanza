@@ -72,7 +72,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'name': ['', Validators.required],
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
-      'bornDate': [moment([2000, 11, 11]), Validators.required],
+      'bornDate': [moment(), Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
       'socialSecurity': ['', Validators.required],
@@ -117,7 +117,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
-    console.log(this.person.entryDate.year())
     let createdPerson: Person = new Person(
       String(this.person.name),
       new Date(this.person.entryDate),
@@ -198,7 +197,10 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   calculateAge(bornYear: number): number {
+    console.log(`Fecha de nacimiento: ${bornYear}`)
+    console.log(`Año actual ${moment().year()}`)
     let age = moment().year() - bornYear
+    console.log(age)
     return age
   }
 

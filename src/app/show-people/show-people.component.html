@@ -1,8 +1,8 @@
 <h2 class="text-center text-secondary"><strong>Listado</strong></h2>
 <ul id="people">
-  <li *ngFor="let p of personService.people" class="person">
-    <mat-expansion-panel [expanded]="collapse">
-      <mat-expansion-panel-header (click)="changeCollapse()">
+  <li *ngFor="let p of personService.people; let index = index" class="person">
+    <mat-expansion-panel [expanded]="collapse[index]">
+      <mat-expansion-panel-header (click)="changeCollapse(index)">
         <mat-panel-title>
           <h6 class="text-secondary"><strong>{{p.Name}}</strong></h6>
         </mat-panel-title>
@@ -218,7 +218,7 @@
         </mat-expansion-panel>
       </div>
       <div style="text-align: center">
-        <button mat-button color="warn" (click)="changeCollapse()">Cerrar</button>
+        <button mat-button color="warn" (click)="changeCollapse(index)">Cerrar</button>
       </div>
     </mat-expansion-panel>
   </li>
