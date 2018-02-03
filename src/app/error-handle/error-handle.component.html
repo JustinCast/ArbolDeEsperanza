@@ -1,3 +1,8 @@
-<p>
-  error-handle works!
-</p>
+<div id="error-handle-container" class="container text-center">
+  <h1 class="text-danger">Error - Página no encontrada</h1>
+  <h6 class="text-secondary">Parece que la página que estás buscando no existe</h6>
+  <hr>
+  <button [routerLink]="['/home']" mat-raised-button color="warn">Ir a Inicio
+      <i class="material-icons">home</i>
+  </button>
+</div>
