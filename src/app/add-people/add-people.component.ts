@@ -26,7 +26,6 @@ export const MY_FORMATS = {
     // application's root module. We provide it at the component level here, due to limitations of
     // our example generation script.
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
 })
