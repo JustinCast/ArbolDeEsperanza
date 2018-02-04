@@ -1,4 +1,4 @@
-<form class="text-center container" [formGroup]="editForm">
+<form *ngIf="person !== undefined; else undefinedPerson" class="text-center container" [formGroup]="editForm">
   <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
   <div class="md-form">
     <input [formControl]="editForm.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
@@ -337,3 +337,14 @@
   <br>
   <button type="submit" mat-button (click)="onSubmit(editForm.value)">Enviar</button>
 </form>
+<ng-template #undefinedPerson>
+  <div id="undefined-container" class="container text-center">
+    <h3>Parece que has recargado la página</h3>
+    <i class="material-icons">flash_on</i>
+    <br>
+    <small>
+      Al recargar la página se perdió la información de la persona que se estaba editando. <br>
+      <em>Selecciona el botón de ver personas</em>
+    </small>
+  </div>
+</ng-template>
