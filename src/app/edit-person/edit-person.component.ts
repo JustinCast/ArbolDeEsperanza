@@ -29,9 +29,9 @@ export const MY_FORMATS = {
   ]
 })
 export class EditPersonComponent implements OnInit {
-  person: Person
+  person: any
   editForm: FormGroup
-  houseMembers = []
+  houseMember: any = {}
   supportInstitutions = []
   medicationList = []
   nationality = [

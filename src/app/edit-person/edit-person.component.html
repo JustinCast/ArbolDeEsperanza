@@ -1,44 +1,44 @@
 <form class="text-center container" [formGroup]="editForm">
   <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
   <div class="md-form">
-    <input [formControl]="editForm.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
+    <input [formControl]="editForm.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
     <label for="name" class="">Nombre y Apellidos</label>
   </div>
   <br>
   <mat-form-field>
-    <input matInput [(ngModel)]="person.entryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="editForm.get('entryDate')">
+    <input matInput [(ngModel)]="person.EntryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="editForm.get('entryDate')">
     <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
     <mat-datepicker #entryDateDP></mat-datepicker>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput [(ngModel)]="person.bornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="editForm.get('bornDate')">
+    <input matInput [(ngModel)]="person.BornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="editForm.get('bornDate')">
     <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
     <mat-datepicker #bornDateDP></mat-datepicker>
   </mat-form-field>
   <br>
-  <mat-radio-group [formControl]="editForm.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
+  <mat-radio-group [formControl]="editForm.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
     <p>Estado en la fundación</p>
     <mat-radio-button value="true">Activo</mat-radio-button>
     <mat-radio-button value="false">Inactivo</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('read')" [(ngModel)]="person.read">
+  <mat-radio-group [formControl]="editForm.get('read')" [(ngModel)]="person.Read">
     <p>¿Lee?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('write')" [(ngModel)]="person.write">
+  <mat-radio-group [formControl]="editForm.get('write')" [(ngModel)]="person.Write">
     <p>¿Escribe?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
+  <mat-radio-group [formControl]="editForm.get('socialSecurity')" [(ngModel)]="person.SocialSecurity">
     <p>¿Tiene seguro social?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
@@ -46,12 +46,12 @@
   <hr>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('socialSecurityType')" [(ngModel)]="person.socialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
+    <input [formControl]="editForm.get('socialSecurityType')" [(ngModel)]="person.SocialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
     <label for="socialSecurityType" class="">Tipo de seguro social</label>
   </div>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Educación" [formControl]="editForm.get('education')" [(ngModel)]="person.education">
+    <mat-select placeholder="Educación" [formControl]="editForm.get('education')" [(ngModel)]="person.Education">
       <mat-option *ngFor="let e of education" [value]="e">
         {{ e }}
       </mat-option>
@@ -59,7 +59,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Nacionalidad" [formControl]="editForm.get('nationality')" [(ngModel)]="person.nationality">
+    <mat-select placeholder="Nacionalidad" [formControl]="editForm.get('nationality')" [(ngModel)]="Person.Nationality">
       <mat-option *ngFor="let n of nationality" [value]="n">
         {{ n }}
       </mat-option>
@@ -67,98 +67,98 @@
   </mat-form-field>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('phoneNumber')" [(ngModel)]="person.phoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
+    <input [formControl]="editForm.get('phoneNumber')" [(ngModel)]="person.PhoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
     <label for="phoneNumber" class="">Número de teléfono</label>
   </div>
   <br>
   <mat-form-field>
-    <textarea matInput [formControl]="editForm.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
+    <textarea matInput [formControl]="editForm.get('address')" [(ngModel)]="person.Address" mdbActive type="text" id="address" placeholder="Dirección">
     </textarea>
   </mat-form-field>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('email')" [(ngModel)]="person.email" mdbActive type="email" id="email" class="form-control">
+    <input [formControl]="editForm.get('email')" [(ngModel)]="person.Email" mdbActive type="email" id="email" class="form-control">
     <label for="email" class="">Email</label>
   </div>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needDoctor')" [(ngModel)]="person.needDoctor">
+  <mat-radio-group [formControl]="editForm.get('needDoctor')" [(ngModel)]="person.Need_Doctor">
     <p>¿Necesita doctor?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needOphthalmologist')" [(ngModel)]="person.needOphthalmologist">
+  <mat-radio-group [formControl]="editForm.get('needOphthalmologist')" [(ngModel)]="person.Need_Ophthalmologist">
     <p>¿Necesita Oftalmólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needMammography')" [(ngModel)]="person.needMammography">
+  <mat-radio-group [formControl]="editForm.get('needMammography')" [(ngModel)]="person.Need_Mammography">
     <p>¿Necesita Mamografía?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needDentist')" [(ngModel)]="person.needDentist">
+  <mat-radio-group [formControl]="editForm.get('needDentist')" [(ngModel)]="person.Need_Dentist">
     <p>¿Necesita dentista?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needGynecologist')" [(ngModel)]="person.needGynecologist">
+  <mat-radio-group [formControl]="editForm.get('needGynecologist')" [(ngModel)]="person.Need_Gynecologist">
     <p>¿Necesita Ginecólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needPychologist')" [(ngModel)]="person.needPychologist">
+  <mat-radio-group [formControl]="editForm.get('needPychologist')" [(ngModel)]="person.Need_Pychologist">
     <p>¿Necesita Psicólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('abuseVictim')" [(ngModel)]="person.abuseVictim">
+  <mat-radio-group [formControl]="editForm.get('abuseVictim')" [(ngModel)]="person.AbuseVictim">
     <p>¿Ha sido víctima de abuso?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('suicideAttempt')" [(ngModel)]="person.suicideAttempt">
+  <mat-radio-group [formControl]="editForm.get('suicideAttempt')" [(ngModel)]="person.SuicideAttempt">
     <p>¿Ha intentado el suicidio?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('suicideToughts')" [(ngModel)]="person.suicideToughts">
+  <mat-radio-group [formControl]="editForm.get('suicideToughts')" [(ngModel)]="person.SuicideToughts">
     <p>¿Tiene pensamientos suicidas?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('drugsProblem')" [(ngModel)]="person.drugsProblem">
+  <mat-radio-group [formControl]="editForm.get('drugsProblem')" [(ngModel)]="person.DrugsProblem">
     <p>¿Tiene problemas de drogas?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('alcoholProblem')" [(ngModel)]="person.alcoholProblem">
+  <mat-radio-group [formControl]="editForm.get('alcoholProblem')" [(ngModel)]="person.AlcoholProblem">
     <p>¿Tiene problemas de alcohol?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('takeMedication')" [(ngModel)]="person.takeMedication">
+  <mat-radio-group [formControl]="editForm.get('takeMedication')" [(ngModel)]="person.TakeMedication">
     <p>¿Toma medicamentos?</p>
     <mat-radio-button value="false">Si</mat-radio-button>
     <mat-radio-button value="true">No</mat-radio-button>
@@ -305,10 +305,10 @@
       <button class="btn btn-success btn-sm" (click)="addHouseMember()">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
-      <ul class="list-group" *ngIf="houseMembers.length !== 0">
+      <ul class="list-group" *ngIf="person.HouseMembers.length !== 0">
         <p><strong>Miembros de la casa</strong></p>
         <br>
-        <li class="list-group-item" *ngFor="let houseM of houseMembers; let index = index">
+        <li class="list-group-item" *ngFor="let houseM of person.houseMembers; let index = index">
           <br>
           <ul class="text-left text-secondary">
             <li><strong>Nombre completo:</strong> {{houseM.fullName}}</li>
