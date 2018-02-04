@@ -191,9 +191,9 @@
       <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
   </div>
-  <mat-list role="list" *ngIf="supportInstitutions.length !== 0">
+  <mat-list role="list" *ngIf="person.SupportInstitutions.length !== 0">
     <p><strong>Instituciones que han ayudado</strong></p>
-    <mat-list-item role="listitem" *ngFor="let i of supportInstitutions; let index = index">
+    <mat-list-item role="listitem" *ngFor="let i of person.SupportInstitutions; let index = index">
       <p>{{i}}</p>
       <div id="actions-container">
         <button mat-button class="delete-btn" (click)="deleteSupportInstitution(index)" color="warn">
@@ -308,7 +308,7 @@
       <ul class="list-group" *ngIf="person.HouseMembers.length !== 0">
         <p><strong>Miembros de la casa</strong></p>
         <br>
-        <li class="list-group-item" *ngFor="let houseM of person.houseMembers; let index = index">
+        <li class="list-group-item" *ngFor="let houseM of person.HouseMembers; let index = index">
           <br>
           <ul class="text-left text-secondary">
             <li><strong>Nombre completo:</strong> {{houseM.fullName}}</li>
@@ -337,6 +337,7 @@
   <br>
   <button type="submit" mat-button (click)="onSubmit(editForm.value)">Enviar</button>
 </form>
+
 <ng-template #undefinedPerson>
   <div id="undefined-container" class="container text-center">
     <h3>Parece que has recargado la página</h3>

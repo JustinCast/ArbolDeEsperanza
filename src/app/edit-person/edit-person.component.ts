@@ -110,33 +110,44 @@ export class EditPersonComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.route.params.subscribe( params => {
-    //   console.log(params)
-    //   if(this.peopleService.people === undefined){
-    //     this.peopleService.getPersonsRequest()
-    //     .subscribe(
-    //       data => {
-    //         this.peopleService.people = data
-    //         this.person = this.peopleService.people[params.index]
-    //         console.log(this.person)
-    //       },
-    //       (err: HttpErrorResponse) => {
-    //         if (err.error instanceof Error) {
-    //           // Error del lado del cliente
-    //           console.log('An error occurred:', err.error.message);
-    //         } else {
-    //           // The backend returned an unsuccessful response code.
-    //           // Error del lado del backend
-    //           console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-    //         }
-    //       }
-    //     )
-    //   }else {
-    //     this.person = this.peopleService.people[+params.index]
-    //     console.log(this.person)
-    //   }
-    // });
     this.person = this.peopleService.personToEdit
+    console.log(this.person)
+  }
+
+  addSupportInstitution(institution: string) {
+    if(institution.length !== 0){
+      this.person.supportInstitutions.unshift(institution)
+    }
+  }
+
+  deleteSupportInstitution(index: number) {
+    this.person.supportInstitutions.splice(index, 1)
+  }
+
+  addHouseMember() {
+    console.log(this.houseMember)
+    if(('fullName' in this.houseMember)  && 
+        ('age' in this.houseMember) &&
+        ('clientRelationship' in this.houseMember) &&
+        ('occupation' in this.houseMember) &&
+        ('organizationState' in this.houseMember)){
+      this.person.HouseMembers.unshift(this.houseMember)
+      this.houseMember = {}
+      return
+    }
+    alert('Asegúrese de completar los campos!')
+  }
+
+  deleteHouseMember(index: number) {
+    this.person.HouseMembers.splice(index, 1)
+  }
+
+  calculateAge(bornYear: number): number {
+    console.log(`Fecha de nacimiento: ${bornYear}`)
+    console.log(`Año actual ${moment().year()}`)
+    let age = moment().year() - bornYear
+    console.log(age)
+    return age
   }
 
 }
