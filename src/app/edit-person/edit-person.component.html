@@ -1,3 +1,339 @@
-<p>
-  edit-person works!
-</p>
+<form class="text-center container" [formGroup]="editForm">
+  <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
+  <div class="md-form">
+    <input [formControl]="editForm.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Nombre y Apellidos</label>
+  </div>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.entryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="editForm.get('entryDate')">
+    <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #entryDateDP></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.bornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="editForm.get('bornDate')">
+    <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #bornDateDP></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
+    <p>Estado en la fundación</p>
+    <mat-radio-button value="true">Activo</mat-radio-button>
+    <mat-radio-button value="false">Inactivo</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('read')" [(ngModel)]="person.read">
+    <p>¿Lee?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('write')" [(ngModel)]="person.write">
+    <p>¿Escribe?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
+    <p>¿Tiene seguro social?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('socialSecurityType')" [(ngModel)]="person.socialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
+    <label for="socialSecurityType" class="">Tipo de seguro social</label>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Educación" [formControl]="editForm.get('education')" [(ngModel)]="person.education">
+      <mat-option *ngFor="let e of education" [value]="e">
+        {{ e }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Nacionalidad" [formControl]="editForm.get('nationality')" [(ngModel)]="person.nationality">
+      <mat-option *ngFor="let n of nationality" [value]="n">
+        {{ n }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('phoneNumber')" [(ngModel)]="person.phoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
+    <label for="phoneNumber" class="">Número de teléfono</label>
+  </div>
+  <br>
+  <mat-form-field>
+    <textarea matInput [formControl]="editForm.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
+    </textarea>
+  </mat-form-field>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('email')" [(ngModel)]="person.email" mdbActive type="email" id="email" class="form-control">
+    <label for="email" class="">Email</label>
+  </div>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needDoctor')" [(ngModel)]="person.needDoctor">
+    <p>¿Necesita doctor?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needOphthalmologist')" [(ngModel)]="person.needOphthalmologist">
+    <p>¿Necesita Oftalmólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needMammography')" [(ngModel)]="person.needMammography">
+    <p>¿Necesita Mamografía?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needDentist')" [(ngModel)]="person.needDentist">
+    <p>¿Necesita dentista?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needGynecologist')" [(ngModel)]="person.needGynecologist">
+    <p>¿Necesita Ginecólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('needPychologist')" [(ngModel)]="person.needPychologist">
+    <p>¿Necesita Psicólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('abuseVictim')" [(ngModel)]="person.abuseVictim">
+    <p>¿Ha sido víctima de abuso?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('suicideAttempt')" [(ngModel)]="person.suicideAttempt">
+    <p>¿Ha intentado el suicidio?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('suicideToughts')" [(ngModel)]="person.suicideToughts">
+    <p>¿Tiene pensamientos suicidas?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('drugsProblem')" [(ngModel)]="person.drugsProblem">
+    <p>¿Tiene problemas de drogas?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('alcoholProblem')" [(ngModel)]="person.alcoholProblem">
+    <p>¿Tiene problemas de alcohol?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="editForm.get('takeMedication')" [(ngModel)]="person.takeMedication">
+    <p>¿Toma medicamentos?</p>
+    <mat-radio-button value="false">Si</mat-radio-button>
+    <mat-radio-button value="true">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <div class="md-form">
+    <input [formControl]="editForm.get('medication')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="medication" class="form-control" #medication>
+    <label for="medication" class="">Ingrese el medicamento</label>
+    <button class="btn btn-success btn-sm" (click)="addMedication(medication.value)">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
+  <mat-list role="list" *ngIf="medicationList.length !== 0">
+    <p><strong>Medicamentos ingresados</strong></p>
+    <mat-list-item role="listitem" *ngFor="let med of medicationList; let index = index">
+      <p>{{med}}</p>
+      <div id="actions-container">
+        <button mat-button class="delete-btn" (click)="deleteMedication(index)" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+  <hr>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('supportInstitutions')" [ngModelOptions]="{standalone: true}" mdbActive type="text" id="supportInstitutions" class="form-control" #supportInstitution>
+    <label for="supportInstitutions" class="">Instituciones que han apoyado</label>
+    <button class="btn btn-success btn-sm" (click)="addSupportInstitution(supportInstitution.value)">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
+  <mat-list role="list" *ngIf="supportInstitutions.length !== 0">
+    <p><strong>Instituciones que han ayudado</strong></p>
+    <mat-list-item role="listitem" *ngFor="let i of supportInstitutions; let index = index">
+      <p>{{i}}</p>
+      <div id="actions-container">
+        <button mat-button class="delete-btn" (click)="deleteSupportInstitution(index)" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+  <hr>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Situación Laboral" [formControl]="editForm.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation">
+      <mat-option value="Empleada">Empleada</mat-option>
+      <mat-option value="Desempleada">Desempleada</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <div class="md-form" *ngIf="person.employnmentSituation === 'Empleada'">
+    <input [formControl]="editForm.get('workingHours')" [(ngModel)]="person.workingHours" mdbActive type="text" id="workingHours" class="form-control">
+    <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
+  </div>
+  <br>
+  <div class="md-form" *ngIf="person.employnmentSituation === 'Desempleada'">
+    <input [formControl]="editForm.get('unemployedDate')" [(ngModel)]="person.unemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
+    <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('peopleInTheHouse')" [(ngModel)]="person.peopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
+    <label for="peopleInTheHouse" class="">Cantidad de personas en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('underagePeople')" [(ngModel)]="person.underagePeople" mdbActive type="number" id="underagePeople" class="form-control">
+    <label for="underagePeople" class="">Cantidad de menores de edad en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('disabilitiePeople')" [(ngModel)]="person.disabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
+    <label for="disabilitiePeople" class="">Cantidad de personas discapacitadas en la casa</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('houseIncome')" [(ngModel)]="person.houseIncome" mdbActive type="number" id="houseIncome" class="form-control">
+    <label for="houseIncome" class="">Ingreso mensual</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="editForm.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="text" id="incomeSource" class="form-control">
+    <label for="houseIncome" class="">Fuente de ingresos</label>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="editForm.get('houseHolding')" [(ngModel)]="person.houseHolding">
+      <mat-option *ngFor="let holding of houseHolding" [value]="holding">
+        {{ holding }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Condición de la casa" [formControl]="editForm.get('houseCondition')" [(ngModel)]="person.houseCondition">
+      <mat-option *ngFor="let c of houseCondition" [value]="c">
+        {{ c }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <hr>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Añadir miembros de la casa
+        </mat-panel-title>
+        <mat-panel-description>
+            {{panelOpenState ? 'cerrar' : 'abrir'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h4 class="text-primary"><strong> Por favor completa todos los campos </strong></h4>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.fullName" mdbActive type="text" id="fullName" class="form-control">
+        <label for="fullName" class="">Nombre y apellidos</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.age" mdbActive type="text" id="memberAge" class="form-control">
+        <label for="memberAge" class="">Edad</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.clientRelationship" mdbActive type="text" id="clientRelationship" class="form-control">
+        <label for="clientRelationship" class="">Relación con el cliente</label>
+      </div>
+      <br>
+      <div class="md-form">
+        <input required [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.occupation" mdbActive type="text" id="occupation" class="form-control">
+        <label for="occupation" class="">Ocupación</label>
+      </div>
+      <br>
+      <mat-radio-group required="true" [ngModelOptions]="{standalone: true}" [(ngModel)]="houseMember.organizationState">
+        <p>Estado en la fundación</p>
+        <mat-radio-button value="true">Activo</mat-radio-button>
+        <mat-radio-button value="false">Inactivo</mat-radio-button>
+      </mat-radio-group>
+      <hr>
+      <br>
+      <button class="btn btn-success btn-sm" (click)="addHouseMember()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+      <ul class="list-group" *ngIf="houseMembers.length !== 0">
+        <p><strong>Miembros de la casa</strong></p>
+        <br>
+        <li class="list-group-item" *ngFor="let houseM of houseMembers; let index = index">
+          <br>
+          <ul class="text-left text-secondary">
+            <li><strong>Nombre completo:</strong> {{houseM.fullName}}</li>
+            <li><strong>Edad:</strong> {{houseM.age}}</li>
+            <li><strong>Ocupación:</strong> {{houseM.occupation}}</li>
+            <li><strong>Relación:</strong> {{houseM.clientRelationship}}</li>
+            <ng-template [ngIf]="houseM.organizationState == 'true'">
+              <li>
+                <strong>Estado en la organización: </strong> Activo
+              </li>
+            </ng-template>
+            <ng-template [ngIf]="houseM.organizationState == 'false'">
+              <li><strong>Estado en la organización: </strong>Inactivo</li>
+            </ng-template>
+          </ul>
+          <div id="actions-container">
+            <button class="delete-btn" mat-button (click)="deleteHouseMember(index)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <hr>
+  <br>
+  <button type="submit" mat-button (click)="onSubmit(editForm.value)">Enviar</button>
+</form>
