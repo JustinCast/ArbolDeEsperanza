@@ -59,7 +59,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Nacionalidad" [formControl]="editForm.get('nationality')" [(ngModel)]="Person.Nationality">
+    <mat-select placeholder="Nacionalidad" [formControl]="editForm.get('nationality')" [(ngModel)]="person.Nationality">
       <mat-option *ngFor="let n of nationality" [value]="n">
         {{ n }}
       </mat-option>
