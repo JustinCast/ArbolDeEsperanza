@@ -31,6 +31,37 @@ export const MY_FORMATS = {
 export class EditPersonComponent implements OnInit {
   person: Person
   editForm: FormGroup
+  houseMembers = []
+  supportInstitutions = []
+  medicationList = []
+  nationality = [
+    "Costarricense",
+    "Nicaragüense",
+    "Salvadoreño",
+    "Colombiano",
+    "Otro"
+  ]
+  education = [
+    "Primaria incompleta",
+    "Primaria completa",
+    "Secundaria incompleta",
+    "Secundaria completa",
+    "Universidad incompleta",
+    "Universidad completa",
+    "Ninguno"
+  ]
+  houseHolding = [
+    "Alquilada",
+    "Propia",
+    "Prestada",
+    "Ocupada ilegalmente"
+  ]
+  houseCondition = [
+    "En buenas condiciones",
+    "Parcialmente en buenas condiciones",
+    "En malas condiciones",
+    "En muy malas condiciones"
+  ]
   constructor(
     private route: ActivatedRoute, 
     public peopleService: PeopleService,
