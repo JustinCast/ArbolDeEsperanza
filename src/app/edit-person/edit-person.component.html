@@ -116,10 +116,10 @@
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('needPychologist')" [(ngModel)]="person.Need_Pychologist">
+  <mat-radio-group [formControl]="editForm.get('needPsychologist')" [(ngModel)]="person.Need_Psychologist">
     <p>¿Necesita Psicólogo?</p>
-    <mat-radio-button [checked]="person.Need_Pychologist === true" value="true">Si</mat-radio-button>
-    <mat-radio-button [checked]="person.Need_Pychologist === false" value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Psychologist === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Psychologist === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
@@ -171,9 +171,9 @@
       <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
   </div>
-  <mat-list role="list" *ngIf="medicationList.length !== 0">
+  <mat-list role="list" *ngIf="person.Medication.length !== 0">
     <p><strong>Medicamentos ingresados</strong></p>
-    <mat-list-item role="listitem" *ngFor="let med of medicationList; let index = index">
+    <mat-list-item role="listitem" *ngFor="let med of person.Medication; let index = index">
       <p>{{med}}</p>
       <div id="actions-container">
         <button mat-button class="delete-btn" (click)="deleteMedication(index)" color="warn">

@@ -124,6 +124,16 @@ export class EditPersonComponent implements OnInit {
     this.person.SupportInstitutions.splice(index, 1)
   }
 
+  addMedication(medication: string) {
+    if(medication.length !== 0){
+      this.person.Medication.unshift(medication)
+    }
+  }
+
+  deleteMedication(index: number) {
+    this.person.Medication.splice(index, 1)
+  }
+
   addHouseMember() {
     console.log(this.houseMember)
     if(('fullName' in this.houseMember)  && 
