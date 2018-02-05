@@ -121,7 +121,7 @@ export class EditPersonComponent implements OnInit {
   }
 
   deleteSupportInstitution(index: number) {
-    this.person.supportInstitutions.splice(index, 1)
+    this.person.SupportInstitutions.splice(index, 1)
   }
 
   addHouseMember() {

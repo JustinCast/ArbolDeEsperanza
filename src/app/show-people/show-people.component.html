@@ -12,7 +12,9 @@
       </mat-expansion-panel-header>
       <div class="container">
         <div class="container text-right">
-          <button (click)="onEditPerson(index)" class="edit-btn" mat-button color="primary"><i class="material-icons">create</i></button>
+          <button (click)="onEditPerson(index)" class="btn info-color-dark btn-sm" >
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
         </div>
         <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate': '': 'es'}}</p>
         <p><strong>Edad:</strong> {{p.Age}}</p>
