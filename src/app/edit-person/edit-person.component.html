@@ -205,7 +205,7 @@
   <hr>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Situación Laboral" [formControl]="editForm.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation">
+    <mat-select placeholder="Situación Laboral" [formControl]="editForm.get('employnmentSituation')" [(ngModel)]="person.EmploymentSituation">
       <mat-option value="Empleada">Empleada</mat-option>
       <mat-option value="Desempleada">Desempleada</mat-option>
     </mat-select>
@@ -222,32 +222,32 @@
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('peopleInTheHouse')" [(ngModel)]="person.peopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
+    <input [formControl]="editForm.get('peopleInTheHouse')" [(ngModel)]="person.PersonsInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
     <label for="peopleInTheHouse" class="">Cantidad de personas en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('underagePeople')" [(ngModel)]="person.underagePeople" mdbActive type="number" id="underagePeople" class="form-control">
+    <input [formControl]="editForm.get('underagePeople')" [(ngModel)]="person.UnderagePeople" mdbActive type="number" id="underagePeople" class="form-control">
     <label for="underagePeople" class="">Cantidad de menores de edad en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('disabilitiePeople')" [(ngModel)]="person.disabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
+    <input [formControl]="editForm.get('disabilitiePeople')" [(ngModel)]="person.DisabilitiePersons" mdbActive type="number" id="disabilitiePeople" class="form-control">
     <label for="disabilitiePeople" class="">Cantidad de personas discapacitadas en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('houseIncome')" [(ngModel)]="person.houseIncome" mdbActive type="number" id="houseIncome" class="form-control">
+    <input [formControl]="editForm.get('houseIncome')" [(ngModel)]="person.HouseIncome" mdbActive type="number" id="houseIncome" class="form-control">
     <label for="houseIncome" class="">Ingreso mensual</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="editForm.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="text" id="incomeSource" class="form-control">
+    <input [formControl]="editForm.get('incomeSource')" [(ngModel)]="person.IncomeSource" mdbActive type="text" id="incomeSource" class="form-control">
     <label for="houseIncome" class="">Fuente de ingresos</label>
   </div>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="editForm.get('houseHolding')" [(ngModel)]="person.houseHolding">
+    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="editForm.get('houseHolding')" [(ngModel)]="person.HouseHolding">
       <mat-option *ngFor="let holding of houseHolding" [value]="holding">
         {{ holding }}
       </mat-option>
@@ -255,7 +255,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Condición de la casa" [formControl]="editForm.get('houseCondition')" [(ngModel)]="person.houseCondition">
+    <mat-select placeholder="Condición de la casa" [formControl]="editForm.get('houseCondition')" [(ngModel)]="person.HouseCondition">
       <mat-option *ngFor="let c of houseCondition" [value]="c">
         {{ c }}
       </mat-option>
