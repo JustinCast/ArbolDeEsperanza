@@ -19,29 +19,29 @@
   <br>
   <mat-radio-group [formControl]="editForm.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
     <p>Estado en la fundación</p>
-    <mat-radio-button value="true">Activo</mat-radio-button>
-    <mat-radio-button value="false">Inactivo</mat-radio-button>
+    <mat-radio-button [checked]="person.ActiveOrInactive === true" value="true">Activo</mat-radio-button>
+    <mat-radio-button [checked]="person.ActiveOrInactive === false" value="false">Inactivo</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('read')" [(ngModel)]="person.Read">
     <p>¿Lee?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Read === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Read === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('write')" [(ngModel)]="person.Write">
     <p>¿Escribe?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Write === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Write === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('socialSecurity')" [(ngModel)]="person.SocialSecurity">
     <p>¿Tiene seguro social?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.SocialSecurity === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.SocialSecurity === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
@@ -83,85 +83,85 @@
   <br>
   <mat-radio-group [formControl]="editForm.get('needDoctor')" [(ngModel)]="person.Need_Doctor">
     <p>¿Necesita doctor?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Doctor === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Doctor === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('needOphthalmologist')" [(ngModel)]="person.Need_Ophthalmologist">
     <p>¿Necesita Oftalmólogo?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Ophthalmologist === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Ophthalmologist === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('needMammography')" [(ngModel)]="person.Need_Mammography">
     <p>¿Necesita Mamografía?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Mammography === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Mammography === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('needDentist')" [(ngModel)]="person.Need_Dentist">
     <p>¿Necesita dentista?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Dentist === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Dentist === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('needGynecologist')" [(ngModel)]="person.Need_Gynecologist">
     <p>¿Necesita Ginecólogo?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Gynecologist === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Gynecologist === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('needPychologist')" [(ngModel)]="person.Need_Pychologist">
     <p>¿Necesita Psicólogo?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Pychologist === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.Need_Pychologist === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('abuseVictim')" [(ngModel)]="person.AbuseVictim">
     <p>¿Ha sido víctima de abuso?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.AbuseVictim === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.AbuseVictim === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('suicideAttempt')" [(ngModel)]="person.SuicideAttempt">
     <p>¿Ha intentado el suicidio?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.SuicideAttempt === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.SuicideAttempt === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('suicideToughts')" [(ngModel)]="person.SuicideToughts">
     <p>¿Tiene pensamientos suicidas?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.SuicideToughts === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.SuicideToughts === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('drugsProblem')" [(ngModel)]="person.DrugsProblem">
     <p>¿Tiene problemas de drogas?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.DrugsProblem === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.DrugsProblem === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="editForm.get('alcoholProblem')" [(ngModel)]="person.AlcoholProblem">
+  <mat-radio-group [formControl]="editForm.get('alcoholProblem')" [(ngModel)]="person.AlcoholProblems">
     <p>¿Tiene problemas de alcohol?</p>
-    <mat-radio-button value="true">Si</mat-radio-button>
-    <mat-radio-button value="false">No</mat-radio-button>
+    <mat-radio-button [checked]="person.AlcoholProblems === true" value="true">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.AlcoholProblems === false" value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
   <mat-radio-group [formControl]="editForm.get('takeMedication')" [(ngModel)]="person.TakeMedication">
     <p>¿Toma medicamentos?</p>
-    <mat-radio-button value="false">Si</mat-radio-button>
-    <mat-radio-button value="true">No</mat-radio-button>
+    <mat-radio-button [checked]="person.TakeMedication === true" value="false">Si</mat-radio-button>
+    <mat-radio-button [checked]="person.TakeMedication === false" value="true">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <div class="md-form">
