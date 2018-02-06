@@ -160,4 +160,8 @@ export class EditPersonComponent implements OnInit {
     return age
   }
 
+  updatePerson() {
+    this.peopleService.updatePerson(this.person)
+  }
+
 }

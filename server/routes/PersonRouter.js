@@ -36,7 +36,7 @@ function savePerson(req, res) {
 function updatePerson(req, res) {
     let personId  = req.params.personId
     let update = req.body
-
+    console.log(req.body)
     Person.findByIdAndUpdate(personId, update, (err, personUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar la persona: ${err}`})

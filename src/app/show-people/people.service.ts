@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
 @Injectable()
@@ -17,6 +17,27 @@ export class PeopleService {
       .subscribe(
         success => {
           console.log(success)
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Error del lado del cliente
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // Error del lado del backend
+            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          }
+        }
+      )
+  }
+
+  updatePerson(person: Person) {
+    //let params = new HttpParams().set('personId', person._id);
+    console.log(person)
+    this._http.put(`${environment.SERVER_BASE_URL}person/update/${person._id}`, person)
+      .subscribe(
+        success => {
+          console.log('Persona actualizada con éxito')
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
