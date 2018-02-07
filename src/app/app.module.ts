@@ -18,8 +18,8 @@ import {
   MatListModule,
   MatIconModule
 } from '@angular/material';
-import { registerLocaleData } from '@angular/common';
-import es from '@angular/common/locales/Es';
+// import { registerLocaleData } from '@angular/common';
+// import es from '@angular/common/locales/Es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -40,7 +40,7 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 
-registerLocaleData(es, 'Es');
+// registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
     AppComponent,
