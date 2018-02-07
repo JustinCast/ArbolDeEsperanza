@@ -48,10 +48,10 @@ function routerConfig() {
     })
     app.use('/', router)
     app.use('/person', api)
-    // app.use(express.static(path.join(__dirname, 'dist')));
-    // router.get('*', (req, res) => {
-    //     res.sendFile(path.join(__dirname, '../dist/index.html'));
-    // });
+    app.use(express.static(path.join(__dirname, 'dist')));
+    router.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../dist/index.html'));
+    });
     // demas enrutadores
 }
 
