@@ -31,6 +31,7 @@ export const MY_FORMATS = {
 })
 export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
+  panelOpenState: boolean = false
   icon: string = 'close'
   person: any = {}
   houseMember: any = {}

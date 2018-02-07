@@ -30,6 +30,7 @@ export const MY_FORMATS = {
 })
 export class EditPersonComponent implements OnInit {
   person: any
+  panelOpenState: boolean = false
   editForm: FormGroup
   houseMember: any = {}
   supportInstitutions = []
