@@ -5,11 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/index.js",
-    "build": "ng build --prod",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "preinstall": "",
+    "postinstall": "ng build --aot --target=production"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +30,7 @@
     "@angular/router": "^5.2.3",
     "angular-bootstrap-md": "^5.1.2",
     "body-parser": "^1.18.2",
+    "chart.js": "^2.5.0",
     "core-js": "^2.5.3",
     "cors": "^2.8.4",
     "express": "^4.16.2",
