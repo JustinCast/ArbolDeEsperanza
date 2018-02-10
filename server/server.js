@@ -1,4 +1,5 @@
 'use strict'
+console.log('INICIANDO EL SERVIDOR')
 const mongoose = require('mongoose') // capa de abstraccion para la conexion con MongoDB
 const express = require('express')
 const bodyParser = require('body-parser')
