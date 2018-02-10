@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 
 // API file for interacting with MongoDB
-const app = require('./server');
+const app = require('./server/server');
 
 //Set Port
 const port = 3000;
