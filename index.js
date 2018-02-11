@@ -26,17 +26,6 @@ app.use((req, res, next) => {
     next();
 })
 
-let router = express.Router()
-router.get('', (req, res)=>{
-    res.json({
-        message: 'Initial backend route'
-    })
-})
-app.use('/', router)
-app.use('/person', api)
-
-// Run the app by serving the static files
-// in the dist directory
 app.use(express.static(__dirname + '/dist'));
 // Start the app by listening on the default
 // Heroku port
@@ -48,4 +37,15 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname +  '/dist/index.html'))
 })
 
+let router = express.Router()
+router.get('', (req, res)=>{
+    res.json({
+        message: 'Initial backend route'
+    })
+})
+app.use('/', router)
+app.use('/person', api)
+
+// Run the app by serving the static files
+// in the dist directory
 console.log('Console listening')
