@@ -1,51 +1,41 @@
-
+// Get dependencies
 const express = require('express');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
+
+// Get our API routes
+const api = require('./server/routes/api');
+
 const app = express();
-const path = require('path')
-const mongoose = require('mongoose') // capa de abstraccion para la conexion con MongoDB
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const api = require('./server/routes/api')
 
-const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
-mongoose.connect(MONGO_URI, (err, res) => {
-    if(err){
-        console.log(err)
-        return
-    }
-    console.log("Conexión exitosa con la BD")
-})
+// Parsers for POST data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    next();
-})
+// Point static path to dist
+app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use(express.static(__dirname + '/dist'));
-// Start the app by listening on the default
-// Heroku port
-app.listen(process.env.PORT || 8080);
+// Set our api routes
+app.use('/api', api);
 
-// pathlocationstrategy
+// Catch all other routes and return the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname +  '/dist/index.html'))
-})
+/**
+ * Get port from environment and store in Express.
+ */
+const port = process.env.PORT || '3000';
+app.set('port', port);
 
-let router = express.Router()
-router.get('', (req, res)=>{
-    res.json({
-        message: 'Initial backend route'
-    })
-})
-app.use('/', router)
-app.use('/person', api)
+/**
+ * Create HTTP server.
+ */
+const server = http.createServer(app);
 
-// Run the app by serving the static files
-// in the dist directory
-console.log('Console listening')
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port, () => console.log(`API running on localhost:${port}`));
