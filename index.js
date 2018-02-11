@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose') 
 const path = require('path');
 const http = require('http');
 const app = express();
@@ -11,11 +12,20 @@ const api = require('./server/routes/api');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
+const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
+mongoose.connect(MONGO_URI, (err, res) => {
+    if(err){
+        console.log(err)
+        return
+    }
+    console.log("Conexión exitosa con la BD")
+})
+
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // API location
-app.use('/api', api);
+app.use('/person', api);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
