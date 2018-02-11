@@ -46,10 +46,6 @@ function routerConfig() {
             message: 'Initial backend route'
         })
     })
-    app.use(express.static(path.join(__dirname, 'dist')));
-    router.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../dist/index.html'));
-    });
     app.use('/', router)
     app.use('/person', api)
     // demas enrutadores
