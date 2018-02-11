@@ -14,7 +14,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "^1.6.8",
+    "@angular/cli": "^1.6.0",
     "@angular-devkit/build-optimizer": "~0.3.1",
     "@angular-devkit/schematics": "~0.3.1",
     "@angular/animations": "^5.2.4",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@angular-devkit/core": "^0.3.1",
-    "@angular/cli": "^1.6.8",
+    "@angular/cli": "^1.6.0",
     "@angular/compiler-cli": "^5.2.4",
     "@angular/language-service": "^5.2.4",
     "@types/cors": "^2.8.3",
