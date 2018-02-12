@@ -1,3 +1,4 @@
+console.log('SERVER IS NOW STARTING ...')
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose') 
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
 mongoose.connect(MONGO_URI, (err, res) => {
     if(err){
-        console.log(err)
+        console.log('No se pudo establecer conexión con la BD' + err)
         return
     }
     console.log("Conexión exitosa con la BD")
