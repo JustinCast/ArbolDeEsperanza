@@ -8,7 +8,6 @@ import {
   MatButtonModule,
   MatExpansionModule, 
   MatDialogModule,
-  MatTableModule,
   MatFormFieldModule,
   MatRadioModule,
   MatSelectModule,
@@ -42,7 +41,7 @@ import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatTableModule} from '@angular/material/table';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -85,7 +84,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
-    Ng2SearchPipeModule
   ],
   providers: [
     PeopleService

@@ -1,231 +1,32 @@
-<h2 class="text-center text-secondary"><strong>Listado</strong></h2>
-<input class="form-control" type="text" name="search" [(ngModel)]="filter">
-<ul id="people">
-  <li *ngFor="let p of personService.people | filter:filter; let index = index" class="person">
-    <mat-expansion-panel [expanded]="collapse[index]">
-      <mat-expansion-panel-header (click)="changeCollapse(index)">
-        <mat-panel-title>
-          <h6 class="text-secondary"><strong>{{p.Name}}</strong></h6>
-        </mat-panel-title>
-        <mat-panel-description>
-          Más información
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="container">
-        <div class="container text-right">
-          <button (click)="onEditPerson(index)" class="btn info-color-dark btn-sm" >
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-        </div>
-        <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate': '': 'es'}}</p>
-        <p><strong>Edad:</strong> {{p.Age}}</p>
-        <p><strong>Fecha de nacimiento:</strong> {{p.BornDate | date: 'fullDate': '': 'es'}}</p>
-        <!---->
-        <div class="bottom-margin" *ngIf="p.SocialSecurity; else noSS">
-          <strong>Seguro social:</strong> 
-        <i class="fa fa-check text-success" aria-hidden="true"></i>
-        </div>
-        <div class="bottom-margin">
-          <ng-template #noSS><strong>
-            Seguro social:</strong>
-            <i class="fa fa-times text-danger" aria-hidden="true"></i>
-          </ng-template>
-        </div>
-        <!---->
-        <p><strong>Tipo de seguro:</strong> {{p.SocialSecurityType}}</p>
-        <p><strong>Educación:</strong> {{p.Education}}</p>
-        <p><strong>Nacionalidad:</strong> {{p.Nationality}}</p>
-        <p><strong>Número de teléfono:</strong> {{p.PhoneNumber}}</p>
-        <p><strong>Dirección:</strong> {{p.Address}}</p>
-        <p><strong>Correo electrónico:</strong> {{p.Email}}</p>
-        <p><strong>Situación laboral:</strong> {{p.EmploymentSituation}}</p>
-        <div class="bottom-margin" *ngIf="p.ActiveOrInactive; else inactive">
-          <strong>Situación en la fundación:</strong> <span class="text-success bold">Activa</span>
-        </div>
-        <div class="bottom-margin">
-          <ng-template #inactive>
-            <strong>Situación en la fundación:</strong> Inactiva
-          </ng-template>
-        </div>
-        <!---->
-        <div class="bottom-margin" *ngIf="p.Read; else noR"><strong>Lee:</strong> 
-          <i class="fa fa-check text-success" aria-hidden="true"></i>
-        </div>
-        <div class="bottom-margin">
-          <ng-template #noR><strong>Lee:</strong>
-            <i class="fa fa-times text-danger" aria-hidden="true"></i>
-          </ng-template>
-        </div>
-        <!---->
-        <div class="bottom-margin" *ngIf="p.Write; else noWrite"><strong>Escribe:</strong> 
-          <i class="fa fa-check text-success" aria-hidden="true"></i>
-        </div>
-        <div class="bottom-margin">
-          <ng-template #noWrite><strong>Escribe:</strong>
-            <i class="fa fa-times text-danger" aria-hidden="true"></i>
-          </ng-template>
-        </div>
-        <!---->
-        <hr>
-        <mat-expansion-panel id="footer-panel">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <h5 class="text-secondary"><strong>Más información</strong></h5>
-            </mat-panel-title>
-            <!-- <mat-panel-description>
-              Type your name and age
-            </mat-panel-description> -->
-          </mat-expansion-panel-header>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.need_Doctor === true;else no"><strong>Necesita Doctor:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #no><strong>Necesita Doctor:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.Need_Ophthalmologist === true;else noOp"><strong>Necesita oftalmólogo:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noOp><strong>Necesita oftalmólogo:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.Need_Mammography === true;else noMam"><strong>Necesita mamografía:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noMam><strong>Necesita mamografía:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.Need_Dentist === true;else noDent"><strong>Necesita dentista:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noDent><strong>Necesita dentista:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.Need_Gynecologist === true;else noGine"><strong>Necesita ginecólogo:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noGine><strong>Necesita ginecólogo:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.Need_Psychologist === true;else noPyscho"><strong>Necesita psicólogo:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noPyscho><strong>Necesita psicólogo:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.AbuseVictim === true;else noAbuse"><strong>Ha sido víctima de abuso:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noAbuse><strong>Ha sido víctima de abuso:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.SuicideAttempt === true;else noSuicideAt"><strong>Ha intentado suicidio:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template  #noSuicideAt><strong>Ha intentado suicidio:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.SuicideToughts === true;else noSuicideT"><strong>Tiene pensamientos suicidas:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noSuicideT><strong>Tiene pensamientos suicidas:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.DrugsProblem === true;else noDrugs"><strong>Tiene problemas de drogas:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noDrugs><strong>Tiene problemas de drogas:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.AlcoholProblems === true;else noAlcohol"><strong>Tiene problemas de alcohol:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noAlcohol><strong>Tiene problemas de alcohol:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.TakeMedication === true;else noAlcohol"><strong>Toma medicamentos:</strong>
-            <i class="fa fa-check text-success" aria-hidden="true"></i>
-          </div>
-          <div class="bottom-margin">
-            <ng-template #noAlcohol><strong>Toma medicamentos:</strong> 
-              <i class="fa fa-times text-danger" aria-hidden="true"></i>
-            </ng-template>
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.WorkingHours !== 0"><strong>Horas trabajadas:</strong>
-            {{p.WorkingHours}}}
-          </div>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.UnemployedDate !== ''"><strong>Desempleada desde:</strong>
-            {{p.UneployedDate}}
-          </div>
-          <!---->
-          <p><strong>Cantidad de personas en la casa:</strong> {{p.PersonsInTheHouse}}</p>
-          <p><strong>Menores de edad en la casa:</strong> {{p.UnderagePeople}}</p>
-          <p><strong>Discapacitados en la casa:</strong> {{p.DisabilitiePersons}}</p>
-          <p><strong>Ingresos del hogar:</strong> {{p.HouseIncome}}</p>
-          <!---->
-          <div class="bottom-margin" *ngIf="p.IncomeSource !== ''"><strong>Fuente de ingresos:</strong>
-            {{p.IncomeSource}}
-          </div>
-          <!---->
-          <p><strong>La casa es:</strong> {{p.HouseHolding}}</p>
-          <p><strong>La condición de la casa es:</strong> {{p.HouseCondition}}</p>
-          <!---->
-          <div class="bottom-margin">
-            <strong *ngIf="p.HouseMembers.length !== 0">Miembros de la casa: ( {{p.HouseMembers.length}} )</strong>
-            <button mat-icon-button mat-raised-button color="accent" (click)="openHouseMembersDialog(p.HouseMembers)">
-              <i class="material-icons">format_list_numbered</i>
-            </button>
-          </div>
-          <!---->
-          <strong *ngIf="p.SupportInstitutions.length !== 0">Instituciones que han apoyado:</strong>
-          <ul *ngIf="p.SupportInstitutions.length !== 0">
-            <li *ngFor="let s of p.SupportInstitutions">{{s}}</li>
-          </ul>
-          <!---->
-          <strong>Medicamentos:</strong>
-          <ul *ngIf="p.Medication.length !== 0">
-            <li *ngFor="let m of p.Medication">{{m}}</li>
-          </ul>
-        </mat-expansion-panel>
-      </div>
-      <div style="text-align: center">
-        <button mat-button color="warn" (click)="changeCollapse(index)">Cerrar</button>
-      </div>
-    </mat-expansion-panel>
-  </li>
-</ul>
+<div *ngIf="!loading" class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource">
+
+    <!-- BornDate Column -->
+    <ng-container matColumnDef="bornDate">
+      <mat-cell *matCellDef="let row"> {{row.BornDate}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-cell *matCellDef="let row"> {{row.Name}} </mat-cell>
+    </ng-container>
+
+    <!-- entryDate Column -->
+    <ng-container matColumnDef="entryDate">
+      <mat-cell *matCellDef="let row"> {{row.EntryDate}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
