@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
+import { stringify } from 'querystring';
 @Injectable()
 export class PeopleService {
   people: Array<Person>
@@ -25,7 +26,7 @@ export class PeopleService {
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+            console.log(`Backend returned code ${err.status}, body was: ${stringify(err.error)}`);
           }
         }
       )
