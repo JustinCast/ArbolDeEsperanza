@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Person } from '../models/Person';
+import { stringify } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-show-people',
   templateUrl: './show-people.component.html',
@@ -24,8 +25,8 @@ export class ShowPeopleComponent implements OnInit {
         this.personService.people = data
         this.dataSource = new MatTableDataSource(this.personService.people);
         this.loading = false
-        console.log('Person ARRAY: ' + this.personService.people)
-        console.log('DATA SOURCE: ' + this.dataSource)
+        console.log('Person ARRAY: ' + stringify(this.personService.people))
+        console.log('DATA SOURCE: ' + stringify(this.dataSource)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
