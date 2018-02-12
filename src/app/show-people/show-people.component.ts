@@ -24,7 +24,8 @@ export class ShowPeopleComponent implements OnInit {
         this.personService.people = data
         this.dataSource = new MatTableDataSource(this.personService.people);
         this.loading = false
-        console.log(this.dataSource)
+        console.log('Person ARRAY: ' + this.personService.people)
+        console.log('DATA SOURCE: ' + this.dataSource)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

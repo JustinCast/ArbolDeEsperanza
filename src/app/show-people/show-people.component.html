@@ -10,17 +10,17 @@
 
     <!-- BornDate Column -->
     <ng-container matColumnDef="bornDate">
-      <mat-cell *matCellDef="let row"> {{row.BornDate}} </mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.data.BornDate}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <mat-cell *matCellDef="let row"> {{row.Name}} </mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.data.Name}} </mat-cell>
     </ng-container>
 
     <!-- entryDate Column -->
     <ng-container matColumnDef="entryDate">
-      <mat-cell *matCellDef="let row"> {{row.EntryDate}} </mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.data.EntryDate}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
