@@ -16,7 +16,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatAutocompleteModule
 } from '@angular/material';
 // import { registerLocaleData } from '@angular/common';
 // import es from '@angular/common/locales/Es';
@@ -80,7 +81,8 @@ import { LoginComponent } from './login/login.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule
   ],
   providers: [
     PeopleService
