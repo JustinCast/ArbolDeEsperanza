@@ -1,32 +1,34 @@
-<div *ngIf="!loading" class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
-
-<div class="example-container mat-elevation-z8">
-
-  <mat-table [dataSource]="dataSource">
-
-    <!-- BornDate Column -->
-    <ng-container matColumnDef="bornDate">
-      <mat-cell *matCellDef="let row"> {{row.data.BornDate}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-cell *matCellDef="let row"> {{row.data.Name}} </mat-cell>
-    </ng-container>
-
-    <!-- entryDate Column -->
-    <ng-container matColumnDef="entryDate">
-      <mat-cell *matCellDef="let row"> {{row.data.EntryDate}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
-  </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>F. Entrada</th>
+      <th>Nombre</th>
+      <th>Nacionalidad</th>
+      <th>Número teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of personService.people; let i = index">
+      <th scope="row">{{p.EntryDate}}</th>
+      <td>{{p.Name}}</td>
+      <td>{{p.Nationality}}</td>
+      <td>{{p.PhoneNumber}}</td>
+      <td>
+        <!-- Split button -->
+        <div class="btn-group" dropdown>
+          <button type="button" class="btn btn-danger waves-light" mdbRippleRadius>
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+          <button type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbRippleRadius></button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>   
+      </td>
+    </tr>
+</table>
