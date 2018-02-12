@@ -14,7 +14,7 @@ import { Person } from '../models/Person';
 export class ShowPeopleComponent implements OnInit {
   loading: boolean = true
   displayedColumns = ['name', 'bornDate', 'entryDate'];
-  dataSource: MatTableDataSource<Person>
+  dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(public personService: PeopleService, public dialog: MatDialog, public router: Router) {
@@ -24,7 +24,7 @@ export class ShowPeopleComponent implements OnInit {
         this.personService.people = data
         this.dataSource = new MatTableDataSource(this.personService.people);
         this.loading = false
-        console.log(data)
+        console.log(this.dataSource)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -37,7 +37,6 @@ export class ShowPeopleComponent implements OnInit {
         }
       }
     )
-    console.log(this.dataSource)
   }
 
   ngOnInit() {
