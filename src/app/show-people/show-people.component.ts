@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-person',
+  selector: 'app-show-people',
   templateUrl: './show-people.component.html',
   styleUrls: ['./show-people.component.scss']
 })
