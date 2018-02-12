@@ -17,7 +17,7 @@ export class PeopleService {
       .subscribe(
         success => {
           console.log(success)
-        }
+        },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
             // Error del lado del cliente
