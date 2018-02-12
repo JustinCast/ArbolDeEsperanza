@@ -13,7 +13,7 @@ const api = require('./server/routes/api');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-const MONGO_URI = 'mongodb://justin:cast123@ds149577.mlab.com:49577/ade'; 
+const MONGO_URI = 'mongodb://justin1524:gears1524@ds149577.mlab.com:49577/ade'; 
 mongoose.connect(MONGO_URI, (err, res) => {
     if(err){
         console.log('No se pudo establecer conexión con la BD' + err)
