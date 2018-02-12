@@ -41,7 +41,7 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
-
+import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { LoginComponent } from './login/login.component';
     AddPeopleComponent,
     EditPersonComponent,
     LoginComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

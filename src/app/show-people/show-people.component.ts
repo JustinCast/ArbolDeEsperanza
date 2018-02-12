@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { PeopleService } from './people.service';
 import { MatDialog } from '@angular/material';
 import { HouseMembersComponent } from '../house-members/house-members.component';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { FormControl } from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
-import {startWith} from 'rxjs/operators/startWith';
-import {map} from 'rxjs/operators/map';
+
 @Component({
   selector: 'app-show-people',
   templateUrl: './show-people.component.html',
@@ -15,29 +12,14 @@ import {map} from 'rxjs/operators/map';
 })
 export class ShowPeopleComponent implements OnInit {
   collapse: Array<boolean> = new Array()
-  public personCtrl: FormControl = new FormControl();
-  filteredPeople: Observable<any[]>;
   constructor(public personService: PeopleService, public dialog: MatDialog, public router: Router) {
   }
 
-  initializeValuesAndChanges() {
-    this.filteredPeople = this.personCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        map(state => state ? this.filterPeople(state) : this.personService.people.slice())
-      );
-  }
-
-  filterPeople(name: string) {
-    return this.personService.people.filter(state =>
-      state.Name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-  }
   ngOnInit() {
     this.personService.getPersonsRequest()
     .subscribe(
       data => {
         this.personService.people = data
-        this.initializeValuesAndChanges()
         console.log(data)
       },
       (err: HttpErrorResponse) => {
