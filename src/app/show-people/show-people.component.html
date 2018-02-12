@@ -1,7 +1,7 @@
 <h2 class="text-center text-secondary"><strong>Listado</strong></h2>
-<input #txtFname placeholder="Búsqueda" />
+<input class="form-control" type="text" name="search" [(ngModel)]="filter">
 <ul id="people">
-  <li *ngFor="let p of personService.people | searchfilter: 'Name' : txtFname.value; let index = index" class="person">
+  <li *ngFor="let p of personService.people | filter:filter; let index = index" class="person">
     <mat-expansion-panel [expanded]="collapse[index]">
       <mat-expansion-panel-header (click)="changeCollapse(index)">
         <mat-panel-title>

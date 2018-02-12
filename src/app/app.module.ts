@@ -42,6 +42,7 @@ import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
     MatNativeDateModule,
     MatListModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     PeopleService
