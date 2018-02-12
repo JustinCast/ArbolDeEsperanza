@@ -39,6 +39,7 @@ import { ShowPeopleComponent } from './show-people/show-people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
 import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { LoginComponent } from './login/login.component';
 
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -57,6 +58,7 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     ShowPeopleComponent,
     AddPeopleComponent,
     EditPersonComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

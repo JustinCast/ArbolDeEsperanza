@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { PeopleComponent } from './people/people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { LoginComponent } from './login/login.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -26,6 +27,6 @@ export const ROUTES: Routes = [
         path: 'admin', component: AdminComponent
     },
     {path: 'settings', component: SettingsComponent},
-    {path: '', component: HomeComponent, pathMatch: 'full'},
+    {path: '', component: LoginComponent, pathMatch: 'full'},
     {path: '**', component: ErrorHandleComponent}
 ]
