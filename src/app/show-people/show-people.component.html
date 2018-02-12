@@ -1,7 +1,7 @@
 <h2 class="text-center text-secondary"><strong>Listado</strong></h2>
 <form id="search-form">
   <mat-form-field>
-    <input matInput placeholder="Buscar por nombre" aria-label="Buscar por Nombre" [matAutocomplete]="auto" [formControl]="personCtrl">
+    <input matInput placeholder="Buscar por nombre" [matAutocomplete]="auto" [formControl]="personCtrl">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let pers of filteredPeople | async" [value]="pers.Name">
         <!-- <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" /> -->
