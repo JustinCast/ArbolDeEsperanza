@@ -19,6 +19,7 @@ export class ShowPeopleComponent implements OnInit {
     .subscribe(
       data => {
         this.personService.people = data
+        console.log(data)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
