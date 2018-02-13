@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/person', api);
 
 // Send all other requests to the Angular app
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
