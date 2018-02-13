@@ -17,9 +17,9 @@ export class ShowPeopleComponent implements OnInit {
   }
   
   
-  onKey(value: string) {
-    this.personFilter.transform(this.personService.people, this.filter)
-  }
+  // onKey(value: string) {
+  //   this.personFilter.transform(this.personService.people, this.filter)
+  // }
   ngOnInit() {
     this.personService.getPersonsRequest()
     .subscribe(
