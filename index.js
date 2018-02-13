@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || MONGO_URI, (err, res) => {
 })
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 // API location
 app.use('/person', api);
