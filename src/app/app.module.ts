@@ -40,9 +40,10 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
-import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
 import {MatTableModule} from '@angular/material/table';
 import { ShowDetailsComponent } from './show-details/show-details.component';
+import {  } from "./show-people/";
+import { PersonFilterPipe } from './show-people/person-filter.pipe';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { ShowDetailsComponent } from './show-details/show-details.component';
     AddPeopleComponent,
     EditPersonComponent,
     LoginComponent,
-    SearchFilterPipe,
+    PersonFilterPipe,
     ShowDetailsComponent
   ],
   imports: [
