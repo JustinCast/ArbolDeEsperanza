@@ -3,14 +3,17 @@ import { PeopleService } from './people.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Person } from '../models/Person';
+import { PersonFilterPipe } from './person-filter';
 @Component({
   selector: 'app-show-people',
   templateUrl: './show-people.component.html',
-  styleUrls: ['./show-people.component.scss']
+  styleUrls: ['./show-people.component.scss'],
+  providers: [PersonFilterPipe]
 })
 export class ShowPeopleComponent implements OnInit {
   filter: any = {};
-  constructor(public personService: PeopleService, public router: Router) {
+  constructor(public personService: PeopleService, public router: Router,
+    public personFilter: PersonFilterPipe) {
   }
   
   ngOnInit() {
