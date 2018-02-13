@@ -1,3 +1,25 @@
-<p>
-  graph works!
-</p>
+<div class="chart">
+  <canvas class="card" mdbChart 
+      [chartType]="chartType"
+      [datasets]="chartDatasets" 
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)" 
+      (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+<div class="chart">
+  <canvas class="card" mdbChart 
+      [chartType]="secondChartType"
+      [data]="chartData" 
+      [labels]="secondChartLabels"
+      [colors]="secondChartColors"
+      [options]="secondChartOptions"
+      [legend]="true"
+      (chartHover)="secondChartHovered($event)" 
+      (chartClick)="secondChartClicked($event)">
+  </canvas>
+
+</div>

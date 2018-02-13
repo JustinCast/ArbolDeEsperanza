@@ -8,7 +8,6 @@ import {
   MatButtonModule,
   MatExpansionModule, 
   MatDialogModule,
-  MatTableModule,
   MatFormFieldModule,
   MatRadioModule,
   MatSelectModule,
@@ -16,9 +15,10 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatAutocompleteModule
 } from '@angular/material';
-// import { registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 // import es from '@angular/common/locales/Es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -39,7 +39,11 @@ import { ShowPeopleComponent } from './show-people/show-people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
 import { PeopleComponent } from './people/people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
-
+import { LoginComponent } from './login/login.component';
+import {MatTableModule} from '@angular/material/table';
+import { ShowDetailsComponent } from './show-details/show-details.component';
+import {  } from "./show-people/";
+// import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -57,6 +61,9 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     ShowPeopleComponent,
     AddPeopleComponent,
     EditPersonComponent,
+    LoginComponent,
+    // PersonFilterPipe,
+    ShowDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +85,8 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule,
   ],
   providers: [
     PeopleService

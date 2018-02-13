@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PeopleService } from './people.service';
-import { MatDialog } from '@angular/material';
-import { HouseMembersComponent } from '../house-members/house-members.component';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { Person } from '../models/Person';
 @Component({
-  selector: 'app-person',
+  selector: 'app-show-people',
   templateUrl: './show-people.component.html',
   styleUrls: ['./show-people.component.scss']
 })
 export class ShowPeopleComponent implements OnInit {
-
-  constructor(public personService: PeopleService, public dialog: MatDialog, public router: Router) { }
-  collapse: Array<boolean> = new Array()
+  filter: any = {};
+  constructor(public personService: PeopleService, public router: Router) {
+  }
+  
+  
+  // onKey(value: string) {
+  //   this.personFilter.transform(this.personService.people, this.filter)
+  // }
   ngOnInit() {
     this.personService.getPersonsRequest()
     .subscribe(
@@ -33,16 +36,9 @@ export class ShowPeopleComponent implements OnInit {
     )
   }
 
-  changeCollapse(index){
-    this.collapse[index] = !this.collapse[index]
-  }
-
-  openHouseMembersDialog(members: Array<any>): void {
-    let dialogRef = this.dialog.open(HouseMembersComponent, {
-      width: '80%',
-      data: members
-    });
-
+  onViewDetails(index){
+    this.personService.personToViewDetails = this.personService.people[index]
+    this.router.navigate(['/show-details'])
   }
 
   onEditPerson(index) {

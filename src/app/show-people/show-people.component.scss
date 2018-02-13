@@ -1,5 +1,5 @@
 h2{
-    margin-top: 5%;
+    margin-top: 0;
 }
 #people{
     padding: 0;
@@ -18,4 +18,15 @@ h2{
 }
 ng-template{
     margin-bottom: 1%
+}
+#search-form{
+    width: 100%;
+    text-align: center
+}
+mat-form-field{
+    width: 35%;
+}
+#search-container{
+    width: 50%;
+    margin: auto
 }

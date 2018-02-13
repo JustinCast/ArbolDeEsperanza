@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
+import { stringify } from 'querystring';
 @Injectable()
 export class PeopleService {
   people: Array<Person>
   personToEdit: Person
+  personToViewDetails: Person
   constructor(private _http: HttpClient) { }
 
   getPersonsRequest(): any {
-    return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
+    return this._http.get<Person[]>('person/getAllPersons')
   }
 
   savePerson(person: Person) {
-    this._http.post(`${environment.SERVER_BASE_URL}person/create`, person)
+    this._http.post('person/create', person)
       .subscribe(
         success => {
           console.log(success)
@@ -25,7 +27,7 @@ export class PeopleService {
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+            console.log(`Backend returned code ${err.status}, body was: ${stringify(err.error)}`);
           }
         }
       )
@@ -34,7 +36,7 @@ export class PeopleService {
   updatePerson(person: Person) {
     //let params = new HttpParams().set('personId', person._id);
     console.log(person)
-    this._http.put(`${environment.SERVER_BASE_URL}person/update/${person._id}`, person)
+    this._http.put(`person/update/${person._id}`, person)
       .subscribe(
         success => {
           console.log('Persona actualizada con éxito')
