@@ -7,12 +7,12 @@ import { Person } from '../models/Person';
     pure: false
 })
 export class PersonFilterPipe implements PipeTransform {
-  transform(items: Person[], filter: Person): Person[] {
+  transform(items: Person[], filter: string): Person[] {
     if (!items || !filter) {
       return items;
     }
     // filter items array, items which match and return true will be kept, false will be filtered out
-    return items.filter((item: Person) => this.applyFilter(item, filter));
+    return items.filter((item: any) => this.applyFilter(item, filter));
   }
   
   /**
@@ -22,7 +22,7 @@ export class PersonFilterPipe implements PipeTransform {
    * @param {Person} filter The filter to apply.
    * @return {Person} True if person satisfies filters, false if not.
    */
-  applyFilter(person: Person, filter: Person): boolean {
+  applyFilter(person: Person, filter: any): boolean {
     for (let field in filter) {
       if (filter[field]) {
         if (typeof filter[field] === 'string') {

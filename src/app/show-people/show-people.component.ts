@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PeopleService } from './people.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -16,6 +16,10 @@ export class ShowPeopleComponent implements OnInit {
     public personFilter: PersonFilterPipe) {
   }
   
+  
+  onKey(value: string) {
+    this.personFilter.transform(this.personService.people, this.filter)
+  }
   ngOnInit() {
     this.personService.getPersonsRequest()
     .subscribe(

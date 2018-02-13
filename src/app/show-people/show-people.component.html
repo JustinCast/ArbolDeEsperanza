@@ -1,5 +1,5 @@
 <mat-form-field class="example-full-width">
-  <input type="text" matInput placeholder="Buscar por nombre" [(ngModel)]="filter.Name">
+  <input #n type="text" matInput placeholder="Buscar por nombre" (keyup)="onKey(n.value)">
 </mat-form-field>
 <table class="table">
   <thead>
@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of personService.people | personFilter:filter; let i = index">
+    <tr *ngFor="let p of personService.people let i = index">
       <th>{{i+1}}</th>
       <th scope="row">{{p.EntryDate | date:'fullDate'}}</th>
       <td>{{p.Name}}</td>
