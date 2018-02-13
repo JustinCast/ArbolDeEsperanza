@@ -43,7 +43,7 @@ import { LoginComponent } from './login/login.component';
 import {MatTableModule} from '@angular/material/table';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import {  } from "./show-people/";
-import { PersonFilterPipe } from './show-people/person-filter';
+// import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { PersonFilterPipe } from './show-people/person-filter';
     AddPeopleComponent,
     EditPersonComponent,
     LoginComponent,
-    PersonFilterPipe,
+    // PersonFilterPipe,
     ShowDetailsComponent
   ],
   imports: [
