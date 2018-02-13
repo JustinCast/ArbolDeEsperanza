@@ -1,6 +1,7 @@
-<mat-form-field class="example-full-width">
-  <input type="text" matInput placeholder="Buscar por nombre">
-</mat-form-field>
+<div id="search-container" class="md-form text-center">
+  <input mdbActive type="text" id="form1" class="form-control">
+  <label for="form1" class="">Buscar por nombre</label>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -28,7 +29,7 @@
           <button type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbRippleRadius></button>
           <div class="dropdown-menu">
             <a class="dropdown-item" (click)="onEditPerson(i)">Editar</a>
-            <a class="dropdown-item">Ver Detalles</a>
+            <a class="dropdown-item" (click)="onViewDetails(i)">Ver Detalles</a>
           </div>
         </div>   
       </td>
