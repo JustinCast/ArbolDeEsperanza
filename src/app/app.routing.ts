@@ -10,6 +10,7 @@ import { PeopleComponent } from './people/people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
+import { ShowDetailsComponent } from './show-details/show-details.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -22,6 +23,7 @@ export const ROUTES: Routes = [
             ]
     },
     {path: 'graph', component: GraphComponent},
+    {path: 'show-details', component: ShowDetailsComponent},
     {path: 'about', component: AboutComponent},
     {
         path: 'admin', component: AdminComponent
