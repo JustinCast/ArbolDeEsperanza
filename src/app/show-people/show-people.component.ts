@@ -9,6 +9,7 @@ import { Person } from '../models/Person';
   styleUrls: ['./show-people.component.scss']
 })
 export class ShowPeopleComponent implements OnInit {
+  filter: any = {};
   constructor(public personService: PeopleService, public router: Router) {
   }
   
