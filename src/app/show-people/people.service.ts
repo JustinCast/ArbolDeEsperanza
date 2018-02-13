@@ -7,6 +7,7 @@ import { stringify } from 'querystring';
 export class PeopleService {
   people: Array<Person>
   personToEdit: Person
+  personToViewDetails: Person
   constructor(private _http: HttpClient) { }
 
   getPersonsRequest(): any {

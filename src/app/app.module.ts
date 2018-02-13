@@ -18,7 +18,7 @@ import {
   MatIconModule,
   MatAutocompleteModule
 } from '@angular/material';
-// import { registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 // import es from '@angular/common/locales/Es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -42,6 +42,7 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { SearchFilterPipe } from "./show-people/SearchFilterPipe";
 import {MatTableModule} from '@angular/material/table';
+import { ShowDetailsComponent } from './show-details/show-details.component';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MatTableModule} from '@angular/material/table';
     AddPeopleComponent,
     EditPersonComponent,
     LoginComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ShowDetailsComponent
   ],
   imports: [
     BrowserModule,
