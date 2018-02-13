@@ -21,17 +21,12 @@
       <td>{{p.Nationality}}</td>
       <td>{{p.PhoneNumber}}</td>
       <td>
-        <!-- Split button -->
-        <div class="btn-group" dropdown>
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">more_vert</mat-icon>
-          </button>
-          <button type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbRippleRadius></button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" (click)="onEditPerson(i)">Editar</a>
-            <a class="dropdown-item" (click)="onViewDetails(i)">Ver Detalles</a>
-          </div>
-        </div>   
+        <mat-form-field>
+          <mat-select placeholder="Acciones">
+            <mat-option (click)="onEditPerson(i)">Editar</mat-option>
+            <mat-option (click)="onViewDetails(i)">Ver Detalles</mat-option>
+          </mat-select>
+        </mat-form-field>  
       </td>
     </tr>
 </table>
