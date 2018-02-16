@@ -1,5 +1,5 @@
-<div class="container">
-  <h6 class="text-secondary text-centergit a"><strong>{{p.Name}}</strong></h6>
+<div class="container text-center">
+  <h6 class="text-secondary text-center"><strong>{{p.Name}}</strong></h6>
   <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate': '': 'es'}}</p>
   <p><strong>Edad:</strong> {{p.Age}}</p>
   <p><strong>Fecha de nacimiento:</strong> {{p.BornDate | date: 'fullDate': '': 'es'}}</p>
@@ -16,6 +16,7 @@
   </div>
   <!---->
   <p><strong>Tipo de seguro:</strong> {{p.SocialSecurityType}}</p>
+  <p><strong>Estado Civil:</strong> {{p.CivilStatus}}</p>
   <p><strong>Educación:</strong> {{p.Education}}</p>
   <p><strong>Nacionalidad:</strong> {{p.Nationality}}</p>
   <p><strong>Número de teléfono:</strong> {{p.PhoneNumber}}</p>
@@ -158,7 +159,7 @@
   </div>
   <!---->
   <div class="bottom-margin" *ngIf="p.WorkingHours !== 0"><strong>Horas trabajadas:</strong>
-    {{p.WorkingHours}}}
+    {{p.WorkingHours}}
   </div>
   <!---->
   <div class="bottom-margin" *ngIf="p.UnemployedDate !== ''"><strong>Desempleada desde:</strong>
