@@ -42,7 +42,7 @@ export class ShowPeopleComponent implements OnInit {
   }
 
   onEditPerson(index) {
-    this.personService.personToEdit = this.personService.people[index]
-    this.router.navigate(['people/edit-person'])
+    localStorage.setItem('editPerson', JSON.stringify(this.personService.people[index]));     
+    this.router.navigate(['/edit-person'])
   }
 }

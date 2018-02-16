@@ -18,10 +18,10 @@ export const ROUTES: Routes = [
         path: 'people', component: PeopleComponent,
             children: [
                 { path: 'show-people', component: ShowPeopleComponent },
-                { path: 'add-person', component: AddPeopleComponent },
-                { path: 'edit-person', component: EditPersonComponent}
             ]
     },
+    { path: 'add-person', component: AddPeopleComponent },
+    { path: 'edit-person', component: EditPersonComponent },
     {path: 'graph', component: GraphComponent},
     {path: 'show-details', component: ShowDetailsComponent},
     {path: 'about', component: AboutComponent},

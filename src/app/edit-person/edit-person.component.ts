@@ -112,7 +112,6 @@ export class EditPersonComponent implements OnInit {
 
   ngOnInit() {
     this.person = this.peopleService.personToEdit
-    console.log(this.person)
   }
 
   addSupportInstitution(institution: string) {
