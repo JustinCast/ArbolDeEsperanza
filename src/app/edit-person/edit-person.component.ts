@@ -111,7 +111,7 @@ export class EditPersonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.person = this.peopleService.personToEdit
+    this.person = JSON.parse(localStorage.getItem('editPerson'))
   }
 
   addSupportInstitution(institution: string) {

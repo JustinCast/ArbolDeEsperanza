@@ -16,7 +16,8 @@ import {
   MatNativeDateModule,
   MatListModule,
   MatIconModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatMenuModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 // import es from '@angular/common/locales/Es';
@@ -87,6 +88,7 @@ import {  } from "./show-people/";
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
+    MatMenuModule
   ],
   providers: [
     PeopleService
