@@ -18,7 +18,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Condición de la casa" [formControl]="editForm.get('houseCondition')" [(ngModel)]="person.MaritalStatus">
+    <mat-select placeholder="Estado civil" [formControl]="editForm.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
       <mat-option *ngFor="let mS of mStatus" [value]="mS">
         {{ mS }}
       </mat-option>

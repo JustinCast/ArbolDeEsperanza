@@ -55,6 +55,11 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "Universidad completa",
     "Ninguno"
   ]
+  mStatus = [
+    "Soltera",
+    "Unión Libre",
+    "Casada"
+  ]
   houseHolding = [
     "Alquilada",
     "Propia",

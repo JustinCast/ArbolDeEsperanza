@@ -57,6 +57,11 @@ export class EditPersonComponent implements OnInit {
     "Prestada",
     "Ocupada ilegalmente"
   ]
+  mStatus = [
+    "Soltera",
+    "Unión Libre",
+    "Casada"
+  ]
   houseCondition = [
     "En buenas condiciones",
     "Parcialmente en buenas condiciones",
@@ -73,6 +78,7 @@ export class EditPersonComponent implements OnInit {
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'bornDate': [moment(), Validators.required],
+      'maritalStatus': ['', Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
       'socialSecurity': ['', Validators.required],

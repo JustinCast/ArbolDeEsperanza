@@ -17,6 +17,14 @@
     <mat-datepicker #bornDateDP></mat-datepicker>
   </mat-form-field>
   <br>
+  <mat-form-field>
+    <mat-select placeholder="Estado civil" [formControl]="personGroupt.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
+      <mat-option *ngFor="let mS of mStatus" [value]="mS">
+        {{ mS }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
   <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
     <p>Estado en la fundación</p>
     <mat-radio-button value="true">Activo</mat-radio-button>
