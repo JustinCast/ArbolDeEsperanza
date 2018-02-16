@@ -10,7 +10,7 @@ const PersonSchema = new Schema({
         default: '',
         required: true
     },
-    CivilStatus: {
+    MaritalStatus: {
         type: String,
         default: '',
         required: true
