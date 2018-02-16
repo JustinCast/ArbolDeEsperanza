@@ -10,6 +10,11 @@ const PersonSchema = new Schema({
         default: '',
         required: true
     },
+    CivilStatus: {
+        type: String,
+        default: '',
+        required: true
+    },
     EntryDate: {
         type: Date,
         default: Date.now(),
