@@ -5,6 +5,7 @@ export class Person {
         public Name: string,
         public EntryDate: Date,
         public ActiveOrInactive: boolean,
+        public MaritalStatus: string,
         public Age: number,
         public BornDate: Date,
         public Read: boolean,

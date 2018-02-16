@@ -17,6 +17,14 @@
     <mat-datepicker #bornDateDP></mat-datepicker>
   </mat-form-field>
   <br>
+  <mat-form-field>
+    <mat-select placeholder="Condición de la casa" [formControl]="editForm.get('houseCondition')" [(ngModel)]="person.MaritalStatus">
+      <mat-option *ngFor="let mS of mStatus" [value]="mS">
+        {{ mS }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
   <mat-radio-group [formControl]="editForm.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
     <p>Estado en la fundación</p>
     <mat-radio-button [checked]="person.ActiveOrInactive === true" value="true">Activo</mat-radio-button>
