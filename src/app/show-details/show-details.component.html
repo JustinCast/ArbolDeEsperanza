@@ -1,8 +1,8 @@
 <div class="container text-center">
   <h6 class="text-secondary text-center"><strong>{{p.Name}}</strong></h6>
-  <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate': '': 'es'}}</p>
+  <p><strong>Fecha de ingreso a la fundación:</strong> {{p.EntryDate | date: 'fullDate'}}</p>
   <p><strong>Edad:</strong> {{p.Age}}</p>
-  <p><strong>Fecha de nacimiento:</strong> {{p.BornDate | date: 'fullDate': '': 'es'}}</p>
+  <p><strong>Fecha de nacimiento:</strong> {{p.BornDate | date: 'fullDate'}}</p>
     <!---->
   <div class="bottom-margin" *ngIf="p.SocialSecurity; else noSS">
     <strong>Seguro social:</strong> 

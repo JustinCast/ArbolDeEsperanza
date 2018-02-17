@@ -20,7 +20,7 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
-import es from '@angular/common/locales/es';
+// import es from '@angular/common/locales/es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -45,7 +45,7 @@ import {MatTableModule} from '@angular/material/table';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import {  } from "./show-people/";
 // import { PersonFilterPipe } from './show-people/person-filter';
-registerLocaleData(es, 'Es');
+// registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +92,7 @@ registerLocaleData(es, 'Es');
   ],
   providers: [
     PeopleService,
-    { provide: LOCALE_ID, useValue: 'es' }
+    // { provide: LOCALE_ID, useValue: 'es' }
   ],
   entryComponents: [
     HouseMembersComponent
