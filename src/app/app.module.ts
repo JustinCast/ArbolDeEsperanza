@@ -20,6 +20,7 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import es from '@angular/common/locales/es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -88,7 +89,8 @@ import {  } from "./show-people/";
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxPaginationModule
   ],
   providers: [
     PeopleService,
