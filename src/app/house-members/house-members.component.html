@@ -17,7 +17,7 @@
       <td>{{m.age}}</td>
       <td>{{m.clientRelationship}}</td>
       <td>{{m.occupation}}</td>
-      <td *ngIf="m.organizationState; else inactive">
+      <td *ngIf="m.organizationState === true; else inactive">
         Activo
       </td>
       <div>
