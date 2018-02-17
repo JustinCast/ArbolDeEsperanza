@@ -11,6 +11,7 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { ShowDetailsComponent } from './show-details/show-details.component';
+import { LogguedInGuard } from './auth/loggued-in.guard';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -26,7 +27,7 @@ export const ROUTES: Routes = [
     {path: 'show-details', component: ShowDetailsComponent},
     {path: 'about', component: AboutComponent},
     {
-        path: 'admin', component: AdminComponent
+        path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard]
     },
     {path: 'settings', component: SettingsComponent},
     {path: '', component: LoginComponent, pathMatch: 'full'},
