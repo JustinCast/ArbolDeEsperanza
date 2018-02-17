@@ -126,6 +126,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       String(this.person.name),
       new Date(this.person.entryDate),
       (this.person.activeOrInactive === "true"),
+      this.person.maritalStatus,
       this.calculateAge(this.person.bornDate.year()),
       new Date(this.person.bornDate),
       (this.person.read === "true"),
