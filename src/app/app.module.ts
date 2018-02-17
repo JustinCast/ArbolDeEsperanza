@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +20,7 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
-import * as es from '@angular/common/locales/Es';
+import es from '@angular/common/locales/es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -91,7 +91,8 @@ registerLocaleData(es, 'Es');
     MatMenuModule
   ],
   providers: [
-    PeopleService
+    PeopleService,
+    { provide: LOCALE_ID, useValue: 'es' }
   ],
   entryComponents: [
     HouseMembersComponent
