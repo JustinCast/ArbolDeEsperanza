@@ -20,7 +20,7 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
-import es from '@angular/common/locales/Es';
+import * as es from '@angular/common/locales/Es';
 import 'hammerjs';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";

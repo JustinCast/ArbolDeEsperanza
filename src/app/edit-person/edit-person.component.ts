@@ -167,7 +167,10 @@ export class EditPersonComponent implements OnInit {
   }
 
   updatePerson() {
-    this.peopleService.updatePerson(this.person)
+    let confirmation = confirm("Press a button!")
+    if(confirmation) {
+      this.peopleService.updatePerson(this.person)
+    }
   }
 
 }
