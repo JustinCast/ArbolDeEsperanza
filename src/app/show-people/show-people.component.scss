@@ -30,3 +30,8 @@ mat-form-field{
     width: 50%;
     margin: auto
 }
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #3F51B5;
+}.my-pagination > * {
+    padding: 0
+}

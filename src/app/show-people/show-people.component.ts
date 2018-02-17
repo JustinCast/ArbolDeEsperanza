@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { PeopleService } from './people.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -8,15 +8,11 @@ import { Person } from '../models/Person';
   templateUrl: './show-people.component.html',
   styleUrls: ['./show-people.component.scss']
 })
-export class ShowPeopleComponent implements OnInit {
+export class ShowPeopleComponent implements OnInit, AfterViewInit {
   filter: any = {};
   constructor(public personService: PeopleService, public router: Router) {
   }
-  
-  
-  // onKey(value: string) {
-  //   this.personFilter.transform(this.personService.people, this.filter)
-  // }
+
   ngOnInit() {
     this.personService.getPersonsRequest()
     .subscribe(
@@ -34,6 +30,18 @@ export class ShowPeopleComponent implements OnInit {
         }
       }
     )
+  }
+
+  ngAfterViewInit() {
+    /**
+     * lo siguiente es necesario para quitar el padding por defecto que trae la libreria para paginació
+     */ 
+    let style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = '.zero-padding { padding: 0; }';
+    document.getElementsByTagName('head')[0].appendChild(style);
+    let ul = document.getElementsByClassName("ngx-pagination")
+    ul[0].classList.add('zero-padding')
   }
 
   onViewDetails(index){

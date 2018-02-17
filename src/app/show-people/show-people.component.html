@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of personService.people let i = index">
+    <tr *ngFor="let p of personService.people | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
       <th>{{i+1}}</th>
       <th scope="row">{{p.EntryDate | date:'fullDate'}}</th>
       <td>{{p.Name}}</td>
@@ -30,3 +30,5 @@
       </td>
     </tr>
 </table>
+
+<pagination-controls class="my-pagination" style="text-align: center;" (pageChange)="p=$event"></pagination-controls>
