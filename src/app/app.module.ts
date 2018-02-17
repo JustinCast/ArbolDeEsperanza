@@ -45,6 +45,9 @@ import { LoginComponent } from './login/login.component';
 import {MatTableModule} from '@angular/material/table';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import {  } from "./show-people/";
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { LogguedInGuard } from './auth/loggued-in.guard';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -65,7 +68,8 @@ import {  } from "./show-people/";
     EditPersonComponent,
     LoginComponent,
     // PersonFilterPipe,
-    ShowDetailsComponent
+    ShowDetailsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -94,10 +98,13 @@ import {  } from "./show-people/";
   ],
   providers: [
     PeopleService,
+    AuthService,
+    LogguedInGuard
     // { provide: LOCALE_ID, useValue: 'es' }
   ],
   entryComponents: [
-    HouseMembersComponent
+    HouseMembersComponent,
+    AuthComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
