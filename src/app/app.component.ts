@@ -14,7 +14,7 @@ export class AppComponent {
     public router: Router
   ){}
 
-  openDialog(): void {
+  loginDialog(): void {
     if(this._authentication.isLoggedIn()){
       this.router.navigate(['admin'])
       return

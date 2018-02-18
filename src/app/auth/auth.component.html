@@ -1,24 +1,24 @@
 <div id="auth-dialog" class="card container">
   <h3>Autenticación</h3>
-  <small>Solamente los usuarios autorizados por <strong>Justin Castillo</strong> pueden ingresar</small>
   <form [formGroup]="myForm" *ngIf="!authentication.getUser()">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Clave usuario" 
+      <input matInput placeholder="Nombre usuario" 
       [formControl]="myForm.controls['userNameFormControl']"  #username>
       <mat-error *ngIf="myForm.controls['userNameFormControl'].hasError('required')">
         Este campo es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput type="password" placeholder="Contraseña" 
-      [formControl]="myForm.controls['passwordFormControl']" #password>
-      <mat-error *ngIf="myForm.controls['passwordFormControl'].hasError('required')">
+    <div style="margin-top: 2%;" class="md-form">
+      <input mdbActive [formControl]="myForm.controls['passwordFormControl']" 
+      type="password" id="passwordInput" class="form-control"  #username>
+      <label for="passwordInput" class="">Contraseña</label>
+      <!-- <mat-error *ngIf="myForm.controls['passwordFormControl'].hasError('required')">
         Este campo es <strong>requerido</strong>
-      </mat-error>
-    </mat-form-field>
+      </mat-error> -->
+    </div>
     <div>
       <button type="submit" id="login-btn" mat-button color="primary" [routerLink]="['/admin']" 
-      (click)="login(username.value, password.value)">
+      (click)="login(username.value, password.value)" [disabled]="!myForm.valid">
         Ingresar
       </button>
     </div>

@@ -49,6 +49,7 @@ import {  } from "./show-people/";
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { LogguedInGuard } from './auth/loggued-in.guard';
+import { AUTH_PROVIDERS } from './auth/authentication.service';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -101,7 +102,8 @@ import { LogguedInGuard } from './auth/loggued-in.guard';
   providers: [
     PeopleService,
     AuthService,
-    LogguedInGuard
+    LogguedInGuard,
+    AUTH_PROVIDERS
     // { provide: LOCALE_ID, useValue: 'es' }
   ],
   entryComponents: [

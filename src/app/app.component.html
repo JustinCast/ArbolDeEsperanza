@@ -24,15 +24,15 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button mat-menu-item (click)="loginDialog()">
                     <mat-icon>markunread_mailbox</mat-icon>
                     <span>Administrar Personas</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="loginDialog()">
                     <mat-icon>group_add</mat-icon>
                     <span>Agregar un editor</span>
                 </button>
-                <button mat-menu-item>
+                <button  *ngIf="_authentication.getUser()" (click)="logout()" mat-menu-item>
                     <mat-icon>keyboard_backspace</mat-icon>
                     <span>Salir</span>
                 </button>
