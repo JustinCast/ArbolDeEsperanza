@@ -12,8 +12,10 @@ export class AuthenticationService {
     this._http.get<any>(`person/admin/getAdmin/${username}/${password}`)
       .subscribe(
         success => {
-          if(success.isMatch === true)
+          if(success.isMatch === true){
             authorization = true
+            localStorage.setItem('username', username)
+          }
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
