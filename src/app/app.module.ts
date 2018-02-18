@@ -17,7 +17,8 @@ import {
   MatListModule,
   MatIconModule,
   MatAutocompleteModule,
-  MatMenuModule
+  MatMenuModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -94,7 +95,8 @@ import { LogguedInGuard } from './auth/loggued-in.guard';
     MatIconModule,
     MatAutocompleteModule,
     MatMenuModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule
   ],
   providers: [
     PeopleService,
