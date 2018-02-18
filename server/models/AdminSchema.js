@@ -1,9 +1,8 @@
 'use strict'
 const mongoose = require('mongoose'),
 Schema = mongoose.Schema,
-bcrypt = require(bcrypt),
+bcrypt = require('bcrypt'),
 SALT_WORK_FACTOR = 10;
-const Schema = mongoose.Schema
 
 const AdminSchema = new Schema({
     Name: {
