@@ -64,3 +64,10 @@ function deleteAdmin(req, res) {
             })
     })
 }
+
+module.exports = {
+    getAdmin,
+    saveAdmin,
+    updateAdmin,
+    deleteAdmin
+}
