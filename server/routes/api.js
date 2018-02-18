@@ -11,9 +11,9 @@ api.post('/create', PersonCtrl.savePerson) // METODO POST
 api.put('/update/:personId', PersonCtrl.updatePerson) // METODO PUT
 api.delete('/delete/:personId', PersonCtrl.deletePerson) // METODO DELETE
 // admin endpoints
-api.get('/getAdmin', AdminCtrl.getAdmin) // METODO GET
-api.get('/getByUserName', AdminCtrl.getByUsername) // METODO GET
-api.post('/createAdmin', AdminCtrl.saveAdmin) // METODO POST
-api.put('/updateAdmin/:adminId', AdminCtrl.updateAdmin) // METODO PUT
-api.delete('/deleteAdmin/:admin', AdminCtrl.deleteAdmin) // METODO DELETE
+api.get('/admin/getAdmin', AdminCtrl.getAdmin) // METODO GET
+api.get('/admin/getByUserName/:username', AdminCtrl.getByUsername) // METODO GET
+api.post('/admin/createAdmin', AdminCtrl.saveAdmin) // METODO POST
+api.put('/admin/updateAdmin/:adminId', AdminCtrl.updateAdmin) // METODO PUT
+api.delete('/admin/deleteAdmin/:admin', AdminCtrl.deleteAdmin) // METODO DELETE
 module.exports = api

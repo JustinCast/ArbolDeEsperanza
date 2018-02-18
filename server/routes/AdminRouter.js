@@ -4,11 +4,11 @@ var bcrypt = require('bcrypt')
 
 function getByUsername(req, res) {
     let username = req.params.username
-    Admin.findOne({"UserName": username}, "UserName",(err, admin) => {
+    Admin.findOne({"UserName": username}, "Password",(err, admin) => {
         if(err)
             res.status(500).send({message: `Administrador no encontrado: ${err}`})
         else
-            res.status(200).send({username: admin.UserName})
+            res.status(200).send({password: admin.Password})
     })
 }
 
