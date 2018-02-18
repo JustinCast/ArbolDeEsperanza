@@ -12,6 +12,7 @@ api.put('/update/:personId', PersonCtrl.updatePerson) // METODO PUT
 api.delete('/delete/:personId', PersonCtrl.deletePerson) // METODO DELETE
 // admin endpoints
 api.get('/getAdmin', AdminCtrl.getAdmin) // METODO GET
+api.get('/getByUserName', AdminCtrl.getByUsername) // METODO GET
 api.post('/createAdmin', AdminCtrl.saveAdmin) // METODO POST
 api.put('/updateAdmin/:adminId', AdminCtrl.updateAdmin) // METODO PUT
 api.delete('/deleteAdmin/:admin', AdminCtrl.deleteAdmin) // METODO DELETE

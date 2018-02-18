@@ -1,6 +1,17 @@
 'use strict'
 var Admin = require('../models/AdminSchema')
 var bcrypt = require('bcrypt')
+
+function getByUsername(req, res) {
+    let username = req.params.username
+    Admin.findOne({"UserName": username}, "UserName",(err, admin) => {
+        if(err)
+            res.status(500).send({message: `Administrador no encontrado: ${err}`})
+        else
+            res.status(200).send({username: admin.UserName})
+    })
+}
+
 function getAdmin(req, res) {
     let adminId = req.params.adminId
     let adminPassword = req.params.adminPassword
@@ -67,6 +78,7 @@ function deleteAdmin(req, res) {
 
 module.exports = {
     getAdmin,
+    getByUsername,
     saveAdmin,
     updateAdmin,
     deleteAdmin
