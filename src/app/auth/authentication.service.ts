@@ -9,10 +9,10 @@ export class AuthenticationService {
 
   login(username: string, password: string): boolean {
     let authorization: boolean = false
-    this._http.get<string>(`person/admin/getAdminByUserName/${username}`)
+    this._http.get<any>(`person/admin/getAdmin/${username}/${password}`)
       .subscribe(
         success => {
-          if(password === success)
+          if(success.isMatch === true)
             authorization = true
         },
         (err: HttpErrorResponse) => {

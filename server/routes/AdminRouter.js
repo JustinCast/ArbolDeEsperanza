@@ -2,20 +2,10 @@
 var Admin = require('../models/AdminSchema')
 var bcrypt = require('bcrypt')
 
-function getByUsername(req, res) {
-    let username = req.params.username
-    Admin.findOne({"UserName": username}, "Password",(err, admin) => {
-        if(err)
-            res.status(500).send({message: `Administrador no encontrado: ${err}`})
-        else
-            res.status(200).send({password: admin.Password})
-    })
-}
-
 function getAdmin(req, res) {
-    let adminId = req.params.adminId
-    let adminPassword = req.params.adminPassword
-    Admin.findById(adminId, (err, admin)=> {
+    let username = req.params.username
+    let adminPassword = req.params.password
+    Admin.findOne({"UserName": username}, (err, admin)=> {
         if(err)
             res.status(500).send({message: `Administrador no encontrado: ${err}`})
         else{ 
@@ -24,7 +14,7 @@ function getAdmin(req, res) {
                     res.status(500).send({message: `Internal Server Error: ${err}`})
                 else{
                     if(isMatch)
-                        res.status(201).send({admin: admin})
+                        res.status(201).send({isMatch: isMatch})
                     else
                         res.status(401).send({message: `Credenciales incorrectas: ${err}`})    
                 }
@@ -78,7 +68,6 @@ function deleteAdmin(req, res) {
 
 module.exports = {
     getAdmin,
-    getByUsername,
     saveAdmin,
     updateAdmin,
     deleteAdmin
