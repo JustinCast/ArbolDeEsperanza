@@ -12,6 +12,7 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import { LogguedInGuard } from './auth/loggued-in.guard';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -23,13 +24,12 @@ export const ROUTES: Routes = [
     },
     { path: 'add-person', component: AddPeopleComponent },
     { path: 'edit-person', component: EditPersonComponent },
-    {path: 'graph', component: GraphComponent},
-    {path: 'show-details', component: ShowDetailsComponent},
-    {path: 'about', component: AboutComponent},
-    {
-        path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard]
-    },
-    {path: 'settings', component: SettingsComponent},
-    {path: '', component: LoginComponent, pathMatch: 'full'},
-    {path: '**', component: ErrorHandleComponent}
+    { path: 'graph', component: GraphComponent},
+    { path: 'show-details', component: ShowDetailsComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard] },
+    { path: 'add-admin', component: AddAdminComponent, canActivate: [LogguedInGuard]},
+    { path: 'settings', component: SettingsComponent },
+    { path: '', component: LoginComponent, pathMatch: 'full'},
+    { path: '**', component: ErrorHandleComponent }
 ]

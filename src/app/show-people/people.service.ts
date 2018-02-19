@@ -15,7 +15,7 @@ export class PeopleService {
   ) { }
 
   getPersonsRequest(): any {
-    return this._http.get<Person[]>('person/getAllPersons')
+    return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
   }
 
   savePerson(person: Person) {

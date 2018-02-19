@@ -1,4 +1,4 @@
-<div id="admin-people-container" class="container card">
+<div id="admin-people-container" class="container">
   <mat-list style="width: 100%; padding: 0; margin-bottom: 1%">
     <mat-list-item class="card" style="font-size: 15px; margin-top: 1%;" *ngFor="let p of _peopleService.people | paginate: { itemsPerPage: 10, currentPage: pag }; let index = index">
       <div>
