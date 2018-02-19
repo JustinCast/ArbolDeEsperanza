@@ -18,7 +18,8 @@ import {
   MatIconModule,
   MatAutocompleteModule,
   MatMenuModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatProgressBarModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -97,7 +98,8 @@ import { AUTH_PROVIDERS } from './auth/authentication.service';
     MatAutocompleteModule,
     MatMenuModule,
     NgxPaginationModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressBarModule
   ],
   providers: [
     PeopleService,

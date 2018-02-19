@@ -7,28 +7,8 @@ export class AuthenticationService {
   constructor(public _http: HttpClient) { 
   }
 
-  login(username: string, password: string): boolean {
-    let authorization: boolean = false
-    this._http.get<any>(`person/admin/getAdmin/${username}/${password}`)
-      .subscribe(
-        success => {
-          if(success.isMatch === true){
-            authorization = true
-            localStorage.setItem('username', username)
-          }
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // Error del lado del cliente
-            console.log('An error occurred:', err.error.message);
-          } else {
-            // The backend returned an unsuccessful response code.
-            // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`);
-          }
-        }
-      )
-    return authorization
+  login(username: string, password: string): any {
+    return this._http.get<any>(`person/admin/getAdmin/${username}/${password}`)
   }
 
   logout(): any {

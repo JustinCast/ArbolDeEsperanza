@@ -21,6 +21,7 @@
       (click)="login(username.value, password.value)" [disabled]="!myForm.valid">
         Ingresar
       </button>
+      <mat-progress-bar style="margin-top: 1%" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     </div>
   </form>
 </div>
