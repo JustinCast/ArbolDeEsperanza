@@ -55,7 +55,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
     .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this._peopleService.people[index].Name}`)
     .subscribe(result =>{
       console.log(result)
-      if(result) {  
+      if(result) {
+        this._peopleService.deletePerson(this._peopleService.people[index]._id)  
         this._peopleService.people.splice(index, 1)
         this.openSnackBar("Usuario eliminado", "Ok")
       }
