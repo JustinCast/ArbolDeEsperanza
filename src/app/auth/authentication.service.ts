@@ -24,7 +24,7 @@ export class AuthenticationService {
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${stringify(err.error)}`);
+            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`);
           }
         }
       )
