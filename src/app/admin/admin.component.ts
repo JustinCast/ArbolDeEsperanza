@@ -8,7 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
+  pag: any
   constructor(public _peopleService: PeopleService) { }
 
   ngOnInit() {
