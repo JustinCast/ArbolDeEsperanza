@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   constructor(public _peopleService: PeopleService) { }
 
   ngOnInit() {
-    if(this._peopleService.people.length === undefined){
+    if(this._peopleService.people === undefined){
       this._peopleService.getPersonsRequest()
       .subscribe(
         data => {
@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
           if (err.error instanceof Error) {
             // Error del lado del cliente
             console.log('An error occurred:', err.error.message);
-          } else {
+          }else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
             console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
