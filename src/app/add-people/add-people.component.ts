@@ -78,6 +78,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'bornDate': [moment(), Validators.required],
+      'maritalStatus': ['', Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
       'socialSecurity': ['', Validators.required],
