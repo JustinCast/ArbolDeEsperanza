@@ -31,6 +31,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.title = ""
     this.message = ""
+    localStorage.setItem('username', 'JustinCast') // AGREGADO SOLO PARA EFECTOS DE PRUEBA, ESTO SE DEBE REMOVER
     if(this.authentication.getUser){
       this.dialogRef.close()      
       this._router.navigate(['/admin'])

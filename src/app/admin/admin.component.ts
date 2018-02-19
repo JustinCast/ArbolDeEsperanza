@@ -50,9 +50,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
     }
   }
 
-  deleteProject(index: number) {
+  deletePerson(index: number) {
     this.yesOrNoDialog
-    .confirm('', '')
+    .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this._peopleService.people[index].Name}`)
     .subscribe(result =>{
       console.log(result)
       if(result) {  
