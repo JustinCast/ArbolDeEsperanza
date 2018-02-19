@@ -51,6 +51,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { LogguedInGuard } from './auth/loggued-in.guard';
 import { AUTH_PROVIDERS } from './auth/authentication.service';
+import { YesOrNoComponent } from './yes-or-no/yes-or-no.component';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -72,7 +73,8 @@ import { AUTH_PROVIDERS } from './auth/authentication.service';
     LoginComponent,
     // PersonFilterPipe,
     ShowDetailsComponent,
-    AuthComponent
+    AuthComponent,
+    YesOrNoComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +112,8 @@ import { AUTH_PROVIDERS } from './auth/authentication.service';
   ],
   entryComponents: [
     HouseMembersComponent,
-    AuthComponent
+    AuthComponent,
+    YesOrNoComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
