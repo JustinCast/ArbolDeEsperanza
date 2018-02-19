@@ -52,6 +52,7 @@ import { AuthService } from './auth/auth.service';
 import { LogguedInGuard } from './auth/loggued-in.guard';
 import { AUTH_PROVIDERS } from './auth/authentication.service';
 import { YesOrNoComponent } from './yes-or-no/yes-or-no.component';
+import { YesOrNoService } from './yes-or-no/yes-or-no.service';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -106,6 +107,7 @@ import { YesOrNoComponent } from './yes-or-no/yes-or-no.component';
   providers: [
     PeopleService,
     AuthService,
+    YesOrNoService,
     LogguedInGuard,
     AUTH_PROVIDERS
     // { provide: LOCALE_ID, useValue: 'es' }
