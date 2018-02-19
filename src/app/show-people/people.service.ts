@@ -3,12 +3,16 @@ import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http"
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
 import { stringify } from 'querystring';
+import { MatSnackBar } from '@angular/material';
 @Injectable()
 export class PeopleService {
   people: Array<Person>
   personToEdit: Person
   personToViewDetails: Person
-  constructor(private _http: HttpClient) { }
+  constructor(
+    private _http: HttpClient,
+    private snackBar: MatSnackBar
+  ) { }
 
   getPersonsRequest(): any {
     return this._http.get<Person[]>('person/getAllPersons')
@@ -62,6 +66,24 @@ export class PeopleService {
       }
     })
     return foundPerson
+  }
+
+  deletePerson(_id: string) {
+    this._http.delete(`person/delete/${_id}`)
+    .subscribe(
+      success => {
+        this.openSnackBar('Persona eliminada con éxito', 'Ok')
+      },
+      (err: HttpErrorResponse) => {
+        this.openSnackBar(``Persona no eliminada debido al error: ${err}`, 'Ok')
+      }
+    )
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }
