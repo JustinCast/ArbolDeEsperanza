@@ -1,3 +1,18 @@
-<p>
-  admin works!
-</p>
+<div class="container card">
+  <mat-list style="width: 100%; padding: 0; margin-bottom: 1%">
+    <mat-list-item class="card" style="font-size: 15px; margin-top: 1%;" *ngFor="let p of _peopleService.people | paginate: { itemsPerPage: 10, currentPage: pag }; let index = index">
+      <div>
+        <p>{{p.Name}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="openEditDialog(p, index)" color="primary">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="deleteProject(index)" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>
+<pagination-controls style="text-align: center; color: white; background: #424242" (pageChange)="pag = $event"></pagination-controls>"pag = $event"></pagination-controls>

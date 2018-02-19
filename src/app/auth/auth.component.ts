@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { AuthenticationService } from './authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
   public loading = false
   public title: string;
   public message: string;
@@ -19,7 +19,9 @@ export class AuthComponent implements OnInit {
     public dialogRef: MatDialogRef<AuthComponent>,
     public authentication: AuthenticationService,
     public snackBar: MatSnackBar,
-    formBuilder: FormBuilder) {
+    formBuilder: FormBuilder,
+    private _router: Router
+  ) {
       this.myForm = formBuilder.group({
         'userNameFormControl': [null, Validators.required],
         'passwordFormControl': [null, Validators.required]
@@ -29,6 +31,11 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.title = ""
     this.message = ""
+    if(this.authentication.getUser){
+      this.dialogRef.close()      
+      this._router.navigate(['/admin'])
+      this.ngOnDestroy()
+    }
   }
 
   login(username: string, password: string) {
@@ -72,4 +79,7 @@ export class AuthComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+
+  }
 }
