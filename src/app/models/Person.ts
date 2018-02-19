@@ -3,6 +3,7 @@ import { HouseMember } from "./HouseMember";
 export class Person {
     constructor(
         public Name: string,
+        public LastName: string,
         public EntryDate: Date,
         public ActiveOrInactive: boolean,
         public MaritalStatus: string,

@@ -14,7 +14,7 @@ export class ShowDetailsComponent implements OnInit {
   constructor(public personService: PeopleService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.p = this.personService.personToViewDetails
+    this.p = JSON.parse(localStorage.getItem('viewDetailsPerson'))
   }
 
   openHouseMembersDialog(members: Array<any>): void {

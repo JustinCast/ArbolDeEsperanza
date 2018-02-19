@@ -46,7 +46,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
   }
 
   onViewDetails(index){
-    this.personService.personToViewDetails = this.personService.people[index]
+    localStorage.setItem('viewDetailsPerson', JSON.stringify(this.personService.people[index]))    
     this.router.navigate(['/show-details'])
   }
 

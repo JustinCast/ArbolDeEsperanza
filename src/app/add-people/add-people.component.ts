@@ -75,6 +75,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   constructor(private _fb: FormBuilder, public peopleService: PeopleService) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
+      'lastName': ['', Validators.required],
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'bornDate': [moment(), Validators.required],
@@ -125,6 +126,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   onSubmit(formValue: any) {
     let createdPerson: Person = new Person(
       String(this.person.name),
+      String(this.person.lastName),
       new Date(this.person.entryDate),
       (this.person.activeOrInactive === "true"),
       this.person.maritalStatus,

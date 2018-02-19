@@ -10,6 +10,11 @@ const PersonSchema = new Schema({
         default: '',
         required: true
     },
+    LastName: {
+        type: String,
+        default: '',
+        required: true
+    },
     MaritalStatus: {
         type: String,
         default: '',

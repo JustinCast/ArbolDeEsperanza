@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Person } from '../models/Person';
 import { PeopleService } from '../show-people/people.service';
@@ -28,7 +28,7 @@ export const MY_FORMATS = {
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ]
 })
-export class EditPersonComponent implements OnInit {
+export class EditPersonComponent implements OnInit, OnDestroy {
   person: any
   panelOpenState: boolean = false
   editForm: FormGroup
@@ -75,6 +75,7 @@ export class EditPersonComponent implements OnInit {
   ) { 
     this.editForm = this._fb.group({
       'name': ['', Validators.required],
+      'lastName': ['', Validators.required],
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'bornDate': [moment(), Validators.required],
@@ -171,6 +172,9 @@ export class EditPersonComponent implements OnInit {
     if(confirmation) {
       this.peopleService.updatePerson(this.person)
     }
+  }
+
+  ngOnDestroy() {
   }
 
 }

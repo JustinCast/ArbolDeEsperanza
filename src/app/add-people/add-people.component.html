@@ -2,7 +2,12 @@
   <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
   <div class="md-form">
     <input [formControl]="personGroup.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
-    <label for="name" class="">Nombre y Apellidos</label>
+    <label for="name" class="">Nombre</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.lastName" mdbActive type="text" id="lastName" class="form-control">
+    <label for="lastName" class="">Apellidos</label>
   </div>
   <br>
   <mat-form-field>
