@@ -75,7 +75,7 @@ export class PeopleService {
         this.openSnackBar('Persona eliminada con éxito', 'Ok')
       },
       (err: HttpErrorResponse) => {
-        this.openSnackBar(``Persona no eliminada debido al error: ${err}`, 'Ok')
+        this.openSnackBar(`Persona no eliminada debido al error: ${err}`, 'Ok')
       }
     )
   }
