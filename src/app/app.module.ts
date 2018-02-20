@@ -37,7 +37,6 @@ import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
 import { PeopleService } from './show-people/people.service';
-import { ManageEditorComponent } from './manage-editor/manage-editor.component';
 import { HouseMembersComponent } from './house-members/house-members.component';
 import { ShowPeopleComponent } from './show-people/show-people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
@@ -53,7 +52,6 @@ import { LogguedInGuard } from './auth/loggued-in.guard';
 import { AUTH_PROVIDERS } from './auth/authentication.service';
 import { YesOrNoComponent } from './yes-or-no/yes-or-no.component';
 import { YesOrNoService } from './yes-or-no/yes-or-no.service';
-import { AddAdminComponent } from './add-admin/add-admin.component';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -66,7 +64,6 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
     GraphComponent,
     ErrorHandleComponent,
     SettingsComponent,
-    ManageEditorComponent,
     HouseMembersComponent,
     PeopleComponent,
     ShowPeopleComponent,
@@ -77,7 +74,6 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
     ShowDetailsComponent,
     AuthComponent,
     YesOrNoComponent,
-    AddAdminComponent
   ],
   imports: [
     BrowserModule,

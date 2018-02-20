@@ -80,49 +80,84 @@ const PersonSchema = new Schema({
         default: 'mail@mail.com',
         required: true
     },
-    Need_Doctor: {
-        type: Boolean,
-        required: true
+    Needs: {
+        Need_Doctor: {
+            type: Boolean,
+            required: true
+        },
+        Need_Ophthalmologist: {
+            type: Boolean,
+            required: true
+        },
+        Need_Mammography: {
+            type: Boolean,
+            required: true
+        },
+        Need_Dentist: {
+            type: Boolean,
+            required: true
+        },
+        Need_Gynecologist: {
+            type: Boolean,
+            required: true
+        },
+        Need_Psychologist: {
+            type: Boolean,
+            required: true
+        },
     },
-    Need_Ophthalmologist: {
-        type: Boolean,
-        required: true
-    },
-    Need_Mammography: {
-        type: Boolean,
-        required: true
-    },
-    Need_Dentist: {
-        type: Boolean,
-        required: true
-    },
-    Need_Gynecologist: {
-        type: Boolean,
-        required: true
-    },
-    Need_Psychologist: {
-        type: Boolean,
-        required: true
-    },
-    AbuseVictim: {
-        type: Boolean,
-        required: true
-    },
-    SuicideAttempt: {
-        type: Boolean,
-        required: true
-    },
-    SuicideToughts: {
-        type: Boolean,
-        required: true
-    },
-    DrugsProblem: {
-        type: Boolean,
-        required: true
-    },
-    AlcoholProblems: {
-        type: Boolean,
-        required: true
+    PsychoAndSocialInfo: {
+        AlcoholProblems: {
+            type: Boolean,
+            required: true
+        },
+        AbuseVictim: {
+            type: Boolean,
+            required: true
+        },
+        DomesticViolence: {
+            type: Boolean,
+            required: true
+        },
+        DrugsProblem: {
+            type: Boolean,
+            required: true
+        },
+        EducationalProgram{
+            type: Boolean,
+            required: true
+        },
+        MentalProgram: {
+            type: Boolean,
+            required: true
+        },
+        ProtectionOrder: {
+            type: Boolean,
+            required: true
+        },
+        SocialServices: {
+            type: Boolean,
+            required: true
+        },
+        SexualAbuse: {
+            type: Boolean,
+            required: true
+        },
+        SuicideAttempt: {
+            type: Boolean,
+            required: true
+        },
+        SuicideToughts: {
+            type: Boolean,
+            required: true
+        },WFSProgramGraduate: {
+            type: Boolean,
+            required: true
+        },
+        WorkSkillsProgram: {
+            type: Boolean,
+            required: true
+        }
     },
     TakeMedication: {
         type: Boolean,
