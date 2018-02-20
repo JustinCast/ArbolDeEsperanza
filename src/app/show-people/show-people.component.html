@@ -1,10 +1,19 @@
 <div id="search-container" class="md-form text-center">
-  <input mdbActive type="text" id="form1" class="form-control">
-  <label for="form1" class="">Buscar por nombre</label>
+  <mat-form-field style="margin-top: 1%">
+    <mat-select placeholder="Buscar por.." [(ngModel)]="selection">
+      <mat-option *ngFor="let s of selectionArray" [value]="s">
+        {{s}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>  
+  <div class="md-form" *ngIf="selection">
+    <input mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Ingrese..</label>
+  </div>
 </div>
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table text-center">
+    <thead class="t-header">
       <tr>
         <th>#</th>
         <th>F. Entrada</th>

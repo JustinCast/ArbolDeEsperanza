@@ -11,6 +11,13 @@ import { Person } from '../models/Person';
 export class ShowPeopleComponent implements OnInit, AfterViewInit {
   p: any
   filter: any = {};
+  selection: any
+  selectionArray = [
+    "Nombre",
+    "Apellidos",
+    "Nacionalidad",
+    "Número teléfono"
+  ]
   constructor(public personService: PeopleService, public router: Router) {
   }
 

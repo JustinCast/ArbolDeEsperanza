@@ -40,7 +40,7 @@ export class PeopleService {
   updatePerson(person: Person) {
     //let params = new HttpParams().set('personId', person._id);
     console.log(person)
-    this._http.put(`person/update/${person._id}`, person)
+    this._http.put(`${environment.SERVER_BASE_URL}person/update/${person._id}`, person)
       .subscribe(
         success => {
           console.log('Persona actualizada con éxito')
