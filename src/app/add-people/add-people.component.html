@@ -9,23 +9,23 @@
 <form class="text-center container" [formGroup]="personGroup">
   <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
   <div class="md-form">
-    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.name" mdbActive type="text" id="name" class="form-control">
+    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
     <label for="name" class="">Nombre</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.lastName" mdbActive type="text" id="lastName" class="form-control">
+    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.LastName" mdbActive type="text" id="lastName" class="form-control">
     <label for="lastName" class="">Apellidos</label>
   </div>
   <br>
   <mat-form-field>
-    <input matInput [(ngModel)]="person.entryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="personGroup.get('entryDate')">
+    <input matInput [(ngModel)]="person.EntryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="personGroup.get('entryDate')">
     <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
     <mat-datepicker #entryDateDP></mat-datepicker>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput [(ngModel)]="person.bornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="personGroup.get('bornDate')">
+    <input matInput [(ngModel)]="person.BornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="personGroup.get('bornDate')">
     <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
     <mat-datepicker #bornDateDP></mat-datepicker>
   </mat-form-field>
@@ -308,12 +308,12 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <div class="md-form" *ngIf="person.employnmentSituation === 'Empleada'">
+  <div class="md-form" *ngIf="person.MmploynmentSituation === 'Empleada'">
     <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.WorkingHours" mdbActive type="text" id="workingHours" class="form-control">
     <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
   </div>
   <br>
-  <div class="md-form" *ngIf="person.employnmentSituation === 'Desempleada'">
+  <div class="md-form" *ngIf="person.EmploynmentSituation === 'Desempleada'">
     <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.UnemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
     <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
   </div>
