@@ -51,7 +51,8 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Doctor === true;else no"><strong>Necesita Doctor:</strong>
+  <p class="text-center text-primary"><strong>Necesidades</strong></p>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Doctor === true;else no"><strong>Necesita Doctor:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -60,7 +61,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Ophthalmologist === true;else noOp"><strong>Necesita oftalmólogo:</strong>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Ophthalmologist === true;else noOp"><strong>Necesita oftalmólogo:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -69,7 +70,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Mammography === true;else noMam"><strong>Necesita mamografía:</strong>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Mammography === true;else noMam"><strong>Necesita mamografía:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -78,7 +79,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Dentist === true;else noDent"><strong>Necesita dentista:</strong>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Dentist === true;else noDent"><strong>Necesita dentista:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -87,7 +88,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Gynecologist === true;else noGine"><strong>Necesita ginecólogo:</strong>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Gynecologist === true;else noGine"><strong>Necesita ginecólogo:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -96,7 +97,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.Need_Psychologist === true;else noPyscho"><strong>Necesita psicólogo:</strong>
+  <div class="bottom-margin" *ngIf="p.Need.Need_Psychologist === true;else noPyscho"><strong>Necesita psicólogo:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -105,7 +106,8 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.AbuseVictim === true;else noAbuse"><strong>Ha sido víctima de abuso:</strong>
+  <p class="text-center text-primary"><strong>Situaciones Psicosociales</strong></p>
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.AbuseVictim === true;else noAbuse"><strong>Ha sido víctima de abuso:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -114,7 +116,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.SuicideAttempt === true;else noSuicideAt"><strong>Ha intentado suicidio:</strong>
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.SuicideAttempt === true;else noSuicideAt"><strong>Ha intentado suicidio:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -123,7 +125,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.SuicideToughts === true;else noSuicideT"><strong>Tiene pensamientos suicidas:</strong>
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.SuicideToughts === true;else noSuicideT"><strong>Tiene pensamientos suicidas:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -132,7 +134,7 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.DrugsProblem === true;else noDrugs"><strong>Tiene problemas de drogas:</strong>
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.DrugsProblem === true;else noDrugs"><strong>Tiene problemas de drogas:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
@@ -141,11 +143,83 @@
     </ng-template>
   </div>
   <!---->
-  <div class="bottom-margin" *ngIf="p.AlcoholProblems === true;else noAlcohol"><strong>Tiene problemas de alcohol:</strong>
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.AlcoholProblems === true;else noAlcohol"><strong>Tiene problemas de alcohol:</strong>
     <i class="fa fa-check text-success" aria-hidden="true"></i>
   </div>
   <div class="bottom-margin">
     <ng-template #noAlcohol><strong>Tiene problemas de alcohol:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.DomesticViolence === true;else noDomestic"><strong>Ha sufrido violencia doméstica:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noDomestic><strong>Ha sufrido violencia doméstica</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.EducationalProgram === true;else noEducational"><strong>Necesita Programa de Educación:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noEducational><strong>Necesita Programa de Educación:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.MentalProgram === true;else noMental"><strong>Necesita Programa de Salud Mental:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noMental><strong>Necesita Programa de Salud Mental:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.ProtectionOrder === true;else noProtection"><strong>Necesita Orden de Protección:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noProtection><strong>Necesita Orden de Protección:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.SocialServices === true;else noSocialS"><strong>Necesita Servicios Sociales:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noSocialS><strong>Necesita Servicios Sociales:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.SexualAbuse === true;else noSexualA"><strong>Ha sufrido abuso sexual:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noSexualA><strong>Ha sufrido abuso sexual:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.WFSProgramGraduate === true;else noWFS"><strong>Graduada del WFS Program:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noWFS><strong>Graduada del WFS Program:</strong> 
+      <i class="fa fa-times text-danger" aria-hidden="true"></i>
+    </ng-template>
+  </div>
+  <!---->
+  <div class="bottom-margin" *ngIf="p.PsychoSocial.WorkSkillsProgram === true;else noWorkSkills"><strong>Necesita Programa de Desarollo de Habilidades de Trabajo:</strong>
+    <i class="fa fa-check text-success" aria-hidden="true"></i>
+  </div>
+  <div class="bottom-margin">
+    <ng-template #noWorkSkills><strong>Necesita Programa de Desarollo de Habilidades de Trabajo:</strong> 
       <i class="fa fa-times text-danger" aria-hidden="true"></i>
     </ng-template>
   </div>
