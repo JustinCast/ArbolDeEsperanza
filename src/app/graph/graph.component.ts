@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
-
-  ngOnInit(): void {
-  }
   public chartType:string = 'bar';
   public secondChartType: string = 'doughnut'
   public chartData:Array<any> = [300, 50, 100, 40, 120];
@@ -49,6 +46,10 @@ export class GraphComponent implements OnInit {
     hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5","#616774"]
   }];
 
+  constructor(
+    private _location: Location
+  ) { }
+
   public chartOptions:any = { 
     responsive: true
   };
@@ -71,6 +72,15 @@ export class GraphComponent implements OnInit {
 
   public secondChartHovered(e: any): void { 
         
+  }
+
+  ngOnInit(): void {
+  }
+  backClicked() {
+    this._location.back();
+  }
+  forwardClicked() {
+    this._location.forward()
   }
 
 }

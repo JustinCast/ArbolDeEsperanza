@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Person } from '../models/Person';
 import { PeopleService } from '../show-people/people.service';
@@ -84,7 +85,8 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute, 
     public peopleService: PeopleService,
-    public _fb: FormBuilder
+    public _fb: FormBuilder,
+    private _location: Location
   ) { 
     this.editForm = this._fb.group({
       'name': ['', Validators.required],
@@ -142,6 +144,13 @@ export class EditPersonComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('editPerson'))
+  }
+
+  backClicked() {
+    this._location.back();
+  }
+  forwardClicked() {
+    this._location.forward()
   }
 
   addSupportInstitution(institution: string) {

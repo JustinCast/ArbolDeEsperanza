@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { PeopleService } from '../show-people/people.service';
 import { Person } from '../models/Person';
 import { MatDialog } from '@angular/material';
@@ -11,10 +12,21 @@ import { HouseMembersComponent } from '../house-members/house-members.component'
 })
 export class ShowDetailsComponent implements OnInit {
   p: Person
-  constructor(public personService: PeopleService, public dialog: MatDialog) { }
+  constructor(
+    public personService: PeopleService, 
+    public dialog: MatDialog,
+    private _location: Location
+  ) { }
 
   ngOnInit() {
     this.p = JSON.parse(localStorage.getItem('viewDetailsPerson'))
+  }
+
+  backClicked() {
+    this._location.back();
+  }
+  forwardClicked() {
+    this._location.forward()
   }
 
   openHouseMembersDialog(members: Array<any>): void {

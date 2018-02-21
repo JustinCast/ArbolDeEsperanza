@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import {Location} from '@angular/common';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Person } from '../models/Person';
 import { PeopleService } from '../show-people/people.service';
@@ -90,7 +91,11 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "En malas condiciones",
     "En muy malas condiciones"
   ]
-  constructor(private _fb: FormBuilder, public peopleService: PeopleService) { 
+  constructor(
+    private _fb: FormBuilder, 
+    public peopleService: PeopleService,
+    private _location: Location
+  ) { 
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
       'lastName': ['', Validators.required],
@@ -216,6 +221,13 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       "",
       this.houseMembers as HouseMember[]
     )
+  }
+
+  backClicked() {
+    this._location.back();
+  }
+  forwardClicked() {
+    this._location.forward()
   }
 
   ngAfterViewChecked() {

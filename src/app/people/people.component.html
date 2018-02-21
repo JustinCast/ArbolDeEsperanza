@@ -1,3 +1,11 @@
+<div style="margin-top: 2%" class="container">
+  <button class="btn danger-color btn-sm pull-left" (click)="backClicked()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </button>
+  <button class="btn success-color btn-sm pull-right" (click)="forwardClicked()">
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </button>
+</div>
 <h1 class="text-secondary text-center"><strong>Personas en la fundación</strong></h1>
 <div id="people-link-container" class="container text-center">
   <button mat-raised-button color="accent" routerLinkActive="active-link" [routerLink]="['/add-person']">Añadir <i class="material-icons">add</i></button>
