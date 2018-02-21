@@ -1,17 +1,17 @@
 export class PsychoSocial {
     constructor(
-        AlcoholProblems: boolean,
-        AbuseVictim: boolean,
-        DomesticViolence: boolean,
-        DrugsProblem: boolean,
-        EducationalProgram: boolean,
-        MentalProgram: boolean,
-        ProtectionOrder: boolean,
-        SocialServices: boolean,
-        SexualAbuse: boolean,
-        SuicideAttempt: boolean,
-        SuicideToughts: boolean,
-        WFSProgramGraduate: boolean,
-        WorkSkillsProgram: boolean
+        public AlcoholProblems: boolean,
+        public AbuseVictim: boolean,
+        public DomesticViolence: boolean,
+        public DrugsProblem: boolean,
+        public EducationalProgram: boolean,
+        public MentalProgram: boolean,
+        public ProtectionOrder: boolean,
+        public SocialServices: boolean,
+        public SexualAbuse: boolean,
+        public SuicideAttempt: boolean,
+        public SuicideToughts: boolean,
+        public WFSProgramGraduate: boolean,
+        public WorkSkillsProgram: boolean
     ) {}
 }

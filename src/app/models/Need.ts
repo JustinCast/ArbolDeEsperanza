@@ -1,10 +1,10 @@
 export class Need {
     constructor(
-        Need_Doctor: boolean,
-        Need_Ophthalmologist: boolean,
-        Need_Mammography: boolean,
-        Need_Dentist: boolean,
-        Need_Gynecologist: boolean,
-        Need_Psychologist: boolean
+        public Need_Doctor: boolean,
+        public Need_Ophthalmologist: boolean,
+        public Need_Mammography: boolean,
+        public Need_Dentist: boolean,
+        public Need_Gynecologist: boolean,
+        public Need_Psychologist: boolean
     ) {}
 }

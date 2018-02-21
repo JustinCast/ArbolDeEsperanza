@@ -23,7 +23,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Referida por.." [formControl]="personGroup.get('reference')" [(ngModel)]="person.Reference">
+    <mat-select placeholder="Referida por.." [formControl]="editForm.get('reference')" [(ngModel)]="person.Reference">
       <mat-option *ngFor="let ref of referecedBy" [value]="ref">
         {{ ref }}
       </mat-option>
@@ -31,7 +31,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Documentada" [formControl]="personGroup.get('documented')" [(ngModel)]="person.Documented">
+    <mat-select placeholder="Documentada" [formControl]="editForm.get('documented')" [(ngModel)]="person.Documented">
       <mat-option *ngFor="let doc of documentedI" [value]="doc">
         {{ doc }}
       </mat-option>
