@@ -88,7 +88,7 @@ const PersonSchema = new Schema({
         default: 'mail@mail.com',
         required: true
     },
-    Needs: {
+    Need: {
         Need_Doctor: {
             type: Boolean,
             required: true
@@ -114,7 +114,7 @@ const PersonSchema = new Schema({
             required: true
         },
     },
-    PsychoAndSocialInfo: {
+    PsychoSocial: {
         AlcoholProblems: {
             type: Boolean,
             required: true

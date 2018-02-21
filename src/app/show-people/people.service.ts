@@ -15,7 +15,8 @@ export class PeopleService {
   ) { }
 
   getPersonsRequest(): any {
-    return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
+    // `${environment.SERVER_BASE_URL}person/getAllPersons`
+    return this._http.get<Person[]>(`person/getAllPersons`)
   }
 
   savePerson(person: Person) {
@@ -39,8 +40,9 @@ export class PeopleService {
 
   updatePerson(person: Person) {
     //let params = new HttpParams().set('personId', person._id);
+    //`${environment.SERVER_BASE_URL}person/update/${person._id}`, person
     console.log(person)
-    this._http.put(`${environment.SERVER_BASE_URL}person/update/${person._id}`, person)
+    this._http.put(`person/update/${person._id}`, person)
       .subscribe(
         success => {
           console.log('Persona actualizada con éxito')
