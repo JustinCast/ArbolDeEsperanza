@@ -46,6 +46,17 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "Colombiano",
     "Otro"
   ]
+  referecedBy = [
+    "Gobierno",
+    "Organización no Gubernamental",
+    "Familia o Amigo",
+    "Anuncio"
+  ]
+  documentedI = [
+    "Si",
+    "No",
+    "N/A"
+  ]
   education = [
     "Primaria incompleta",
     "Primaria completa",
@@ -57,8 +68,10 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   ]
   mStatus = [
     "Soltera",
-    "Unión Libre",
-    "Casada"
+    "Casada",
+    "Divorciada",
+    "Viuda",
+    "Relación"
   ]
   houseHolding = [
     "Alquilada",
@@ -133,8 +146,10 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
 
   onSubmit(formValue: any) {
     let createdPerson: Person = new Person(
-      String(this.person.name),
-      String(this.person.lastName),
+      this.person.name,
+      this.person.lastName,
+      this.person.Reference,
+      this.person.Documented,
       new Date(this.person.entryDate),
       (this.person.activeOrInactive === "true"),
       this.person.maritalStatus,

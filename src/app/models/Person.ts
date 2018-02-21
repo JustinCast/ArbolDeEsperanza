@@ -6,6 +6,8 @@ export class Person {
     constructor(
         public Name: string,
         public LastName: string,
+        public Reference: string,
+        public Documented: string,
         public EntryDate: Date,
         public ActiveOrInactive: boolean,
         public MaritalStatus: string,

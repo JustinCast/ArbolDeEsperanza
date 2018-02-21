@@ -23,6 +23,22 @@
   </mat-form-field>
   <br>
   <mat-form-field>
+    <mat-select placeholder="Referida por.." [formControl]="personGroup.get('reference')" [(ngModel)]="person.Reference">
+      <mat-option *ngFor="let ref of referecedBy" [value]="ref">
+        {{ ref }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Documentada" [formControl]="personGroup.get('documented')" [(ngModel)]="person.Documented">
+      <mat-option *ngFor="let doc of documentedI" [value]="doc">
+        {{ doc }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
     <mat-select placeholder="Estado civil" [formControl]="personGroup.get('maritalStatus')" [(ngModel)]="person.maritalStatus">
       <mat-option *ngFor="let mS of mStatus" [value]="mS">
         {{ mS }}

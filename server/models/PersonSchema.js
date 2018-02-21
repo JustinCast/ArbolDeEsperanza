@@ -15,6 +15,14 @@ const PersonSchema = new Schema({
         default: '',
         required: true
     },
+    Reference: {
+        type: String,
+        required: true
+    },
+    Documented: {
+        type: String,
+        required: true
+    },
     MaritalStatus: {
         type: String,
         default: '',

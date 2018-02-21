@@ -42,6 +42,17 @@ export class EditPersonComponent implements OnInit, OnDestroy {
     "Colombiano",
     "Otro"
   ]
+  referecedBy = [
+    "Gobierno",
+    "Organización no Gubernamental",
+    "Familia o Amigo",
+    "Anuncio"
+  ]
+  documentedI = [
+    "Si",
+    "No",
+    "N/A"
+  ]
   education = [
     "Primaria incompleta",
     "Primaria completa",
@@ -59,8 +70,10 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   ]
   mStatus = [
     "Soltera",
-    "Unión Libre",
-    "Casada"
+    "Casada",
+    "Divorciada",
+    "Viuda",
+    "Relación"
   ]
   houseCondition = [
     "En buenas condiciones",
@@ -168,7 +181,7 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   }
 
   updatePerson() {
-    let confirmation = confirm("Press a button!")
+    let confirmation = confirm("¿Seguro que desea actualizar a la persona?")
     if(confirmation) {
       this.peopleService.updatePerson(this.person)
     }
