@@ -5,6 +5,9 @@ import { PeopleService } from '../show-people/people.service';
 import * as _moment from 'moment';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { Need } from '../models/Need';
+import { PsychoSocial } from '../models/PsychoSocial';
+import { HouseMember } from '../models/HouseMember';
 const moment =  _moment;
 export const MY_FORMATS = {
   parse: {
@@ -33,7 +36,9 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
   panelOpenState: boolean = false
   icon: string = 'close'
-  person: any = {}
+  person: Person
+  need: Need
+  psychoSocial: PsychoSocial
   houseMember: any = {}
   startDate = new Date(1990, 0, 1)
   houseMembers = []
@@ -89,6 +94,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     this.personGroup = this._fb.group({
       'name': ['', Validators.required],
       'lastName': ['', Validators.required],
+      'reference': ['', Validators.required],
+      'documented': ['', Validators.required],
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'domesticViolence': ['', Validators.required],
@@ -145,47 +152,47 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
-    let createdPerson: Person = new Person(
-      this.person.name,
-      this.person.lastName,
-      this.person.Reference,
-      this.person.Documented,
-      new Date(this.person.entryDate),
-      (this.person.activeOrInactive === "true"),
-      this.person.maritalStatus,
-      this.calculateAge(this.person.bornDate.year()),
-      new Date(this.person.bornDate),
-      (this.person.read === "true"),
-      (this.person.write === "true"),
-      (this.person.socialSecurity === "true"),
-      this.person.socialSecurityType,
-      this.person.education,
-      this.person.nationality,
-      this.person.phoneNumber,
-      this.person.address,
-      this.person.email,
-      this.person.Need,
-      this.person.PsychoSocial,
-      (this.person.takeMedication === "true"),
-      this.medicationList,
-      this.person.employnmentSituation,
-      this.person.workingHours,
-      this.person.unemployedDate,
-      this.supportInstitutions,
-      this.person.peopleInTheHouse,
-      this.person.underagePeople,
-      this.person.disabilitiePeople,
-      this.person.houseIncome,
-      this.person.incomeSource,
-      this.person.houseHolding,
-      this.person.houseCondition,
-      this.houseMembers
-    )
-    console.log(createdPerson)
-    this.peopleService.savePerson(createdPerson as Person)
+    console.log(this.person)
+    this.peopleService.savePerson(this.person)
   }
 
   ngOnInit() {
+    this.person = new Person(
+      "",
+      "",
+      "",
+      "",
+      "",
+      new Date(),
+      false,
+      0,
+      new Date(),
+      false,
+      false,
+      false,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      this.need,
+      this.psychoSocial,
+      false,
+      this.medicationList,
+      "",
+      0,
+      "",
+      this.supportInstitutions,
+      0,
+      0,
+      0,
+      0,
+      "",
+      "",
+      "",
+      this.houseMembers as HouseMember[]
+    )
   }
 
   ngAfterViewChecked() {

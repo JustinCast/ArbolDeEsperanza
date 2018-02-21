@@ -89,6 +89,8 @@ export class EditPersonComponent implements OnInit, OnDestroy {
     this.editForm = this._fb.group({
       'name': ['', Validators.required],
       'lastName': ['', Validators.required],
+      'reference': ['', Validators.required],
+      'documented': ['', Validators.required],
       'entryDate': [moment(), Validators.required],
       'activeOrInactive': ['', Validators.required],
       'domesticViolence': ['', Validators.required],

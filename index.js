@@ -56,13 +56,6 @@ function config() {
  * Endpoints Config
  */
 function routerConfig() {
-    let router = express.Router()
-    router.get('', (req, res)=>{
-        res.json({
-            message: 'Initial backend route'
-        })
-    })
-    app.use('/', router)
     app.use('/person', api)
     // demas enrutadores
     // Angular DIST output folder

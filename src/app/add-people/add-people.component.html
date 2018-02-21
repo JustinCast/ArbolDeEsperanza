@@ -39,35 +39,35 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Estado civil" [formControl]="personGroup.get('maritalStatus')" [(ngModel)]="person.maritalStatus">
+    <mat-select placeholder="Estado civil" [formControl]="personGroup.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
       <mat-option *ngFor="let mS of mStatus" [value]="mS">
         {{ mS }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.activeOrInactive">
+  <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
     <p>Estado en la fundación</p>
     <mat-radio-button value="true">Activo</mat-radio-button>
     <mat-radio-button value="false">Inactivo</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.read">
+  <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.Read">
     <p>¿Lee?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('write')" [(ngModel)]="person.write">
+  <mat-radio-group [formControl]="personGroup.get('write')" [(ngModel)]="person.Write">
     <p>¿Escribe?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('socialSecurity')" [(ngModel)]="person.socialSecurity">
+  <mat-radio-group [formControl]="personGroup.get('socialSecurity')" [(ngModel)]="person.SocialSecurity">
     <p>¿Tiene seguro social?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
@@ -75,12 +75,12 @@
   <hr>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('socialSecurityType')" [(ngModel)]="person.socialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
+    <input [formControl]="personGroup.get('socialSecurityType')" [(ngModel)]="person.SocialSecurityType" mdbActive type="text" id="socialSecurityType" class="form-control">
     <label for="socialSecurityType" class="">Tipo de seguro social</label>
   </div>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Educación" [formControl]="personGroup.get('education')" [(ngModel)]="person.education">
+    <mat-select placeholder="Educación" [formControl]="personGroup.get('education')" [(ngModel)]="person.Education">
       <mat-option *ngFor="let e of education" [value]="e">
         {{ e }}
       </mat-option>
@@ -88,7 +88,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Nacionalidad" [formControl]="personGroup.get('nationality')" [(ngModel)]="person.nationality">
+    <mat-select placeholder="Nacionalidad" [formControl]="personGroup.get('nationality')" [(ngModel)]="person.Nationality">
       <mat-option *ngFor="let n of nationality" [value]="n">
         {{ n }}
       </mat-option>
@@ -96,17 +96,17 @@
   </mat-form-field>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('phoneNumber')" [(ngModel)]="person.phoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
+    <input [formControl]="personGroup.get('phoneNumber')" [(ngModel)]="person.PhoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
     <label for="phoneNumber" class="">Número de teléfono</label>
   </div>
   <br>
   <mat-form-field>
-    <textarea matInput [formControl]="personGroup.get('address')" [x(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
+    <textarea matInput [formControl]="personGroup.get('address')" [x(ngModel)]="person.Address" mdbActive type="text" id="address" placeholder="Dirección">
     </textarea>
   </mat-form-field>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('email')" [(ngModel)]="person.email" mdbActive type="email" id="email" class="form-control">
+    <input [formControl]="personGroup.get('email')" [(ngModel)]="person.Email" mdbActive type="email" id="email" class="form-control">
     <label for="email" class="">Email</label>
   </div>
   <br>
@@ -247,7 +247,7 @@
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('takeMedication')" [(ngModel)]="person.takeMedication">
+  <mat-radio-group [formControl]="personGroup.get('takeMedication')" [(ngModel)]="person.TakeMedication">
     <p>¿Toma medicamentos?</p>
     <mat-radio-button value="false">Si</mat-radio-button>
     <mat-radio-button value="true">No</mat-radio-button>
@@ -294,49 +294,49 @@
   <hr>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Situación Laboral" [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.employnmentSituation">
+    <mat-select placeholder="Situación Laboral" [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.EmploynmentSituation">
       <mat-option value="Empleada">Empleada</mat-option>
       <mat-option value="Desempleada">Desempleada</mat-option>
     </mat-select>
   </mat-form-field>
   <br>
   <div class="md-form" *ngIf="person.employnmentSituation === 'Empleada'">
-    <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.workingHours" mdbActive type="text" id="workingHours" class="form-control">
+    <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.WorkingHours" mdbActive type="text" id="workingHours" class="form-control">
     <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
   </div>
   <br>
   <div class="md-form" *ngIf="person.employnmentSituation === 'Desempleada'">
-    <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.unemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
+    <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.UnemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
     <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('peopleInTheHouse')" [(ngModel)]="person.peopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
+    <input [formControl]="personGroup.get('peopleInTheHouse')" [(ngModel)]="person.PeopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
     <label for="peopleInTheHouse" class="">Cantidad de personas en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('underagePeople')" [(ngModel)]="person.underagePeople" mdbActive type="number" id="underagePeople" class="form-control">
+    <input [formControl]="personGroup.get('underagePeople')" [(ngModel)]="person.UnderagePeople" mdbActive type="number" id="underagePeople" class="form-control">
     <label for="underagePeople" class="">Cantidad de menores de edad en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('disabilitiePeople')" [(ngModel)]="person.disabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
+    <input [formControl]="personGroup.get('disabilitiePeople')" [(ngModel)]="person.DisabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
     <label for="disabilitiePeople" class="">Cantidad de personas discapacitadas en la casa</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('houseIncome')" [(ngModel)]="person.houseIncome" mdbActive type="number" id="houseIncome" class="form-control">
+    <input [formControl]="personGroup.get('houseIncome')" [(ngModel)]="person.HouseIncome" mdbActive type="number" id="houseIncome" class="form-control">
     <label for="houseIncome" class="">Ingreso mensual</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('incomeSource')" [(ngModel)]="person.incomeSource" mdbActive type="text" id="incomeSource" class="form-control">
+    <input [formControl]="personGroup.get('incomeSource')" [(ngModel)]="person.IncomeSource" mdbActive type="text" id="incomeSource" class="form-control">
     <label for="houseIncome" class="">Fuente de ingresos</label>
   </div>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="personGroup.get('houseHolding')" [(ngModel)]="person.houseHolding">
+    <mat-select placeholder="Condición de propiedad de la casa" [formControl]="personGroup.get('houseHolding')" [(ngModel)]="person.HouseHolding">
       <mat-option *ngFor="let holding of houseHolding" [value]="holding">
         {{ holding }}
       </mat-option>
@@ -344,7 +344,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Condición de la casa" [formControl]="personGroup.get('houseCondition')" [(ngModel)]="person.houseCondition">
+    <mat-select placeholder="Condición de la casa" [formControl]="personGroup.get('houseCondition')" [(ngModel)]="person.HouseCondition">
       <mat-option *ngFor="let c of houseCondition" [value]="c">
         {{ c }}
       </mat-option>
