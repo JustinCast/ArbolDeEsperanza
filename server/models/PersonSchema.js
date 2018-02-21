@@ -123,7 +123,7 @@ const PersonSchema = new Schema({
             type: Boolean,
             required: true
         },
-        EducationalProgram{
+        EducationalProgram: {
             type: Boolean,
             required: true
         },
@@ -150,7 +150,8 @@ const PersonSchema = new Schema({
         SuicideToughts: {
             type: Boolean,
             required: true
-        },WFSProgramGraduate: {
+        },
+        WFSProgramGraduate: {
             type: Boolean,
             required: true
         },

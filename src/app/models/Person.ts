@@ -1,4 +1,6 @@
 import { HouseMember } from "./HouseMember";
+import { Need } from "./Need";
+import { PsychoSocial } from "./PsychoSocial";
 
 export class Person {
     constructor(
@@ -18,17 +20,8 @@ export class Person {
         public PhoneNumber: string,
         public Address: string,
         public Email: string,
-        public Need_Doctor: boolean,
-        public Need_Ophthalmologist: boolean,
-        public Need_Mammography: boolean,
-        public Need_Dentist: boolean,
-        public Need_Gynecologist: boolean,
-        public Need_Psychologist: boolean,
-        public AbuseVictim: boolean,
-        public SuicideAttempt: boolean,
-        public SuicideToughts: boolean,
-        public DrugsProblem: boolean,
-        public AlcoholProblems: boolean,
+        public Need: Need,
+        public PsychoSocial: PsychoSocial,
         public TakeMedication: boolean,
         public Medication: Array<string>,
         public EmploymentSituation: string,
