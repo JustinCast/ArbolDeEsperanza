@@ -302,24 +302,24 @@
   <hr>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Situación Laboral" [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.EmploynmentSituation">
+    <mat-select placeholder="Situación Laboral" [formControl]="personGroup.get('employnmentSituation')" [(ngModel)]="person.EmploymentSituation">
       <mat-option value="Empleada">Empleada</mat-option>
       <mat-option value="Desempleada">Desempleada</mat-option>
     </mat-select>
   </mat-form-field>
   <br>
-  <div class="md-form" *ngIf="person.MmploynmentSituation === 'Empleada'">
+  <div class="md-form" *ngIf="person.EmploynmentSituation === 'Empleada'">
     <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.WorkingHours" mdbActive type="text" id="workingHours" class="form-control">
     <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
   </div>
   <br>
-  <div class="md-form" *ngIf="person.EmploynmentSituation === 'Desempleada'">
+  <div class="md-form" *ngIf="person.EmploymentSituation === 'Desempleada'">
     <input [formControl]="personGroup.get('unemployedDate')" [(ngModel)]="person.UnemployedDate" mdbActive type="text" id="unemployedDate" class="form-control">
     <label for="unemployedDate" class="">Si está desempleada, ¿hace cuánto lo está?</label>
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('peopleInTheHouse')" [(ngModel)]="person.PeopleInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
+    <input [formControl]="personGroup.get('peopleInTheHouse')" [(ngModel)]="person.PersonsInTheHouse" mdbActive type="number" id="peopleInTheHouse" class="form-control">
     <label for="peopleInTheHouse" class="">Cantidad de personas en la casa</label>
   </div>
   <br>
@@ -329,7 +329,7 @@
   </div>
   <br>
   <div class="md-form">
-    <input [formControl]="personGroup.get('disabilitiePeople')" [(ngModel)]="person.DisabilitiePeople" mdbActive type="number" id="disabilitiePeople" class="form-control">
+    <input [formControl]="personGroup.get('disabilitiePeople')" [(ngModel)]="person.DisabilitiePersons" mdbActive type="number" id="disabilitiePeople" class="form-control">
     <label for="disabilitiePeople" class="">Cantidad de personas discapacitadas en la casa</label>
   </div>
   <br>
