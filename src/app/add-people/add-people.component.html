@@ -85,7 +85,7 @@
   </div>
   <br>
   <mat-form-field>
-    <textarea matInput [formControl]="personGroup.get('address')" [(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
+    <textarea matInput [formControl]="personGroup.get('address')" [x(ngModel)]="person.address" mdbActive type="text" id="address" placeholder="Dirección">
     </textarea>
   </mat-form-field>
   <br>
@@ -94,77 +94,137 @@
     <label for="email" class="">Email</label>
   </div>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needDoctor')" [(ngModel)]="person.needDoctor">
+  <p class="text-center text-primary"><strong>Necesidades</strong></p>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('needDoctor')" [(ngModel)]="person.Need.Need_Doctor">
     <p>¿Necesita doctor?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needOphthalmologist')" [(ngModel)]="person.needOphthalmologist">
+  <mat-radio-group [formControl]="personGroup.get('needOphthalmologist')" [(ngModel)]="person.Need.Need_Ophthalmologist">
     <p>¿Necesita Oftalmólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needMammography')" [(ngModel)]="person.needMammography">
+  <mat-radio-group [formControl]="personGroup.get('needMammography')" [(ngModel)]="person.Need.Need_Mammography">
     <p>¿Necesita Mamografía?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needDentist')" [(ngModel)]="person.needDentist">
+  <mat-radio-group [formControl]="personGroup.get('needDentist')" [(ngModel)]="person.Need.Need_Dentist">
     <p>¿Necesita dentista?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needGynecologist')" [(ngModel)]="person.needGynecologist">
+  <mat-radio-group [formControl]="personGroup.get('needGynecologist')" [(ngModel)]="person.Need.Need_Gynecologist">
     <p>¿Necesita Ginecólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('needPychologist')" [(ngModel)]="person.needPychologist">
+  <mat-radio-group [formControl]="personGroup.get('needPychologist')" [(ngModel)]="person.Need.Need_Psychologist">
     <p>¿Necesita Psicólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('abuseVictim')" [(ngModel)]="person.abuseVictim">
+  <p class="text-center text-primary"><strong>Situaciones sociales</strong></p>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('abuseVictim')" [(ngModel)]="person.PsychoSocial.AbuseVictim">
     <p>¿Ha sido víctima de abuso?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('suicideAttempt')" [(ngModel)]="person.suicideAttempt">
+  <mat-radio-group [formControl]="personGroup.get('domesticViolence')" [(ngModel)]="person.PsychoSocial.DomesticViolence">
+    <p>¿Ha sufrido violencia doméstica?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('educationalProgram')" [(ngModel)]="person.PsychoSocial.EducationalProgram">
+    <p>¿Requiere programa educacional?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('mentalProgram')" [(ngModel)]="person.PsychoSocial.MentalProgram">
+    <p>¿Requiere programa de salud mental?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('protectionOrder')" [(ngModel)]="person.PsychoSocial.ProtectionOrder">
+    <p>¿Requiere orden de protección?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('socialServices')" [(ngModel)]="person.PsychoSocial.SocialServices">
+    <p>¿Requiere servicios sociales?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('sexualAbuse')" [(ngModel)]="person.PsychoSocial.SexualAbuse">
+    <p>¿Ha sido víctima de abuso sexual?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('wfsProgramGraduate')" [(ngModel)]="person.PsychoSocial.WFSProgramGraduate">
+    <p>¿Graduada del WFS Program?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('workSkillsProgram')" [(ngModel)]="person.PsychoSocial.WorkSkillsProgram">
+    <p>¿Necesita Programa de Desarollo de Habilidades de Trabajo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <hr>
+  <br>
+  <mat-radio-group [formControl]="personGroup.get('suicideAttempt')" [(ngModel)]="person.PsychoSocial.SuicideAttempt">
     <p>¿Ha intentado el suicidio?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('suicideToughts')" [(ngModel)]="person.suicideToughts">
+  <mat-radio-group [formControl]="personGroup.get('suicideToughts')" [(ngModel)]="person.PsychoSocial.SuicideToughts">
     <p>¿Tiene pensamientos suicidas?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('drugsProblem')" [(ngModel)]="person.drugsProblem">
+  <mat-radio-group [formControl]="personGroup.get('drugsProblem')" [(ngModel)]="person.PsychoSocial.DrugsProblem">
     <p>¿Tiene problemas de drogas?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <hr>
   <br>
-  <mat-radio-group [formControl]="personGroup.get('alcoholProblem')" [(ngModel)]="person.alcoholProblem">
+  <mat-radio-group [formControl]="personGroup.get('alcoholProblem')" [(ngModel)]="person.PsychoSocial.AlcoholProblems">
     <p>¿Tiene problemas de alcohol?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
