@@ -157,6 +157,29 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+    this.need = new Need(
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    )
+    this.psychoSocial = new PsychoSocial(
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    )
     this.person = new Person(
       "",
       "",
