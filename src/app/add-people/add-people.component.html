@@ -308,7 +308,7 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <div class="md-form" *ngIf="person.EmploynmentSituation === 'Empleada'">
+  <div class="md-form" *ngIf="person.EmploymentSituation === 'Empleada'">
     <input [formControl]="personGroup.get('workingHours')" [(ngModel)]="person.WorkingHours" mdbActive type="text" id="workingHours" class="form-control">
     <label for="workingHours" class="">Si trabaja, ¿cuántas horas lo hace?</label>
   </div>
