@@ -11,9 +11,13 @@ import { PeopleService } from '../services/people.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit, AfterViewInit {
-  pag: any
+  usersRole = [
+    'Admin',
+    'Editor',
+    'NormalUser'
+  ]
+  selectedUserRole: any = ""
   constructor(
-    public _peopleService: PeopleService,
     public yesOrNoDialog: YesOrNoService,
     public snackBar: MatSnackBar,
   ) { }
@@ -31,38 +35,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    if(this._peopleService.people === undefined){
-      this._peopleService.getPersonsRequest()
-      .subscribe(
-        data => {
-          this._peopleService.people = data
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // Error del lado del cliente
-            console.log('An error occurred:', err.error.message);
-          }else {
-            // The backend returned an unsuccessful response code.
-            // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-          }
-        }
-      )
-    }
   }
 
-  deletePerson(index: number) {
-    this.yesOrNoDialog
-    .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this._peopleService.people[index].Name}`)
-    .subscribe(result =>{
-      console.log(result)
-      if(result) {
-        this._peopleService.deletePerson(this._peopleService.people[index]._id)  
-        this._peopleService.people.splice(index, 1)
-        this.openSnackBar("Usuario eliminado", "Ok")
-      }
-    })
-  }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

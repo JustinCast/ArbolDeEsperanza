@@ -11,7 +11,7 @@ import { AddPeopleComponent } from './add-people/add-people.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { LoginComponent } from './login/login.component';
 import { ShowDetailsComponent } from './show-details/show-details.component';
-import { LogguedInGuard } from './auth/loggued-in.guard';
+import { LogguedInGuard } from './services/loggued-in.guard';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
