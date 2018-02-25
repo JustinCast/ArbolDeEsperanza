@@ -6,11 +6,13 @@ import { MatSnackBar } from '@angular/material';
 import { PeopleService } from '../services/people.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/User';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
+  providers: [UserService]
 })
 export class AdminComponent implements OnInit, AfterViewInit {
   usersRole = [
@@ -48,6 +50,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.user = new User("", "", "")
   }
 
+  resetForm() {
+    if(this.userFG !== undefined)
+      this.userFG.reset()
+  }
+
+  saveUser() {
+
+  }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

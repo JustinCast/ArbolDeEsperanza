@@ -17,7 +17,7 @@
     <label for="password" class="">Contraseña</label>
   </div>
   <div class="container text-center">
-    <button>Agregar</button>
-    <button>Cancelar</button>
+    <button [disabled]="!userFG.valid">Agregar</button>
+    <button (click)="resetForm()">Cancelar</button>
   </div>
 </form>
