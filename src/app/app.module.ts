@@ -52,6 +52,9 @@ import { YesOrNoService } from './yes-or-no/yes-or-no.service';
 import { PeopleService } from './services/people.service';
 import { AUTH_PROVIDERS } from './services/authentication.service';
 import { LogguedInGuard } from './services/loggued-in.guard';
+import { AddUserComponent } from './add-user/add-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -73,6 +76,9 @@ import { LogguedInGuard } from './services/loggued-in.guard';
     // PersonFilterPipe,
     ShowDetailsComponent,
     YesOrNoComponent,
+    AddUserComponent,
+    EditUserComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,

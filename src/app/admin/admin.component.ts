@@ -1,12 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-
-import { HttpErrorResponse } from '@angular/common/http';
-import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
-import { MatSnackBar } from '@angular/material';
-import { PeopleService } from '../services/people.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../models/User';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -15,23 +9,18 @@ import { UserService } from '../services/user.service';
   providers: [UserService]
 })
 export class AdminComponent implements OnInit, AfterViewInit {
-  usersRole = [
-    'Admin',
-    'Editor',
-    'NormalUser'
+  p: any
+  filter: any = {};
+  selection: any
+  selectionArray = [
+    "Nombre de usuario",
+    "Role"
   ]
-  userFG: FormGroup
-  user: User
   constructor(
-    public yesOrNoDialog: YesOrNoService,
-    public snackBar: MatSnackBar,
-    private _fb: FormBuilder
-  ) { 
-    this.userFG = this._fb.group({
-      "UserName": ['', Validators.required],
-      "Password": ['', Validators.required],
-      "Role": ['', Validators.required]
-    })
+    public _userService: UserService,
+    public _router: Router,
+  ) {}
+  ngOnInit() {
   }
 
   ngAfterViewInit() {
@@ -40,29 +29,19 @@ export class AdminComponent implements OnInit, AfterViewInit {
      */ 
     let style = document.createElement('style');
     style.type = 'text/css';
-    style.innerHTML = '.zero-padding { padding: 0; background-color: #424242 }';
+    style.innerHTML = '.zero-padding { padding: 0; }';
     document.getElementsByTagName('head')[0].appendChild(style);
     let ul = document.getElementsByClassName("ngx-pagination")
     ul[0].classList.add('zero-padding')
   }
 
-  ngOnInit() {
-    this.user = new User("", "", "")
+  onViewDetails(index){
+    localStorage.setItem('viewDetailsUser', JSON.stringify(this._userService.users[index]))    
+    this._router.navigate(['/show-user-details'])
   }
 
-  resetForm() {
-    if(this.userFG !== undefined)
-      this.userFG.reset()
+  onEditPerson(index) {
+    localStorage.setItem('editUser', JSON.stringify(this._userService.users[index]));     
+    this._router.navigate(['/edit-user'])
   }
-
-  saveUser() {
-
-  }
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
 }

@@ -21,8 +21,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     "Número teléfono"
   ]
   constructor(
-    public personService: 
-    PeopleService, 
+    public personService: PeopleService, 
     public router: Router,
     public yesOrNoDialog: YesOrNoService,
     public snackBar: MatSnackBar,
@@ -47,18 +46,18 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     )
   }
 
-  deletePerson(index: number) {
-    this.yesOrNoDialog
-    .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}`)
-    .subscribe(result =>{
-      console.log(result)
-      if(result) {
-        this.personService.deletePerson(this._peopleService.people[index]._id)  
-        this.personService.people.splice(index, 1)
-        this.openSnackBar("Usuario eliminado", "Ok")
-      }
-    })
-  }
+  // deletePerson(index: number) {
+  //   this.yesOrNoDialog
+  //   .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}`)
+  //   .subscribe(result =>{
+  //     console.log(result)
+  //     if(result) {
+  //       this.personService.deletePerson(this._peopleService.people[index]._id)  
+  //       this.personService.people.splice(index, 1)
+  //       this.openSnackBar("Usuario eliminado", "Ok")
+  //     }
+  //   })
+  // }
 
   ngAfterViewInit() {
     /**

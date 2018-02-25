@@ -6,7 +6,7 @@ import { stringify } from 'querystring';
 import { MatSnackBar } from '@angular/material';
 @Injectable()
 export class UserService {
-
+  users: Array<User>
   constructor(
     private _http: HttpClient,
     private snackBar: MatSnackBar
