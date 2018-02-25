@@ -36,7 +36,7 @@ import { GraphComponent } from './graph/graph.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
 import { SettingsComponent } from './settings/settings.component';
-import { PeopleService } from './show-people/people.service';
+
 import { HouseMembersComponent } from './house-members/house-members.component';
 import { ShowPeopleComponent } from './show-people/show-people.component';
 import { AddPeopleComponent } from './add-people/add-people.component';
@@ -46,12 +46,12 @@ import { LoginComponent } from './login/login.component';
 import {MatTableModule} from '@angular/material/table';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import {  } from "./show-people/";
-import { AuthComponent } from './auth/auth.component';
-import { AuthService } from './auth/auth.service';
-import { LogguedInGuard } from './auth/loggued-in.guard';
-import { AUTH_PROVIDERS } from './auth/authentication.service';
+
 import { YesOrNoComponent } from './yes-or-no/yes-or-no.component';
 import { YesOrNoService } from './yes-or-no/yes-or-no.service';
+import { PeopleService } from './services/people.service';
+import { AUTH_PROVIDERS } from './services/authentication.service';
+import { LogguedInGuard } from './services/loggued-in.guard';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -72,7 +72,6 @@ import { YesOrNoService } from './yes-or-no/yes-or-no.service';
     LoginComponent,
     // PersonFilterPipe,
     ShowDetailsComponent,
-    AuthComponent,
     YesOrNoComponent,
   ],
   imports: [
@@ -104,7 +103,6 @@ import { YesOrNoService } from './yes-or-no/yes-or-no.service';
   ],
   providers: [
     PeopleService,
-    AuthService,
     YesOrNoService,
     LogguedInGuard,
     AUTH_PROVIDERS
@@ -112,7 +110,6 @@ import { YesOrNoService } from './yes-or-no/yes-or-no.service';
   ],
   entryComponents: [
     HouseMembersComponent,
-    AuthComponent,
     YesOrNoComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

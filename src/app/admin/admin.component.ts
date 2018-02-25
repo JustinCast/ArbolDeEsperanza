@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { PeopleService } from '../show-people/people.service';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 import { MatSnackBar } from '@angular/material';
+import { PeopleService } from '../services/people.service';
 
 @Component({
   selector: 'app-admin',

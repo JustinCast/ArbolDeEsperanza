@@ -2,13 +2,14 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import {Location} from '@angular/common';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Person } from '../models/Person';
-import { PeopleService } from '../show-people/people.service';
+
 import * as _moment from 'moment';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { Need } from '../models/Need';
 import { PsychoSocial } from '../models/PsychoSocial';
 import { HouseMember } from '../models/HouseMember';
+import { PeopleService } from '../services/people.service';
 const moment =  _moment;
 export const MY_FORMATS = {
   parse: {

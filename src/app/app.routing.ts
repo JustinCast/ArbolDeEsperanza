@@ -21,13 +21,13 @@ export const ROUTES: Routes = [
                 { path: 'show-people', component: ShowPeopleComponent },
             ]
     },
-    { path: 'add-person', component: AddPeopleComponent },
-    { path: 'edit-person', component: EditPersonComponent },
-    { path: 'graph', component: GraphComponent},
+    { path: 'add-person', component: AddPeopleComponent, canActivate: [LogguedInGuard] },
+    { path: 'edit-person', component: EditPersonComponent, canActivate: [LogguedInGuard] },
+    { path: 'graph', component: GraphComponent, canActivate: [LogguedInGuard]},
     { path: 'show-details', component: ShowDetailsComponent },
     { path: 'about', component: AboutComponent },
     { path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard] },
-    { path: 'settings', component: SettingsComponent },
+    { path: 'settings', component: SettingsComponent, canActivate: [LogguedInGuard] },
     { path: '', component: LoginComponent, pathMatch: 'full'},
     { path: '**', component: ErrorHandleComponent }
 ]
