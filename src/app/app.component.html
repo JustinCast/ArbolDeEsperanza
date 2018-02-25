@@ -26,11 +26,7 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                     <mat-icon>person_add</mat-icon>
-                    <span>Agregar administradores</span>
-                </button>
-                <button mat-menu-item>
-                    <mat-icon>group_add</mat-icon>
-                    <span>Agregar un editor</span>
+                    <span>Administrar usuarios</span>
                 </button>
                 <button  *ngIf="_authentication.getUser()" (click)="logout()" mat-menu-item>
                     <mat-icon>keyboard_backspace</mat-icon>

@@ -4,6 +4,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 import { MatSnackBar } from '@angular/material';
 import { PeopleService } from '../services/people.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-admin',
@@ -16,11 +18,19 @@ export class AdminComponent implements OnInit, AfterViewInit {
     'Editor',
     'NormalUser'
   ]
-  selectedUserRole: any = ""
+  userFG: FormGroup
+  user: User
   constructor(
     public yesOrNoDialog: YesOrNoService,
     public snackBar: MatSnackBar,
-  ) { }
+    private _fb: FormBuilder
+  ) { 
+    this.userFG = this._fb.group({
+      "UserName": ['', Validators.required],
+      "Password": ['', Validators.required],
+      "Role": ['', Validators.required]
+    })
+  }
 
   ngAfterViewInit() {
     /**
@@ -35,6 +45,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.user = new User("", "", "")
   }
 
 
