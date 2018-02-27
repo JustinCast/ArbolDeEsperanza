@@ -1,3 +1,9 @@
-<p>
-  user-details works!
-</p>
+<div style="margin-top: 2%" class="container">
+  <button class="btn danger-color btn-sm pull-left" (click)="backClicked()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="container text-center">
+  <p>{{user.UserName}}</p>
+  <p>{{user.Role}}</p>
+</div>

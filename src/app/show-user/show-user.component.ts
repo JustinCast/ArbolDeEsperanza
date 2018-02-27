@@ -55,7 +55,7 @@ export class ShowUserComponent implements OnInit {
   }
 
   onViewUserDetails(index){
-    localStorage.setItem('viewDetailsUser', JSON.stringify(this._userService.users[index]))    
+    localStorage.setItem('viewUserDetails', JSON.stringify(this._userService.users[index]))    
     this._router.navigate(['/show-user-details'])
   }
 
