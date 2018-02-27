@@ -14,11 +14,11 @@ export class UserService {
 
   getUsers(): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
-    return this._http.get<User[]>(`${environment.SERVER_BASE_URL}person/user/getAllUsers`)
+    return this._http.get<User[]>(`person/user/getAllUsers`)
   }
 
   saveUser(user: User) {
-    this._http.post(`${environment.SERVER_BASE_URL}person/user/createUser`, user)
+    this._http.post(`person/user/createUser`, user)
       .subscribe(
         success => {
           console.log(success)

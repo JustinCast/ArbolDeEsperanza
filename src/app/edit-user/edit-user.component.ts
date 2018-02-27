@@ -25,6 +25,12 @@ export class EditUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('editUser'))
+  }
+
+  resetForm() {
+    if(this.userFG !== undefined)
+      this.userFG.reset()
   }
 
 }
