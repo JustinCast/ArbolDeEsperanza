@@ -55,7 +55,7 @@ import { LogguedInGuard } from './services/loggued-in.guard';
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { ShowAdminComponent } from './show-admin/show-admin.component';
+import { ShowUserComponent } from './show-user/show-user.component';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -80,7 +80,7 @@ import { ShowAdminComponent } from './show-admin/show-admin.component';
     AddUserComponent,
     EditUserComponent,
     UserDetailsComponent,
-    ShowAdminComponent,
+    ShowUserComponent,
   ],
   imports: [
     BrowserModule,

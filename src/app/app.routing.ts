@@ -13,9 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import { LogguedInGuard } from './services/loggued-in.guard';
 import { AddUserComponent } from './add-user/add-user.component';
-import { ShowAdminComponent } from './show-admin/show-admin.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ShowUserComponent } from './show-user/show-user.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -35,7 +35,7 @@ export const ROUTES: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard], 
             children: [
-                { path: 'show-people', component: ShowAdminComponent}
+                { path: 'show-people', component: ShowUserComponent}
             ]},
     { path: 'settings', component: SettingsComponent, canActivate: [LogguedInGuard] },
     { path: '', component: LoginComponent, pathMatch: 'full'},
