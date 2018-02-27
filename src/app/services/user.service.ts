@@ -14,11 +14,11 @@ export class UserService {
 
   getUsers(): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
-    this._http.get<User[]>(`${environment.SERVER_BASE_URL}person/getAllUsers`)
+    return this._http.get<User[]>(`${environment.SERVER_BASE_URL}person/user/getAllUsers`)
   }
 
   saveUser(user: User) {
-    this._http.post('person/createUser', user)
+    this._http.post(`${environment.SERVER_BASE_URL}person/user/createUser`, user)
       .subscribe(
         success => {
           console.log(success)
@@ -40,7 +40,7 @@ export class UserService {
     //let params = new HttpParams().set('personId', person._id);
     //`${environment.SERVER_BASE_URL}person/update/${person._id}`, person
     console.log(user)
-    this._http.put(`person/updateUser/${user._id}`, user)
+    this._http.put(`person/user/updateUser/${user._id}`, user)
       .subscribe(
         success => {
           console.log('Usuario actualizado con éxito')
@@ -59,7 +59,7 @@ export class UserService {
   }
 
   deleteUser(_id: string) {
-    this._http.delete(`person/deleteUser/${_id}`)
+    this._http.delete(`person/user/deleteUser/${_id}`)
     .subscribe(
       success => {
         this.openSnackBar('Persona eliminada con éxito', 'Ok')

@@ -24,9 +24,13 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button routerLink="admin" mat-menu-item>
                     <mat-icon>person_add</mat-icon>
                     <span>Administrar usuarios</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>Mi cuenta</span>
                 </button>
                 <button  *ngIf="_authentication.getUser()" (click)="logout()" mat-menu-item>
                     <mat-icon>keyboard_backspace</mat-icon>

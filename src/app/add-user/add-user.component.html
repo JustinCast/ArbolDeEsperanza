@@ -1,23 +1,25 @@
-<h3 class="text-center text-primary">Agregar un usuario</h3>
-<mat-form-field>
-  <mat-select placeholder="Tipo de usuario">
-    <mat-option [(ngModel)]="user.Role" *ngFor="let u of usersRole" [value]="u.value">
-      {{ u }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
-<form [formGroup]="userFG">
-  <div class="md-form">
-    <input mdbActive [(ngModel)]="user.UserName" type="text" id="username" class="form-control">
-    <label for="username" class="">Nombre de Usuario</label>
-  </div>
-  <div class="md-form">
-    <input mdbActive [(ngModel)]="user.Password" type="password" id="password" class="form-control">
-    <label for="password" class="">Contraseña</label>
-  </div>
-  <div class="container text-center">
-    <button [disabled]="!userFG.valid" (click)="saveUser()">Agregar</button>
-    <button (click)="resetForm()">Cancelar</button>
-  </div>
-</form>
+<div class="container text-center">
+  <h3 class="text-center text-primary">Agregar un usuario</h3>
+  
+  <form [formGroup]="userFG">
+      <mat-form-field>
+        <mat-select placeholder="Rol" [formControl]="userFG.get('Role')" [(ngModel)]="user.Role">
+          <mat-option *ngFor="let e of usersRole" [value]="e">
+            {{ e }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <div class="md-form">
+      <input [formControl]="userFG.get('UserName')" mdbActive [(ngModel)]="user.UserName" type="text" id="username" class="form-control">
+      <label for="username" class="">Nombre de Usuario</label>
+    </div>
+    <div class="md-form">
+      <input [formControl]="userFG.get('Password')" mdbActive [(ngModel)]="user.Password" type="password" id="password" class="form-control">
+      <label for="password" class="">Contraseña</label>
+    </div>
+    <div class="container text-center">
+      <button [disabled]="!userFG.valid" (click)="saveUser()" class="btn btn-success btn-sm">Agregar</button>
+      <button (click)="resetForm()" class="btn btn-danger btn-sm">Cancelar</button>
+    </div>
+  </form>
+</div>

@@ -2,6 +2,21 @@
 var User = require('../models/UserSchema')
 var bcrypt = require('bcrypt')
 
+function getUsers(req, res) {
+    User.find({})
+        .then(data => {
+            res.json(data)
+            //console.log(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function getUser(req, res) {
     let username = req.params.username
     let userPassword = req.params.password
@@ -66,6 +81,7 @@ function deleteUser(req, res) {
 }
 
 module.exports = {
+    getUsers,
     getUser,
     saveUser,
     updateUser,
