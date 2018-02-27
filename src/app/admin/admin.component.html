@@ -16,27 +16,20 @@
     <thead class="t-header">
       <tr>
         <th>#</th>
-        <th>F. Entrada</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Nacionalidad</th>
-        <th>Número teléfono</th>
-        <th>Acciones</th>
+        <th>Nombre de usuario</th>
+        <th>Rol</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of personService.people | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
+      <tr *ngFor="let us of _userService.users | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
         <th>{{i+1}}</th>
-        <th scope="row">{{p.EntryDate | date:'fullDate'}}</th>
-        <td>{{p.Name}}</td>
-        <td>{{p.LastName}}</td>
-        <td>{{p.Nationality}}</td>
-        <td>{{p.PhoneNumber}}</td>
+        <td>{{us.UserName}}</td>
+        <td>{{us.Role}}</td>
         <td>
           <mat-form-field>
             <mat-select placeholder="Acciones">
-              <mat-option (click)="onEditPerson(i)">Editar</mat-option>
-              <mat-option (click)="onViewDetails(i)">Ver Detalles</mat-option>
+              <mat-option (click)="onEditUser(i)">Editar</mat-option>
+              <mat-option (click)="onViewUserDetails(i)">Ver Detalles</mat-option>
             </mat-select>
           </mat-form-field>  
         </td>

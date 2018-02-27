@@ -227,9 +227,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   backClicked() {
     this._location.back();
   }
-  forwardClicked() {
-    this._location.forward()
-  }
 
   ngAfterViewChecked() {
   }

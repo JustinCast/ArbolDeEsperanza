@@ -14,11 +14,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  backClicked() {
-    this._location.back();
-  }
-  forwardClicked() {
-    this._location.forward()
-  }
-
 }

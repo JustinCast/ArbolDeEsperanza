@@ -25,9 +25,6 @@ export class ShowDetailsComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
-  forwardClicked() {
-    this._location.forward()
-  }
 
   openHouseMembersDialog(members: Array<any>): void {
     let dialogRef = this.dialog.open(HouseMembersComponent, {

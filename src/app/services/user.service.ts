@@ -12,7 +12,7 @@ export class UserService {
     private snackBar: MatSnackBar
   ) { }
 
-  getUsers(){
+  getUsers(): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
     this._http.get<User[]>(`${environment.SERVER_BASE_URL}person/getAllUsers`)
   }

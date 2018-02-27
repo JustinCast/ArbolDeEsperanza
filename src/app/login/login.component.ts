@@ -14,10 +14,4 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  backClicked() {
-    this._location.back();
-  }
-  forwardClicked() {
-    this._location.forward()
-  }
 }

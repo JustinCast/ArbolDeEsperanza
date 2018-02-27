@@ -150,9 +150,6 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   backClicked() {
     this._location.back();
   }
-  forwardClicked() {
-    this._location.forward()
-  }
 
   addSupportInstitution(institution: string) {
     if(institution.length !== 0){
