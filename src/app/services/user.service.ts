@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { User } from '../models/User';
 import { stringify } from 'querystring';
@@ -14,11 +14,19 @@ export class UserService {
 
   getUsers(): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
-    return this._http.get<User[]>(`person/user/getAllUsers`)
+    return this._http.get<User[]>(`${environment.SERVER_BASE_URL}person/user/getAllUsers`)
+  }
+  getUser(username: string, comparePassword: string): any{
+    // `${environment.SERVER_BASE_URL}person/getAllUsers`
+    let params = new HttpParams();
+    params = params.append('username', username )
+    params = params.append('password', comparePassword )
+    console.log(params)
+    return this._http.get<boolean>(`${environment.SERVER_BASE_URL}person/user/getUser/${username}/${comparePassword}`)
   }
 
   saveUser(user: User) {
-    this._http.post(`person/user/createUser`, user)
+    this._http.post(`${environment.SERVER_BASE_URL}person/user/createUser`, user)
       .subscribe(
         success => {
           console.log(success)
@@ -40,7 +48,7 @@ export class UserService {
     //let params = new HttpParams().set('personId', person._id);
     //`${environment.SERVER_BASE_URL}person/update/${person._id}`, person
     console.log(user)
-    this._http.put(`person/user/updateUser/${user._id}`, user)
+    this._http.put(`${environment.SERVER_BASE_URL}person/user/updateUser/${user._id}`, user)
       .subscribe(
         success => {
           console.log('Usuario actualizado con éxito')
@@ -59,7 +67,7 @@ export class UserService {
   }
 
   deleteUser(_id: string) {
-    this._http.delete(`person/user/deleteUser/${_id}`)
+    this._http.delete(`${environment.SERVER_BASE_URL}person/user/deleteUser/${_id}`)
     .subscribe(
       success => {
         this.openSnackBar('Persona eliminada con éxito', 'Ok')

@@ -12,7 +12,7 @@ api.put('/update/:personId', PersonCtrl.updatePerson) // METODO PUT
 api.delete('/delete/:personId', PersonCtrl.deletePerson) // METODO DELETE
 // user endpoints
 api.get('/user/getAllUsers', UserCtrl.getUsers) // METODO GET
-api.get('/user/getUser/:username/:password', UserCtrl.getUser) // METODO GET
+api.get('/user/getUser/:username/:comparePassword', UserCtrl.getUser) // METODO GET
 api.post('/user/createUser', UserCtrl.saveUser) // METODO POST
 api.put('/user/updateUser/:userId', UserCtrl.updateUser) // METODO PUT
 api.delete('/user/deleteUser/:userId', UserCtrl.deleteUser) // METODO DELETE

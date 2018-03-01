@@ -19,19 +19,20 @@ function getUsers(req, res) {
 
 function getUser(req, res) {
     let username = req.params.username
-    let userPassword = req.params.password
+    let comparePassword = req.params.comparePassword
+    console.log(req.params.username + " | "+ req.params.password)
     User.findOne({"UserName": username}, (err, user)=> {
         if(err)
             res.status(500).send({message: `Usuario no encontrado: ${err}`})
         else{ 
-            user.comparePassword(userPassword, (err, isMatch) => {
+            user.comparePassword(comparePassword, (err, isMatch) => {
                 if(err)
                     res.status(500).send({message: `Internal Server Error: ${err}`})
                 else{
                     if(isMatch)
-                        res.status(201).send({isMatch: isMatch})
+                        res.status(201).send({isMatch: true})
                     else
-                        res.status(401).send({message: `Credenciales incorrectas: ${err}`})    
+                        res.status(401).send({isMatch: false})    
                 }
             })
         }

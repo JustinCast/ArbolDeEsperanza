@@ -19,7 +19,8 @@ import {
   MatAutocompleteModule,
   MatMenuModule,
   MatSnackBarModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -107,7 +108,8 @@ import { ShowUserComponent } from './show-user/show-user.component';
     MatMenuModule,
     NgxPaginationModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSlideToggleModule
   ],
   providers: [
     PeopleService,

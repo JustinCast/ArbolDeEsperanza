@@ -13,9 +13,12 @@
       <input mdbActive [formControl]="userFG.get('UserName')" [(ngModel)]="user.UserName" type="text" id="username" class="form-control">
       <label for="username" class="">Nombre de Usuario</label>
     </div>
-    <div class="md-form">
-      <input mdbActive [formControl]="userFG.get('Password')" [(ngModel)]="user.Password" type="password" id="password" class="form-control">
-      <label for="password" class="">Contraseña</label>
+    <mat-slide-toggle color="primary" [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" (click)="checkedClick()">Cambiar contraseña</mat-slide-toggle>
+    <div class="container">
+      <div class="md-form">
+        <input mdbActive (keyup)="onKey($event)" [formControl]="userFG.get('OldPassword')" [(ngModel)]="OldPassword" type="text" id="username" class="form-control">
+        <label for="username" class="">Antigua contraseña</label>
+      </div>
     </div>
     <div class="container text-center">
       <button [disabled]="!userFG.valid" (click)="updateUser()" class="btn btn-success btn-sm">Aceptar</button>
