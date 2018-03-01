@@ -1,23 +1,26 @@
 <!-- Login form -->
-<form>
+<form [formGroup]="loginFG">
   <p class="h5 text-secondary text-center mb-4">Ingreso al sistema</p>
 
   <div class="md-form">
       <i class="fa fa-user prefix grey-text"></i>
-      <input value="test" type="text" id="defaultForm-email" class="form-control" mdbActive>
+      <input [(ngModel)]="login.UserName" [formControl]="loginFG.get('Username')" value="test" type="text" id="defaultForm-email" class="form-control" mdbActive>
       <label for="defaultForm-email">Nombre de usuario</label>
   </div>
 
   <div class="md-form">
       <i class="fa fa-lock prefix grey-text"></i>
-      <input value="test" type="password" id="defaultForm-pass" class="form-control" mdbActive>
+      <input [(ngModel)]="login.Password" [formControl]="loginFG.get('Password')" value="test" type="password" id="defaultForm-pass" class="form-control" mdbActive>
       <label for="defaultForm-pass">Contraseña</label>
   </div>
 
   <div class="text-center">
-      <button [routerLink]="['/home']" class="btn btn-default btn-sm waves-light" mdbRippleRadius>Ingresar</button>
+      <button (click)="onSubmit()" [disabled]="!loginFG.valid" [routerLink]="['/home']" class="btn btn-default btn-sm waves-light" mdbRippleRadius>Ingresar</button>
   </div>
 </form>
+<div *ngIf="err" class="container text-center">
+    <p class="text-danger">Nombre de usuario o contraseña incorrecta</p>
+</div>
 <!-- Login form -->
 
 <!--Footer-->
