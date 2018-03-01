@@ -30,7 +30,7 @@ function getUser(req, res) {
                     res.status(500).send({message: `Internal Server Error: ${err}`})
                 else{
                     if(isMatch)
-                        res.status(201).send({isMatch: true})
+                        res.status(201).send({isMatch: true, user: user})
                     else
                         res.status(401).send({isMatch: false})    
                 }

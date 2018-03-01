@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { stringify } from 'querystring';
+import { User } from '../models/User';
 @Injectable()
 export class AuthenticationService {
   string = ''
   constructor(public _http: HttpClient) { 
   }
 
-  login(username: string, password: string): any {
-    return this._http.get<any>(`person/admin/getAdmin/${username}/${password}`)
+  login(user: User): void {
+    localStorage.setItem('logguedUser', JSON.stringify(user))
   }
 
   logout(): any {
-    localStorage.removeItem('username')
+    localStorage.removeItem('logguedUser')
   }
 
   getUser(): any {
-    return localStorage.getItem('username')
+    return localStorage.getItem('logguedUser')
   }
 
   isLoggedIn(): boolean {

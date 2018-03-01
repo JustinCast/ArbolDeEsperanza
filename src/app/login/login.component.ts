@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/User';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +14,11 @@ export class LoginComponent implements OnInit {
   loginFG: FormGroup
   err: boolean = false
   login: any = {}
+  logguedUser: User
   constructor(
     private _fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private _auth: AuthenticationService
   ) { 
     this.loginFG = this._fb.group({
       "Username": ['', Validators.required],
@@ -23,13 +27,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this._auth.isLoggedIn())
+      this.logguedUser = JSON.parse(this._auth.getUser())
   }
 
   onSubmit(){
     this.userService.getUser(this.login.UserName, this.login.Password)
     .subscribe(
       success => {
-        console.log(success)
+        this._auth.login(success.user)
       },
       err => {
         this.err = true

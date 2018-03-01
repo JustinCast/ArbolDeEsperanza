@@ -18,11 +18,11 @@ export class UserService {
   }
   getUser(username: string, comparePassword: string): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
-    let params = new HttpParams();
-    params = params.append('username', username )
-    params = params.append('password', comparePassword )
-    console.log(params)
-    return this._http.get<boolean>(`${environment.SERVER_BASE_URL}person/user/getUser/${username}/${comparePassword}`)
+    // let params = new HttpParams();
+    // params = params.append('username', username )
+    // params = params.append('password', comparePassword )
+    // console.log(params)
+    return this._http.get<any>(`${environment.SERVER_BASE_URL}person/user/getUser/${username}/${comparePassword}`)
   }
 
   saveUser(user: User) {

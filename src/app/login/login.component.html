@@ -1,5 +1,5 @@
 <!-- Login form -->
-<form [formGroup]="loginFG">
+<form *ngIf="!_auth.isLoggedIn(); else loggued" [formGroup]="loginFG">
   <p class="h5 text-secondary text-center mb-4">Ingreso al sistema</p>
 
   <div class="md-form">
@@ -21,6 +21,9 @@
 <div *ngIf="err" class="container text-center">
     <p class="text-danger">Nombre de usuario o contraseña incorrecta</p>
 </div>
+<ng-template #loggued>
+    <p>Usuario logueado como {{logguedUser.UserName}}</p>
+</ng-template>
 <!-- Login form -->
 
 <!--Footer-->

@@ -18,7 +18,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 
 export const ROUTES: Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, canActivate: [LogguedInGuard]},
     {
         path: 'people', component: PeopleComponent,
             children: [
