@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/User';
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private userService: UserService,
-    private _auth: AuthenticationService
-  ) { 
+    private _auth: AuthenticationService,
+    private _router: Router
+  ){ 
     this.loginFG = this._fb.group({
       "Username": ['', Validators.required],
       "Password": ['', Validators.required]
@@ -27,8 +29,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this._auth.isLoggedIn())
+    if(this._auth.isLoggedIn()){
       this.logguedUser = JSON.parse(this._auth.getUser())
+      this._router.navigate(['/home'])
+    }
   }
 
   onSubmit(){

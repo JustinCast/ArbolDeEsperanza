@@ -37,6 +37,7 @@
             <mat-select placeholder="Acciones">
               <mat-option (click)="onEditPerson(i)">Editar</mat-option>
               <mat-option (click)="onViewDetails(i)">Ver Detalles</mat-option>
+              <mat-option *ngIf="logguedUser.Role === 'Admin'" (click)="deletePerson(i)">Eliminar</mat-option>
             </mat-select>
           </mat-form-field>  
         </td>

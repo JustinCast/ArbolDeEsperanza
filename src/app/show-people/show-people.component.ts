@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Person } from '../models/Person';
 import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 import { MatSnackBar } from '@angular/material';
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/User';
 @Component({
   selector: 'app-show-people',
   templateUrl: './show-people.component.html',
@@ -14,6 +16,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
   p: any
   filter: any = {};
   selection: any
+  logguedUser: User
   selectionArray = [
     "Nombre",
     "Apellidos",
@@ -25,9 +28,11 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     public router: Router,
     public yesOrNoDialog: YesOrNoService,
     public snackBar: MatSnackBar,
+    private _auth: AuthenticationService
   ) {}
 
   ngOnInit() {
+    this.logguedUser = JSON.parse(this._auth.getUser())
     this.personService.getPersonsRequest()
     .subscribe(
       data => {
@@ -46,18 +51,18 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     )
   }
 
-  // deletePerson(index: number) {
-  //   this.yesOrNoDialog
-  //   .confirm('Eliminar Proyecto', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}`)
-  //   .subscribe(result =>{
-  //     console.log(result)
-  //     if(result) {
-  //       this.personService.deletePerson(this._peopleService.people[index]._id)  
-  //       this.personService.people.splice(index, 1)
-  //       this.openSnackBar("Usuario eliminado", "Ok")
-  //     }
-  //   })
-  // }
+  deletePerson(index: number) {
+    this.yesOrNoDialog
+    .confirm('Eliminar Persona', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}`)
+    .subscribe(result =>{
+      console.log(result)
+      if(result) {
+        this.personService.deletePerson(this.personService.people[index]._id)  
+        this.personService.people.splice(index, 1)
+        this.openSnackBar("Persona eliminada correctamente", "Ok")
+      }
+    })
+  }
 
   ngAfterViewInit() {
     /**
@@ -70,7 +75,6 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     let ul = document.getElementsByClassName("ngx-pagination")
     ul[0].classList.add('zero-padding')
   }
-
   onViewDetails(index){
     localStorage.setItem('viewDetailsPerson', JSON.stringify(this.personService.people[index]))    
     this.router.navigate(['/show-details'])
@@ -79,5 +83,11 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
   onEditPerson(index) {
     localStorage.setItem('editPerson', JSON.stringify(this.personService.people[index]));     
     this.router.navigate(['/edit-person'])
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }
