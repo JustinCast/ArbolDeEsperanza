@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from '@angular/common';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
@@ -46,9 +45,7 @@ export class GraphComponent implements OnInit {
     hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5","#616774"]
   }];
 
-  constructor(
-    private _location: Location
-  ) { }
+  constructor() { }
 
   public chartOptions:any = { 
     responsive: true
@@ -75,12 +72,6 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-  backClicked() {
-    this._location.back();
-  }
-  forwardClicked() {
-    this._location.forward()
   }
 
 }
