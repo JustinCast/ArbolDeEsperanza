@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private userService: UserService,
-    private _auth: AuthenticationService,
+    public _auth: AuthenticationService,
     private _router: Router
   ){ 
     this.loginFG = this._fb.group({

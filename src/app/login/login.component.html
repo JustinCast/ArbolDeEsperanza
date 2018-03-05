@@ -1,5 +1,5 @@
 <!-- Login form -->
-<form *ngIf="!_auth.isLoggedIn(); else loggued" [formGroup]="loginFG">
+<form *ngIf="!_auth.isLoggedIn()" [formGroup]="loginFG">
   <p class="h5 text-secondary text-center mb-4">Ingreso al sistema</p>
 
   <div class="md-form">
