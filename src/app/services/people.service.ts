@@ -20,7 +20,7 @@ export class PeopleService {
   }
 
   savePerson(person: Person) {
-    this._http.post('person/create', person)
+    this._http.post(`${environment.SERVER_BASE_URL}person/create`, person)
       .subscribe(
         success => {
           console.log(success)

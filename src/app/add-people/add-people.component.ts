@@ -150,10 +150,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'houseMembers': ['', Validators.required],
     })
     this.personGroup.valueChanges.subscribe((form) => {
-      if(!this.personGroup.invalid)
-        this.icon = "save"
-      else
-        this.icon = "close"
+      if(this.person.BornDate !== undefined)
+        this.person.Age = (new Date()).getFullYear() - this.person.BornDate.getFullYear()
     }) 
   }
 
