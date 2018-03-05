@@ -57,6 +57,8 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ShowUserComponent } from './show-user/show-user.component';
+import { SearchUserPipe } from './search-user.pipe';
+import { SearchPersonPipe } from './search-person.pipe';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -82,6 +84,8 @@ import { ShowUserComponent } from './show-user/show-user.component';
     EditUserComponent,
     UserDetailsComponent,
     ShowUserComponent,
+    SearchUserPipe,
+    SearchPersonPipe,
   ],
   imports: [
     BrowserModule,

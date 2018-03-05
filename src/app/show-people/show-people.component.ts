@@ -14,8 +14,7 @@ import { User } from '../models/User';
 })
 export class ShowPeopleComponent implements OnInit, AfterViewInit {
   p: any
-  filter: any = {};
-  selection: any
+  filterargs: string = ''
   logguedUser: User
   selectionArray = [
     "Nombre",
@@ -75,6 +74,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     let ul = document.getElementsByClassName("ngx-pagination")
     ul[0].classList.add('zero-padding')
   }
+
   onViewDetails(index){
     localStorage.setItem('viewDetailsPerson', JSON.stringify(this.personService.people[index]))    
     this.router.navigate(['/show-details'])

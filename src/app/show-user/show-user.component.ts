@@ -9,10 +9,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./show-user.component.scss']
 })
 export class ShowUserComponent implements OnInit {
-
+  filterargs: string = ''
   p: any
-  filter: any = {};
-  selection: any
   selectionArray = [
     "Nombre de usuario",
     "Role"

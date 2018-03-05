@@ -1,14 +1,7 @@
-<div id="search-container" class="md-form text-center">
-  <mat-form-field style="margin-top: 1%">
-    <mat-select placeholder="Buscar por.." [(ngModel)]="selection">
-      <mat-option *ngFor="let s of selectionArray" [value]="s">
-        {{s}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>  
-  <div class="md-form" *ngIf="selection">
-    <input mdbActive type="text" id="name" class="form-control">
-    <label for="name" class="">Ingrese..</label>
+<div id="search-container" class="md-form text-center"> 
+  <div class="md-form">
+    <input [(ngModel)]="filterargs" mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Ingrese el filtro</label>
   </div>
 </div>
 <div class="container">
@@ -25,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of personService.people | paginate: { itemsPerPage: 4, currentPage: p } ; let i = index">
+      <tr *ngFor="let p of personService.people | paginate: { itemsPerPage: 4, currentPage: p } | searchPerson:filterargs; let i = index">
         <th>{{i+1}}</th>
         <th scope="row">{{p.EntryDate | date:'fullDate'}}</th>
         <td>{{p.Name}}</td>
