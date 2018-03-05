@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       success => {
         this._auth.login(success.user)
+        this._router.navigate(['/home'])
       },
       err => {
         this.err = true
