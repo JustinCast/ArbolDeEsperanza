@@ -15,6 +15,10 @@
     <label for="lastName" class="">Apellidos</label>
   </div>
   <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Edad" disabled value="{{person.BornDate.getFullYear()}}">
+    </mat-form-field>
+  <br>
   <mat-form-field>
     <input matInput [(ngModel)]="person.EntryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="personGroup.get('entryDate')">
     <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>

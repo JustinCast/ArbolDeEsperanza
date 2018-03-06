@@ -43,6 +43,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   psychoSocial: PsychoSocial
   houseMember: any = {}
   startDate = new Date(1990, 0, 1)
+  actualYear = (new Date()).getFullYear()
   houseMembers = []
   supportInstitutions = []
   medicationList = []
@@ -151,7 +152,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     })
     this.personGroup.valueChanges.subscribe((form) => {
       if(this.person.BornDate !== undefined)
-        this.person.Age = (new Date()).getFullYear() - this.person.BornDate.getFullYear()
+        console.log(`${this.person.BornDate}`)
+        // this.person.Age = (new Date()).getFullYear() - this.person.BornDate
     }) 
   }
 
