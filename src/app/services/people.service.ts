@@ -16,11 +16,11 @@ export class PeopleService {
 
   getPersonsRequest(): any {
     // `${environment.SERVER_BASE_URL}person/getAllPersons`
-    return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}person/getAllPersons`)
+    return this._http.get<Person[]>(`person/getAllPersons`)
   }
 
   savePerson(person: Person) {
-    this._http.post(`${environment.SERVER_BASE_URL}person/create`, person)
+    this._http.post(`person/create`, person)
       .subscribe(
         success => {
           console.log(success)
