@@ -91,27 +91,33 @@ const PersonSchema = new Schema({
     Need: {
         Need_Doctor: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
         Need_Ophthalmologist: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
         Need_Mammography: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
         Need_Dentist: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
         Need_Gynecologist: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
         Need_Psychologist: {
             type: Boolean,
-            required: true
+            required: true,
+            resolved: boolean
         },
     },
     PsychoSocial: {
