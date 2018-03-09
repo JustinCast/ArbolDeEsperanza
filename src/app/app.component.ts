@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 import { User } from './models/User';
@@ -7,14 +7,15 @@ import { User } from './models/User';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   logguedUser: User
   constructor(
     public _authentication: AuthenticationService,
-    public router: Router
+    public router: Router,
+    private _auth: AuthenticationService
   ){}
 
-  public set User(user: User) {
-    this.logguedUser = user
+  ngOnInit() {
+    this.logguedUser = JSON.parse(this._auth.getUser())
   }
 }
