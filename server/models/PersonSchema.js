@@ -231,6 +231,10 @@ const PersonSchema = new Schema({
     HouseMembers: {
         type: Array,
         required: true
+    },
+    Resolutions: {
+        type: Array,
+        required: true
     }
 })
 module.exports  = mongoose.model('person', PersonSchema)
