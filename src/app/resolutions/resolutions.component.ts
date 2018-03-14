@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/User';
+import { Person } from '../models/Person';
 
 @Component({
   selector: 'app-resolutions',
@@ -7,11 +7,16 @@ import { User } from '../models/User';
   styleUrls: ['./resolutions.component.scss']
 })
 export class ResolutionsComponent implements OnInit {
-  user: User
+  person: Person
   constructor() { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('personResolution'))
+    this.person = JSON.parse(localStorage.getItem('personResolution'))
+    console.log(this.person)
+  }
+
+  makeResolution(resolution) {
+    console.log(resolution)
   }
 
 }

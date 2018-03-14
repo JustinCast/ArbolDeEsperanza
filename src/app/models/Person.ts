@@ -38,6 +38,7 @@ export class Person {
         public HouseHolding: string,
         public HouseCondition: string,
         public HouseMembers: Array<HouseMember>,
+        public Resolutions: Array<any>,
         public _id?: string
     ) {}
 }

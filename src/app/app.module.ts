@@ -20,7 +20,8 @@ import {
   MatMenuModule,
   MatSnackBarModule,
   MatProgressBarModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -115,7 +116,8 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
     NgxPaginationModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
   providers: [
     PeopleService,

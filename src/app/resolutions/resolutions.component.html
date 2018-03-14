@@ -1,3 +1,29 @@
-<p>
-  resolutions works!
-</p>
+<div id="resolutions-container" class="container text-center">
+  <h3 class="text-primary">Necesidades de la persona</h3>
+  <ul id="resolutions-items">
+    <li *ngIf="person.Need.Need_Doctor">
+      <p #needD>Necesita Doctor</p>
+      <mat-checkbox (click)="makeResolution('Need_Doctor')">Resolver</mat-checkbox>
+    </li>
+    <li *ngIf="person.Need.Need_Ophthalmologist">
+      <p>Necesita Oftalmólogo</p>
+      <mat-checkbox (click)="makeResolution('Need_Ophthalmologist')">Resolver</mat-checkbox>
+    </li>
+    <li *ngIf="person.Need.Need_Mammography">
+      <p>Necesita una Mamografía</p>
+      <mat-checkbox (click)="makeResolution('Need_Mammography')">Resolver</mat-checkbox>
+    </li>
+    <li *ngIf="person.Need.Need_Dentist">
+      <p>Necesita un Dentista</p>
+      <mat-checkbox (click)="makeResolution('Need_Dentist')">Resolver</mat-checkbox>
+    </li>
+    <li *ngIf="person.Need.Need_Gynecologist">
+      <p>Necesita un Ginecólogo</p>
+      <mat-checkbox (click)="makeResolution('Need_Gynecologist')">Resolver</mat-checkbox>
+    </li>
+    <li *ngIf="person.Need.Need_Psychologist">
+      <p>Necesita un psicólogo</p>
+      <mat-checkbox (click)="makeResolution('Need_Psychologist')">Resolver</mat-checkbox>
+    </li>
+  </ul>
+</div>
