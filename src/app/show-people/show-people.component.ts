@@ -80,6 +80,11 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/show-details'])
   }
 
+  onShowResolutions(index){
+    localStorage.setItem('personResolution', JSON.stringify(this.personService.people[index]))
+    this.router.navigate(['/resolutions'])
+  }
+
   onEditPerson(index) {
     localStorage.setItem('editPerson', JSON.stringify(this.personService.people[index]));     
     this.router.navigate(['/edit-person'])

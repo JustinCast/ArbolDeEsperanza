@@ -16,6 +16,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ShowUserComponent } from './show-user/show-user.component';
+import { ResolutionsComponent } from './resolutions/resolutions.component';
 
 export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent, canActivate: [LogguedInGuard]},
@@ -38,6 +39,7 @@ export const ROUTES: Routes = [
                 { path: 'show-people', component: ShowUserComponent}
             ]},
     { path: 'settings', component: SettingsComponent, canActivate: [LogguedInGuard] },
+    { path: 'resolutions', component: ResolutionsComponent, canActivate: [LogguedInGuard] },
     { path: '', component: LoginComponent, pathMatch: 'full'},
     { path: '**', component: ErrorHandleComponent }
 ]
