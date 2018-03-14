@@ -1,6 +1,7 @@
 import { HouseMember } from "./HouseMember";
 import { Need } from "./Need";
 import { PsychoSocial } from "./PsychoSocial";
+import { Resolution } from "./Resolution";
 
 export class Person {
     constructor(
@@ -38,7 +39,7 @@ export class Person {
         public HouseHolding: string,
         public HouseCondition: string,
         public HouseMembers: Array<HouseMember>,
-        public Resolutions: Array<any>,
+        public Resolutions: Array<Resolution>,
         public _id?: string
     ) {}
 }

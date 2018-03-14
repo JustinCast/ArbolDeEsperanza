@@ -3,27 +3,31 @@
   <ul id="resolutions-items">
     <li *ngIf="person.Need.Need_Doctor">
       <p #needD>Necesita Doctor</p>
-      <mat-checkbox (click)="makeResolution('Need_Doctor')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[0]" (click)="makeResolution('Need_Doctor')">Resolver</mat-checkbox>
     </li>
     <li *ngIf="person.Need.Need_Ophthalmologist">
       <p>Necesita Oftalmólogo</p>
-      <mat-checkbox (click)="makeResolution('Need_Ophthalmologist')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[1]" (click)="makeResolution('Need_Ophthalmologist')">Resolver</mat-checkbox>
     </li>
     <li *ngIf="person.Need.Need_Mammography">
       <p>Necesita una Mamografía</p>
-      <mat-checkbox (click)="makeResolution('Need_Mammography')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[2]" (click)="makeResolution('Need_Mammography')">Resolver</mat-checkbox>
     </li>
     <li *ngIf="person.Need.Need_Dentist">
       <p>Necesita un Dentista</p>
-      <mat-checkbox (click)="makeResolution('Need_Dentist')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[3]" (click)="makeResolution('Need_Dentist')">Resolver</mat-checkbox>
     </li>
     <li *ngIf="person.Need.Need_Gynecologist">
       <p>Necesita un Ginecólogo</p>
-      <mat-checkbox (click)="makeResolution('Need_Gynecologist')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[4]" (click)="makeResolution('Need_Gynecologist')">Resolver</mat-checkbox>
     </li>
     <li *ngIf="person.Need.Need_Psychologist">
       <p>Necesita un psicólogo</p>
-      <mat-checkbox (click)="makeResolution('Need_Psychologist')">Resolver</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedStates[5]" (click)="makeResolution('Need_Psychologist')">Resolver</mat-checkbox>
     </li>
   </ul>
+  <div *ngIf="localResolutions.length === 0" id="actions-container" class="container text-center">
+    <button mat-button>Deshacer</button>
+    <button mat-raised-button color="primary">Aceptar</button>
+  </div>
 </div>
