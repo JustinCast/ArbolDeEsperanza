@@ -10,6 +10,7 @@ import { Need } from '../models/Need';
 import { PsychoSocial } from '../models/PsychoSocial';
 import { HouseMember } from '../models/HouseMember';
 import { PeopleService } from '../services/people.service';
+import { Resolution } from '../models/Resolution';
 const moment =  _moment;
 export const MY_FORMATS = {
   parse: {
@@ -220,7 +221,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       "",
       "",
       "",
-      this.houseMembers as HouseMember[]
+      this.houseMembers as HouseMember[],
+      new Array<Resolution>()
     )
   }
 
