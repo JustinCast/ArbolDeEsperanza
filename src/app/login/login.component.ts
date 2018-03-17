@@ -13,7 +13,6 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit, OnDestroy {
   actualYear = (new Date()).getFullYear()
   loginFG: FormGroup
-  err: boolean = false
   login: any = {}
   logguedUser: User
   constructor(
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    document.querySelector('body').classList.remove('background');
+    document.querySelector('body').classList.remove('backg');
   }
 
   onSubmit(){
@@ -52,9 +51,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         this._router.navigate(['/home'])
       },
       err => {
-        this.err = true
+        this.userService.openSnackBar("Usuario o contraseña incorrecta", 'Ok')
       }
     )
   }
-
 }

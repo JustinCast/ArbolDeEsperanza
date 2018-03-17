@@ -36,7 +36,7 @@ export const ROUTES: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'admin', component: AdminComponent, canActivate: [LogguedInGuard], 
             children: [
-                { path: 'show-people', component: ShowUserComponent}
+                { path: 'show-people', component: ShowUserComponent, canActivate: [LogguedInGuard]}
             ]},
     { path: 'settings', component: SettingsComponent, canActivate: [LogguedInGuard] },
     { path: 'resolutions', component: ResolutionsComponent, canActivate: [LogguedInGuard] },

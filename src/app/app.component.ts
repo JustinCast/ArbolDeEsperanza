@@ -18,4 +18,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.logguedUser = JSON.parse(this._auth.getUser())
   }
+
+  logout(){
+    this._authentication.logout()
+    this.router.navigate([''])
+  }
 }

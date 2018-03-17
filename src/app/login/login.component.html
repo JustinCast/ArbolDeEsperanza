@@ -23,9 +23,6 @@
           <button (click)="onSubmit()" [disabled]="!loginFG.valid" [routerLink]="['/home']" class="btn btn-default btn-sm waves-light" mdbRippleRadius>Ingresar</button>
       </div>
     </form>
-    <div *ngIf="err" class="container text-center">
-        <p class="text-danger">Nombre de usuario o contraseña incorrecta</p>
-    </div>
     <!-- <ng-template #loggued>
         <p>Usuario logueado como {{logguedUser.UserName}}</p>
     </ng-template> -->
