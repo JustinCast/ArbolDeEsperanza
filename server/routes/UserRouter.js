@@ -23,7 +23,7 @@ function getUser(req, res) {
     console.log(req.params.username + " | "+ req.params.password)
     User.findOne({"UserName": username}, (err, user)=> {
         if(err || user === null || user === undefined)
-            res.status(500).send({message: `Usuario no encontrado: ${err}`})
+            res.status(404).send({message: `Usuario no encontrado: ${err}`})
         else{ 
             user.comparePassword(comparePassword, (err, isMatch) => {
                 if(err)
