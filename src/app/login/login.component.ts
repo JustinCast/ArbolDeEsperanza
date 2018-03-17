@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.scss'],
   providers: [UserService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   actualYear = (new Date()).getFullYear()
   loginFG: FormGroup
   err: boolean = false
@@ -29,10 +29,19 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    let style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = ".backg { background-image: url('../../assets/blurred.jpg'); }";
+    document.getElementsByTagName('head')[0].appendChild(style);
+    document.querySelector('body').classList.add('backg');
     if(this._auth.isLoggedIn()){
       this.logguedUser = JSON.parse(this._auth.getUser())
       this._router.navigate(['/home'])
     }
+  }
+
+  ngOnDestroy() {
+    document.querySelector('body').classList.remove('background');
   }
 
   onSubmit(){

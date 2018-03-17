@@ -1,10 +1,13 @@
 form{
-    width: 70%;
+    width: 35%;
     margin: auto;
-    margin-top: 3%
+    padding: 3%;
 }
-footer{
-    position:absolute;
-   bottom:0;
-   width:100%;
+#login-container {
+    padding-top: 8%;
+    width: 100%
+}
+.background{
+    background: url("../../assets/blurred.jpg");
+    padding: 0
 }

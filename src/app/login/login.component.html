@@ -1,65 +1,33 @@
-<!-- Login form -->
-<form *ngIf="!_auth.isLoggedIn()" [formGroup]="loginFG">
-  <p class="h5 text-secondary text-center mb-4">Ingreso al sistema</p>
-
-  <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input [(ngModel)]="login.UserName" [formControl]="loginFG.get('Username')" value="test" type="text" id="defaultForm-email" class="form-control" mdbActive>
-      <label for="defaultForm-email">Nombre de usuario</label>
-  </div>
-
-  <div class="md-form">
-      <i class="fa fa-lock prefix grey-text"></i>
-      <input [(ngModel)]="login.Password" [formControl]="loginFG.get('Password')" value="test" type="password" id="defaultForm-pass" class="form-control" mdbActive>
-      <label for="defaultForm-pass">Contraseña</label>
-  </div>
-
-  <div class="text-center">
-      <button (click)="onSubmit()" [disabled]="!loginFG.valid" [routerLink]="['/home']" class="btn btn-default btn-sm waves-light" mdbRippleRadius>Ingresar</button>
-  </div>
-</form>
-<div *ngIf="err" class="container text-center">
-    <p class="text-danger">Nombre de usuario o contraseña incorrecta</p>
+<div id="login-container" class="container">
+    <!-- Login form -->
+    <form class="card" *ngIf="!_auth.isLoggedIn()" [formGroup]="loginFG">
+      <p class="h4 text-secondary text-center">Ingreso al sistema</p>
+    
+      <div class="md-form">
+          <input [(ngModel)]="login.UserName" [formControl]="loginFG.get('Username')" value="test" type="text" id="defaultForm-email" class="form-control" mdbActive>
+          <label for="defaultForm-email">Nombre de usuario</label>
+      </div>
+    
+      <div class="md-form">
+          <input [(ngModel)]="login.Password" [formControl]="loginFG.get('Password')" value="test" type="password" id="defaultForm-pass" class="form-control" mdbActive>
+          <label for="defaultForm-pass">Contraseña</label>
+      </div>
+      <mat-checkbox color="primary">Recordarme</mat-checkbox>
+      <small class="text-center text-secondary">
+        <em>
+          Sólo los usuarios agregados por administradores o editores pueden
+          ingresar al sistema
+        </em>
+      </small>
+      <div class="text-center">
+          <button (click)="onSubmit()" [disabled]="!loginFG.valid" [routerLink]="['/home']" class="btn btn-default btn-sm waves-light" mdbRippleRadius>Ingresar</button>
+      </div>
+    </form>
+    <div *ngIf="err" class="container text-center">
+        <p class="text-danger">Nombre de usuario o contraseña incorrecta</p>
+    </div>
+    <!-- <ng-template #loggued>
+        <p>Usuario logueado como {{logguedUser.UserName}}</p>
+    </ng-template> -->
+    <!-- Login form -->
 </div>
-<!-- <ng-template #loggued>
-    <p>Usuario logueado como {{logguedUser.UserName}}</p>
-</ng-template> -->
-<!-- Login form -->
-
-<!--Footer-->
-<footer class="page-footer indigo center-on-small-only">
-
-  <!--Footer Links-->
-  <div class="container">
-      <div class="row">
-
-          <!--First column-->
-          <div class="col-md-6">
-              <h6 class="title">Fundación Árbol de Esperanza</h6>
-              <p>Descripción breve o slogan de la fundación</p>
-          </div>
-          <!--/.First column-->
-
-          <!--Second column-->
-          <div class="col-md-6">
-              <h5 class="title">Enlaces de Interés</h5>
-              <ul>
-                  <li><a href="#">Link 1</a></li>
-                  <li><a href="#">Link 2</a></li>
-                  <li><a href="#">Link 3</a></li>
-                  <li><a href="#">Link 4</a></li>
-              </ul>
-          </div>
-          <!--/.Second column-->
-      </div>
-  </div>
-  <!--/.Footer Links-->
-
-  <!--Copyright-->
-  <div class="footer-copyright">
-      <div class="container-fluid">
-          © {{actualYear}} Copyright: <a href="http://justin-overview.com"> Justin A. Castillo V. </a>
-      </div>
-  </div>
-  <!--/.Copyright-->
-</footer>

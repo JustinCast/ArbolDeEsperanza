@@ -24,7 +24,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button *ngIf="logguedUser.Role === 'Admin'" routerLink="admin" mat-menu-item>
+                <button *ngIf="logguedUser && logguedUser.Role === 'Admin'" routerLink="admin" mat-menu-item>
                     <mat-icon>person_add</mat-icon>
                     <span>Administrar usuarios</span>
                 </button>
