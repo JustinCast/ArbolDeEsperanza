@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this._router.navigate(['/home'])
       },
       err => {
+        console.log(`Usuario inautorizado, error: ${err.status}, cuerpo del error: ${JSON.stringify(err.error)}`);
         this.userService.openSnackBar("Usuario o contraseña incorrecta", 'Ok')
       }
     )
