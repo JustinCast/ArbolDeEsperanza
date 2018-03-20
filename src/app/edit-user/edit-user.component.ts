@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/User';
+import {Location} from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { stringify } from 'querystring';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -22,7 +24,9 @@ export class EditUserComponent implements OnInit {
   userFG: FormGroup
   constructor(
     private _fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private _location: Location,
+    public snackBar: MatSnackBar
   ) { 
     this.userFG = this._fb.group({
       "UserName": ['', Validators.required],
@@ -37,13 +41,23 @@ export class EditUserComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('editUser'))
   }
 
+  backClicked() {
+    this._location.back();
+  }
+
   updateUser(){
     this.userService.updateUser(this.user)
+    this.snackBar.open("Usuario editado correctamente", "Ok", {
+      duration: 2000,
+      extraClasses: ['green-snackbar']
+    });
   }
 
   resetForm() {
-    if(this.userFG !== undefined)
+    if(this.userFG !== undefined){
       this.userFG.reset()
+      this.backClicked()
+    }
   }
   checkedClick(){
     console.log(this.checked)

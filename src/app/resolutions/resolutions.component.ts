@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../models/Person';
+
+import {Location} from '@angular/common';
 import { Resolution } from '../models/Resolution';
 import { PeopleService } from '../services/people.service';
 
@@ -14,10 +16,15 @@ export class ResolutionsComponent implements OnInit {
   checkedStates: Array<boolean> = new Array<boolean>(6)
   constructor(
     public peopleService: PeopleService,
+    private _location: Location
   ) { }
 
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('personResolution'))
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   makeResolution(list) {

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/User';
 import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private _fb: FormBuilder,
     private userService: UserService,
     public _auth: AuthenticationService,
-    private _router: Router
+    private _router: Router,
+    public snackBar: MatSnackBar
   ){ 
     this.loginFG = this._fb.group({
       "Username": ['', Validators.required],
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    let button = document.getElementById("fire")
+    button.click()
     let style = document.createElement('style');
     style.type = 'text/css';
     style.innerHTML = ".backg { background-image: url('../../assets/blurred.jpg'); }";
@@ -52,7 +56,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       },
       err => {
         console.log(`Usuario inautorizado, error: ${err.status}, cuerpo del error: ${JSON.stringify(err.error)}`);
-        this.userService.openSnackBar("Usuario o contraseña incorrecta", 'Ok')
+        this.snackBar.open("Usuario o contraseña incorrecta", "Ok", {
+          duration: 2000,
+          extraClasses: ['red-snackbar']
+        });
       }
     )
   }
