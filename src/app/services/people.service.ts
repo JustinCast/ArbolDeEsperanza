@@ -87,7 +87,7 @@ export class PeopleService {
   }
 
   openSnackBar(message: string, action: string, cssClass: string) {
-    this.snackBar.open(action, action, {
+    this.snackBar.open(message, action, {
       duration: 2000,
       extraClasses: [cssClass]
     });
