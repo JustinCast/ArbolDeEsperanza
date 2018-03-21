@@ -12,8 +12,8 @@ export class YesOrNoComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<YesOrNoComponent>) { }
 
   ngOnInit() {
-    this.title = "Eliminar"
-    this.message = "Está seguro que desea eliminar este usuario?"
+    this.title = ""
+    this.message = ""
   }
 
 }
