@@ -24,6 +24,7 @@ export class PeopleService {
       .subscribe(
         success => {
           console.log(success)
+          this.openSnackBar('Persona guardada con éxito', 'Ok', 'green-snackbar')
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -32,7 +33,8 @@ export class PeopleService {
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${stringify(err.error)}`);
+            console.log(`Backend returned code ${err.status}, body was: ${stringify(err.error)}`)
+            this.openSnackBar(`Persona no guardada debido al error: ${err}`, 'Ok', 'red-snackbar')
           }
         }
       )
@@ -46,6 +48,7 @@ export class PeopleService {
       .subscribe(
         success => {
           console.log('Persona actualizada con éxito')
+          this.openSnackBar('Persona actualizada con éxito', 'Ok', 'green-snackbar')
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -54,7 +57,8 @@ export class PeopleService {
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+            console.log(`Backend returned code ${err.status}, body was: ${err.error}`)
+            this.openSnackBar(`Persona no eliminada debido al error: ${err}`, 'Ok', 'red-snackbar')
           }
         }
       )
@@ -74,17 +78,18 @@ export class PeopleService {
     this._http.delete(`person/delete/${_id}`)
     .subscribe(
       success => {
-        this.openSnackBar('Persona eliminada con éxito', 'Ok')
+        this.openSnackBar('Persona eliminada con éxito', 'Ok', 'green-snackbar')
       },
       (err: HttpErrorResponse) => {
-        this.openSnackBar(`Persona no eliminada debido al error: ${err}`, 'Ok')
+        this.openSnackBar(`Persona no eliminada debido al error: ${err}`, 'Ok', 'red-snackbar')
       }
     )
   }
 
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
+  openSnackBar(message: string, action: string, cssClass: string) {
+    this.snackBar.open("Usuario editado correctamente", "Ok", {
       duration: 2000,
+      extraClasses: [cssClass]
     });
   }
 

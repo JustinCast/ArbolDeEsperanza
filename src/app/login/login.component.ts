@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       },
       err => {
         console.log(`Usuario inautorizado, error: ${err.status}, cuerpo del error: ${JSON.stringify(err.error)}`);
-        this.snackBar.open("Usuario o contraseña incorrecta", "Ok", {
-          duration: 2000,
+        this.snackBar.open("Usuario o contraseña incorrecta", "", {
+          duration: 1000,
           extraClasses: ['red-snackbar']
         });
       }

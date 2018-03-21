@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { stringify } from 'querystring';
 import { MatSnackBar } from '@angular/material';
+import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -26,7 +27,8 @@ export class EditUserComponent implements OnInit {
     private _fb: FormBuilder,
     private userService: UserService,
     private _location: Location,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public yesOrNoDialog: YesOrNoService,
   ) { 
     this.userFG = this._fb.group({
       "UserName": ['', Validators.required],
@@ -46,11 +48,13 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(){
-    this.userService.updateUser(this.user)
-    this.snackBar.open("Usuario editado correctamente", "Ok", {
-      duration: 2000,
-      extraClasses: ['green-snackbar']
-    });
+    this.yesOrNoDialog.confirm("Editar persona", "Seguro que desea editar la persona")
+    .subscribe(
+      yes => {
+        if(yes) {
+          this.userService.updateUser(this.user)
+        }
+      })
   }
 
   resetForm() {

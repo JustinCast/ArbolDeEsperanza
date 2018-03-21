@@ -9,6 +9,8 @@ import * as _moment from 'moment';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { PeopleService } from '../services/people.service';
+import { MatSnackBar } from '@angular/material';
+import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 const moment =  _moment;
 export const MY_FORMATS = {
   parse: {
@@ -87,7 +89,9 @@ export class EditPersonComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute, 
     public peopleService: PeopleService,
     public _fb: FormBuilder,
-    private _location: Location
+    private _location: Location,
+    public snackBar: MatSnackBar,
+    public yesOrNoDialog: YesOrNoService,
   ) { 
     this.editForm = this._fb.group({
       'name': ['', Validators.required],
@@ -198,10 +202,17 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   }
 
   updatePerson() {
-    let confirmation = confirm("¿Seguro que desea actualizar a la persona?")
-    if(confirmation) {
-      this.peopleService.updatePerson(this.person)
-    }
+    this.yesOrNoDialog.confirm("Editar persona", "Seguro que desea editar la persona")
+    .subscribe(
+      yes => {
+        if(yes) {
+          this.peopleService.updatePerson(this.person)
+          this.snackBar.open("Usuario editado correctamente", "", {
+            duration: 1000,
+            extraClasses: ['green-snackbar']
+          });
+        }
+    })
   }
 
   ngOnDestroy() {
