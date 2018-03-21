@@ -53,6 +53,7 @@ export class EditUserComponent implements OnInit {
       yes => {
         if(yes) {
           this.userService.updateUser(this.user)
+          this.backClicked()
         }
       })
   }

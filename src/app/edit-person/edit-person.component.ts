@@ -207,6 +207,7 @@ export class EditPersonComponent implements OnInit, OnDestroy {
       yes => {
         if(yes) {
           this.peopleService.updatePerson(this.person)
+          this.backClicked()
         }
     })
   }
