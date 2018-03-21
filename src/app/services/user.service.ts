@@ -84,7 +84,7 @@ export class UserService {
   }
 
   openSnackBar(message: string, action: string, cssClass: string) {
-    this.snackBar.open("Usuario editado correctamente", "Ok", {
+    this.snackBar.open(message, action, {
       duration: 2000,
       extraClasses: [cssClass]
     });

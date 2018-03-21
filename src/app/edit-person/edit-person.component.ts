@@ -207,10 +207,6 @@ export class EditPersonComponent implements OnInit, OnDestroy {
       yes => {
         if(yes) {
           this.peopleService.updatePerson(this.person)
-          this.snackBar.open("Usuario editado correctamente", "", {
-            duration: 1000,
-            extraClasses: ['green-snackbar']
-          });
         }
     })
   }
