@@ -16,7 +16,7 @@
   </div>
   <br>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Edad" disabled value="{{person.BornDate.getFullYear()}}">
+    <input matInput [formControl]="personGroup.get('age')" placeholder="Edad" value="{{actualYear - bornYear}}">
     </mat-form-field>
   <br>
   <mat-form-field>

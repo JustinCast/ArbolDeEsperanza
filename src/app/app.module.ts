@@ -88,7 +88,7 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
     ShowUserComponent,
     SearchUserPipe,
     SearchPersonPipe,
-    ResolutionsComponent,
+    ResolutionsComponent
   ],
   imports: [
     BrowserModule,
