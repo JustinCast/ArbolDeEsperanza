@@ -15,7 +15,11 @@ import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 })
 export class EditUserComponent implements OnInit {
   checked: boolean = false
-  OldPassword: string = ''
+  OldPassword: string
+  NewPassword: string
+  NewPasswordConfirm: string
+  successVerification: boolean = false
+  passwordCoincidence: boolean = false
   usersRole = [
     'Admin',
     'Editor',
@@ -32,9 +36,9 @@ export class EditUserComponent implements OnInit {
   ) { 
     this.userFG = this._fb.group({
       "UserName": ['', Validators.required],
-      "OldPassword": [''],
-      "NewPassword": [''],
-      "NewPasswordConfirm": [''],
+      "OldPassword": ['', Validators.required],
+      "NewPassword": ['', Validators.required],
+      "NewPasswordConfirm": ['', Validators.required],
       "Role": ['', Validators.required]
     })
   }
@@ -48,14 +52,24 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(){
-    this.yesOrNoDialog.confirm("Editar persona", "Seguro que desea editar la persona")
-    .subscribe(
-      yes => {
-        if(yes) {
-          this.userService.updateUser(this.user)
-          this.backClicked()
-        }
-      })
+    if(this.OldPassword !== undefined && this.NewPassword !== undefined){
+      if(this.passwordCoincidence){
+        this.yesOrNoDialog.confirm("Editar persona", "Seguro que desea editar la persona")
+        .subscribe(
+          yes => {
+            if(yes) {
+              this.user.Password = this.NewPassword
+              this.userService.updateUser(this.user)
+              this.backClicked()
+            }
+          })
+      }
+      else
+        this.openSnackBar('La confirmación de contraseña no coincide', '', 'red-snackbar')
+
+    }
+    else
+      this.openSnackBar('Por favor complete los campos', '', 'red-snackbar')
   }
 
   resetForm() {
@@ -68,12 +82,23 @@ export class EditUserComponent implements OnInit {
     console.log(this.checked)
   }
 
+  verifyingPassword(event: any) {
+    if(String(event.target.value) === this.NewPassword){
+      this.passwordCoincidence = true
+      this.openSnackBar('Las contraseñas coinciden', '', 'green-snackbar')
+    }
+    else
+      this.openSnackBar('La confirmación de contraseña no coincide', '', 'red-snackbar')
+  }
+
   onKey(event: any) {
     console.log(this.user.Password)
     this.userService.getUser(this.user.UserName, String(event.target.value))
     .subscribe(
       success => {
         console.log(success)
+        this.successVerification = true
+        this.openSnackBar("Contraseña correcta", '', 'green-snackbar')
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -84,8 +109,17 @@ export class EditUserComponent implements OnInit {
           // Error del lado del backend
           console.log(`Backend returned code ${err.status}, body was:  ${JSON.stringify(err.error)}`);
         }
+        this.successVerification = false
+        this.openSnackBar("Contraseña incorrecta", '', 'red-snackbar')
       }
     )
+  }
+
+  openSnackBar(message: string, action: string, cssClass: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      extraClasses: [cssClass]
+    });
   }
 
 }

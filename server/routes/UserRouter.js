@@ -20,7 +20,6 @@ function getUsers(req, res) {
 function getUser(req, res) {
     let username = req.params.username
     let comparePassword = req.params.comparePassword
-    console.log(req.params.username + " | "+ req.params.password)
     User.findOne({"UserName": username}, (err, user)=> {
         if(err || user === null || user === undefined)
             res.status(404).send({message: `Usuario no encontrado: ${err}`})
@@ -40,7 +39,6 @@ function getUser(req, res) {
 }
 
 function saveUser(req, res) {
-    console.log(req.body)
     // almacenar en la base de datos
     let user = new User(req.body)
     user.save((err, userStored) => {
@@ -54,16 +52,24 @@ function saveUser(req, res) {
 
 function updateUser(req, res) {
     let userId  = req.params.userId
-    let update = req.body
-    console.log(req.body)
-    User.findByIdAndUpdate(userId, update, (err, userUpdated) => {
-        if(err)
-            res.status(500).send({message: `Error al actualizar el usuario: ${err}`})
-        else{
-            console.log("Usuario actualizado correctamente")
-            res.status(201).send({user: userUpdated})
-        }
-    })
+
+    bcrypt.genSalt(10,(err,salt) => {
+        bcrypt.hash(req.body.Password, salt , (err, hash) =>{
+         if(err) throw (err);
+            
+         console.log(hash)
+         req.body.Password = hash;
+
+         User.findByIdAndUpdate(userId, req.body, (err, userUpdated) => {
+            if(err)
+                res.status(500).send({message: `Error al actualizar el usuario: ${err}`})
+            else{
+                console.log("Usuario actualizado correctamente")
+                res.status(201).send({user: userUpdated})
+            }
+        })
+        });
+    });
 }
 
 function deleteUser(req, res) {
