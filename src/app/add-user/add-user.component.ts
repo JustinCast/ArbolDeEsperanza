@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit {
   usersRole = [
     'Admin',
     'Editor',
-    'NormalUser'
+    'Usuario'
   ]
   userFG: FormGroup
   user: User
