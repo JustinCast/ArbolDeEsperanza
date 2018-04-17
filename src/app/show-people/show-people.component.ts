@@ -44,7 +44,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
         } else {
           // The backend returned an unsuccessful response code.
           // Error del lado del backend
-          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`);
         }
       }
     )

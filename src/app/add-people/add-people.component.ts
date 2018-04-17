@@ -116,7 +116,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'wfsProgramGraduate': ['', Validators.required],
       'workSkillsProgram': ['', Validators.required],
       'bornDate': [moment(), Validators.required],
-      'age': [{value: moment(), disabled: true}, Validators.required],
+      'age': [{value: 'Ingrese una fecha de nacimiento', disabled: true}, Validators.required],
       'maritalStatus': ['', Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
@@ -154,13 +154,12 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'houseMembers': ['', Validators.required],
     })
     this.personGroup.get('bornDate').valueChanges.subscribe((form) => {
-      if(form._i !== undefined)
-        this.bornYear = form._i.year
-      // if(this.person.BornDate !== undefined){
-      //   this.bornYear = this.person.BornDate.getFullYear()
-      //   console.log(`${this.person.BornDate.getFullYear()}`)
-      // }
-        // this.person.Age = (new Date()).getFullYear() - this.person.BornDate
+      if(form._i !== undefined){
+        if(form._i !== NaN){
+          this.bornYear = this.calculateAge(form._i.year)
+          this.personGroup.get('age').setValue(this.bornYear)
+        }
+      }
     }) 
   }
 
