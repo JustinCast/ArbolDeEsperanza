@@ -42,8 +42,18 @@ const SocioEconomicSchema = new Schema({
         required: true
     },
     Budget: {
-        type: Budget,
-        required: true
+        BudgetPlan: {
+            type: Number,
+            required: true
+        },
+        TotalServices: {
+            type: Array,
+            required: true
+        },
+        TotalAmount: {
+            type: Number,
+            required: true
+        }
     },
     HouseHolding: {
         type: String,
