@@ -15,17 +15,9 @@ const PersonSchema = new Schema({
         default: '',
         required: true
     },
-    Reference: {
-        type: String,
-        required: true
-    },
-    Documented: {
-        type: String,
-        required: true
-    },
-    MaritalStatus: {
-        type: String,
-        default: '',
+    ActiveOrInactive: {
+        type: Boolean,
+        default: false,
         required: true
     },
     EntryDate: {
@@ -33,9 +25,8 @@ const PersonSchema = new Schema({
         default: Date.now(),
         required: true
     },
-    ActiveOrInactive: {
-        type: Boolean,
-        default: false,
+    BornDate: {
+        type: Date,
         required: true
     },
     Age: {
@@ -44,43 +35,9 @@ const PersonSchema = new Schema({
         min: 5,
         required: true
     },
-    BornDate: {
-        type: Date,
-        required: true
-    },
-    Read: {
-        type: Boolean,
-        required: true
-    },
-    Write: {
-        type: Boolean,
-        required: true
-    },
-    SocialSecurity: {
-        type: Boolean,
-        required: true
-    },
-    SocialSecurityType: {
-        type: String,
-        default: 'Común',
-        required: false
-    },
-    Education: {
-        type: String,
-        default: '',
-        required: true
-    },
-    Nationality: {
-        type: String,
-        required: true
-    },
     PhoneNumber: {
         type: String,
         default: '8888-8888',
-        required: true
-    },
-    Address: {
-        type: String,
         required: true
     },
     Email: {
@@ -88,153 +45,60 @@ const PersonSchema = new Schema({
         default: 'mail@mail.com',
         required: true
     },
-    Need: {
-        Need_Doctor: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
-        Need_Ophthalmologist: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
-        Need_Mammography: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
-        Need_Dentist: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
-        Need_Gynecologist: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
-        Need_Psychologist: {
-            type: Boolean,
-            required: true,
-            resolved: Boolean
-        },
+    EmergencyContact: {
+        type: String,
+        required: true
     },
-    PsychoSocial: {
-        AlcoholProblems: {
-            type: Boolean,
-            required: true
+    EmergencyContactData: {
+        FullName: {
+            type: String,
+            required: true1
         },
-        AbuseVictim: {
-            type: Boolean,
-            required: true
-        },
-        DomesticViolence: {
-            type: Boolean,
-            required: true
-        },
-        DrugsProblem: {
-            type: Boolean,
-            required: true
-        },
-        EducationalProgram: {
-            type: Boolean,
-            required: true
-        },
-        MentalProgram: {
-            type: Boolean,
-            required: true
-        },
-        ProtectionOrder: {
-            type: Boolean,
-            required: true
-        },
-        SocialServices: {
-            type: Boolean,
-            required: true
-        },
-        SexualAbuse: {
-            type: Boolean,
-            required: true
-        },
-        SuicideAttempt: {
-            type: Boolean,
-            required: true
-        },
-        SuicideToughts: {
-            type: Boolean,
-            required: true
-        },
-        WFSProgramGraduate: {
-            type: Boolean,
-            required: true
-        },
-        WorkSkillsProgram: {
-            type: Boolean,
+        Relationship: {
+            type: String,
             required: true
         }
     },
-    TakeMedication: {
-        type: Boolean,
-        required: true
-    },
-    Medication: {
-        type: Array,
-        required: false
-    },
-    EmploymentSituation: {
+    Reference: {
         type: String,
         required: true
     },
-    WorkingHours: {
-        type: Number,
-        min: 5,
-        required: false
-    },
-    UnemployedDate: {
-        type: String,
-        required: false
-    },
-    SupportInstitutions: {
-        type: Array,
-        required: true
-    },
-    PersonsInTheHouse: {
-        type: Number,
-        max: 12,
-        required: true
-    },
-    UnderagePeople: {
-        type: Number,
-        required: true
-    },
-    DisabilitiePersons: {
-        type: Number,
-        required: true
-    },
-    HouseIncome: {
-        type: Number,
-        required: true
-    },
-    IncomeSource: {
+    DNI: {
         type: String,
         required: true
     },
-    HouseHolding: {
+    Documented: {
         type: String,
         required: true
     },
-    HouseCondition: {
+    Nationality: {
         type: String,
         required: true
     },
-    HouseMembers: {
-        type: Array,
+    MaritalStatus: {
+        type: String,
+        default: '',
         required: true
     },
-    Resolutions: {
-        type: Array,
+    Residence: {
+        type: String,
         required: true
+    },
+    Expectatives: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'expectatives'
+    },
+    Education: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'education'
+    },
+    SocioEconomic: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'socioeconomic'
+    },
+    Employnment: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'employnment'
     }
 })
 module.exports  = mongoose.model('person', PersonSchema)

@@ -64,3 +64,4 @@ const SocioEconomicSchema = new Schema({
         required: true
     },
 })
+module.exports  = mongoose.model('socioeconomic', UserSchema)
