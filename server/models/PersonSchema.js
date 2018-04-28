@@ -99,6 +99,10 @@ const PersonSchema = new Schema({
     Employnment: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'employnment'
+    },
+    Health: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'health'
     }
 })
 module.exports  = mongoose.model('person', PersonSchema)
