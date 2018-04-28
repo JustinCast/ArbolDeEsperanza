@@ -9,18 +9,22 @@ import { ShowUserComponent } from './show-user/show-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserComponent } from './user.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UserRoutingModule } from './user.routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    UserRoutingModule
+  ],
+  declarations: [
     AddUserComponent,
     EditUserComponent,
     ShowUserComponent,
     UserDetailsComponent,
-    UserComponent,
-    SharedModule
-  ],
-  declarations: [
-    
+    UserComponent,    
   ],
   exports: [
     UserComponent
