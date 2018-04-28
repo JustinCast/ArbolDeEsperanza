@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/User';
 import {Location} from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { stringify } from 'querystring';
 import { MatSnackBar } from '@angular/material';
-import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/User';
+import { YesOrNoService } from '../../modals/yes-or-no/yes-or-no.service';
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',

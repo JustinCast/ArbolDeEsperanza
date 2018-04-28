@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Person } from './models/Person';
+import { Person } from '../models/Person';
 
 @Pipe({
   name: 'searchPerson'
@@ -28,4 +28,3 @@ function removeAccents(s) {
               
    return r;
 }
-

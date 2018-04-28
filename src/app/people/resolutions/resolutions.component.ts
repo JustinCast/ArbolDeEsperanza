@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../models/Person';
 
 import {Location} from '@angular/common';
-import { Resolution } from '../models/Resolution';
-import { PeopleService } from '../services/people.service';
+import { Person } from '../../models/Person';
+import { Resolution } from '../../models/Resolution';
+import { PeopleService } from '../../services/people.service';
 
 @Component({
   selector: 'app-resolutions',

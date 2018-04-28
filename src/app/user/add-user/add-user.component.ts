@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpErrorResponse } from '@angular/common/http';
-import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 import { MatSnackBar } from '@angular/material';
-import { PeopleService } from '../services/people.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../models/User';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/User';
+import { YesOrNoService } from '../../modals/yes-or-no/yes-or-no.service';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',

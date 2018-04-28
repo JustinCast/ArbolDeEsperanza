@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
-import { Person } from '../models/Person';
 import { MatDialog } from '@angular/material';
 import { HouseMembersComponent } from '../house-members/house-members.component';
-import { PeopleService } from '../services/people.service';
+import { Person } from '../../models/Person';
+import { PeopleService } from '../../services/people.service';
 
 @Component({
   selector: 'app-show-details',

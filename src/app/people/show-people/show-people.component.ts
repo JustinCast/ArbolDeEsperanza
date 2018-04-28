@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { PeopleService } from '../services/people.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Person } from '../models/Person';
-import { YesOrNoService } from '../yes-or-no/yes-or-no.service';
 import { MatSnackBar } from '@angular/material';
-import { AuthenticationService } from '../services/authentication.service';
-import { User } from '../models/User';
+import { PeopleService } from '../../services/people.service';
+import { YesOrNoService } from '../../modals/yes-or-no/yes-or-no.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../models/User';
 @Component({
   selector: 'app-show-people',
   templateUrl: './show-people.component.html',
