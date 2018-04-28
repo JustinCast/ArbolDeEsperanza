@@ -1,0 +1,71 @@
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { 
+  MatCardModule,
+  MatButtonModule,
+  MatExpansionModule, 
+  MatDialogModule,
+  MatFormFieldModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatListModule,
+  MatIconModule,
+  MatAutocompleteModule,
+  MatMenuModule,
+  MatSnackBarModule,
+  MatProgressBarModule,
+  MatSlideToggleModule,
+  MatCheckboxModule
+} from '@angular/material';
+@NgModule({
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule, 
+    MatDialogModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MDBBootstrapModule
+  ],
+  exports: [
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule, 
+    MatDialogModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MDBBootstrapModule
+  ],
+  declarations: [],
+  schemas: [ NO_ERRORS_SCHEMA ],
+})
+export class SharedModule { }

@@ -1,28 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
-  MatCardModule,
-  MatButtonModule,
-  MatExpansionModule, 
-  MatDialogModule,
-  MatFormFieldModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatInputModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatListModule,
-  MatIconModule,
-  MatAutocompleteModule,
-  MatMenuModule,
-  MatSnackBarModule,
-  MatProgressBarModule,
-  MatSlideToggleModule,
-  MatCheckboxModule
-} from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 // import es from '@angular/common/locales/es';
@@ -92,32 +71,8 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
   ],
   imports: [
     BrowserModule,
-    MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    MatCardModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatDialogModule,
-    MatTableModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatListModule,
-    MatIconModule,
-    MatAutocompleteModule,
-    MatMenuModule,
-    NgxPaginationModule,
-    MatSnackBarModule,
-    MatProgressBarModule,
-    MatSlideToggleModule,
-    MatCheckboxModule
   ],
   providers: [
     PeopleService,
@@ -130,7 +85,6 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
     HouseMembersComponent,
     YesOrNoComponent
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
