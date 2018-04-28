@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss'],
   providers: [UserService]
 })
-export class AdminComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {}
