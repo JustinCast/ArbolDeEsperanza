@@ -27,6 +27,7 @@ import { AUTH_PROVIDERS } from './services/authentication.service';
 import { PeopleService } from './services/people.service';
 import { PeopleModule } from './people/people.module';
 import { UserModule } from './user/user.module';
+import { SharedModule } from './shared/shared.module';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { UserModule } from './user/user.module';
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
     PeopleModule,
-    UserModule
+    UserModule,
+    SharedModule
   ],
   providers: [
     PeopleService,

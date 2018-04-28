@@ -7,6 +7,7 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import { ShowPeopleComponent } from './show-people/show-people.component';
 import { PeopleComponent } from './people.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { PeopleComponent } from './people.component';
     ResolutionsComponent,
     ShowDetailsComponent,
     ShowPeopleComponent,
-    PeopleComponent
+    PeopleComponent,
+    SharedModule
   ],
   exports: [
     PeopleComponent
