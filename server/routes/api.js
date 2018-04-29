@@ -4,7 +4,7 @@ const express = require('express')
 const PersonCtrl = require('./PersonRouter')
 const UserCtrl = require('./UserRouter')
 const api = express.Router()
-
+//TODO: terminar de crear los endpoints faltantes
 // person endpoints
 api.get('/getAllPersons', PersonCtrl.getPersons) // METODO GET
 api.post('/create', PersonCtrl.savePerson) // METODO POST

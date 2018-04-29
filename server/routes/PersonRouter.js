@@ -1,11 +1,7 @@
 'use strict'
 
 var Person = require('../models/PersonSchema') // importacion del modelo
-var Expectative = require('../models/ExpectativesSchema')
-var Education = require('../models/EducationSchema')
-var SocioEconomic = require('../models/SocioEconomicSchema')
-var Employnment = require('../models/EmploynmentSchema')
-var Health = require('../models/HealthSchema')
+
 function getPersons(req, res) {
     Person.find({})
         .then(data => {
@@ -30,7 +26,7 @@ function savePerson(req, res) {
     let person = new Person(req.body)
     // para guardar un producto que cuenta con las funciones de mongoose
     person.save((err, personStored) => {
-        if(err) res.status(500).send({message: `Error al guardar el producto: ${err}`})
+        if(err) res.status(500).send({message: `Error al guardar la persona: ${err}`})
         
         else{
             res.status(200).send({person: personStored})
@@ -66,10 +62,6 @@ function deletePerson(req, res) {
                     res.status(200).send({message: 'La persona ha sido eliminada'})
             })
     })
-}
-
-function insertExpectatives(req, res) {
-    let expectative = new Expectative(req)
 }
 
 module.exports = {
