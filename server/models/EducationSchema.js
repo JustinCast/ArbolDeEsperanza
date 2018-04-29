@@ -15,6 +15,11 @@ const EducationSchema = new Schema({
     Courses: {
         type: Array,
         required: true
+    },
+    PersonID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'person',
+        required: false
     }
 })
 module.exports  = mongoose.model('education', EducationSchema)

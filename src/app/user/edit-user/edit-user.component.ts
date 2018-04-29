@@ -23,7 +23,7 @@ export class EditUserComponent implements OnInit {
   usersRole = [
     'Admin',
     'Editor',
-    'NormalUser'
+    'User'
   ]
   user: User
   userFG: FormGroup

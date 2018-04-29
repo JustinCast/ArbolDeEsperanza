@@ -52,7 +52,7 @@ const PersonSchema = new Schema({
     EmergencyContactData: {
         FullName: {
             type: String,
-            required: true1
+            required: true
         },
         Relationship: {
             type: String,
@@ -86,23 +86,28 @@ const PersonSchema = new Schema({
     },
     Expectatives: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'expectatives'
+        ref: 'expectatives',
+        required: false
     },
     Education: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'education'
+        ref: 'education',
+        required: false
     },
     SocioEconomic: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'socioeconomic'
+        ref: 'socioeconomic',
+        required: false
     },
     Employnment: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'employnment'
+        ref: 'employnment',
+        required: false
     },
     Health: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'health'
+        ref: 'health',
+        required: false
     }
 })
 module.exports  = mongoose.model('person', PersonSchema)

@@ -154,6 +154,11 @@ const HealthSchema = new Schema({
     SuicidalThoughts: {
         type: Boolean,
         required: true
+    },
+    PersonID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'person',
+        required: false
     }
 })
 module.exports  = mongoose.model('health', PersonSchema)

@@ -14,6 +14,11 @@ const ExpectativesSchema = new Schema({
     EntryReason: {
         type: String,
         required: true
+    },
+    PersonID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'person',
+        required: false
     }
 })
 module.exports  = mongoose.model('expectatives', ExpectativesSchema)

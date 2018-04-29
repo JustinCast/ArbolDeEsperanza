@@ -48,6 +48,11 @@ const EmploynmentSchema = new Shema({
     Clients: {
         type: Array,
         required: false
+    },
+    PersonID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'person',
+        required: false
     }
 })
 module.exports  = mongoose.model('employnment', EmploynmentSchema)

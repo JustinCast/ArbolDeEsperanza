@@ -1,7 +1,11 @@
 'use strict'
 
 var Person = require('../models/PersonSchema') // importacion del modelo
-
+var Expectative = require('../models/ExpectativesSchema')
+var Education = require('../models/EducationSchema')
+var SocioEconomic = require('../models/SocioEconomicSchema')
+var Employnment = require('../models/EmploynmentSchema')
+var Health = require('../models/HealthSchema')
 function getPersons(req, res) {
     Person.find({})
         .then(data => {
@@ -16,9 +20,11 @@ function getPersons(req, res) {
             })
         })
 }
-
+/***
+ * TODO: cambiar la forma de creación del objecto persona
+ * ya que depende de varios esquemas
+ */
 function savePerson(req, res) {
-    console.log(req.body)
     // almacenar en la base de datos
     console.log(req.body)
     let person = new Person(req.body)
@@ -32,7 +38,7 @@ function savePerson(req, res) {
         }
     })
 }
-
+//TODO: cambiar la forma de inicialización por la dependencia entre esquemas
 function updatePerson(req, res) {
     let personId  = req.params.personId
     let update = req.body
@@ -60,6 +66,10 @@ function deletePerson(req, res) {
                     res.status(200).send({message: 'La persona ha sido eliminada'})
             })
     })
+}
+
+function insertExpectatives(req, res) {
+    let expectative = new Expectative(req)
 }
 
 module.exports = {
