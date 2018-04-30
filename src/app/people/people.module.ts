@@ -10,6 +10,12 @@ import { SharedModule } from '../shared/shared.module';
 import { HouseMembersComponent } from './house-members/house-members.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PeopleRoutingModule } from './people.routing.module';
+import { AddExpectativesComponent } from './add-people/add-expectatives/add-expectatives.component';
+import { AddEducationComponent } from './add-people/add-education/add-education.component';
+import { AddSocioeconomicComponent } from './add-people/add-socioeconomic/add-socioeconomic.component';
+import { AddEmploynmentComponent } from './add-people/add-employnment/add-employnment.component';
+import { AddHealthComponent } from './add-people/add-health/add-health.component';
+
 
 @NgModule({
   declarations: [    
@@ -19,7 +25,12 @@ import { PeopleRoutingModule } from './people.routing.module';
     ResolutionsComponent,
     ShowDetailsComponent,
     ShowPeopleComponent,
-    PeopleComponent
+    PeopleComponent,
+    AddExpectativesComponent,
+    AddEducationComponent,
+    AddSocioeconomicComponent,
+    AddEmploynmentComponent,
+    AddHealthComponent
   ],
   imports: [
     CommonModule,
