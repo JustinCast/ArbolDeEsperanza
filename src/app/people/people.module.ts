@@ -15,6 +15,7 @@ import { AddEducationComponent } from './add-people/add-education/add-education.
 import { AddSocioeconomicComponent } from './add-people/add-socioeconomic/add-socioeconomic.component';
 import { AddEmploynmentComponent } from './add-people/add-employnment/add-employnment.component';
 import { AddHealthComponent } from './add-people/add-health/add-health.component';
+import { PersonalInformationComponent } from './add-people/personal-information/personal-information.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AddHealthComponent } from './add-people/add-health/add-health.component
     AddEducationComponent,
     AddSocioeconomicComponent,
     AddEmploynmentComponent,
-    AddHealthComponent
+    AddHealthComponent,
+    PersonalInformationComponent
   ],
   imports: [
     CommonModule,
