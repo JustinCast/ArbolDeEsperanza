@@ -1,4 +1,23 @@
-<div style="margin-top: 2%" class="container">
+<button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+  <mat-step [stepControl]="firstFormGroup">
+    <app-add-expectatives></app-add-expectatives>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <app-add-education></app-add-education>
+  </mat-step>
+  <mat-step>
+    <app-add-socioeconomic></app-add-socioeconomic>
+  </mat-step>
+  <mat-step>
+    <app-add-employnment></app-add-employnment>
+  </mat-step>
+  <mat-step>
+    <app-add-health></app-add-health>
+  </mat-step>
+</mat-horizontal-stepper>
+<!-- <div style="margin-top: 2%" class="container">
   <button class="btn danger-color btn-sm pull-left" (click)="backClicked()">
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
   </button>
@@ -434,4 +453,4 @@
   <hr>
   <br>
   <button type="submit" mat-button (click)="onSubmit(personGroup.value)">Enviar</button>
-</form>
+</form> -->

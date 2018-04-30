@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import 'hammerjs';
+import { MatStepperModule } from '@angular/material/stepper';
 import { 
   MatCardModule,
   MatButtonModule,
@@ -50,7 +51,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MDBBootstrapModule,
     FormsModule, 
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatStepperModule
   ],
   exports: [
     MatCardModule,
@@ -76,7 +78,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     SearchUserPipe,
     SearchPersonPipe,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatStepperModule
   ],
   declarations: [
     SearchUserPipe,
