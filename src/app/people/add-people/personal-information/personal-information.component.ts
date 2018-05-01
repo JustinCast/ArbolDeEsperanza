@@ -5,6 +5,7 @@ import { MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PeopleService } from '../../../services/people.service';
+import { Person } from '../../../models/Person';
 
 @Component({
   selector: 'app-personal-information',
@@ -22,6 +23,7 @@ export class PersonalInformationComponent implements OnInit {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
+  person: Person
   constructor(
     private _fb: FormBuilder, 
     public peopleService: PeopleService,

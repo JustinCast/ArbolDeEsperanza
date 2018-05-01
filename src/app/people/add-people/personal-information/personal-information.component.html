@@ -1,12 +1,13 @@
-<form class="text-center container" [formGroup]="personGroup">
-  <div class="md-form">
-    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
-    <label for="name" class="">Nombre</label>
-  </div>
+<form class="text-center container" [formGroup]="personalInfoGroup">
+  <mat-form-field>
+    <input matInput [formControl]="personalInfoGroup.get('name')" [(ngModel)]="person.Name" type="text" placeholder="Nombre">
+  </mat-form-field>
   <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.LastName" mdbActive type="text" id="lastName" class="form-control">
-    <label for="lastName" class="">Apellidos</label>
-  </div>
+  <mat-form-field>
+    <input matInput [formControl]="personalInfoGroup.get('lastName')" [(ngModel)]="person.LastName" type="text" placeholder="Apellidos">
+  </mat-form-field>
   <br>
+  <mat-form-field>
+    <input matInput [formControl]="personalInfoGroup.get('age')" placeholder="Edad">
+  </mat-form-field>
 </form>
