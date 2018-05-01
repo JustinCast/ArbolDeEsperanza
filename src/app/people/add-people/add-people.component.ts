@@ -1,11 +1,6 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
-
-
-import * as _moment from 'moment';
-import {MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 import { Person } from '../../models/Person';
 import { Need } from '../../models/Need';
@@ -13,29 +8,11 @@ import { PsychoSocial } from '../../models/PsychoSocial';
 import { PeopleService } from '../../services/people.service';
 import { HouseMember } from '../../models/HouseMember';
 import { Resolution } from '../../models/Resolution';
-const moment =  _moment;
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'LL',
-  },
-  display: {
-    dateInput: 'LL',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+
 @Component({
   selector: 'app-add-people',
   templateUrl: './add-people.component.html',
-  styleUrls: ['./add-people.component.scss'],
-  providers: [
-    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
-    // application's root module. We provide it at the component level here, due to limitations of
-    // our example generation script.
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-  ],
+  styleUrls: ['./add-people.component.scss']
 })
 export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
@@ -44,9 +21,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   person: Person
   need: Need
   psychoSocial: PsychoSocial
-  houseMember: any = {}
-  startDate = new Date(1990, 0, 1)
-  actualYear = (new Date()).getFullYear()
+  houseMember: any = {}  
   bornYear: number
   houseMembers = []
   supportInstitutions = []
@@ -102,13 +77,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     public peopleService: PeopleService,
     private _location: Location
   ) { 
-    this.personGroup = this._fb.group({
-      'name': ['', Validators.required],
-      'lastName': ['', Validators.required],
-      'reference': ['', Validators.required],
-      'documented': ['', Validators.required],
-      'entryDate': [moment(), Validators.required],
-      'activeOrInactive': ['', Validators.required],
+    this.personGroup = this._fb.group({    
       'domesticViolence': ['', Validators.required],
       'educationalProgram': ['', Validators.required],
       'mentalProgram': ['', Validators.required],
@@ -116,19 +85,15 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'socialServices': ['', Validators.required],
       'sexualAbuse': ['', Validators.required],
       'wfsProgramGraduate': ['', Validators.required],
-      'workSkillsProgram': ['', Validators.required],
-      'bornDate': [moment(), Validators.required],
-      'age': [{value: 'Ingrese una fecha de nacimiento', disabled: true}, Validators.required],
+      'workSkillsProgram': ['', Validators.required],      
       'maritalStatus': ['', Validators.required],
       'read': ['', Validators.required],
       'write': ['', Validators.required],
       'socialSecurity': ['', Validators.required],
       'socialSecurityType': ['', Validators.required],
       'education': ['', Validators.required],
-      'nationality': ['', Validators.required],
-      'phoneNumber': ['', Validators.required],
+      'nationality': ['', Validators.required],      
       'address': ['', Validators.required],
-      'email': ['', Validators.required],
       'needDoctor': ['', Validators.required],
       'needOphthalmologist': ['', Validators.required],
       'needMammography': ['', Validators.required],

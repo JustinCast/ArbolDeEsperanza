@@ -45,21 +45,21 @@ const PersonSchema = new Schema({
         default: 'mail@mail.com',
         required: true
     },
-    EmergencyContact: {
-        type: String,
-        required: true
-    },
     EmergencyContactData: {
-        FullName: {
+        FullNameContact: {
             type: String,
             required: true
         },
         Relationship: {
             type: String,
             required: true
-        }
+        },
+        EmergencyContactNumber: {
+            type: String,
+            required: true
+        },
     },
-    Reference: {
+    ReferencedBy: {
         type: String,
         required: true
     },

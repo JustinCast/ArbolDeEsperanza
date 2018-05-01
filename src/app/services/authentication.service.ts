@@ -26,5 +26,5 @@ export class AuthenticationService {
 
 }
 export const AUTH_PROVIDERS: Array<any> = [
-  {provide: AuthenticationService, useClass: AuthenticationService}
+  { provide: AuthenticationService, useClass: AuthenticationService }
 ]

@@ -1,3 +1,12 @@
-<p>
-  personal-information works!
-</p>
+<form class="text-center container" [formGroup]="personGroup">
+  <div class="md-form">
+    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Nombre</label>
+  </div>
+  <br>
+  <div class="md-form">
+    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.LastName" mdbActive type="text" id="lastName" class="form-control">
+    <label for="lastName" class="">Apellidos</label>
+  </div>
+  <br>
+</form>
