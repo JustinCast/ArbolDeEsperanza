@@ -29,64 +29,7 @@
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
   </button>
 </div>
-<form class="text-center container" [formGroup]="personGroup">
-  <h4 class="text-primary"><strong>Ingrese los datos de la manera más específica posible</strong></h4>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
-    <label for="name" class="">Nombre</label>
-  </div>
-  <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('lastName')" [(ngModel)]="person.LastName" mdbActive type="text" id="lastName" class="form-control">
-    <label for="lastName" class="">Apellidos</label>
-  </div>
-  <br>
-  <mat-form-field class="example-full-width">
-    <input matInput [formControl]="personGroup.get('age')" placeholder="Edad">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput [(ngModel)]="person.EntryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" [formControl]="personGroup.get('entryDate')">
-    <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
-    <mat-datepicker #entryDateDP></mat-datepicker>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input matInput [(ngModel)]="person.BornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  [formControl]="personGroup.get('bornDate')">
-    <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
-    <mat-datepicker #bornDateDP></mat-datepicker>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-select placeholder="Referida por.." [formControl]="personGroup.get('reference')" [(ngModel)]="person.Reference">
-      <mat-option *ngFor="let ref of referecedBy" [value]="ref">
-        {{ ref }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-select placeholder="Documentada" [formControl]="personGroup.get('documented')" [(ngModel)]="person.Documented">
-      <mat-option *ngFor="let doc of documentedI" [value]="doc">
-        {{ doc }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-select placeholder="Estado civil" [formControl]="personGroup.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
-      <mat-option *ngFor="let mS of mStatus" [value]="mS">
-        {{ mS }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <mat-radio-group [formControl]="personGroup.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
-    <p>Estado en la fundación</p>
-    <mat-radio-button value="true">Activo</mat-radio-button>
-    <mat-radio-button value="false">Inactivo</mat-radio-button>
-  </mat-radio-group>
-  <hr>
+<form class="text-center container" [formGroup]="personGroup">  
   <br>
   <mat-radio-group [formControl]="personGroup.get('read')" [(ngModel)]="person.Read">
     <p>¿Lee?</p>
@@ -123,28 +66,9 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-select placeholder="Nacionalidad" [formControl]="personGroup.get('nationality')" [(ngModel)]="person.Nationality">
-      <mat-option *ngFor="let n of nationality" [value]="n">
-        {{ n }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('phoneNumber')" [(ngModel)]="person.PhoneNumber" mdbActive type="text" id="phoneNumber" class="form-control">
-    <label for="phoneNumber" class="">Número de teléfono</label>
-  </div>
-  <br>
-  <mat-form-field>
     <textarea matInput [formControl]="personGroup.get('address')" [(ngModel)]="person.Address" mdbActive type="text" id="address" placeholder="Dirección">
     </textarea>
   </mat-form-field>
-  <br>
-  <div class="md-form">
-    <input [formControl]="personGroup.get('email')" [(ngModel)]="person.Email" mdbActive type="email" id="email" class="form-control">
-    <label for="email" class="">Email</label>
-  </div>
-  <br>
   <p class="text-center text-primary"><strong>Necesidades</strong></p>
   <br>
   <mat-radio-group [formControl]="personGroup.get('needDoctor')" [(ngModel)]="person.Need.Need_Doctor">

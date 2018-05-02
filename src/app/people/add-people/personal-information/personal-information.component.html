@@ -7,7 +7,76 @@
     <input matInput [formControl]="personalInfoGroup.get('lastName')" [(ngModel)]="person.LastName" type="text" placeholder="Apellidos">
   </mat-form-field>
   <br>
+  <mat-radio-group [formControl]="personalInfoGroup.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
+    <p>Estado en la fundación</p>
+    <mat-radio-button value="true">Activo</mat-radio-button>
+    <mat-radio-button value="false">Inactivo</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.EntryDate" [matDatepicker]="entryDateDP" placeholder="Fecha de entrada" 
+    [formControl]="personalInfoGroup.get('entryDate')">
+    <mat-datepicker-toggle matSuffix [for]="entryDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #entryDateDP></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.BornDate" [matDatepicker]="bornDateDP" placeholder="Fecha de nacimiento"  
+    [formControl]="personalInfoGroup.get('bornDate')">
+    <mat-datepicker-toggle matSuffix [for]="bornDateDP"></mat-datepicker-toggle>
+    <mat-datepicker #bornDateDP></mat-datepicker>
+  </mat-form-field>
   <mat-form-field>
     <input matInput [formControl]="personalInfoGroup.get('age')" placeholder="Edad">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.PhoneNumber" [formControl]="personalInfoGroup.get('phoneNumber')" placeholder="Número Teléfono">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="person.Email" [formControl]="personalInfoGroup.get('email')" placeholder="Email">
+  </mat-form-field>
+  <hr>
+  <p class="text-center">Contacto de Emergencia</p>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="person.EmergencyContact.FullName" [formControl]="personalInfoGroup.get('fullNameContact')"
+      placeholder="Nombre completo del Contacto">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="person.EmergencyContact.Relationship" [formControl]="personalInfoGroup.get('relationship')"
+      placeholder="Relación">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="person.EmergencyContact.Number" [formControl]="personalInfoGroup.get('emergencyContactNumber')"
+      placeholder="Número de teléfono del contacto">
+  </mat-form-field>
+  <hr>
+  <mat-form-field>
+    <mat-select placeholder="Referida por.." [formControl]="personalInfoGroup.get('reference')" [(ngModel)]="person.Reference">
+      <mat-option *ngFor="let ref of referecedBy" [value]="ref">
+        {{ ref }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="person.DNI" [formControl]="personalInfoGroup.get('dni')" placeholder="Número de cédula o DNI">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Documentada" [formControl]="personalInfoGroup.get('documented')" [(ngModel)]="person.Documented">
+      <mat-option *ngFor="let doc of documentedI" [value]="doc">
+        {{ doc }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Nacionalidad" [formControl]="personalInfoGroup.get('nationality')" [(ngModel)]="person.Nationality">
+      <mat-option *ngFor="let n of nationality" [value]="n">
+        {{ n }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Estado civil" [formControl]="personalInfoGroup.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
+      <mat-option *ngFor="let mS of mStatus" [value]="mS">
+        {{ mS }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 </form>

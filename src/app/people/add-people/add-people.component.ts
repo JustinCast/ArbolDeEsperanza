@@ -26,24 +26,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   houseMembers = []
   supportInstitutions = []
   medicationList = []
-  nationality = [
-    "Costarricense",
-    "Nicaragüense",
-    "Salvadoreño",
-    "Colombiano",
-    "Otro"
-  ]
-  referecedBy = [
-    "Gobierno",
-    "Organización no Gubernamental",
-    "Familia o Amigo",
-    "Anuncio"
-  ]
-  documentedI = [
-    "Si",
-    "No",
-    "N/A"
-  ]
   education = [
     "Primaria incompleta",
     "Primaria completa",
@@ -52,13 +34,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
     "Universidad incompleta",
     "Universidad completa",
     "Ninguno"
-  ]
-  mStatus = [
-    "Soltera",
-    "Casada",
-    "Divorciada",
-    "Viuda",
-    "Relación"
   ]
   houseHolding = [
     "Alquilada",
@@ -120,14 +95,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       'houseCondition': ['', Validators.required],
       'houseMembers': ['', Validators.required],
     })
-    this.personGroup.get('bornDate').valueChanges.subscribe((form) => {
-      if(form._i !== undefined){
-        if(form._i !== NaN){
-          this.bornYear = this.calculateAge(form._i.year)
-          this.personGroup.get('age').setValue(this.bornYear)
-        }
-      }
-    }) 
   }
 
   onSubmit(formValue: any) {
@@ -242,13 +209,4 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   deleteHouseMember(index: number) {
     this.houseMembers.splice(index, 1)
   }
-
-  calculateAge(bornYear: number): number {
-    console.log(`Fecha de nacimiento: ${bornYear}`)
-    console.log(`Año actual ${moment().year()}`)
-    let age = moment().year() - bornYear
-    console.log(age)
-    return age
-  }
-
 }

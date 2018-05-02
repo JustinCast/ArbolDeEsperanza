@@ -24,6 +24,32 @@ export class PersonalInformationComponent implements OnInit {
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
   person: Person
+  bornYear: number
+  referecedBy = [
+    "Gobierno",
+    "Organización no Gubernamental",
+    "Familia o Amigo",
+    "Anuncio"
+  ]
+  documentedI = [
+    "Si",
+    "No",
+    "N/A"
+  ]
+  nationality = [
+    "Costarricense",
+    "Nicaragüense",
+    "Salvadoreño",
+    "Colombiano",
+    "Otro"
+  ]
+  mStatus = [
+    "Soltera",
+    "Casada",
+    "Divorciada",
+    "Viuda",
+    "Relación"
+  ]
   constructor(
     private _fb: FormBuilder, 
     public peopleService: PeopleService,
@@ -39,7 +65,6 @@ export class PersonalInformationComponent implements OnInit {
       'age': [{value: 'Ingrese una fecha de nacimiento', disabled: true}, Validators.required],
       'phoneNumber': ['', Validators.required],
       'email': ['', Validators.required],
-      'emergencyContact': ['', Validators.required],
       'fullNameContact': ['', Validators.required],
       'relationship': ['', Validators.required],
       'emergencyContactNumber': ['', Validators.required],
@@ -50,6 +75,22 @@ export class PersonalInformationComponent implements OnInit {
       'maritalStatus': ['', Validators.required],
       'residence': ['', Validators.required],
     })
+    this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
+      if(form._i !== undefined){
+        if(form._i !== NaN){
+          this.bornYear = this.calculateAge(form._i.year)
+          this.personalInfoGroup.get('age').setValue(this.bornYear)
+        }
+      }
+    }) 
+  }
+
+  calculateAge(bornYear: number): number {
+    console.log(`Fecha de nacimiento: ${bornYear}`)
+    console.log(`Año actual ${moment().year()}`)
+    let age = moment().year() - bornYear
+    console.log(age)
+    return age
   }
 
 }
