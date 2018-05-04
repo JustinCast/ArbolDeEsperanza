@@ -1,29 +1,37 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
-  <mat-step>
-    <ng-template matStepLabel>Información Personal / Personal Information</ng-template>
-    <app-personal-information></app-personal-information>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Expectativas / Expectatives</ng-template>
-    <app-add-expectatives></app-add-expectatives>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Educación / Education</ng-template>
-    <app-add-education></app-add-education>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Aspectos Socioeconómicos / Socioeconomic Situation</ng-template>
+<mat-tab-group class="container text-center demo-tab-group">
+  <mat-tab label="Primer Ingreso / INTAKE">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+      <mat-step>
+          <ng-template matStepLabel>Ficha de Identificación / Client Information</ng-template>
+        <app-personal-information></app-personal-information>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Expectativas / Expectatives</ng-template>
+        <app-add-expectatives></app-add-expectatives>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Educación / Education</ng-template>
+        <app-add-education></app-add-education>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-tab>
+  <mat-tab label="Aspectos Socioeconómicos / Socioeconomic Situation">
     <app-add-socioeconomic></app-add-socioeconomic>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Empleo / Employnment</ng-template>
+  </mat-tab>
+  <mat-tab label="Empleo / Employnment">
     <app-add-employnment></app-add-employnment>
-  </mat-step>
+  </mat-tab>
+  <mat-tab label="Salud / Health">
+    <app-add-health></app-add-health>
+  </mat-tab>
+</mat-tab-group>
+
+<!-- <mat-horizontal-stepper color="accent" [linear]="isLinear" #stepper="matHorizontalStepper">
   <mat-step>
       <ng-template matStepLabel>Salud / Health</ng-template>
     <app-add-health></app-add-health>
   </mat-step>
-</mat-horizontal-stepper>
+</mat-horizontal-stepper> -->
 <!-- <div style="margin-top: 2%" class="container">
   <button class="btn danger-color btn-sm pull-left" (click)="backClicked()">
     <i class="fa fa-arrow-left" aria-hidden="true"></i>

@@ -50,7 +50,7 @@
   <hr>
   <mat-form-field>
     <mat-select placeholder="Referida por.." [formControl]="personalInfoGroup.get('reference')" [(ngModel)]="person.Reference">
-      <mat-option *ngFor="let ref of referecedBy" [value]="ref">
+      <mat-option *ngFor="let ref of dataService.referecedBy" [value]="ref">
         {{ ref }}
       </mat-option>
     </mat-select>
@@ -60,21 +60,21 @@
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Documentada" [formControl]="personalInfoGroup.get('documented')" [(ngModel)]="person.Documented">
-      <mat-option *ngFor="let doc of documentedI" [value]="doc">
+      <mat-option *ngFor="let doc of dataService.documentedI" [value]="doc">
         {{ doc }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Nacionalidad" [formControl]="personalInfoGroup.get('nationality')" [(ngModel)]="person.Nationality">
-      <mat-option *ngFor="let n of nationality" [value]="n">
+      <mat-option *ngFor="let n of dataService.nationality" [value]="n">
         {{ n }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Estado civil" [formControl]="personalInfoGroup.get('maritalStatus')" [(ngModel)]="person.MaritalStatus">
-      <mat-option *ngFor="let mS of mStatus" [value]="mS">
+      <mat-option *ngFor="let mS of dataService.mStatus" [value]="mS">
         {{ mS }}
       </mat-option>
     </mat-select>

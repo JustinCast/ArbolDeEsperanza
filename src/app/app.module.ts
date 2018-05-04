@@ -25,6 +25,7 @@ import { PeopleModule } from './people/people.module';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataService } from './services/data.service';
 // registerLocaleData(es, 'Es');
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PeopleService,
     YesOrNoService,
     LogguedInGuard,
-    AUTH_PROVIDERS
+    AUTH_PROVIDERS,
+    DataService
     // { provide: LOCALE_ID, useValue: 'es' }
   ],
   exports: [

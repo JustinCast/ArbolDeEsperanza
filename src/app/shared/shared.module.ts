@@ -27,6 +27,7 @@ import {
 import { SearchPersonPipe } from '../pipes/search-person.pipe';
 import { SearchUserPipe } from '../pipes/search-user.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   imports: [
     CommonModule,
@@ -52,7 +53,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule, 
     ReactiveFormsModule,
     NgxPaginationModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule
   ],
   exports: [
     MatCardModule,
@@ -79,7 +81,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SearchUserPipe,
     SearchPersonPipe,
     NgxPaginationModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule
   ],
   declarations: [
     SearchUserPipe,

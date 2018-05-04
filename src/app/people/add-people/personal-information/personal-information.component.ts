@@ -6,6 +6,9 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PeopleService } from '../../../services/people.service';
 import { Person } from '../../../models/Person';
+import { DataService } from '../../../services/data.service';
+
+const moment =  _moment;
 
 @Component({
   selector: 'app-personal-information',
@@ -17,42 +20,17 @@ import { Person } from '../../../models/Person';
   ]
 })
 
-const moment =  _moment;
-
 export class PersonalInformationComponent implements OnInit {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
   person: Person
   bornYear: number
-  referecedBy = [
-    "Gobierno",
-    "Organización no Gubernamental",
-    "Familia o Amigo",
-    "Anuncio"
-  ]
-  documentedI = [
-    "Si",
-    "No",
-    "N/A"
-  ]
-  nationality = [
-    "Costarricense",
-    "Nicaragüense",
-    "Salvadoreño",
-    "Colombiano",
-    "Otro"
-  ]
-  mStatus = [
-    "Soltera",
-    "Casada",
-    "Divorciada",
-    "Viuda",
-    "Relación"
-  ]
+
   constructor(
     private _fb: FormBuilder, 
     public peopleService: PeopleService,
+    public dataService: DataService
   ) { }
 
   ngOnInit() {
