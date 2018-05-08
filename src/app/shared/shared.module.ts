@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import 'hammerjs';
 import { MatStepperModule } from '@angular/material/stepper';
+=======
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+>>>>>>> master
 import { 
   MatCardModule,
   MatButtonModule,
@@ -24,10 +29,13 @@ import {
   MatSlideToggleModule,
   MatCheckboxModule
 } from '@angular/material';
+<<<<<<< HEAD
 import { SearchPersonPipe } from '../pipes/search-person.pipe';
 import { SearchUserPipe } from '../pipes/search-user.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatTabsModule } from '@angular/material/tabs';
+=======
+>>>>>>> master
 @NgModule({
   imports: [
     CommonModule,
@@ -48,6 +56,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSnackBarModule,
     MatProgressBarModule,
     MatSlideToggleModule,
+<<<<<<< HEAD
     MatCheckboxModule,
     MDBBootstrapModule,
     FormsModule, 
@@ -57,6 +66,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule
   ],
   exports: [
+=======
+    MatCheckboxModule
+  ],
+  declarations: [
+>>>>>>> master
     MatCardModule,
     MatButtonModule,
     MatExpansionModule, 
@@ -74,6 +88,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSnackBarModule,
     MatProgressBarModule,
     MatSlideToggleModule,
+<<<<<<< HEAD
     MatCheckboxModule,
     MDBBootstrapModule,
     FormsModule, 
@@ -89,5 +104,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     SearchPersonPipe,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
+=======
+    MatCheckboxModule
+  ]
+>>>>>>> master
 })
 export class SharedModule { }
