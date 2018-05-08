@@ -3,26 +3,6 @@ import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
-  MatCardModule,
-  MatButtonModule,
-  MatExpansionModule, 
-  MatDialogModule,
-  MatFormFieldModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatInputModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatListModule,
-  MatIconModule,
-  MatAutocompleteModule,
-  MatMenuModule,
-  MatSnackBarModule,
-  MatProgressBarModule,
-  MatSlideToggleModule,
-  MatCheckboxModule
-} from '@angular/material';
 import { registerLocaleData } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 // import es from '@angular/common/locales/es';
@@ -58,9 +38,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ShowUserComponent } from './show-user/show-user.component';
-import { SearchUserPipe } from './search-user.pipe';
-import { SearchPersonPipe } from './search-person.pipe';
 import { ResolutionsComponent } from './resolutions/resolutions.component';
+import { SearchUserPipe } from './pipes/search-user.pipe';
+import { SearchPersonPipe } from './pipes/search-person.pipe';
 // import { PersonFilterPipe } from './show-people/person-filter';
 // registerLocaleData(es, 'Es');
 @NgModule({
@@ -79,7 +59,6 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
     AddPeopleComponent,
     EditPersonComponent,
     LoginComponent,
-    // PersonFilterPipe,
     ShowDetailsComponent,
     YesOrNoComponent,
     AddUserComponent,
@@ -95,29 +74,11 @@ import { ResolutionsComponent } from './resolutions/resolutions.component';
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    MatCardModule,
     HttpClientModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatDialogModule,
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatListModule,
-    MatIconModule,
-    MatAutocompleteModule,
-    MatMenuModule,
     NgxPaginationModule,
-    MatSnackBarModule,
-    MatProgressBarModule,
-    MatSlideToggleModule,
-    MatCheckboxModule
   ],
   providers: [
     PeopleService,
