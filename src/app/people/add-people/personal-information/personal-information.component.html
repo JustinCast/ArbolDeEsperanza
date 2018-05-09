@@ -1,11 +1,13 @@
 <form class="text-center container" [formGroup]="personalInfoGroup">
-  <mat-form-field>
-    <input matInput [formControl]="personalInfoGroup.get('name')" [(ngModel)]="person.Name" type="text" placeholder="Nombre">
-  </mat-form-field>
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('name')" [(ngModel)]="person.Name" mdbActive type="text" id="name" class="form-control">
+    <label for="name" class="">Nombre</label>
+  </div>
   <br>
-  <mat-form-field>
-    <input matInput [formControl]="personalInfoGroup.get('lastName')" [(ngModel)]="person.LastName" type="text" placeholder="Apellidos">
-  </mat-form-field>
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('lastName')" [(ngModel)]="person.LastName" type="text" mdbActive id="lastanme" class="form-control">
+    <label for="lastname" class="">Apellidos</label>
+  </div>
   <br>
   <mat-radio-group [formControl]="personalInfoGroup.get('activeOrInactive')" [(ngModel)]="person.ActiveOrInactive">
     <p>Estado en la fundación</p>

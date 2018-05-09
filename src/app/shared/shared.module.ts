@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import 'hammerjs';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { 
   MatCardModule,
   MatButtonModule,
@@ -13,7 +14,6 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatInputModule,
-  MatDatepickerModule,
   MatNativeDateModule,
   MatListModule,
   MatIconModule,

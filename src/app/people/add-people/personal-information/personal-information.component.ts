@@ -7,6 +7,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PeopleService } from '../../../services/people.service';
 import { Person } from '../../../models/Person';
 import { DataService } from '../../../services/data.service';
+import { Need } from '../../../models/Need';
+import { PsychoSocial } from '../../../models/PsychoSocial';
+import { Resolution } from '../../../models/Resolution';
+import { HouseMember } from '../../../models/HouseMember';
 
 const moment =  _moment;
 
@@ -25,7 +29,12 @@ export class PersonalInformationComponent implements OnInit {
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
   person: Person
+  need: Need
+  psychoSocial: PsychoSocial
   bornYear: number
+  houseMembers = []
+  supportInstitutions = []
+  medicationList = []
 
   constructor(
     private _fb: FormBuilder, 
@@ -61,6 +70,70 @@ export class PersonalInformationComponent implements OnInit {
         }
       }
     }) 
+    this.initialize()
+  }
+
+  initialize() {
+    this.need = new Need(
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    )
+    this.psychoSocial = new PsychoSocial(
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    )
+    this.person = new Person(
+      "",
+      "",
+      "",
+      "",
+      "",
+      new Date(),
+      false,
+      0,
+      new Date(),
+      false,
+      false,
+      false,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      this.need,
+      this.psychoSocial,
+      false,
+      this.medicationList,
+      "",
+      0,
+      "",
+      this.supportInstitutions,
+      0,
+      0,
+      0,
+      0,
+      "",
+      "",
+      "",
+      this.houseMembers as HouseMember[],
+      new Array<Resolution>()
+    )
   }
 
   calculateAge(bornYear: number): number {
