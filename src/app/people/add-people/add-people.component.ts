@@ -126,43 +126,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       false,
       false
     )
-    this.person = new Person(
-      "",
-      "",
-      "",
-      "",
-      "",
-      new Date(),
-      false,
-      0,
-      new Date(),
-      false,
-      false,
-      false,
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      this.need,
-      this.psychoSocial,
-      false,
-      this.medicationList,
-      "",
-      0,
-      "",
-      this.supportInstitutions,
-      0,
-      0,
-      0,
-      0,
-      "",
-      "",
-      "",
-      this.houseMembers as HouseMember[],
-      new Array<Resolution>()
-    )
+  
   }
 
   backClicked() {
