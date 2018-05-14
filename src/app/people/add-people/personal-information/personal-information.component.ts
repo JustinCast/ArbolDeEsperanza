@@ -47,9 +47,7 @@ export class PersonalInformationComponent implements OnInit {
     private _fb: FormBuilder, 
     public peopleService: PeopleService,
     public dataService: DataService
-  ) { }
-
-  ngOnInit() {
+  ) { 
     this.personalInfoGroup = this._fb.group({
       'name': ['', Validators.required],
       'lastName': ['', Validators.required],
@@ -69,6 +67,9 @@ export class PersonalInformationComponent implements OnInit {
       'maritalStatus': ['', Validators.required],
       'residence': ['', Validators.required],
     })
+  }
+
+  ngOnInit() {
    /* this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
       if(form._i !== undefined){
         if(form._i !== NaN){

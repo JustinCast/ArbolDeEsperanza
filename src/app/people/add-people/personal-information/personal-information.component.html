@@ -29,26 +29,35 @@
   <mat-form-field>
     <input matInput [formControl]="personalInfoGroup.get('age')" placeholder="Edad">
   </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="person.PhoneNumber" [formControl]="personalInfoGroup.get('phoneNumber')" placeholder="Número Teléfono">
-  </mat-form-field>
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('phoneNumber')" [(ngModel)]="person.PhoneNumber" 
+    mdbActive type="number" id="phoneNumber" class="form-control">
+    <label for="phoneNumber" class="">Número de teléfono</label>
+  </div>
+  <!---->
   <mat-form-field>
     <input matInput [(ngModel)]="person.Email" [formControl]="personalInfoGroup.get('email')" placeholder="Email">
   </mat-form-field>
   <hr>
   <p class="text-center">Contacto de Emergencia</p>
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="person.EmergencyContact.FullNameContact" [formControl]="personalInfoGroup.get('fullNameContact')"
-      placeholder="Nombre completo del Contacto">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="person.EmergencyContact.Relationship" [formControl]="personalInfoGroup.get('relationship')"
-      placeholder="Relación">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="person.EmergencyContact.Number" [formControl]="personalInfoGroup.get('emergencyContactNumber')"
-      placeholder="Número de teléfono del contacto">
-  </mat-form-field>
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('fullNameContact')" [(ngModel)]="person.EmergencyContact.FullNameContact" 
+    mdbActive type="text" id="fullNameContact" class="form-control">
+    <label for="fullNameContact" class="">Nombre completo del contacto</label>
+  </div>
+  <!---->
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('relationship')" [(ngModel)]="person.EmergencyContact.Relationship" 
+    mdbActive type="text" id="relationship" class="form-control">
+    <label for="relationship" class="">Relación con el cliente</label>
+  </div>
+  <!---->
+  <div class="md-form">
+    <input required [formControl]="emergencyContactNumber" [(ngModel)]="person.EmergencyContact.EmergencyContactNumber" 
+    mdbActive type="text" id="emergencyContactNumber" class="form-control">
+    <label for="emergencyContactNumber" class="">Número de teléfono del contacto</label>
+  </div>
+  <!---->
   <hr>
   <mat-form-field>
     <mat-select placeholder="Referida por.." [formControl]="personalInfoGroup.get('reference')" [(ngModel)]="person.Reference">
@@ -57,9 +66,12 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput type="number" [(ngModel)]="person.DNI" [formControl]="personalInfoGroup.get('dni')" placeholder="Número de cédula o DNI">
-  </mat-form-field>
+  <!---->
+  <div class="md-form">
+    <input required [formControl]="personalInfoGroup.get('dni')" [(ngModel)]="person.DNI" 
+    mdbActive type="text" id="dni" class="form-control">
+    <label for="dni" class="">Número de cédula o DNI</label>
+  </div>
   <mat-form-field>
     <mat-select placeholder="Documentada" [formControl]="personalInfoGroup.get('documented')" [(ngModel)]="person.Documented">
       <mat-option *ngFor="let doc of dataService.documentedI" [value]="doc">
