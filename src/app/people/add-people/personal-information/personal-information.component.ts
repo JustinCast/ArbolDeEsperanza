@@ -8,7 +8,6 @@ import { PeopleService } from '../../../services/people.service';
 import { Person } from '../../../models/Person';
 import { DataService } from '../../../services/data.service';
 import { Need } from '../../../models/Need';
-import { PsychoSocial } from '../../../models/PsychoSocial';
 import { Resolution } from '../../../models/Resolution';
 import { HouseMember } from '../../../models/HouseMember';
 
@@ -28,8 +27,8 @@ export class PersonalInformationComponent implements OnInit {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
-  person = {}
-  need = {}
+  person = new Person()
+  need = new Need()
   psychoSocial = {}
   bornYear: number
   houseMembers = []

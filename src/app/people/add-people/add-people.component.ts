@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
 
 import { Person } from '../../models/Person';
 import { Need } from '../../models/Need';
-import { PsychoSocial } from '../../models/PsychoSocial';
 import { PeopleService } from '../../services/people.service';
 import { HouseMember } from '../../models/HouseMember';
 import { Resolution } from '../../models/Resolution';
@@ -18,9 +17,6 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   personGroup: FormGroup
   panelOpenState: boolean = false
   icon: string = 'close'
-  person: Person
-  need: Need
-  psychoSocial: PsychoSocial
   houseMember: any = {}  
   bornYear: number
   houseMembers = []
@@ -98,34 +94,9 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(formValue: any) {
-    console.log(this.person)
-    this.peopleService.savePerson(this.person)
   }
 
   ngOnInit() {
-    this.need = new Need(
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    )
-    this.psychoSocial = new PsychoSocial(
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    )
   
   }
 
