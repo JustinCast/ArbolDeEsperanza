@@ -7,6 +7,7 @@ import { Expectatives } from "./Expectatives";
 import { Education } from "./Education";
 import { SocioEconomic } from "./SocioEconomic";
 import { Employnment } from "./Employnment";
+import { Health } from "./Health";
 
 export class Person {
     constructor(
@@ -29,6 +30,7 @@ export class Person {
         public Education: Education,
         public SocioEconomic: SocioEconomic,
         public Employnment: Employnment,
+        public Health: Health,
         public _id?: string
     ) {}
 }

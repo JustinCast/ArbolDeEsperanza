@@ -28,9 +28,9 @@ export class PersonalInformationComponent implements OnInit {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
-  person: Person
-  need: Need
-  psychoSocial: PsychoSocial
+  person = {}
+  need = {}
+  psychoSocial = {}
   bornYear: number
   houseMembers = []
   supportInstitutions = []
@@ -74,66 +74,6 @@ export class PersonalInformationComponent implements OnInit {
   }
 
   initialize() {
-    this.need = new Need(
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    )
-    this.psychoSocial = new PsychoSocial(
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false,
-      false
-    )
-    this.person = new Person(
-      "",
-      "",
-      "",
-      "",
-      "",
-      new Date(),
-      false,
-      0,
-      new Date(),
-      false,
-      false,
-      false,
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      this.need,
-      this.psychoSocial,
-      false,
-      this.medicationList,
-      "",
-      0,
-      "",
-      this.supportInstitutions,
-      0,
-      0,
-      0,
-      0,
-      "",
-      "",
-      "",
-      this.houseMembers as HouseMember[],
-      new Array<Resolution>()
-    )
   }
 
   calculateAge(bornYear: number): number {
