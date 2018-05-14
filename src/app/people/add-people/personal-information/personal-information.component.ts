@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TIME_FORMATS } from '../../../models/TimeFormats';
 import * as _moment from 'moment';
 import { MomentDateAdapter} from '@angular/material-moment-adapter';
@@ -31,7 +31,7 @@ const moment =  _moment;
   ]
 })
 
-export class PersonalInformationComponent implements OnInit {
+export class PersonalInformationComponent implements OnInit, OnDestroy {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
@@ -79,6 +79,10 @@ export class PersonalInformationComponent implements OnInit {
       }
     }) */
     this.initialize()
+  }
+
+  ngOnDestroy(){
+    console.log("DESTROYED")
   }
 
   initialize() {
