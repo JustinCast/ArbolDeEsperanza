@@ -10,6 +10,14 @@ import { DataService } from '../../../services/data.service';
 import { Need } from '../../../models/Need';
 import { Resolution } from '../../../models/Resolution';
 import { HouseMember } from '../../../models/HouseMember';
+import { EmergencyContact } from '../../../models/EmergencyContact';
+import { Education } from '../../../models/Education';
+import { SocioEconomic } from '../../../models/SocioEconomic';
+import { Budget } from '../../../models/Budget';
+import { Employnment } from '../../../models/Employnment';
+import { Health } from '../../../models/Health';
+import { ConsultationReasons } from '../../../models/ConsultationReason';
+import { Violence } from '../../../models/Violence';
 
 const moment =  _moment;
 
@@ -27,7 +35,7 @@ export class PersonalInformationComponent implements OnInit {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
-  person = new Person()
+  person
   need = new Need()
   psychoSocial = {}
   bornYear: number
@@ -61,18 +69,122 @@ export class PersonalInformationComponent implements OnInit {
       'maritalStatus': ['', Validators.required],
       'residence': ['', Validators.required],
     })
-    this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
+   /* this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
       if(form._i !== undefined){
         if(form._i !== NaN){
           this.bornYear = this.calculateAge(form._i.year)
           this.personalInfoGroup.get('age').setValue(this.bornYear)
         }
       }
-    }) 
+    }) */
     this.initialize()
   }
 
   initialize() {
+    this.person = new Person(
+      '',
+      '',
+      false,
+      new Date(),
+      new Date(),
+      0,
+      '',
+      '',
+      new EmergencyContact(
+        '',
+        '',
+        0
+      ),
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      new Education(
+        false,
+        '',
+        [],
+        ''
+      ),
+      new SocioEconomic(
+        0,
+        0,
+        [],
+        '',
+        [],
+        [],
+        '',
+        0,
+        0,
+        new Budget(
+          0,
+          [],
+          0
+        ),
+        '',
+        ''
+      ),
+      new Employnment(
+        '',
+        '',
+        '',
+        new Date(),
+        0,
+        false,
+        '',
+        '',
+        false,
+        0,
+        [],
+        ''
+      ),
+      new Health(
+        '',
+        new Need(
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ),
+        false,
+        [],
+        new ConsultationReasons(
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          [],
+          false,
+          false,
+          false,
+          ''
+        ),
+        new Violence(
+          false,
+          false,
+          false,
+          false,
+          false
+        ),
+        false,
+        false,
+        false,
+        false,
+        ''
+      )
+    )
   }
 
   calculateAge(bornYear: number): number {
