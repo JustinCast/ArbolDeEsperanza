@@ -1,3 +1,32 @@
-<p>
-  add-education works!
-</p>
+<form class="text-center container" [formGroup]="educationGroup">
+  <mat-form-field>
+    <mat-select placeholder="¿Sabe Leer / Escribir?" 
+    [formControl]="educationGroup.get('read')" [(ngModel)]="person.Education.Read">
+      <mat-option *ngFor="let r of data.read" [value]="r">
+        {{ r }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <mat-select placeholder="Escolaridad / Education background" 
+    [formControl]="educationGroup.get('educationBackground')" [(ngModel)]="person.Education.EducationBackground">
+      <mat-option *ngFor="let e of data.education" [value]="e">
+        {{ e }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <div class="container text-center">
+    <div class="md-form">
+      <input mdbActive id="courses" class="form-control" #course>
+      <label for="name" class="">Cursos</label>
+    </div>
+    <button mat-raised-button (click)="addCourse(course.value)"><mat-icon>add</mat-icon></button>
+  </div>
+  <br>
+  <button mat-raised-button color="primary">
+    Enviar
+    <mat-icon>send</mat-icon>
+  </button>
+</form>

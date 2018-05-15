@@ -1,3 +1,33 @@
-<p>
-  add-expectatives works!
-</p>
+<form class="text-center container" [formGroup]="expectativesGroup">
+  <mat-form-field>
+    <mat-select placeholder="¿Cómo se enteró de la Asociación? / How did you hear about Árbol de Esperanza?" 
+    [formControl]="expectativesGroup.get('hearAboutWay')" [(ngModel)]="person.Expectatives.HearAboutWay">
+      <mat-option *ngFor="let h of data.hearAboutWay" [value]="h">
+        {{ h }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <mat-select placeholder="Antes de venir a la Árbol de Esperanza, ¿qué le dijeron 
+    que la organización hacía? / Before you came to Árbol de Esperanza, what expectations did you have?" 
+    [formControl]="expectativesGroup.get('whatYouKnow')" [(ngModel)]="person.Expectatives.WhatYouKnow">
+      <mat-option *ngFor="let w of data.whatYouKnow" [value]="w">
+        {{ w }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <mat-select placeholder="¿Por qué motivo quiero asistir a la Asociación?"
+    [formControl]="expectativesGroup.get('entryReason')" [(ngModel)]="person.Expectatives.EntryReason">
+      <mat-option *ngFor="let e of data.entryReason" [value]="e">
+        {{ e }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary">
+    Enviar
+    <mat-icon>send</mat-icon>
+  </button>
+</form>
