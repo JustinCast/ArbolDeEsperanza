@@ -41,4 +41,11 @@ export class AddSocioeconomicComponent implements OnInit {
   onSubmit() {
   }
 
+  addHomeService(service: string) {
+    this.person.SocioEconomic.HomeServices.unshift(service)
+  }
+
+  deleteHomeService(index: number) {
+    this.person.SocioEconomic.HomeServices.splice(index, 1)
+  }
 }

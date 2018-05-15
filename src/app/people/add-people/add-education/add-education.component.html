@@ -27,11 +27,11 @@
   <mat-list id="courses-list" *ngIf="person.Education.Courses.length !== 0" role="list">
     <mat-list-item class="course" role="listitem" *ngFor="let c of person.Education.Courses; let index = index">
       <div>
-          <p>{{c}}</p>
+        <p>{{c}}</p>
       </div>
       <div id="actions-container">
         <button mat-button (click)="deleteCourse(index); false" color="warn">
-            <mat-icon>delete</mat-icon>
+          <mat-icon>delete</mat-icon>
         </button>
       </div>    
     </mat-list-item>

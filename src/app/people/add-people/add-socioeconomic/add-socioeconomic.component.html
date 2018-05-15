@@ -1,3 +1,40 @@
 <form class="text-center container" [formGroup]="socioEconomicGroup">
-  
+  <mat-form-field>
+    <mat-select placeholder="Cuántas personas viven en el hogar? / How many people live in the home?" [formControl]="socioEconomicGroup.get('peopleInTheHouse')" [(ngModel)]="person.SocioEconomic.PeopleInTheHouse">
+      <mat-option *ngFor="let p of dataService.peopleInTheHouse" [value]="p">
+        {{ p }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <mat-select placeholder="¿Cuántos menores de edad viven en el hogar?" [formControl]="socioEconomicGroup.get('underagePeople')" [(ngModel)]="person.SocioEconomic.UnderagePeople">
+      <mat-option *ngFor="let u of dataService.underagePeople" [value]="u">
+        {{ u }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <mat-select placeholder="¿Qué tipo de servicios tiene en la casa? / What Type of Bills Do You Have?" [formControl]="socioEconomicGroup.get('homeServices')">
+      <mat-option *ngFor="let hs of dataService.homeServices" [value]="hs" (click)="addHomeService(hs); false">
+        {{ hs }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!---->
+  <mat-list id="services-list" *ngIf="person.SocioEconomic.HomeServices.length !== 0" role="list">
+    <mat-list-item class="service" role="listitem" *ngFor="let s of person.SocioEconomic.HomeServices; let index = index">
+      <div>
+        <p>{{s}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="deleteHomeService(index); false" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>    
+    </mat-list-item>
+  </mat-list>
+  <!---->
+  <mat-divider></mat-divider>
 </form>
