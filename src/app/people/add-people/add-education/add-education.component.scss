@@ -6,3 +6,11 @@ form{
     margin-bottom: 2%;
     margin-top: 2%
 }
+#courses-list {
+    list-style-type: none;
+}
+.course {
+    border: solid 1px rgb(212, 212, 212);
+    border-radius: 4px;
+    margin: 1% 0 1% 0
+}

@@ -18,13 +18,17 @@
   </mat-form-field>
   <mat-divider></mat-divider>
   <div class="container text-center">
-    <div class="md-form">
-      <input mdbActive id="courses" class="form-control" #course>
-      <label for="name" class="">Cursos</label>
-    </div>
-    <button mat-raised-button (click)="addCourse(course.value)"><mat-icon>add</mat-icon></button>
+      <mat-form-field>
+        <input matInput placeholder="Cursos" #course>
+      </mat-form-field>
+    <button style="background-color: #75e900; color: white" mat-raised-button (click)="addCourse(course.value); false"><mat-icon>add</mat-icon></button>
   </div>
   <br>
+  <mat-list id="courses-list" *ngIf="person.Education.Courses.length !== 0" role="list">
+    <mat-list-item class="course" role="listitem" *ngFor="let c of person.Education.Courses">
+      {{c}}
+    </mat-list-item>
+  </mat-list>
   <button mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
