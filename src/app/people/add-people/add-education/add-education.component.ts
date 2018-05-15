@@ -29,6 +29,10 @@ export class AddEducationComponent implements OnInit {
     this.person.Education.Courses.unshift(course)
   }
 
+  deleteCourse(index: number) {
+    this.person.Education.Courses.splice(index, 1)
+  }
+
   //TODO: recordar guardar en el localStorage a la pesona
   onSubmit() {}
 }
