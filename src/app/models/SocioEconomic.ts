@@ -13,6 +13,7 @@ export class SocioEconomic {
         public FamilyIncome: number,
         public Budget: Budget,
         public HouseHolding: string,
+        public HouseCondition: string,
         public PersonID: string
     ) {}
 }

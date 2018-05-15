@@ -35,7 +35,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   personalInfoGroup: FormGroup
   startDate = new Date(1990, 0, 1)
   actualYear = (new Date()).getFullYear()
-  person
+  person: Person
   need = new Need()
   psychoSocial = {}
   bornYear: number

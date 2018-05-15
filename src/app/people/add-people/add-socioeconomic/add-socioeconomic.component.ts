@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DataService } from '../../../services/data.service';
+import { Person } from '../../../models/Person';
 
 @Component({
   selector: 'app-add-socioeconomic',
@@ -6,10 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-socioeconomic.component.scss']
 })
 export class AddSocioeconomicComponent implements OnInit {
+  socioEconomicGroup: FormGroup
+  person: Person
 
-  constructor() { }
+  constructor(
+    private _fb: FormBuilder,
+    private data: DataService
+  ) { 
+    this.socioEconomicGroup = this._fb.group({
+      'peopleInTheHouse': ['', Validators.required],
+      'underagePeople': ['', Validators.required],
+      'homeServices': ['', Validators.required],
+      'payman': ['', Validators.required],
+      'childrenHelp': ['', Validators.required],
+      'institutionsHelp': ['', Validators.required],
+      'mainHouseProvider': ['', Validators.required],
+      'montlyIncome': ['', Validators.required],
+      'familyIncome': ['', Validators.required],
+      'budgetPlan': ['', Validators.required],
+      'totalServices': ['', Validators.required],
+      'totalAmount': ['', Validators.required],
+      'houseHolding': ['', Validators.required]
+    })
+  }
 
   ngOnInit() {
+    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+  }
+
+  // TODO: Recordar guardar en el local storage a la persona
+  onSubmit() {
   }
 
 }
