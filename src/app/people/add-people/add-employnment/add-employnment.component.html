@@ -71,5 +71,19 @@
     </mat-select>
   </mat-form-field>
   <!---->
-  
+  <div class="md-form">
+    <input required [formControl]="employnmentGroup.get('clients')" 
+    mdbActive type="text" id="client-input" class="form-control" #client>
+    <label for="client-input" class="">
+      ¿Quiénes son sus clientes?
+    </label>
+  </div>
+  <button mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
+  <!---->
+  <mat-list role="list" *ngIf="addedClients.length !== 0">
+    <mat-list-item role="listitem" *ngFor="let c of addedClients">
+      {{c}}
+      <button mat-button><mat-icon>delete</mat-icon></button>
+    </mat-list-item>
+  </mat-list>
 </form>

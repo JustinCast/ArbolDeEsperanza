@@ -11,6 +11,7 @@ import { DataService } from '../../../services/data.service';
 export class AddEmploynmentComponent implements OnInit {
   employnmentGroup: FormGroup
   person: Person
+  addedClients: Array<string> = new Array()
   constructor(
     private _fb: FormBuilder,
     public data: DataService
@@ -33,5 +34,12 @@ export class AddEmploynmentComponent implements OnInit {
       'clients': ['', Validators.required]
     })
   }
+  
+  addClient(client: string){
+    this.addedClients.unshift(client)
+  }
 
+  deleteClient(index: number) {
+    this.addedClients.splice(index, 1)
+  }
 }
