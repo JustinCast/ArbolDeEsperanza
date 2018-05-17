@@ -7,6 +7,14 @@ import { Need } from '../../models/Need';
 import { PeopleService } from '../../services/people.service';
 import { HouseMember } from '../../models/HouseMember';
 import { Resolution } from '../../models/Resolution';
+import { ConsultationReasons } from '../../models/ConsultationReason';
+import { Violence } from '../../models/Violence';
+import { Health } from '../../models/Health';
+import { Employnment } from '../../models/Employnment';
+import { SocioEconomic } from '../../models/SocioEconomic';
+import { Budget } from '../../models/Budget';
+import { Education } from '../../models/Education';
+import { EmergencyContact } from '../../models/EmergencyContact';
 
 @Component({
   selector: 'app-add-people',
@@ -14,6 +22,7 @@ import { Resolution } from '../../models/Resolution';
   styleUrls: ['./add-people.component.scss']
 })
 export class AddPeopleComponent implements OnInit, AfterViewChecked {
+  person: Person
   personGroup: FormGroup
   panelOpenState: boolean = false
   icon: string = 'close'
@@ -97,7 +106,112 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-  
+    this.person = new Person(
+      '',
+      '',
+      false,
+      new Date(),
+      new Date(),
+      0,
+      '',
+      '',
+      new EmergencyContact(
+        '',
+        '',
+        0
+      ),
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      new Education(
+        false,
+        '',
+        [],
+        ''
+      ),
+      new SocioEconomic(
+        0,
+        0,
+        [],
+        '',
+        [],
+        [],
+        '',
+        0,
+        0,
+        new Budget(
+          0,
+          [],
+          0
+        ),
+        '',
+        '',
+        ''
+      ),
+      new Employnment(
+        '',
+        '',
+        '',
+        new Date(),
+        0,
+        false,
+        '',
+        '',
+        false,
+        0,
+        [],
+        ''
+      ),
+      new Health(
+        '',
+        new Need(
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ),
+        false,
+        [],
+        new ConsultationReasons(
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          [],
+          false,
+          false,
+          false,
+          ''
+        ),
+        new Violence(
+          false,
+          false,
+          false,
+          false,
+          false
+        ),
+        false,
+        false,
+        false,
+        false,
+        ''
+      )
+    )
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 
   backClicked() {

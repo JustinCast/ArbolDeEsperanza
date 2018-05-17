@@ -78,7 +78,7 @@ export class DataService {
     "Educación secundaria en progreso / High School in Process",
     "Técnico completo / Vocational Diploma"
   ]
-  peopleIntheHouse = [
+  peopleInTheHouse = [
     "Vive Sola / I live by my selft",
     "De 1 a 4 personas / From 1 to 4",
     "De 4 a 6 personas / From 4 to 6",
@@ -153,6 +153,84 @@ export class DataService {
     "Parcialmente en buenas condiciones/ Partly in good condition",
     "En malas condiciones /In bad conditions",
     "En muy malas condiciones In very bad conditions"
+  ]
+  actuallyWork = [
+    "Si / Yes",
+    "No",
+    "Soy ama de casa y no necesito un trabajo / I'm a housewife and don't need a job ",
+  ]
+  occupation = [
+    "Brindo servicios domésticos  / I provide housekeeping services",
+    "Hago algún producto / I make and sell a product",
+    "Cuido de menores / I take care of kids",
+    "Cuido de adultos mayores/ I take care of Eldery"
+  ]
+  unemploymentReason = [
+    "Edad / Age (people don't hire people over 40 years old",
+    "Baja escolaridad / I have little education",
+    "No he buscado un trabajo pero necesito uno/ I haven't looked for a job, but I need one",
+    "No estoy buscando un trabajo / I'm not looking for a job",
+    "En los últimos 3 meses, he enviado currículum pero no me han llamado / In the last 3 months, I have sent CVs, but no one has called me yet",
+    "Otra…"
+  ]
+  unemploynmentDate = [
+    "De 1 a 3 meses / From 1 ro 3 months",
+    "De 3 a 6 meses / From 3 to 6 months",
+    "De 6 meses a 1 año / From 6 months to 1 year",
+    "De 1 a 3 años /From 1 to 3 years",
+    "De 3 a 5 años / From 3 to 5 years",
+    "Más de 5 años /More than 5 years",
+    "Otra…"
+  ]
+  workFrecuency = [
+    "Ocasional (algunas veces al mes) /Ocassionally (a few days a month)",
+    "De 2 a 8 horas a la semana / From 2 to 8 hours a week",
+    "De 9 a 15 horas a la semana /From 9 to 15 hours a week",
+    "Medio tiempo (24 horas a la semana) / Part-time (24 hours per week)",
+    "Tiempo completo (48 horas a la semana) / Full time (48 hours a week)",
+    "No tengo trabajo, soy ama de casa  / I don't have a job, I'm a housewife",
+    "Otra…"
+  ]
+  workFewHours = [
+    "Si / Yes",
+    "No"
+  ]
+  whyIsItImposible = [
+    "El Mercado laboral no contrata personas de mi edad/ Businesses don't hire people at my age",
+    "Motivos de Salud / Health",
+    "Cuido de otra personaI / I take care of someone",
+    "Labores del hogar / Household workload",
+    "El mercado laboral no contrata a personas de mi edad",
+    "Mi esposo no me lo permite"
+  ]
+  haveABusiness = [
+    "Si / Yes",
+    "No"
+  ]
+  socialSecurityType = [
+    "Por el Estado / Government",
+    "Voluntario  / Volunteer",
+    "No"
+  ]
+  takeMedication = [
+    "Si / Yes",
+    "No"
+  ]
+  alcoholProblems = [
+    "Si / Yes",
+    "No"
+  ]
+  drugsProblems = [
+    "Si / Yes",
+    "No"
+  ]
+  suicidalAttempt = [
+    "Si / Yes",
+    "No"
+  ]
+  suicidalThoughts = [
+    "Si / Yes",
+    "No"
   ]
   constructor() { }
 

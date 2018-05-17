@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { DataService } from '../../../services/data.service';
 import { Person } from '../../../models/Person';
 
@@ -8,14 +8,21 @@ import { Person } from '../../../models/Person';
   templateUrl: './add-socioeconomic.component.html',
   styleUrls: ['./add-socioeconomic.component.scss']
 })
-export class AddSocioeconomicComponent implements OnInit {
-  socioEconomicGroup: FormGroup
+export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
+  socioEconomicGroup: FormGroup = new FormGroup({
+    peopleInTheHouse: new FormControl(),
+  })
   person: Person
 
   constructor(
     private _fb: FormBuilder,
     private data: DataService
   ) { 
+    this.createForm()
+  }
+
+  createForm() {
+    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
     this.socioEconomicGroup = this._fb.group({
       'peopleInTheHouse': ['', Validators.required],
       'underagePeople': ['', Validators.required],
@@ -34,7 +41,10 @@ export class AddSocioeconomicComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+
+  }
+
+  ngAfterViewInit() {
   }
 
   // TODO: Recordar guardar en el local storage a la persona
