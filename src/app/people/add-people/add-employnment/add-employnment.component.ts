@@ -42,4 +42,7 @@ export class AddEmploynmentComponent implements OnInit {
   deleteClient(index: number) {
     this.addedClients.splice(index, 1)
   }
+  onSubmit() {
+
+  }
 }

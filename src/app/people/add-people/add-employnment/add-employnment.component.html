@@ -1,4 +1,4 @@
-<form class="container text-center" [formGroup]="employnmentGroup">
+<form class="container text-center" [formGroup]="employnmentGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-select placeholder="¿Actualmente tiene trabajo? / Do you currently work?">
       <mat-option *ngFor="let d of data.doYouHaveWork" [value]="d">
@@ -79,6 +79,11 @@
     </label>
   </div>
   <button mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
+  <mat-divider></mat-divider>
+  <button mat-raised-button color="primary" type="submit">
+    Enviar
+    <mat-icon>send</mat-icon>
+  </button>
   <!---->
   <mat-list role="list" *ngIf="addedClients.length !== 0">
     <mat-list-item role="listitem" *ngFor="let c of addedClients">
