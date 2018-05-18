@@ -1,3 +1,9 @@
-<p>
-  add-health works!
-</p>
+<form class="container text-center">
+  <mat-form-field>
+    <mat-select placeholder="¿Actualmente tiene trabajo? / Do you currently work?">
+      <mat-option *ngFor="let d of data.doYouHaveWork" [value]="d">
+        {{d}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -4,6 +4,6 @@ export class Violence {
         public Sexual: boolean,
         public Patrimonial: boolean,
         public Economical: boolean,
-        public Pysical: boolean,        
+        public Physical: boolean,        
     ) {}
 }
