@@ -20,6 +20,8 @@ export class AddEmploynmentComponent implements OnInit {
   
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+    console.log("VALUE: ", this.person.Employnment.WhyWorkFewHours)
+
     this.employnmentGroup = this._fb.group({
       'doYoHaveWork': ['', Validators.required],
       'occupation': ['', Validators.required],
@@ -33,6 +35,7 @@ export class AddEmploynmentComponent implements OnInit {
       'sellProducts': ['', Validators.required],
       'clients': ['', Validators.required]
     })
+    
   }
   
   addClient(client: string){
