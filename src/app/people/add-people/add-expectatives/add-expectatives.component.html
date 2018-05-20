@@ -1,4 +1,4 @@
-<form class="text-center container" [formGroup]="expectativesGroup">
+<form class="text-center container" [formGroup]="expectativesGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-select placeholder="¿Cómo se enteró de la Asociación? / How did you hear about Árbol de Esperanza?" 
     [formControl]="expectativesGroup.get('hearAboutWay')" [(ngModel)]="person.Expectatives.HearAboutWay">
@@ -26,7 +26,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary">
+  <button type="submit" [disabled]="!expectativesGroup.valid" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>

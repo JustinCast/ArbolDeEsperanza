@@ -25,6 +25,10 @@ export class AddEducationComponent implements OnInit {
     this.person = JSON.parse(localStorage.getItem('addedInProcess'))
   }
 
+  onSubmit(){
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+  }
+
   addCourse(course: string) {
     this.person.Education.Courses.unshift(course)
   }
@@ -33,6 +37,4 @@ export class AddEducationComponent implements OnInit {
     this.person.Education.Courses.splice(index, 1)
   }
 
-  //TODO: recordar guardar en el localStorage a la pesona
-  onSubmit() {}
 }

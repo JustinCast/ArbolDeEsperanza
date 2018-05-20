@@ -45,8 +45,9 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
   }
 
-  // TODO: Recordar guardar en el local storage a la persona
+
   onSubmit() {
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 
   addHomeService(service: string) {

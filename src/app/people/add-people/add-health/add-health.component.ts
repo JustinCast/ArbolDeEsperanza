@@ -54,4 +54,8 @@ export class AddHealthComponent implements OnInit {
     })
   }
 
+  onSubmit(){
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+  }
+
 }

@@ -36,5 +36,8 @@
     </mat-list-item>
   </mat-list>
   <!---->
-  <mat-divider></mat-divider>
+  <button [disabled]="!socioEconomicGroup.valid" type="submit" mat-raised-button color="primary">
+    Enviar
+    <mat-icon>send</mat-icon>
+  </button>
 </form>

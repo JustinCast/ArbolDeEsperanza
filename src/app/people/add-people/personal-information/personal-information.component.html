@@ -93,7 +93,14 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary">
+  <mat-form-field>
+    <mat-select placeholder="Distrito de residencia" [formControl]="personalInfoGroup.get('residence')" [(ngModel)]="person.Residence">
+      <mat-option *ngFor="let dis of dataService.district" [value]="dis">
+        {{ dis }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button [disabled]="!personalInfoGroup.valid" type="submit" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>

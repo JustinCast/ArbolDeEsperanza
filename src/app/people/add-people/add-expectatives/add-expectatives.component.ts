@@ -25,4 +25,8 @@ export class AddExpectativesComponent implements OnInit {
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('addedInProcess'))
   }
+
+  onSubmit(){
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+  }
 }

@@ -1,4 +1,4 @@
-<form class="text-center container" [formGroup]="educationGroup">
+<form class="text-center container" [formGroup]="educationGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-select placeholder="¿Sabe Leer / Escribir?" 
     [formControl]="educationGroup.get('read')" [(ngModel)]="person.Education.Read">
@@ -36,7 +36,7 @@
       </div>    
     </mat-list-item>
   </mat-list>
-  <button mat-raised-button color="primary">
+  <button type="submit" [disabled]="!educationGroup.valid" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>

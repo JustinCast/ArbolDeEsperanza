@@ -46,6 +46,6 @@ export class AddEmploynmentComponent implements OnInit {
     this.addedClients.splice(index, 1)
   }
   onSubmit() {
-
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 }

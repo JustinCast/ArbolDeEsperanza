@@ -82,15 +82,14 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    console.log("DESTROYED")
   }
 
   initialize() {
    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
   }
 
-  // TODO: Recordar guardar en el local storage a la persona
   onSubmit() {
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 
   calculateAge(bornYear: number): number {

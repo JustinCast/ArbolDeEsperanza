@@ -80,7 +80,7 @@
   </div>
   <button id="add-client-btn" mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
   <mat-divider></mat-divider>
-  <button style="margin-top: 2%" mat-raised-button color="primary" type="submit">
+  <button type="submit" [disabled]="!employnmentGroup.valid" style="margin-top: 2%" mat-raised-button color="primary" type="submit">
     Enviar
     <mat-icon>send</mat-icon>
   </button>
