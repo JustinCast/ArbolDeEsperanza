@@ -9,9 +9,7 @@ import { Person } from '../../../models/Person';
   styleUrls: ['./add-socioeconomic.component.scss']
 })
 export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
-  socioEconomicGroup: FormGroup = new FormGroup({
-    peopleInTheHouse: new FormControl(),
-  })
+  socioEconomicGroup: FormGroup
   person: Person
 
   constructor(

@@ -70,14 +70,14 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-   /* this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
+   this.personalInfoGroup.get('bornDate').valueChanges.subscribe((form) => {
       if(form._i !== undefined){
         if(form._i !== NaN){
           this.bornYear = this.calculateAge(form._i.year)
           this.personalInfoGroup.get('age').setValue(this.bornYear)
         }
       }
-    }) */
+    })
     this.initialize()
   }
 
@@ -94,10 +94,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   calculateAge(bornYear: number): number {
-    console.log(`Fecha de nacimiento: ${bornYear}`)
-    console.log(`Año actual ${moment().year()}`)
     let age = moment().year() - bornYear
-    console.log(age)
     return age
   }
 

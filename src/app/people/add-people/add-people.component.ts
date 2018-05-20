@@ -31,75 +31,11 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   houseMembers = []
   supportInstitutions = []
   medicationList = []
-  education = [
-    "Primaria incompleta",
-    "Primaria completa",
-    "Secundaria incompleta",
-    "Secundaria completa",
-    "Universidad incompleta",
-    "Universidad completa",
-    "Ninguno"
-  ]
-  houseHolding = [
-    "Alquilada",
-    "Propia",
-    "Prestada",
-    "Ocupada ilegalmente"
-  ]
-  houseCondition = [
-    "En buenas condiciones",
-    "Parcialmente en buenas condiciones",
-    "En malas condiciones",
-    "En muy malas condiciones"
-  ]
   constructor(
     private _fb: FormBuilder, 
     public peopleService: PeopleService,
     private _location: Location
   ) { 
-    this.personGroup = this._fb.group({    
-      'domesticViolence': ['', Validators.required],
-      'educationalProgram': ['', Validators.required],
-      'mentalProgram': ['', Validators.required],
-      'protectionOrder': ['', Validators.required],
-      'socialServices': ['', Validators.required],
-      'sexualAbuse': ['', Validators.required],
-      'wfsProgramGraduate': ['', Validators.required],
-      'workSkillsProgram': ['', Validators.required],      
-      'maritalStatus': ['', Validators.required],
-      'read': ['', Validators.required],
-      'write': ['', Validators.required],
-      'socialSecurity': ['', Validators.required],
-      'socialSecurityType': ['', Validators.required],
-      'education': ['', Validators.required],
-      'nationality': ['', Validators.required],      
-      'address': ['', Validators.required],
-      'needDoctor': ['', Validators.required],
-      'needOphthalmologist': ['', Validators.required],
-      'needMammography': ['', Validators.required],
-      'needDentist': ['', Validators.required],
-      'needGynecologist': ['', Validators.required],
-      'needPychologist': ['', Validators.required],
-      'abuseVictim': ['', Validators.required],
-      'suicideAttempt': ['', Validators.required],
-      'suicideToughts': ['', Validators.required],
-      'drugsProblem': ['', Validators.required],
-      'alcoholProblem': ['', Validators.required],
-      'takeMedication': ['', Validators.required],
-      'medication': ['', Validators.required],
-      'employnmentSituation': ['', Validators.required],
-      'workingHours': [''],
-      'unemployedDate': [''],
-      'supportInstitutions': ['', Validators.required],
-      'peopleInTheHouse': ['', Validators.required],
-      'underagePeople': ['', Validators.required],
-      'disabilitiePeople': ['', Validators.required],
-      'houseIncome': ['', Validators.required],
-      'incomeSource': ['', Validators.required],
-      'houseHolding': ['', Validators.required],
-      'houseCondition': ['', Validators.required],
-      'houseMembers': ['', Validators.required],
-    })
   }
 
   onSubmit(formValue: any) {
