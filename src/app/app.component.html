@@ -20,7 +20,7 @@
           </li>
 
           <li *ngIf="logguedUser && logguedUser.Role === 'Admin'" class="nav-item" routerLinkActive="active-link">
-              <a class="nav-link waves-light" mdbRippleRadius routerLink="admin">Usuarios</a>
+              <a class="nav-link waves-light" mdbRippleRadius routerLink="user">Usuarios</a>
           </li>
 
           <li *ngIf="_authentication.getUser()" class="nav-item">

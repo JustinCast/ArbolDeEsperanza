@@ -7,14 +7,10 @@ import { LogguedInGuard } from '../services/loggued-in.guard';
 import { UserDetailsComponent } from './user-details/user-details.component';
 
 const ROUTES: Routes = [
-  {
-    path: 'users', component: UserComponent,
-      children: [
-        { path: 'add-user', component: AddUserComponent, canActivate: [LogguedInGuard] },
-        { path: 'edit-user', component: EditUserComponent, canActivate: [LogguedInGuard] },
-        { path: 'show-user-details', component: UserDetailsComponent },
-      ]
-  }
+  { path: 'user', component: UserComponent },
+  { path: 'show-user-details', component: UserDetailsComponent },
+  { path: 'add-user', component: AddUserComponent, canActivate: [LogguedInGuard] },
+  { path: 'edit-user', component: EditUserComponent, canActivate: [LogguedInGuard] }
 ]
 
 @NgModule({
