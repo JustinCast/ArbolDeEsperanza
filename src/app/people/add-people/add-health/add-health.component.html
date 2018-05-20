@@ -1,6 +1,6 @@
 <form class="container text-center" [formGroup]="healthGroup">
   <mat-form-field>
-    <mat-select placeholder="Seguro Social / Social Secure " [formControl]="healthGroup.get('socialSecurityType')">
+    <mat-select placeholder="Seguro Social / Social Secure " formControlName="socialSecurityType">
       <mat-option *ngFor="let s of data.socialSecurityType" [value]="s">
         {{s}}
       </mat-option>
