@@ -1,9 +1,41 @@
-<form class="container text-center">
+<form class="container text-center" [formGroup]="healthGroup">
   <mat-form-field>
-    <mat-select placeholder="¿Actualmente tiene trabajo? / Do you currently work?">
-      <mat-option *ngFor="let d of data.doYouHaveWork" [value]="d">
-        {{d}}
+    <mat-select placeholder="Seguro Social / Social Secure " [formControl]="healthGroup.get('socialSecurityType')">
+      <mat-option *ngFor="let s of data.socialSecurityType" [value]="s">
+        {{s}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <hr>
+  <h3 class="text-center text-secondary">Necesidades</h3>
+  <mat-radio-group [formControl]="healthGroup.get('needDoctor')" [(ngModel)]="person.Health.Need.Need_Doctor">
+    <p>¿Necesita Doctor?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group [formControl]="healthGroup.get('need_Ophthalmologist')" [(ngModel)]="person.Health.Need.Need_Ophthalmologist">
+    <p>¿Necesita Oftalmólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group [formControl]="healthGroup.get('need_Mammography')" [(ngModel)]="person.Health.Need.Need_Mammography">
+    <p>¿Necesita Mamografía?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group [formControl]="healthGroup.get('need_Dentist')" [(ngModel)]="person.Health.Need.Need_Dentist">
+    <p>¿Necesita Dentista?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group [formControl]="healthGroup.get('need_Gynecologist')" [(ngModel)]="person.Health.Need.Need_Gynecologist">
+    <p>¿Necesita Ginecólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
+  <mat-radio-group [formControl]="healthGroup.get('need_Psychologist')" [(ngModel)]="person.Health.Need.Need_Psychologist">
+    <p>¿Necesita Psicólogo?</p>
+    <mat-radio-button value="true">Si</mat-radio-button>
+    <mat-radio-button value="false">No</mat-radio-button>
+  </mat-radio-group>
 </form>
