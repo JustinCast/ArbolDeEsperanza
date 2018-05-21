@@ -56,7 +56,7 @@ function config() {
  * Endpoints Config
  */
 function routerConfig() {
-    app.use('/person', api)
+    app.use('/api', api)
     // demas enrutadores
     // Angular DIST output folder
     app.use(express.static(__dirname + '/dist'));

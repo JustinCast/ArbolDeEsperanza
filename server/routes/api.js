@@ -24,31 +24,31 @@ api.put('/user/updateUser/:userId', UserCtrl.updateUser) // METODO PUT
 api.delete('/user/deleteUser/:userId', UserCtrl.deleteUser) // METODO DELETE
 
 // education endpoints
-api.get('/education/', EducationCtrl.getEducationDocs) // METODO GET
+api.get('/education', EducationCtrl.getEducationDocs) // METODO GET
 api.post('/education/saveEducationDoc', EducationCtrl.saveEducationDoc) // METODO POST
 api.put('/education/updateEducationDoc/:education_id', EducationCtrl.updateEducationDoc) // METODO PUT
 api.delete('/education/deleteEducationDoc/:education_id', EducationCtrl.deleteEducationDoc) // METODO DELETE
 
 // employnment endpoints
-api.get('/employnment/', EmploynmentCtrl.getEmploynmentsDocs) // METODO GET
+api.get('/employnment', EmploynmentCtrl.getEmploynmentsDocs) // METODO GET
 api.post('/employnment/saveEmploynmentDoc', EmploynmentCtrl.saveEmploynmentDoc) // METODO POST
 api.put('/employnment/updateEmploynmentDoc/:employnment_id', EmploynmentCtrl.updateEmploynmentDoc) // METODO PUT
 api.delete('/employnment/deleteEmploynmentDoc/:employnment_id', EmploynmentCtrl.deleteEmploynmentDoc) // METODO DELETE
 
 // expectatives endpoints
-api.get('/expectative/', ExpectativeCtrl.getExpectativesDocs) // METODO GET
+api.get('/expectative', ExpectativeCtrl.getExpectativesDocs) // METODO GET
 api.post('/expectative/saveExpectativeDoc', ExpectativeCtrl.saveExpectativeDoc) // METODO POST
 api.put('/expectative/updateExpectativeDoc/:expectative_id', ExpectativeCtrl.updateExpectativeDoc) // METODO PUT
 api.delete('/expectative/deleteExpectativeDoc/:expectative_id', ExpectativeCtrl.deleteExpectativeDoc) // METODO DELETE
 
 // health endpoints
-api.get('/health/', HealthCtrl.getHealthsDocs) // METODO GET
+api.get('/health', HealthCtrl.getHealthsDocs) // METODO GET
 api.post('/health/saveHealthDoc', HealthCtrl.saveHealthDoc) // METODO POST
 api.put('/health/updateHealthDoc/:health_id', HealthCtrl.updateHealthDoc) // METODO PUT
 api.delete('/health/deleteHealthDoc/:health_id', HealthCtrl.deleteHealthDoc) // METODO DELETE
 
 // socioeconomic endpoints
-api.get('/socioeconomic/', SocioEconomicCtrl.getSocioEconomicsDocs) // METODO GET
+api.get('/socioeconomic', SocioEconomicCtrl.getSocioEconomicsDocs) // METODO GET
 api.post('/socioeconomic/saveSocioEconomicDoc', SocioEconomicCtrl.saveSocioEconomicDoc) // METODO POST
 api.put('/socioeconomic/updateSocioEconomicDoc/:SocioEconomic_id', SocioEconomicCtrl.updateSocioEconomicDoc) // METODO PUT
 api.delete('/socioeconomic/deleteSocioEconomicDoc/:SocioEconomic_id', SocioEconomicCtrl.deleteSocioEconomicDoc) // METODO DELETE
