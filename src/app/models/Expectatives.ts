@@ -1,8 +1,9 @@
 export class Expectatives {
     constructor(
-        HearAboutWay: string,
-        WhatYouKnow: string,
-        EntryReason: string,
-        PersonID: string
+        public HearAboutWay: string,
+        public WhatYouKnow: string,
+        public EntryReason: string,
+        public PersonID?: string,
+        public _id?: string
     ) {}
 }

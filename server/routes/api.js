@@ -39,7 +39,7 @@ api.delete('/employnment/deleteEmploynmentDoc/:_id', EmploynmentCtrl.deleteEmplo
 api.get('/expectative', ExpectativeCtrl.getExpectativesDocs) // METODO GET
 api.post('/expectative/saveExpectativeDoc', ExpectativeCtrl.saveExpectativeDoc) // METODO POST
 api.put('/expectative/updateExpectativeDoc/:_id', ExpectativeCtrl.updateExpectativeDoc) // METODO PUT
-api.delete('/expectative/deleteExpectativeDoc/:id', ExpectativeCtrl.deleteExpectativeDoc) // METODO DELETE
+api.delete('/expectative/deleteExpectativeDoc/:_id', ExpectativeCtrl.deleteExpectativeDoc) // METODO DELETE
 
 // health endpoints
 api.get('/health', HealthCtrl.getHealthsDocs) // METODO GET

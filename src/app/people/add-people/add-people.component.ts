@@ -168,8 +168,8 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       '',
       ''
     )
-    localStorage.setItem('proof', JSON.stringify(proof))
-    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+    //localStorage.setItem('proof', JSON.stringify(proof))
+    //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 
   backClicked() {
