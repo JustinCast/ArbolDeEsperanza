@@ -53,5 +53,11 @@ api.post('/socioeconomic/saveSocioEconomicDoc', SocioEconomicCtrl.saveSocioEcono
 api.put('/socioeconomic/updateSocioEconomicDoc/:_id', SocioEconomicCtrl.updateSocioEconomicDoc) // METODO PUT
 api.delete('/socioeconomic/deleteSocioEconomicDoc/:_id', SocioEconomicCtrl.deleteSocioEconomicDoc) // METODO DELETE
 
+// auxiliar endpoints
+api.get('/getPeopleWithoutExpectativeDoc', PersonCtrl.getPeopleWithoutExpectativesDoc)
+api.get('/getPeopleWithoutEducationDoc', PersonCtrl.getPeopleWithoutEducationDoc)
+api.get('/getPeopleWithoutSocioEconomicDoc', PersonCtrl.getPeopleWithoutSocioEconomicDoc)
+api.get('/getPeopleWithoutEmploynmentDoc', PersonCtrl.getPeopleWithoutEmploynmentDoc)
+api.get('/getPeopleWithoutHealthDoc', PersonCtrl.getPeopleWithoutHealthDoc)
 
 module.exports = api

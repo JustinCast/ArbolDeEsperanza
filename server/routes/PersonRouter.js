@@ -64,9 +64,89 @@ function deletePerson(req, res) {
     })
 }
 
+function getPeopleWithoutExpectativesDoc(req, res) {
+    Person.find({Expectatives: undefined})
+    .then(data => {
+        res.json(data)
+        //console.log(data)
+    })
+    .catch(err => {
+        const status = req.statusCode
+        res.json({
+            status,
+            err
+        })
+    })
+}
+
+function getPeopleWithoutEducationDoc(req, res) {
+    Person.find({Education: undefined})
+    .then(data => {
+        res.json(data)
+        //console.log(data)
+    })
+    .catch(err => {
+        const status = req.statusCode
+        res.json({
+            status,
+            err
+        })
+    })
+}
+
+function getPeopleWithoutSocioEconomicDoc(req, res) {
+    Person.find({SocioEconomic: undefined})
+    .then(data => {
+        res.json(data)
+        //console.log(data)
+    })
+    .catch(err => {
+        const status = req.statusCode
+        res.json({
+            status,
+            err
+        })
+    })
+}
+
+function getPeopleWithoutEmploynmentDoc(req, res) {
+    Person.find({Employnment: undefined})
+    .then(data => {
+        res.json(data)
+        //console.log(data)
+    })
+    .catch(err => {
+        const status = req.statusCode
+        res.json({
+            status,
+            err
+        })
+    })
+}
+
+function getPeopleWithoutHealthDoc(req, res) {
+    Person.find({Health: undefined})
+    .then(data => {
+        res.json(data)
+        //console.log(data)
+    })
+    .catch(err => {
+        const status = req.statusCode
+        res.json({
+            status,
+            err
+        })
+    })
+}
+
 module.exports = {
     getPersons,
     savePerson,
     updatePerson,
-    deletePerson
+    deletePerson,
+    getPeopleWithoutExpectativesDoc,
+    getPeopleWithoutEducationDoc,
+    getPeopleWithoutSocioEconomicDoc,
+    getPeopleWithoutEmploynmentDoc,
+    getPeopleWithoutHealthDoc
 }
