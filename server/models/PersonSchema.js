@@ -48,20 +48,20 @@ const PersonSchema = new Schema({
     EmergencyContactData: {
         FullNameContact: {
             type: String,
-            required: true
+            required: false
         },
         Relationship: {
             type: String,
-            required: true
+            required: false
         },
         EmergencyContactNumber: {
             type: String,
-            required: true
+            required: false
         },
     },
     ReferencedBy: {
         type: String,
-        required: true
+        required: false
     },
     DNI: {
         type: String,

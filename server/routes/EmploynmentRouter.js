@@ -29,7 +29,7 @@ function saveEmploynmentDoc(req, res) {
 }
 
 function updateEmploynmentDoc(req, res) {
-    let employnment_id  = req.params.employnment_id
+    let employnment_id  = req.params._id
     let update = req.body
     Employnment.findByIdAndUpdate(employnment_id, update, (err, employnmentUpdated) => {
         if(err)
@@ -41,7 +41,7 @@ function updateEmploynmentDoc(req, res) {
 }
 
 function deleteEmploynmentDoc(req, res) {
-    let employnment_id  = req.params.employnment_id
+    let employnment_id  = req.params._id
     Employnment.findById(employnment_id, (err, employnment) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el documento: ${err}`})

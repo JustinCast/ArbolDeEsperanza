@@ -29,7 +29,7 @@ function saveExpectativeDoc(req, res) {
 }
 
 function updateExpectativeDoc(req, res) {
-    let expectative_id  = req.params.expectative_id
+    let expectative_id  = req.params._id
     let update = req.body
     Expectative.findByIdAndUpdate(expectative_id, update, (err, expectativeUpdated) => {
         if(err)
@@ -41,7 +41,7 @@ function updateExpectativeDoc(req, res) {
 }
 
 function deleteExpectativeDoc(req, res) {
-    let expectative_id  = req.params.expectative_id
+    let expectative_id  = req.params._id
     Expectative.findById(expectative_id, (err, expectative) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el documento: ${err}`})

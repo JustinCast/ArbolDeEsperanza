@@ -1,7 +1,6 @@
 'use strict'
-const Budget = require('./classes/Budget')
 const mongoose = require('mongoose')
-const Schema = Mongoose.Schema
+const Schema = mongoose.Schema
 
 const SocioEconomicSchema = new Schema({
     PeopleInTheHouse: {
@@ -69,4 +68,4 @@ const SocioEconomicSchema = new Schema({
         required: false
     }
 })
-module.exports  = mongoose.model('socioeconomic', UserSchema)
+module.exports  = mongoose.model('socioeconomic', SocioEconomicSchema)

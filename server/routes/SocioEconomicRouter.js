@@ -29,7 +29,7 @@ function saveSocioEconomicDoc(req, res) {
 }
 
 function updateSocioEconomicDoc(req, res) {
-    let socioEconomic_id  = req.params.SocioEconomic_id
+    let socioEconomic_id  = req.params._id
     let update = req.body
     SocioEconomic.findByIdAndUpdate(socioEconomic_id, update, (err, socioEconomicUpdated) => {
         if(err)
@@ -41,7 +41,7 @@ function updateSocioEconomicDoc(req, res) {
 }
 
 function deleteSocioEconomicDoc(req, res) {
-    let socioEconomic_id  = req.params.socioEconomic_id
+    let socioEconomic_id  = req.params._id
     SocioEconomic.findById(socioEconomic_id, (err, socioEconomic) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el documento: ${err}`})

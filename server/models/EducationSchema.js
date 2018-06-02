@@ -1,6 +1,6 @@
 'use strict'
-import { Mongoose } from "mongoose";
-const Schema = Mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const EducationSchema = new Schema({
     Read: {

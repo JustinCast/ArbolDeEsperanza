@@ -1,6 +1,6 @@
 'use strict'
 const mongoose = require('mongoose')
-const Schema = Mongoose.Schema
+const Schema = mongoose.Schema
 
 const ExpectativesSchema = new Schema({
     HearAboutWay: {

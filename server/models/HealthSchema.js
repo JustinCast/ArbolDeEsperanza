@@ -161,4 +161,4 @@ const HealthSchema = new Schema({
         required: false
     }
 })
-module.exports  = mongoose.model('health', PersonSchema)
+module.exports  = mongoose.model('health', HealthSchema)

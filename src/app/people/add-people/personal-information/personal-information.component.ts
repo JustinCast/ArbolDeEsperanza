@@ -75,6 +75,8 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
         if(form._i !== NaN){
           this.bornYear = this.calculateAge(form._i.year)
           this.personalInfoGroup.get('age').setValue(this.bornYear)
+          if(this.person !== undefined)
+            this.person.Age = this.bornYear
         }
       }
     })
@@ -85,11 +87,13 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   initialize() {
-   this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+   this.person = JSON.parse(localStorage.getItem('proof'))
   }
 
   onSubmit() {
+    this.peopleService.savePerson(this.person)
     localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+    console.log(JSON.stringify(this.person))
   }
 
   calculateAge(bornYear: number): number {

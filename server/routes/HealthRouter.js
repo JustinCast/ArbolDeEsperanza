@@ -29,7 +29,7 @@ function saveHealthDoc(req, res) {
 }
 
 function updateHealthDoc(req, res) {
-    let health_id  = req.params.health_id
+    let health_id  = req.params._id
     let update = req.body
     Health.findByIdAndUpdate(health_id, update, (err, healthUpdated) => {
         if(err)
@@ -41,7 +41,7 @@ function updateHealthDoc(req, res) {
 }
 
 function deleteHealthDoc(req, res) {
-    let health_id  = req.params.health_id
+    let health_id  = req.params._id
     Health.findById(health_id, (err, health) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el documento: ${err}`})

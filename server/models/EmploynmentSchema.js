@@ -1,10 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 'use strict'
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const EmploynmentSchema = new Shema({
+const EmploynmentSchema = new Schema({
     DoYouHaveWork: {
         type: String,
         required: true

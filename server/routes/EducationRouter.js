@@ -29,7 +29,7 @@ function saveEducationDoc(req, res) {
 }
 
 function updateEducationDoc(req, res) {
-    let education_id  = req.params.education_id
+    let education_id  = req.params._id
     let update = req.body
     Education.findByIdAndUpdate(education_id, update, (err, educationUpdated) => {
         if(err)
@@ -41,7 +41,7 @@ function updateEducationDoc(req, res) {
 }
 
 function deleteEducationDoc(req, res) {
-    let education_id  = req.params.education_id
+    let education_id  = req.params._id
     Education.findById(education_id, (err, education) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el documento: ${err}`})

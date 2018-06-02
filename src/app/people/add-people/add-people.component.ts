@@ -147,6 +147,28 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
         ''
       )
     )
+    let proof = new Person(
+      '',
+      '',
+      false,
+      new Date(),
+      new Date(),
+      0,
+      '',
+      '',
+      new EmergencyContact(
+        '',
+        '',
+        0
+      ),
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+    )
+    localStorage.setItem('proof', JSON.stringify(proof))
     localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 

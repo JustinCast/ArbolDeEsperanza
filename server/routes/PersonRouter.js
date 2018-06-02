@@ -36,7 +36,7 @@ function savePerson(req, res) {
 }
 //TODO: cambiar la forma de inicialización por la dependencia entre esquemas
 function updatePerson(req, res) {
-    let personId  = req.params.personId
+    let personId  = req.params._id
     let update = req.body
     console.log(req.body)
     Person.findByIdAndUpdate(personId, update, (err, personUpdated) => {
@@ -50,7 +50,7 @@ function updatePerson(req, res) {
 }
 
 function deletePerson(req, res) {
-    let personId  = req.params.personId
+    let personId  = req.params._id
     Person.findById(personId, (err, person) => {
         if(err)
             res.status(500).send({message: `Error al encontrar la persona: ${err}`})
