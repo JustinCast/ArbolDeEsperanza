@@ -78,12 +78,12 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
 
   initialize() {
    this.person = JSON.parse(localStorage.getItem('person'))
+   console.log(this.person)
   }
 
   onSubmit() {
     this.peopleService.savePerson(this.person)
-    //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
-    //console.log(JSON.stringify(this.person))
+    console.log(this.person)
   }
 
   calculateAge(bornYear: number): number {

@@ -45,7 +45,7 @@ const PersonSchema = new Schema({
         default: 'mail@mail.com',
         required: true
     },
-    EmergencyContactData: {
+    EmergencyContact: {
         FullNameContact: {
             type: String,
             required: false
