@@ -21,7 +21,7 @@ export class EditPersonComponent implements OnInit, OnDestroy {
 
   editPersonalInfo() {
     localStorage.setItem('person', JSON.stringify(this.peopleService.people[this.route.snapshot.paramMap.get('index')]))
-    this.router.navigate(['/personal-information'])
+    this.router.navigate(['/personal-information', 1])
   }
 
   backClicked() {

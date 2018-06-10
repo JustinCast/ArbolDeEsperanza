@@ -9,6 +9,7 @@ import { PeopleService } from '../../services/people.service';
 import { DataService } from '../../services/data.service';
 import { TIME_FORMATS } from '../../models/TimeFormats';
 import { EmergencyContact } from '../../models/EmergencyContact';
+import { ActivatedRoute } from '@angular/router';
 const moment =  _moment;
 
 @Component({
@@ -36,7 +37,8 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   constructor(
     private _fb: FormBuilder, 
     public peopleService: PeopleService,
-    public dataService: DataService
+    public dataService: DataService,
+    private route: ActivatedRoute
   ) { 
     this.personalInfoGroup = this._fb.group({
       'name': ['', Validators.required],
@@ -82,7 +84,10 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.peopleService.savePerson(this.person)
+    if(this.route.snapshot.paramMap.get('type') === '0')
+      this.peopleService.savePerson(this.person)
+    else
+      this.peopleService.updatePerson(this.person)
     console.log(this.person)
   }
 

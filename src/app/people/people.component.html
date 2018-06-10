@@ -1,7 +1,7 @@
 <h1 class="text-secondary text-center"><strong>Personas en la fundación</strong></h1>
 <div id="people-link-container" class="container text-center">
   <button mat-raised-button color="accent" routerLinkActive="active-link" 
-  [routerLink]="['/personal-information']" (click)="initializeJSON()" [disabled]="logguedUser.Role === 'User'">Añadir 
+  [routerLink]="['/personal-information', 0]" (click)="initializeJSON()" [disabled]="logguedUser.Role === 'User'">Añadir 
   <i class="material-icons">add</i></button>
 </div>
 <app-show-people></app-show-people>
