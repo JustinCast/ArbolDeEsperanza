@@ -29,6 +29,28 @@ export class PeopleComponent implements OnInit {
   }
   
   initializeJSON(){
+    this.person = new Person(
+      '',
+      '',
+      false,
+      new Date(),
+      new Date(),
+      0,
+      '',
+      '',
+      new EmergencyContact(
+        '',
+        '',
+        0
+      ),
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
+     )
+     localStorage.setItem('person', JSON.stringify(this.person))
   }
 
 }

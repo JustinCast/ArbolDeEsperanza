@@ -10,13 +10,15 @@ import { SharedModule } from '../shared/shared.module';
 import { HouseMembersComponent } from './house-members/house-members.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PeopleRoutingModule } from './people.routing.module';
-import { AddExpectativesComponent } from './add-people/add-expectatives/add-expectatives.component';
-import { AddEducationComponent } from './add-people/add-education/add-education.component';
-import { AddSocioeconomicComponent } from './add-people/add-socioeconomic/add-socioeconomic.component';
-import { AddEmploynmentComponent } from './add-people/add-employnment/add-employnment.component';
-import { AddHealthComponent } from './add-people/add-health/add-health.component';
-import { PersonalInformationComponent } from './add-people/personal-information/personal-information.component';
 import { PeopleTableComponent } from './modals/people-table/people-table.component';
+import { ExpectativesService } from '../services/expectatives.service';
+import { DataService } from '../services/data.service';
+import { AddExpectativesComponent } from './edit-person/add-expectatives/add-expectatives.component';
+import { AddEducationComponent } from './edit-person/add-education/add-education.component';
+import { AddSocioeconomicComponent } from './edit-person/add-socioeconomic/add-socioeconomic.component';
+import { AddEmploynmentComponent } from './edit-person/add-employnment/add-employnment.component';
+import { AddHealthComponent } from './edit-person/add-health/add-health.component';
+import { PersonalInformationComponent } from './personal-information/personal-information.component';
 
 
 @NgModule({
@@ -47,6 +49,10 @@ import { PeopleTableComponent } from './modals/people-table/people-table.compone
     PeopleComponent,
     FormsModule, 
     ReactiveFormsModule
+  ],
+  providers: [
+    ExpectativesService,
+    DataService
   ]
 })
 export class PeopleModule { }

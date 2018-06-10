@@ -1,24 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TIME_FORMATS } from '../../../models/TimeFormats';
 import * as _moment from 'moment';
 import { MomentDateAdapter} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PeopleService } from '../../../services/people.service';
-import { Person } from '../../../models/Person';
-import { DataService } from '../../../services/data.service';
-import { Need } from '../../../models/Need';
-import { Resolution } from '../../../models/Resolution';
-import { HouseMember } from '../../../models/HouseMember';
-import { EmergencyContact } from '../../../models/EmergencyContact';
-import { Education } from '../../../models/Education';
-import { SocioEconomic } from '../../../models/SocioEconomic';
-import { Budget } from '../../../models/Budget';
-import { Employnment } from '../../../models/Employnment';
-import { Health } from '../../../models/Health';
-import { ConsultationReasons } from '../../../models/ConsultationReason';
-import { Violence } from '../../../models/Violence';
-
+import { Person } from '../../models/Person';
+import { Need } from '../../models/Need';
+import { PeopleService } from '../../services/people.service';
+import { DataService } from '../../services/data.service';
+import { TIME_FORMATS } from '../../models/TimeFormats';
+import { EmergencyContact } from '../../models/EmergencyContact';
 const moment =  _moment;
 
 @Component({
@@ -87,27 +77,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   }
 
   initialize() {
-   this.person = new Person(
-    '',
-    '',
-    false,
-    new Date(),
-    new Date(),
-    0,
-    '',
-    '',
-    new EmergencyContact(
-      '',
-      '',
-      0
-    ),
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-   )
+   this.person = JSON.parse(localStorage.getItem('person'))
   }
 
   onSubmit() {

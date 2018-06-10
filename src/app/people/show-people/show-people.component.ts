@@ -85,8 +85,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
   }
 
   onEditPerson(index) {
-    localStorage.setItem('editPerson', JSON.stringify(this.personService.people[index]));     
-    this.router.navigate(['/edit-person'])
+    this.router.navigate(['/edit-person', index])
   }
 
   openSnackBar(message: string, action: string) {

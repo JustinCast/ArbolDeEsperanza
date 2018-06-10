@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { PeopleTableComponent } from './people-table.component';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PeopleTableService {

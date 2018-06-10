@@ -12,6 +12,7 @@ import { ExpectativesService } from '../../../services/expectatives.service';
 })
 export class AddExpectativesComponent implements OnInit {
   expectatives: Expectatives
+  person: Person
   expectativesGroup: FormGroup
   constructor(
     private _fb: FormBuilder,
@@ -26,6 +27,7 @@ export class AddExpectativesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
     this.expectatives = new Expectatives(
       '',
       '',
@@ -35,6 +37,6 @@ export class AddExpectativesComponent implements OnInit {
 
   onSubmit(){
     //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
-    this.expectativesService.saveExpectative(this.expectatives)
+    //this.expectativesService.saveExpectative(this.expectatives)
   }
 }

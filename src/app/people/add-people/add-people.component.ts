@@ -15,6 +15,7 @@ import { SocioEconomic } from '../../models/SocioEconomic';
 import { Budget } from '../../models/Budget';
 import { Education } from '../../models/Education';
 import { EmergencyContact } from '../../models/EmergencyContact';
+import { Expectatives } from '../../models/Expectatives';
 
 @Component({
   selector: 'app-add-people',
@@ -62,7 +63,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       '',
       '',
       '',
-      '',
+      new Expectatives("", "", ""),
       new Education(
         false,
         '',
@@ -169,7 +170,7 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
       ''
     )
     //localStorage.setItem('proof', JSON.stringify(proof))
-    //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
   }
 
   backClicked() {
