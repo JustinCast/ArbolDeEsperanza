@@ -4,11 +4,11 @@ const Schema = mongoose.Schema
 
 const SocioEconomicSchema = new Schema({
     PeopleInTheHouse: {
-        type: Number,
+        type: String,
         required: true
     },
     UnderagePeople: {
-        type: Number,
+        type: String,
         required: true
     },
     HomeServices: {
@@ -33,11 +33,11 @@ const SocioEconomicSchema = new Schema({
         required: true
     },
     MonthlyIncome: {
-        type: Number,
+        type: String,
         required: true
     },
     FamilyIncome: {
-        type: Number,
+        type: String,
         required: true
     },
     Budget: {

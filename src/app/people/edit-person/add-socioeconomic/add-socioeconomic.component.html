@@ -1,6 +1,6 @@
-<form class="text-center container" [formGroup]="socioEconomicGroup">
+<form class="text-center container" [formGroup]="socioEconomicGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <mat-select placeholder="Cuántas personas viven en el hogar? / How many people live in the home?" [formControl]="socioEconomicGroup.get('peopleInTheHouse')" [(ngModel)]="person.SocioEconomic.PeopleInTheHouse">
+    <mat-select placeholder="Cuántas personas viven en el hogar? / How many people live in the home?" [formControl]="socioEconomicGroup.get('peopleInTheHouse')" [(ngModel)]="socioEconomic.PeopleInTheHouse">
       <mat-option *ngFor="let p of data.peopleInTheHouse" [value]="p">
         {{ p }}
       </mat-option>
@@ -8,7 +8,7 @@
   </mat-form-field>
   <mat-divider></mat-divider>
   <mat-form-field>
-    <mat-select placeholder="¿Cuántos menores de edad viven en el hogar?" [formControl]="socioEconomicGroup.get('underagePeople')" [(ngModel)]="person.SocioEconomic.UnderagePeople">
+    <mat-select placeholder="¿Cuántos menores de edad viven en el hogar?" [formControl]="socioEconomicGroup.get('underagePeople')" [(ngModel)]="socioEconomic.UnderagePeople">
       <mat-option *ngFor="let u of data.underagePeople" [value]="u">
         {{ u }}
       </mat-option>
@@ -23,8 +23,8 @@
     </mat-select>
   </mat-form-field>
   <!---->
-  <mat-list id="services-list" *ngIf="person.SocioEconomic.HomeServices.length !== 0" role="list">
-    <mat-list-item class="service" role="listitem" *ngFor="let s of person.SocioEconomic.HomeServices; let index = index">
+  <mat-list id="services-list" *ngIf="socioEconomic.HomeServices.length !== 0" role="list">
+    <mat-list-item class="service" role="listitem" *ngFor="let s of socioEconomic.HomeServices; let index = index">
       <div>
         <p>{{s}}</p>
       </div>
@@ -36,7 +36,109 @@
     </mat-list-item>
   </mat-list>
   <!---->
-  <button [disabled]="!socioEconomicGroup.valid" type="submit" mat-raised-button color="primary">
+  <mat-form-field>
+    <mat-select placeholder="¿Quién paga los servicios que tiene la casa? / Who Pays the Bills?" [formControl]="socioEconomicGroup.get('payman')" [(ngModel)]="socioEconomic.Payman">
+      <mat-option *ngFor="let p of data.payMan" [value]="p">
+        {{ p }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!---->
+  <h4 class="text-center text-primary">¿Cuenta con algún hijo o hija apadrinado por alguna institución? / Do you have a son or daughter sponsored by any institution?"</h4>
+  <mat-list id="courses-list" role="list">
+    <mat-list-item class="course" role="listitem" *ngFor="let c of data.childrenHelp; let index = index">
+      <div>
+        <p>{{c}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="addChildrenHelp(c); false" color="primary">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>    
+    </mat-list-item>
+  </mat-list>
+  <mat-list id="courses-list" *ngIf="socioEconomic.ChildrenHelp.length !== 0" role="list">
+    <h5 class="text-center text-secondary">Elementos agregados</h5>
+    <mat-list-item class="course" role="listitem" *ngFor="let c of socioEconomic.ChildrenHelp; let index = index">
+      <div>
+        <p>{{c}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="deleteChildrenHelp(index); false" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>    
+    </mat-list-item>
+  </mat-list>
+  <!---->
+  <h4 class="text-center text-primary">¿Recibe algún beneficio de otra institución? / Do you receive any benefit from another institution?</h4>
+  <mat-list id="courses-list" role="list">
+    <mat-list-item class="course" role="listitem" *ngFor="let i of data.institutionsHelp; let index = index">
+      <div>
+        <p>{{i}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="addInstitutionHelp(i); false" color="primary">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>    
+    </mat-list-item>
+  </mat-list>
+  <mat-list id="courses-list" *ngIf="socioEconomic.InstitutionsHelp.length !== 0" role="list">
+    <h5 class="text-center text-secondary">Elementos agregados</h5>
+    <mat-list-item class="course" role="listitem" *ngFor="let i of socioEconomic.InstitutionsHelp; let index = index">
+      <div>
+        <p>{{i}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="deleteInstitutionHelp(index); false" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>    
+    </mat-list-item>
+  </mat-list>
+  <!---->
+  <mat-form-field>
+    <mat-select placeholder="¿Quién es el principal ingreso en su hogar? / Who earns the main income in your household?" [formControl]="socioEconomicGroup.get('mainHouseProvider')" 
+      [(ngModel)]="socioEconomic.MainHouseProvider">
+      <mat-option *ngFor="let i of data.mainHouseIncome" [value]="i">
+        {{ i }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Cuál es su ingreso mensual? / What is your monthly income?" [formControl]="socioEconomicGroup.get('montlyIncome')" 
+      [(ngModel)]="socioEconomic.MonthlyIncome">
+      <mat-option *ngFor="let m of data.montlyIncome" [value]="m">
+        {{ m }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="¿Cuáles son los ingresos familiares?/ What are the family income?" [formControl]="socioEconomicGroup.get('familyIncome')" 
+      [(ngModel)]="socioEconomic.FamilyIncome">
+      <mat-option *ngFor="let f of data.familyIncome" [value]="f">
+        {{ f }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="¿Condición de Propiedad de la Casa? / Condition of Home Ownership?" [formControl]="socioEconomicGroup.get('houseHolding')" 
+      [(ngModel)]="socioEconomic.HouseHolding">
+      <mat-option *ngFor="let h of data.houseHolding" [value]="h">
+        {{ h }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="¿Condición de la casa? / Condition of the house?" [formControl]="socioEconomicGroup.get('houseCondition')" 
+      [(ngModel)]="socioEconomic.HouseCondition">
+      <mat-option *ngFor="let h of data.houseCondition" [value]="h">
+        {{ h }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>

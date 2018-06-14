@@ -22,6 +22,7 @@ import { PersonalInformationComponent } from './personal-information/personal-in
 import { EducationService } from '../services/education.service';
 import { EmploynmentService } from '../services/employnment.service';
 import { HealthService } from '../health.service';
+import { SocioEconomicService } from '../services/socio-economic.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { HealthService } from '../health.service';
     DataService,
     EducationService,
     EmploynmentService,
-    HealthService
+    HealthService,
+    SocioEconomicService
   ]
 })
 export class PeopleModule { }

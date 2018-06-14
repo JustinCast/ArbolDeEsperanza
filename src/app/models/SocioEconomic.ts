@@ -14,6 +14,6 @@ export class SocioEconomic {
         public Budget: Budget,
         public HouseHolding: string,
         public HouseCondition: string,
-        public PersonID: string
+        public PersonID?: string
     ) {}
 }
