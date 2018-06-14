@@ -12,7 +12,7 @@ export class ConsultationReasons{
         public DeathHandling: boolean,
         public AngerHandling: boolean,
         public EatingDisorders: boolean,
-        public Phobias: Array<any>,
+        public Phobias: boolean,
         public Sexuality: boolean,
         public FamilyRightsInquiries: boolean,
         public SexualDiversity: boolean,

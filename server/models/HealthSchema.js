@@ -97,7 +97,7 @@ const HealthSchema = new Schema({
             required: false
         },
         Phobias: {
-            type: Array,
+            type: Boolean,
             required: false
         },
         Sexuality: {

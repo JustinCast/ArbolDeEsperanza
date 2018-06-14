@@ -44,15 +44,15 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('person'))
     this.socioEconomic = new SocioEconomic(
-      0,
-      0,
+      '',
+      '',
       [],
       '',
       [],
       [],
       '',
-      0,
-      0,
+      '',
+      '',
       new Budget(0, [], 0),
       '',
       '',
