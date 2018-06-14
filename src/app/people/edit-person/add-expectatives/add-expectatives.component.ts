@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../../services/data.service';
 import { Expectatives } from '../../../models/Expectatives';
 import { ExpectativesService } from '../../../services/expectatives.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PeopleService } from '../../../services/people.service';
 
 @Component({
   selector: 'app-add-expectatives',
@@ -17,7 +19,9 @@ export class AddExpectativesComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private data: DataService,
-    private expectativesService: ExpectativesService
+    private expectativesService: ExpectativesService,
+    private peopleService: PeopleService,
+    private route: ActivatedRoute
   ) { 
     this.expectativesGroup = this._fb.group({
       'hearAboutWay': ['', Validators.required],
@@ -27,16 +31,17 @@ export class AddExpectativesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+    this.person = this.peopleService.people[String(this.route.snapshot.paramMap.get('index'))]
     this.expectatives = new Expectatives(
       '',
       '',
-      ''
+      '',
+      this.person._id
     )
   }
 
   onSubmit(){
     //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
-    //this.expectativesService.saveExpectative(this.expectatives)
+    this.expectativesService.saveExpectative(this.expectatives)
   }
 }

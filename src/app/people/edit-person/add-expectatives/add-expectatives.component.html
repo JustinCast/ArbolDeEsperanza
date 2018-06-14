@@ -1,7 +1,7 @@
 <form class="text-center container" [formGroup]="expectativesGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-select placeholder="¿Cómo se enteró de la Asociación? / How did you hear about Árbol de Esperanza?" 
-    [formControl]="expectativesGroup.get('hearAboutWay')" [(ngModel)]="person.Expectatives.HearAboutWay">
+    [formControl]="expectativesGroup.get('hearAboutWay')" [(ngModel)]="expectatives.HearAboutWay">
       <mat-option *ngFor="let h of data.hearAboutWay" [value]="h">
         {{ h }}
       </mat-option>
@@ -11,7 +11,7 @@
   <mat-form-field>
     <mat-select placeholder="Antes de venir a la Árbol de Esperanza, ¿qué le dijeron 
     que la organización hacía? / Before you came to Árbol de Esperanza, what expectations did you have?" 
-    [formControl]="expectativesGroup.get('whatYouKnow')" [(ngModel)]="person.Expectatives.WhatYouKnow">
+    [formControl]="expectativesGroup.get('whatYouKnow')" [(ngModel)]="expectatives.WhatYouKnow">
       <mat-option *ngFor="let w of data.whatYouKnow" [value]="w">
         {{ w }}
       </mat-option>
@@ -20,7 +20,7 @@
   <mat-divider></mat-divider>
   <mat-form-field>
     <mat-select placeholder="¿Por qué motivo quiero asistir a la Asociación?"
-    [formControl]="expectativesGroup.get('entryReason')" [(ngModel)]="person.Expectatives.EntryReason">
+    [formControl]="expectativesGroup.get('entryReason')" [(ngModel)]="expectatives.EntryReason">
       <mat-option *ngFor="let e of data.entryReason" [value]="e">
         {{ e }}
       </mat-option>

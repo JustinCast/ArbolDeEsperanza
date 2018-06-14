@@ -24,6 +24,10 @@ export class EditPersonComponent implements OnInit, OnDestroy {
     this.router.navigate(['/personal-information', 1])
   }
 
+  editExpectatives() {
+    this.router.navigate(['/add-expectatives', this.route.snapshot.paramMap.get('index')])
+  }
+
   backClicked() {
     this._location.back();
   }

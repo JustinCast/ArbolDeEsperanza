@@ -25,7 +25,7 @@ const ROUTES: Routes = [
   { path: 'edit-person/:index', component: EditPersonComponent, canActivate: [LogguedInGuard] },
   { path: 'show-details', component: ShowDetailsComponent },
   { path: 'personal-information/:type', component: PersonalInformationComponent },
-  { path: 'add-expectatives', component: AddExpectativesComponent },
+  { path: 'add-expectatives/:index', component: AddExpectativesComponent },
   { path: 'add-education', component: AddEducationComponent },
   { path: 'add-socioeconomic', component: AddSocioeconomicComponent },
   { path: 'add-employnment', component: AddEmploynmentComponent },
