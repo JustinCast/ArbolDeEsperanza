@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../../../models/Person';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../../services/data.service';
+import { EducationService } from '../../../services/education.service';
+import { Education } from '../../../models/Education';
 
 @Component({
   selector: 'app-add-education',
@@ -11,9 +13,11 @@ import { DataService } from '../../../services/data.service';
 export class AddEducationComponent implements OnInit {
   person: Person
   educationGroup: FormGroup
+  education: Education
   constructor(
     private _fb: FormBuilder,
-    private data: DataService
+    private data: DataService,
+    private educationService: EducationService
   ) { 
     this.educationGroup = this._fb.group({
       'read': ['', Validators.required],
@@ -22,19 +26,20 @@ export class AddEducationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
+    this.person = JSON.parse(localStorage.getItem('person'))
+    this.education = new Education(false, '', [], this.person._id)
   }
 
   onSubmit(){
-    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+    this.educationService.saveEducationDoc(this.education)
   }
 
   addCourse(course: string) {
-    this.person.Education.Courses.unshift(course)
+    this.education.Courses.unshift(course)
   }
 
   deleteCourse(index: number) {
-    this.person.Education.Courses.splice(index, 1)
+    this.education.Courses.splice(index, 1)
   }
 
 }

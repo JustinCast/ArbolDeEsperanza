@@ -3,6 +3,6 @@ export class Education {
         public Read: boolean,
         public EducationBackground: string,
         public Courses: Array<any>,
-        public PersonID: string
+        public PersonID?: string
     ){}
 }

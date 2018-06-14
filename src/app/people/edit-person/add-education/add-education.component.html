@@ -1,16 +1,20 @@
+<h3 style="margin-top: 2%" class="text-center text-secondary">En proceso / In process : {{person.Name}} {{person.LastName}}</h3>
 <form class="text-center container" [formGroup]="educationGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <mat-select placeholder="¿Sabe Leer / Escribir?" 
-    [formControl]="educationGroup.get('read')" [(ngModel)]="person.Education.Read">
-      <mat-option *ngFor="let r of data.read" [value]="r">
-        {{ r }}
+    [formControl]="educationGroup.get('read')" [(ngModel)]="education.Read">
+      <mat-option [value]="true">
+        Sabe leer y escribir
+      </mat-option>
+      <mat-option [value]="false">
+        No sabe leer y escribir
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-divider></mat-divider>
   <mat-form-field>
     <mat-select placeholder="Escolaridad / Education background" 
-    [formControl]="educationGroup.get('educationBackground')" [(ngModel)]="person.Education.EducationBackground">
+    [formControl]="educationGroup.get('educationBackground')" [(ngModel)]="education.EducationBackground">
       <mat-option *ngFor="let e of data.education" [value]="e">
         {{ e }}
       </mat-option>
@@ -24,8 +28,8 @@
     <button style="background-color: #75e900; color: white" mat-raised-button (click)="addCourse(course.value); false"><mat-icon>add</mat-icon></button>
   </div>
   <br>
-  <mat-list id="courses-list" *ngIf="person.Education.Courses.length !== 0" role="list">
-    <mat-list-item class="course" role="listitem" *ngFor="let c of person.Education.Courses; let index = index">
+  <mat-list id="courses-list" *ngIf="education.Courses.length !== 0" role="list">
+    <mat-list-item class="course" role="listitem" *ngFor="let c of education.Courses; let index = index">
       <div>
         <p>{{c}}</p>
       </div>
