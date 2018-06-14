@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Person } from '../../../models/Person';
 import { DataService } from '../../../services/data.service';
+import { Employnment } from '../../../models/Employnment';
+import { EmploynmentService } from '../../../services/employnment.service';
 
 @Component({
   selector: 'app-add-employnment',
@@ -11,19 +13,33 @@ import { DataService } from '../../../services/data.service';
 export class AddEmploynmentComponent implements OnInit {
   employnmentGroup: FormGroup
   person: Person
+  employnment: Employnment
   addedClients: Array<string> = new Array()
   constructor(
     private _fb: FormBuilder,
-    public data: DataService
+    public data: DataService,
+    public employnmentService: EmploynmentService
   ) { 
   }
   
   ngOnInit() {
-    this.person = JSON.parse(localStorage.getItem('addedInProcess'))
-    console.log("VALUE: ", this.person.Employnment.WhyWorkFewHours)
-
+    this.person = JSON.parse(localStorage.getItem('person'))
+    this.employnment = new Employnment(
+      '',
+      '',
+      '',
+      '',
+      0,
+      false,
+      '',
+      '',
+      false,
+      0,
+      [],
+      this.person._id
+    )
     this.employnmentGroup = this._fb.group({
-      'doYoHaveWork': ['', Validators.required],
+      'doYouHaveWork': ['', Validators.required],
       'occupation': ['', Validators.required],
       'unemploynmentReason': ['', Validators.required],
       'unemploymentDate': ['', Validators.required],
@@ -46,6 +62,6 @@ export class AddEmploynmentComponent implements OnInit {
     this.addedClients.splice(index, 1)
   }
   onSubmit() {
-    localStorage.setItem('addedInProcess', JSON.stringify(this.person))
+    this.employnmentService.saveEmploynmentDoc(this.employnment)
   }
 }

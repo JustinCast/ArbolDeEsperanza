@@ -3,14 +3,14 @@ export class Employnment {
         public DoYouHaveWork: string,
         public Ocuppation: string,
         public UnemploynmentReason: string,
-        public UnemploynmentDate: Date,
-        public WorkFrecuency: number,
+        public UnemploynmentDate: string,
+        public WorkFrecuency: string,
         public WorkFewHours: boolean,
         public WhyWorkFewHours: string,
         public WhyIsItImposible: string,
         public HaveABusiness: boolean,
         public SellProducts: number,
         public Clients: Array<any>,
-        public PersonID: string
+        public PersonID?: string
     ) {}
 }

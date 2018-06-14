@@ -1,6 +1,6 @@
 <form class="container text-center" [formGroup]="employnmentGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <mat-select placeholder="¿Actualmente tiene trabajo? / Do you currently work?">
+    <mat-select [formControl]="employnmentGroup.get('doYouHaveWork')" [(ngModel)]="employnment.DoYouHaveWork" placeholder="¿Actualmente tiene trabajo? / Do you currently work?">
       <mat-option *ngFor="let d of data.actuallyWork" [value]="d">
         {{d}}
       </mat-option>
@@ -8,7 +8,7 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Cuál es su ocupación? / What is your occupation?">
+    <mat-select [formControl]="employnmentGroup.get('occupation')" [(ngModel)]="employnment.Ocuppation" placeholder="¿Cuál es su ocupación? / What is your occupation?">
       <mat-option *ngFor="let o of data.occupation" [value]="o">
         {{o}}
       </mat-option>
@@ -16,7 +16,7 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Por qué motivo no tiene trabajo? / Why don't you have a job?">
+    <mat-select [formControl]="employnmentGroup.get('unemploynmentReason')" [(ngModel)]="employnment.UnemploynmentReason" placeholder="¿Por qué motivo no tiene trabajo? / Why don't you have a job?">
       <mat-option *ngFor="let u of data.unemploymentReason" [value]="u">
         {{u}}
       </mat-option>
@@ -24,7 +24,7 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Desde hace cuanto está desempleada? / How long have you been unemployed?">
+    <mat-select [formControl]="employnmentGroup.get('unemploymentDate')" [(ngModel)]="employnment.UnemploynmentDate" placeholder="¿Desde hace cuanto está desempleada? / How long have you been unemployed?">
       <mat-option *ngFor="let u of data.unemploynmentDate" [value]="u">
         {{u}}
       </mat-option>
@@ -32,7 +32,7 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Con cuánta frecuencia trabaja? / If you work, how often?">
+    <mat-select [formControl]="employnmentGroup.get('workFrecuency')" [(ngModel)]="employnment.WorkFrecuency" placeholder="¿Con cuánta frecuencia trabaja? / If you work, how often?">
       <mat-option *ngFor="let u of data.workFrecuency" [value]="u">
         {{u}}
       </mat-option>
@@ -40,15 +40,18 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Quiere usted trabajar pocas horas a la semana? / Do you only want to work a few hours a week?">
-      <mat-option *ngFor="let u of data.fewHours" [value]="u">
-        {{u}}
+    <mat-select [formControl]="employnmentGroup.get('workFewHours')" [(ngModel)]="employnment.WorkFewHours" placeholder="¿Quiere usted trabajar pocas horas a la semana? / Do you only want to work a few hours a week?">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
       </mat-option>
     </mat-select>
   </mat-form-field>
   <!---->
   <div class="md-form">
-    <input required [formControl]="employnmentGroup.get('whyWorkFewHours')" 
+    <input [formControl]="employnmentGroup.get('whyWorkFewHours')" [(ngModel)]="employnment.WhyWorkFewHours" required [formControl]="employnmentGroup.get('whyWorkFewHours')" 
     mdbActive type="text" id="whyWorkFewHours" class="form-control">
     <label for="whyWorkFewHours" class="">
       If yes, why do you want to work only a few hours a week?
@@ -56,7 +59,7 @@
   </div>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Qué le imposibilita trabajar más horas a la semana? / What is stopping you from working more hours a week?">
+    <mat-select [formControl]="employnmentGroup.get('whyIsItImposible')" [(ngModel)]="employnment.WhyIsItImposible" placeholder="¿Qué le imposibilita trabajar más horas a la semana? / What is stopping you from working more hours a week?">
       <mat-option *ngFor="let u of data.whyIsItImposible" [value]="u">
         {{u}}
       </mat-option>
@@ -64,9 +67,12 @@
   </mat-form-field>
   <!---->
   <mat-form-field>
-    <mat-select placeholder="¿Tiene usted un negocio/emprendimiento en funcionamiento?">
-      <mat-option *ngFor="let u of data.haveABusiness" [value]="u">
-        {{u}}
+    <mat-select [formControl]="employnmentGroup.get('haveABusiness')" [(ngModel)]="employnment.HaveABusiness" placeholder="¿Tiene usted un negocio/emprendimiento en funcionamiento?">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -80,6 +86,14 @@
   </div>
   <button id="add-client-btn" mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
   <mat-divider></mat-divider>
+  <br>
+  <div class="md-form">
+    <input [(ngModel)]="employnment.SellProducts" required [formControl]="employnmentGroup.get('sellProducts')" 
+    mdbActive type="number" id="client-input" class="form-control">
+    <label for="client-input" class="">
+      ¿Cuántos productos vende a la semana?
+    </label>
+  </div>
   <button type="submit" [disabled]="!employnmentGroup.valid" style="margin-top: 2%" mat-raised-button color="primary" type="submit">
     Enviar
     <mat-icon>send</mat-icon>

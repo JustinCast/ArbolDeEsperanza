@@ -43,111 +43,111 @@ export class AddPeopleComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.person = new Person(
-      '',
-      '',
-      false,
-      new Date(),
-      new Date(),
-      0,
-      '',
-      '',
-      new EmergencyContact(
-        '',
-        '',
-        0
-      ),
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      new Expectatives("", "", ""),
-      new Education(
-        false,
-        '',
-        [],
-        ''
-      ),
-      new SocioEconomic(
-        0,
-        0,
-        [],
-        '',
-        [],
-        [],
-        '',
-        0,
-        0,
-        new Budget(
-          0,
-          [],
-          0
-        ),
-        '',
-        '',
-        ''
-      ),
-      new Employnment(
-        '',
-        '',
-        '',
-        new Date(),
-        0,
-        false,
-        '',
-        '',
-        false,
-        0,
-        [],
-        ''
-      ),
-      new Health(
-        '',
-        new Need(
-          false,
-          false,
-          false,
-          false,
-          false,
-          false
-        ),
-        false,
-        [],
-        new ConsultationReasons(
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          false,
-          [],
-          false,
-          false,
-          false,
-          ''
-        ),
-        new Violence(
-          false,
-          false,
-          false,
-          false,
-          false
-        ),
-        false,
-        false,
-        false,
-        false,
-        ''
-      )
-    )
+    // this.person = new Person(
+    //   '',
+    //   '',
+    //   false,
+    //   new Date(),
+    //   new Date(),
+    //   0,
+    //   '',
+    //   '',
+    //   new EmergencyContact(
+    //     '',
+    //     '',
+    //     0
+    //   ),
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   '',
+    //   new Expectatives("", "", ""),
+    //   new Education(
+    //     false,
+    //     '',
+    //     [],
+    //     ''
+    //   ),
+    //   new SocioEconomic(
+    //     0,
+    //     0,
+    //     [],
+    //     '',
+    //     [],
+    //     [],
+    //     '',
+    //     0,
+    //     0,
+    //     new Budget(
+    //       0,
+    //       [],
+    //       0
+    //     ),
+    //     '',
+    //     '',
+    //     ''
+    //   ),
+    //   new Employnment(
+    //     '',
+    //     '',
+    //     '',
+    //     new Date(),
+    //     0,
+    //     false,
+    //     '',
+    //     '',
+    //     false,
+    //     0,
+    //     [],
+    //     ''
+    //   ),
+    //   new Health(
+    //     '',
+    //     new Need(
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false
+    //     ),
+    //     false,
+    //     [],
+    //     new ConsultationReasons(
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       [],
+    //       false,
+    //       false,
+    //       false,
+    //       ''
+    //     ),
+    //     new Violence(
+    //       false,
+    //       false,
+    //       false,
+    //       false,
+    //       false
+    //     ),
+    //     false,
+    //     false,
+    //     false,
+    //     false,
+    //     ''
+    //   )
+    // )
     let proof = new Person(
       '',
       '',

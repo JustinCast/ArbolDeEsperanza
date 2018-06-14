@@ -18,11 +18,11 @@ const EmploynmentSchema = new Schema({
         required: false
     },
     UnemploynmentDate: {
-        type: Date,
+        type: String,
         required: false
     },
     WorkFrecuency: {
-        type: Number,
+        type: String,
         required: false
     },
     WorkFewHours: {
