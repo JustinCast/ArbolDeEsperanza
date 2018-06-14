@@ -1,6 +1,6 @@
 <form class="container text-center" [formGroup]="healthGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <mat-select placeholder="Seguro Social / Social Secure " [formControl]="healthGroup.get('socialSecurityType')">
+    <mat-select [(ngModel)]="health.SocialSecurityType" placeholder="Seguro Social / Social Secure " [formControl]="healthGroup.get('socialSecurityType')">
       <mat-option *ngFor="let s of data.socialSecurityType" [value]="s">
         {{s}}
       </mat-option>
@@ -8,38 +8,151 @@
   </mat-form-field>
   <hr>
   <h3 class="text-center text-secondary">Necesidades</h3>
-  <mat-radio-group [formControl]="healthGroup.get('needDoctor')" [(ngModel)]="person.Health.Need.Need_Doctor">
+  <mat-radio-group [formControl]="healthGroup.get('needDoctor')" [(ngModel)]="health.Need.Need_Doctor">
     <p>¿Necesita Doctor?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
-  <mat-radio-group [formControl]="healthGroup.get('need_Ophthalmologist')" [(ngModel)]="person.Health.Need.Need_Ophthalmologist">
+  <mat-radio-group [formControl]="healthGroup.get('need_Ophthalmologist')" [(ngModel)]="health.Need.Need_Ophthalmologist">
     <p>¿Necesita Oftalmólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
-  <mat-radio-group [formControl]="healthGroup.get('need_Mammography')" [(ngModel)]="person.Health.Need.Need_Mammography">
+  <mat-radio-group [formControl]="healthGroup.get('need_Mammography')" [(ngModel)]="health.Need.Need_Mammography">
     <p>¿Necesita Mamografía?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
-  <mat-radio-group [formControl]="healthGroup.get('need_Dentist')" [(ngModel)]="person.Health.Need.Need_Dentist">
+  <mat-radio-group [formControl]="healthGroup.get('need_Dentist')" [(ngModel)]="health.Need.Need_Dentist">
     <p>¿Necesita Dentista?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
-  <mat-radio-group [formControl]="healthGroup.get('need_Gynecologist')" [(ngModel)]="person.Health.Need.Need_Gynecologist">
+  <mat-radio-group [formControl]="healthGroup.get('need_Gynecologist')" [(ngModel)]="health.Need.Need_Gynecologist">
     <p>¿Necesita Ginecólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
-  <mat-radio-group [formControl]="healthGroup.get('need_Psychologist')" [(ngModel)]="person.Health.Need.Need_Psychologist">
+  <mat-radio-group [formControl]="healthGroup.get('need_Psychologist')" [(ngModel)]="health.Need.Need_Psychologist">
     <p>¿Necesita Psicólogo?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
   </mat-radio-group>
   <br>
-  <button type="submit" [disabled]="!healthGroup.valid" mat-raised-button color="primary">
+  <mat-form-field>
+    <mat-select [(ngModel)]="health.TakeMedication" placeholder="¿Toma medicamentos? / Take Medication" [formControl]="healthGroup.get('takeMedication')">
+      <mat-option [value]="true">
+        Si / Yes
+      </mat-option>
+      <mat-option [value]="false">
+        No
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="health.TakeMedication === true" class="container text-center">
+    <mat-form-field>
+      <input matInput placeholder="Ingrese los medicamentos" #medicine>
+    </mat-form-field>
+    <button style="background-color: #75e900; color: white" mat-raised-button (click)="addMedicine(medicine.value); false"><mat-icon>add</mat-icon></button>
+  </div>
+  <mat-list role="list" *ngIf="health.TakeMedication.length !== 0">
+    <mat-list-item role="listitem" *ngFor="let m of health.Medication">
+      {{m}}
+      <button mat-button><mat-icon>delete</mat-icon></button>
+    </mat-list-item>
+  </mat-list>
+  <h4 class="text-center text-secondary">Salud Mental</h4>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Anxiety" [formControl]="healthGroup.get('anxiety')">Asiedad / Anxiety</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Depression" [formControl]="healthGroup.get('depression')">Depresión/ Depression</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.LowSelfEsteem" [formControl]="healthGroup.get('lowSelfEsteem')">Baja autoestima/ Low self-esteem</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.SuicidalActions" [formControl]="healthGroup.get('suicidalActions')">Comportamientos suicidas / Suicidal actions </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DomesticViolence" [formControl]="healthGroup.get('domesticViolence')">Violencia doméstica / Domestic violence </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DifficultyMakingDecision" [formControl]="healthGroup.get('difficultyMakingDecision')">Dificultad para tomar decisiones / Difficulty making decisions </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.MemoryLoss" [formControl]="healthGroup.get('memoryLoss')">Problemas de memoria / Memory loss</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.LearningProblems" [formControl]="healthGroup.get('learningProblems')">Problemas de aprendizaje / Learning Problems</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DeathHandling" [formControl]="healthGroup.get('deathHandling')">Manejo del duelo / Death handling</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.AngerHandling" [formControl]="healthGroup.get('angerHandling')">Manejo del enojo / Anger handling</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.EatingDisorders" [formControl]="healthGroup.get('eatingDisorders')">Problemas alimenticios / Eating disorders </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Phobias" [formControl]="healthGroup.get('phobias')">Fobias / Phobias </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Sexuality" [formControl]="healthGroup.get('sexuality')">Sexualidad / Sexuality </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.FamilyRightsInquiries" [formControl]="healthGroup.get('familyRightsInquiries')">Consultas legales sobre derecho de familia / Legal inquiries about family rights</mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.SexualDiversity" [formControl]="healthGroup.get('sexualDiversity')">Diversidad sexual / Sexual diversity </mat-checkbox>
+  <br>
+  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Other" [formControl]="healthGroup.get('other')">Otra / Another</mat-checkbox>
+  <br>
+  <h4 class="text-center text-secondary">Violencia</h4>
+  <ul style="list-style-type: none; padding: 0" class="text-left">
+    <li>
+      <mat-checkbox [(ngModel)]="health.Violence.Emotional" [formControl]="healthGroup.get('emotional')">Emocional / Emocional</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.Violence.Sexual" [formControl]="healthGroup.get('sexual')">Sexual / Sexual </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.Violence.Patrimonial" [formControl]="healthGroup.get('patrimonial')">Patrimonial / Patrimonial</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.Violence.economical" [formControl]="healthGroup.get('economical')">Económica / Economical</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.Violence.physical" [formControl]="healthGroup.get('physical')">Física / Physical</mat-checkbox>
+    </li>
+  </ul>
+  <mat-form-field>
+    <mat-select [(ngModel)]="health.AlcoholProblems" placeholder="¿Problemas de alcoholismo? / Alcohol Problems?" [formControl]="healthGroup.get('alcoholProblems')">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="health.DrugsProblems" placeholder="Uso de drogas? / Alcohol Problems?" [formControl]="healthGroup.get('drugsProblems')">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="health.SuicidalAttempts" placeholder="¿Intento de suicidio? / Suicidal Attempts" [formControl]="healthGroup.get('suicidalAttempts')">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="health.SuicidalThoughts" placeholder="¿Pensamientos Suicidas? / Suicidal Thoughts?" [formControl]="healthGroup.get('suicidalThoughts')">
+      <mat-option [value]="true">
+        Si
+      </mat-option>
+      <mat-option [value]="false">
+        No
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>

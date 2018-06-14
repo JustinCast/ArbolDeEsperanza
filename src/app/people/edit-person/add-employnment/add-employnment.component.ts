@@ -29,7 +29,7 @@ export class AddEmploynmentComponent implements OnInit {
       '',
       '',
       '',
-      0,
+      '',
       false,
       '',
       '',

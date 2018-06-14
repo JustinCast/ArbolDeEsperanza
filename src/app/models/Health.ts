@@ -14,6 +14,6 @@ export class Health {
         public DrugsProblems: boolean,
         public SuicidalAttempts: boolean,
         public SuicidalThoughts: boolean,
-        public PersonID: string
+        public PersonID?: string
     ){}
 }

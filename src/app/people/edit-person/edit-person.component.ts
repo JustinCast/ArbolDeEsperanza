@@ -35,6 +35,9 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   editEmployee(){
     this.router.navigate(['/add-employnment'])
   }
+  editHealth() {
+    this.router.navigate(['/add-health'])
+  }
 
   backClicked() {
     this._location.back();
