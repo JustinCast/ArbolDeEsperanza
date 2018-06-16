@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Education } from '../models/Education';
 import { environment } from '../../environments/environment';
 import { MatSnackBar, SELECT_PANEL_VIEWPORT_PADDING } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EducationService {
 
@@ -13,6 +14,10 @@ export class EducationService {
 
   getEducationDocs(): any{
     return this._http.get<Education[]>(`${environment.SERVER_BASE_URL}api/education`)
+  }
+
+  getEducationByPersonID(personID: string): Observable<Education>{
+    return this._http.get<Education>(`${environment.SERVER_BASE_URL}api/education/getEducationByPersonID/${personID}}`)
   }
 
   saveEducationDoc(doc: Education) {

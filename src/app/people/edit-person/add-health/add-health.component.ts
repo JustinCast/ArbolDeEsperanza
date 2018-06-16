@@ -50,7 +50,7 @@ export class AddHealthComponent implements OnInit {
             false,
             false,
             false,
-            [],
+            false,
             false,
             false,
             false,

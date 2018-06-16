@@ -16,6 +16,21 @@ function getSocioEconomicsDocs(req, res) {
         })
 }
 
+function getSocioEconomicByPersonID(req, res) {
+    let personID = req.params.personID
+    SocioEconomic.find({PersonID: personID})
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function saveSocioEconomicDoc(req, res) {
     let socioEconomic = new SocioEconomic(req.body)
     
@@ -57,6 +72,7 @@ function deleteSocioEconomicDoc(req, res) {
 
 module.exports = {
     getSocioEconomicsDocs,
+    getSocioEconomicByPersonID,
     saveSocioEconomicDoc,
     updateSocioEconomicDoc,
     deleteSocioEconomicDoc

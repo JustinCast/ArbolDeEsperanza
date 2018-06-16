@@ -16,6 +16,21 @@ function getHealthsDocs(req, res) {
         })
 }
 
+function getHealthByPersonID(req, res) {
+    let personID = req.params.personID
+    Health.find({PersonID: personID})
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function saveHealthDoc(req, res) {
     let health = new Health(req.body)
     
@@ -57,6 +72,7 @@ function deleteHealthDoc(req, res) {
 
 module.exports = {
     getHealthsDocs,
+    getHealthByPersonID,
     saveHealthDoc,
     updateHealthDoc,
     deleteHealthDoc

@@ -16,6 +16,21 @@ function getEmploynmentsDocs(req, res) {
         })
 }
 
+function getEmploynmentByPersonID(req, res) {
+    let personID = req.params.personID
+    Employnment.find({PersonID: personID})
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function saveEmploynmentDoc(req, res) {
     let employnment = new Employnment(req.body)
     
@@ -57,6 +72,7 @@ function deleteEmploynmentDoc(req, res) {
 
 module.exports = {
     getEmploynmentsDocs,
+    getEmploynmentByPersonID,
     saveEmploynmentDoc,
     updateEmploynmentDoc,
     deleteEmploynmentDoc

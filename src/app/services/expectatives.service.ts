@@ -35,6 +35,10 @@ export class ExpectativesService {
       )
   }
 
+  getExpectativeByPersonID(personID: string): Observable<Expectatives>{
+    return this._http.get<Expectatives>(`${environment.SERVER_BASE_URL}api/expectative/getExpectativeByPersonID/${personID}}`)
+  }
+
   getPeopleWithoutExpectativeDoc(): Observable<Person[]> {
     return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}api/getPeopleWithoutExpectativeDoc`)
   }

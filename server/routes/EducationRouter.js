@@ -16,6 +16,21 @@ function getEducationDocs(req, res) {
         })
 }
 
+function getEducationByPersonID(req, res) {
+    let personID = req.params.personID
+    Education.find({PersonID: personID})
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function saveEducationDoc(req, res) {
     let education = new Education(req.body)
     
@@ -57,6 +72,7 @@ function deleteEducationDoc(req, res) {
 
 module.exports = {
     getEducationDocs,
+    getEducationByPersonID,
     saveEducationDoc,
     updateEducationDoc,
     deleteEducationDoc

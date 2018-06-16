@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Employnment } from '../models/Employnment';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EmploynmentService {
@@ -14,6 +15,10 @@ export class EmploynmentService {
 
   getEmploynmentDocs(){
     return this._http.get<Employnment[]>(`${environment.SERVER_BASE_URL}api/employnment`)
+  }
+
+  getEmploynmentPersonID(personID: string): Observable<Employnment>{
+    return this._http.get<Employnment>(`${environment.SERVER_BASE_URL}api/employment/getEmploynmentByPersonID/${personID}}`)
   }
 
   saveEmploynmentDoc(doc: Employnment){

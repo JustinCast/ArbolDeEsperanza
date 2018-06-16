@@ -16,6 +16,21 @@ function getExpectativesDocs(req, res) {
         })
 }
 
+function getExpectativeByPersonID(req, res) {
+    let personID = req.params.personID
+    Expectative.find({PersonID: personID})
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            const status = req.statusCode
+            res.json({
+                status,
+                err
+            })
+        })
+}
+
 function saveExpectativeDoc(req, res) {
     let expectative = new Expectative(req.body)
     
@@ -57,6 +72,7 @@ function deleteExpectativeDoc(req, res) {
 
 module.exports = {
     getExpectativesDocs,
+    getExpectativeByPersonID,
     saveExpectativeDoc,
     updateExpectativeDoc,
     deleteExpectativeDoc

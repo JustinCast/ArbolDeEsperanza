@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { SocioEconomic } from '../models/SocioEconomic';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SocioEconomicService {
@@ -14,6 +15,10 @@ export class SocioEconomicService {
 
   getSocioEconomicDocs(): any{
     return this._http.get<SocioEconomic[]>(`${environment.SERVER_BASE_URL}api/socioeconomic`)
+  }
+
+  getSocioEconomicByPersonID(personID: string): Observable<SocioEconomic>{
+    return this._http.get<SocioEconomic>(`${environment.SERVER_BASE_URL}api/socioeconomic/getSocioeconomicByPersonID/${personID}}`)
   }
 
   saveSocioEconomicDoc(doc: SocioEconomic) {
