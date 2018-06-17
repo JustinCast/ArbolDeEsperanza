@@ -5,42 +5,42 @@
 </div>
 <div id="main-container" class="container card">
   <h2 class="text-center text-primary">Información Personal</h2>
-  <h6>Nombre: {{p.Name}}</h6>
-  <h6>Apellidos: {{p.LastName}}</h6>
-  <h6 *ngIf="p.ActiveOrInactive else inactive">Estado: Activo</h6>
+  <h6><strong>Nombre:</strong> {{p.Name}}</h6>
+  <h6><strong>Apellidos:</strong> {{p.LastName}}</h6>
+  <h6 *ngIf="p.ActiveOrInactive else inactive"><strong>Estado:</strong> Activo</h6>
   <ng-template #inactive>
-    <h6>Estado: Inactivo</h6>
+    <h6><strong>Estado:</strong> Inactivo</h6>
   </ng-template>
-  <h6>Fecha de entrada: {{p.EntryDate | date:'fullDate'}}</h6>
-  <h6>Fecha de nacimiento: {{p.BornDate | date:'fullDate'}}</h6>
-  <h6>Edad: {{p.Age}}</h6>
-  <h6>Número de teléfono: {{p.PhoneNumber}}</h6>
-  <h6>Email: {{p.Email}}</h6>
-  <h6>Referencia por: {{p.ReferencedBy}}</h6>
-  <h6>DNI: {{p.DNI}}</h6>
-  <h6>Documentada: {{p.Documented}}</h6>
-  <h6>Nacionalidad: {{p.Nationality}}</h6>
-  <h6>Estado marital: {{p.MaritalStatus}}</h6>
-  <h6>Lugar de residencia: {{p.Residence}}</h6>
+  <h6><strong>Fecha de entrada:</strong> {{p.EntryDate | date:'fullDate'}}</h6>
+  <h6><strong>Fecha de nacimiento:</strong> {{p.BornDate | date:'fullDate'}}</h6>
+  <h6><strong>Edad:</strong> {{p.Age}}</h6>
+  <h6><strong>Número de teléfono:</strong> {{p.PhoneNumber}}</h6>
+  <h6><strong>Email:</strong> {{p.Email}}</h6>
+  <h6><strong>Referencia por:</strong> {{p.ReferencedBy}}</h6>
+  <h6><strong>DNI:</strong> {{p.DNI}}</h6>
+  <h6><strong>Documentada:</strong> {{p.Documented}}</h6>
+  <h6><strong>Nacionalidad:</strong> {{p.Nationality}}</h6>
+  <h6><strong>Estado marital:</strong> {{p.MaritalStatus}}</h6>
+  <h6><strong>Lugar de residencia:</strong> {{p.Residence}}</h6>
   <hr>
   <h5 class="text-center text-secondary">Contacto de Emergencia</h5>
-  <h6>Nombre completo: {{p.EmergencyContact.FullNameContact}}</h6>
-  <h6>Relación con el cliente: {{p.EmergencyContact.Relationship}}</h6>
-  <h6>Número de teléfono: {{p.EmergencyContact.EmergencyContactNumber}}</h6>
+  <h6><strong>Nombre completo:</strong> {{p.EmergencyContact.FullNameContact}}</h6>
+  <h6><strong>Relación con el cliente:</strong> {{p.EmergencyContact.Relationship}}</h6>
+  <h6><strong>Número de teléfono:</strong> {{p.EmergencyContact.EmergencyContactNumber}}</h6>
   <hr>
   <!---->
   <h2 class="text-center text-primary">Expectativas acerca de la organización</h2>
-  <h6>¿Cómo se enteró de la Asociación?: {{e.HearAboutWay}}</h6>
-  <h6>Antes de venir a la Árbol de Esperanza, ¿qué le dijeron que la organización hacía?: {{e.WhatYouKnow}}</h6>
-  <h6>¿Por qué motivo quiero asistir a la Asociación?: {{e.EntryReason}}</h6>
+  <h6><strong>¿Cómo se enteró de la Asociación?:</strong> {{e.HearAboutWay}}</h6>
+  <h6><strong>Antes de venir a la Árbol de Esperanza, ¿qué le dijeron que la organización hacía?:</strong> {{e.WhatYouKnow}}</h6>
+  <h6><strong>¿Por qué motivo quiero asistir a la Asociación?:</strong> {{e.EntryReason}}</h6>
   <hr>
   <!---->
   <h2 class="text-center text-primary">Educación</h2>
-  <h6 *ngIf="ed.Read else noR">Lee: Si</h6>
+  <h6 *ngIf="ed.Read; else noR"><strong>Lee:</strong> Si</h6>
   <ng-template #noR>
-    <h6>Lee: No</h6>
+    <h6><strong>Lee:</strong> No</h6>
   </ng-template>
-  <h6>Escolaridad: {{ed.EducationBackground}}</h6>
+  <h6><strong>Escolaridad:</strong> {{ed.EducationBackground}}</h6>
   <h5 class="text-center text-secondary">Cursos realizados</h5>
   <ol>
     <li *ngFor="let c of ed.Courses">{{c}}</li>
@@ -48,14 +48,14 @@
   <hr>
   <!---->
   <h2 class="text-center text-primary">Aspectos socioeconómicos</h2>
-  <h6>Cantidad de personal en el hogar: {{s.PeopleInTheHouse}}</h6>
-  <h6>Cantidad de menores en la casa: {{s.UnderagePeople}}</h6>
-  <h6>¿Quién paga por los servicios de la casa?: {{s.PayMan}}</h6>
-  <h6>Principal proveedor del hogar: {{s.MainHouseProvider}}</h6>
-  <h6>Ingreso mensual: {{s.MonthlyIncome}}</h6>
-  <h6>Ingreso mensual familiar: {{s.FamilyIncome}}</h6>
-  <h6>Condición de propiedad de la casa: {{s.HouseHolding}}</h6>
-  <h6>Condición de la casa: {{s.HouseCondition}}</h6>
+  <h6><strong>Cantidad de personal en el hogar:</strong> {{s.PeopleInTheHouse}}</h6>
+  <h6><strong>Cantidad de menores en la casa:</strong> {{s.UnderagePeople}}</h6>
+  <h6><strong>¿Quién paga por los servicios de la casa?:</strong> {{s.PayMan}}</h6>
+  <h6><strong>Principal proveedor del hogar:</strong> {{s.MainHouseProvider}}</h6>
+  <h6><strong>Ingreso mensual:</strong> {{s.MonthlyIncome}}</h6>
+  <h6><strong>Ingreso mensual familiar:</strong> {{s.FamilyIncome}}</h6>
+  <h6><strong>Condición de propiedad de la casa:</strong> {{s.HouseHolding}}</h6>
+  <h6><strong>Condición de la casa:</strong> {{s.HouseCondition}}</h6>
   <h5 class="text-center text-secondary">Servicios que dispone el hogar</h5>
   <ol>
     <li *ngFor="let h of s.HomeServices">{{h}}</li>
@@ -69,88 +69,88 @@
     <li *ngFor="let i of s.InstitutionsHelp">{{i}}</li>
   </ol>
   <h2 class="text-center text-primary">Aspectos laborales</h2>
-  <h6>Situación laboral actual: {{emp.DoYouHaveWork}}</h6>
+  <h6><strong>Situación laboral actual:</strong> {{emp.DoYouHaveWork}}</h6>
   <div *ngIf="emp.DoYouHaveWork === 'Si / Yes' else noW">
-    <h6>Ocupación: {{emp.occupation}}</h6>
-    <h6>Frecuencia con la que trabaja: {{emp.WorkFrecuency}}</h6>
+    <h6><strong>Ocupación:</strong> {{emp.occupation}}</h6>
+    <h6><strong>Frecuencia con la que trabaja:</strong> {{emp.WorkFrecuency}}</h6>
   </div>
   <ng-template #noW>
-    <h6>Motivo por el cual no tiene trabajo: {{emp.UnemploynmentReason}}</h6>
-    <h6>Tiempo desempleada: {{emp.UnemploynmentDate}}</h6>
+    <h6><strong>Motivo por el cual no tiene trabajo:</strong> {{emp.UnemploynmentReason}}</h6>
+    <h6><strong>Tiempo desempleada:</strong> {{emp.UnemploynmentDate}}</h6>
   </ng-template>
   <div *ngIf="emp.WorkFewHours else noWFH">
-    <h6>Desea trabajar pocas horas a la semana: Si</h6>
-    <h6>Motivo: {{emp.WhyWorkFewHours}}</h6>
+    <h6><strong>Desea trabajar pocas horas a la semana:</strong> Si</h6>
+    <h6><strong>Motivo:</strong> {{emp.WhyWorkFewHours}}</h6>
   </div>
   <ng-template #noWFH>
-    <h6>Desea trabajar pocas horas a la semana: No</h6>
-    <h6>Motivo que le imposibilita trabajar más horas: {{emp.WhyIsItImposible}}</h6>
+    <h6><strong>Desea trabajar pocas horas a la semana:</strong> No</h6>
+    <h6><strong>Motivo que le imposibilita trabajar más horas:</strong> {{emp.WhyIsItImposible}}</h6>
   </ng-template>
   <div *ngIf="emp.HaveABusiness">
-    <h6>Negocio: Tiene un negocio en funcionamiento</h6>
-    <h6>Cantidad de productos que vende a la semana: {{emp.SellProducts}}</h6>
-    <h5>Clientes destino del negocio</h5>
+    <h6><strong>Negocio:</strong> Tiene un negocio en funcionamiento</h6>
+    <h6><strong>Cantidad de productos que vende a la semana:</strong> {{emp.SellProducts}}</h6>
+    <h5 *ngIf="emp.Clients.Length" class="text-center text-secondary">Clientes destino del negocio</h5>
     <ol>
       <li *ngFor="let c of emp.Clients">{{c}}</li>
     </ol>
   </div>
   <h2 class="text-center text-primary">Aspectos sobre salud</h2>
-  <h6>Tipo de seguro social: {{h.SocialSecurityType}}</h6>
-  <div *ngIf="h.Need_Doctor else noD">
-    <h6>Necesita doctor: <i class="fa fa-check" aria-hidden="true"></i></h6>
-  </div>
+  <h6><strong>Tipo de seguro social:</strong> {{h.SocialSecurityType}}</h6>
   <h5 class="text-center text-secondary">Necesidades</h5>
+  <div *ngIf="h.Need.Need_Doctor else noD">
+    <h6><strong>Necesita doctor:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+  </div>
   <ng-template #noD>
-    <h6>Necesita doctor: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita doctor:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
-  <div *ngIf="h.Need_Ophthalmologist else noO">
-    <h6>Necesita oftalmólogo: <i class="fa fa-check" aria-hidden="true"></i></h6>
+  <div *ngIf="h.Need.Need_Ophthalmologist else noO">
+    <h6><strong>Necesita oftalmólogo:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
   </div>
   <ng-template #noO>
-    <h6>Necesita oftalmólogo: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita oftalmólogo:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
-  <div *ngIf="h.Need_Mammography else noM">
-    <h6>Necesita mamografía: <i class="fa fa-check" aria-hidden="true"></i></h6>
+  <div *ngIf="h.Need.Need_Mammography else noM">
+    <h6><strong>Necesita mamografía:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
   </div>
   <ng-template #noM>
-    <h6>Necesita mamografía: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita mamografía:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
-  <div *ngIf="h.Need_Dentist else noDen">
-    <h6>Necesita dentista: <i class="fa fa-check" aria-hidden="true"></i></h6>
+  <div *ngIf="h.Need.Need_Dentist else noDen">
+    <h6><strong>Necesita dentista:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
   </div>
   <ng-template #noDen>
-    <h6>Necesita dentista: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita dentista:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
-  <div *ngIf="h.Need_Gynecologist else noG">
-    <h6>Necesita ginecólogo: <i class="fa fa-check" aria-hidden="true"></i></h6>
+  <div *ngIf="h.Need.Need_Gynecologist else noG">
+    <h6><strong>Necesita ginecólogo:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
   </div>
   <ng-template #noG>
-    <h6>Necesita ginecólogo: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita ginecólogo:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
-  <div *ngIf="h.Need_Psychologist else noP">
-    <h6>Necesita psicólogo: <i class="fa fa-check" aria-hidden="true"></i></h6>
+  <div *ngIf="h.Need.Need_Psychologist else noP">
+    <h6><strong>Necesita psicólogo:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
   </div>
   <ng-template #noP>
-    <h6>Necesita piscólogo: <i class="fa fa-remove" aria-hidden="true"></i></h6>
+    <h6><strong>Necesita piscólogo:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
   <h5 class="text-center text-secondary">Razones de consulta</h5>
   <ol>
-    <li *ngIf="h.Anxiety">Ansiedad</li>
-    <li *ngIf="h.Depression">Depresión</li>
-    <li *ngIf="h.LowSelfEsteem">Baja autoestima</li>
-    <li *ngIf="h.SuicidalThoughts">Pensamientos suicidas</li>
-    <li *ngIf="h.SuicidalActions">Comportamientos suicidas</li>
-    <li *ngIf="h.DomesticViolence">Violencia doméstica</li>
-    <li *ngIf="h.DifficultyMakingDecision">Dificultad para tomar decisiones</li>
-    <li *ngIf="h.MemoryLoss">Pérdida de memoria</li>
-    <li *ngIf="h.LearningProblems">Problemas de aprendizaje</li>
-    <li *ngIf="h.DeathHandling">Manejo del duelo</li>
-    <li *ngIf="h.AngerHandling">Manejo del enojo</li>
-    <li *ngIf="h.EatingDisorders">Desórdenes alimenticios</li>
-    <li *ngIf="h.Phobias">Fobias</li>
-    <li *ngIf="h.Sexuality">Sexualidad</li>
-    <li *ngIf="h.FamilyRightsInquiries">Consultas legales sobre derecho de familia</li>
-    <li *ngIf="h.SexualDiversity">Diversidad sexual</li>
-    <li *ngIf="h.Other">Otro</li>
+    <li *ngIf="h.ConsultationReasons.Anxiety">Ansiedad</li>
+    <li *ngIf="h.ConsultationReasons.Depression">Depresión</li>
+    <li *ngIf="h.ConsultationReasons.LowSelfEsteem">Baja autoestima</li>
+    <li *ngIf="h.ConsultationReasons.SuicidalThoughts">Pensamientos suicidas</li>
+    <li *ngIf="h.ConsultationReasons.SuicidalActions">Comportamientos suicidas</li>
+    <li *ngIf="h.ConsultationReasons.DomesticViolence">Violencia doméstica</li>
+    <li *ngIf="h.ConsultationReasons.DifficultyMakingDecision">Dificultad para tomar decisiones</li>
+    <li *ngIf="h.ConsultationReasons.MemoryLoss">Pérdida de memoria</li>
+    <li *ngIf="h.ConsultationReasons.LearningProblems">Problemas de aprendizaje</li>
+    <li *ngIf="h.ConsultationReasons.DeathHandling">Manejo del duelo</li>
+    <li *ngIf="h.ConsultationReasons.AngerHandling">Manejo del enojo</li>
+    <li *ngIf="h.ConsultationReasons.EatingDisorders">Desórdenes alimenticios</li>
+    <li *ngIf="h.ConsultationReasons.Phobias">Fobias</li>
+    <li *ngIf="h.ConsultationReasons.Sexuality">Sexualidad</li>
+    <li *ngIf="h.ConsultationReasons.FamilyRightsInquiries">Consultas legales sobre derecho de familia</li>
+    <li *ngIf="h.ConsultationReasons.SexualDiversity">Diversidad sexual</li>
+    <li *ngIf="h.ConsultationReasons.Other">Otro</li>
   </ol>
 </div>

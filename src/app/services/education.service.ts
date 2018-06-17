@@ -17,7 +17,7 @@ export class EducationService {
   }
 
   getEducationByPersonID(personID: string): Observable<Education>{
-    return this._http.get<Education>(`${environment.SERVER_BASE_URL}api/education/getEducationByPersonID/${personID}}`)
+    return this._http.get<Education>(`${environment.SERVER_BASE_URL}api/education/getEducationByPersonID/${personID}`)
   }
 
   saveEducationDoc(doc: Education) {

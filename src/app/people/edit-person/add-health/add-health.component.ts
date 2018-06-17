@@ -6,7 +6,7 @@ import { Health } from '../../../models/Health';
 import { Violence } from '../../../models/Violence';
 import { ConsultationReasons } from '../../../models/ConsultationReason';
 import { Need } from '../../../models/Need';
-import { HealthService } from '../../../health.service';
+import { HealthService } from '../../../services/health.service';
 
 @Component({
   selector: 'app-add-health',

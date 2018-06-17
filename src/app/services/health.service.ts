@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
-import { Health } from './models/Health';
-import { environment } from '../environments/environment';
+import { Health } from '../models/Health';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs/Observable';
+import { Expectatives } from '../models/Expectatives';
+
 
 @Injectable()
 export class HealthService {
@@ -14,6 +17,10 @@ export class HealthService {
 
   getHealthDocs(){
     return this._http.get<Health[]>(`${environment.SERVER_BASE_URL}api/health`)
+  }
+
+  getHealthByPersonID(personID: string): Observable<Health>{
+    return this._http.get<Health>(`${environment.SERVER_BASE_URL}api/health/getHealthByPersonID/${personID}`)
   }
 
   saveHealthDoc(doc: Health) {

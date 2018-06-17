@@ -14,6 +14,7 @@ import { EducationService } from '../../services/education.service';
 import { SocioEconomicService } from '../../services/socio-economic.service';
 import { EmploynmentService } from '../../services/employnment.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { HealthService } from '../../services/health.service';
 
 @Component({
   selector: 'app-show-details',
@@ -35,20 +36,25 @@ export class ShowDetailsComponent implements OnInit {
     private educationService: EducationService,
     private socioEconomicService: SocioEconomicService,
     private employnmentService: EmploynmentService,
+    private healthService: HealthService,
     private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
     this.p = JSON.parse(localStorage.getItem('viewDetailsPerson'))
     this.makeExpectativesRequest()
-
+    this.makeEducationRequest()
+    this.makeSocioEconomicRequest()
+    this.makeEmploynmentRequest()
+    this.makeHealthRequest()
   }
 
   makeExpectativesRequest() {
     this.expectativeService.getExpectativeByPersonID(this.p._id)
       .subscribe(
         success => {
-          this.e = success
+          this.e = success[0]
+          console.log(this.e)
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -68,7 +74,8 @@ export class ShowDetailsComponent implements OnInit {
     this.educationService.getEducationByPersonID(this.p._id)
     .subscribe(
       success => {
-        this.ed = success
+        this.ed = success[0]
+        console.log(this.ed)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -88,7 +95,8 @@ export class ShowDetailsComponent implements OnInit {
     this.socioEconomicService.getSocioEconomicByPersonID(this.p._id)
     .subscribe(
       success => {
-        this.s = success
+        this.s = success[0]
+        console.log(this.s)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -108,7 +116,29 @@ export class ShowDetailsComponent implements OnInit {
     this.employnmentService.getEmploynmentPersonID(this.p._id)
     .subscribe(
       success => {
-        this.emp = success
+        this.emp = success[0]
+        console.log(this.emp)
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // Error del lado del cliente
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // Error del lado del backend
+          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
+          this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
+        }
+      }
+    )
+  }
+
+  makeHealthRequest() {
+    this.healthService.getHealthByPersonID(this.p._id)
+    .subscribe(
+      success => {
+        this.h = success[0]
+        console.log(this.h.Need.Need_Doctor)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

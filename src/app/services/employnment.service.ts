@@ -18,7 +18,7 @@ export class EmploynmentService {
   }
 
   getEmploynmentPersonID(personID: string): Observable<Employnment>{
-    return this._http.get<Employnment>(`${environment.SERVER_BASE_URL}api/employment/getEmploynmentByPersonID/${personID}}`)
+    return this._http.get<Employnment>(`${environment.SERVER_BASE_URL}api/employnment/getEmploynmentByPersonID/${personID}`)
   }
 
   saveEmploynmentDoc(doc: Employnment){

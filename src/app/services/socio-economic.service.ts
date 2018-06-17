@@ -18,7 +18,7 @@ export class SocioEconomicService {
   }
 
   getSocioEconomicByPersonID(personID: string): Observable<SocioEconomic>{
-    return this._http.get<SocioEconomic>(`${environment.SERVER_BASE_URL}api/socioeconomic/getSocioeconomicByPersonID/${personID}}`)
+    return this._http.get<SocioEconomic>(`${environment.SERVER_BASE_URL}api/socioeconomic/getSocioeconomicByPersonID/${personID}`)
   }
 
   saveSocioEconomicDoc(doc: SocioEconomic) {

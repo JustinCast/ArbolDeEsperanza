@@ -21,7 +21,7 @@ import { AddHealthComponent } from './edit-person/add-health/add-health.componen
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
 import { EducationService } from '../services/education.service';
 import { EmploynmentService } from '../services/employnment.service';
-import { HealthService } from '../health.service';
+import { HealthService } from '../services/health.service';
 import { SocioEconomicService } from '../services/socio-economic.service';
 
 
