@@ -30,26 +30,26 @@ export class AddEmploynmentComponent implements OnInit {
       '',
       '',
       '',
-      false,
+      undefined,
       '',
       '',
-      false,
+      undefined,
       0,
       [],
       this.person._id
     )
     this.employnmentGroup = this._fb.group({
-      'doYouHaveWork': ['', Validators.required],
-      'occupation': ['', Validators.required],
-      'unemploynmentReason': ['', Validators.required],
-      'unemploymentDate': ['', Validators.required],
-      'workFrecuency': ['', Validators.required],
-      'workFewHours': ['', Validators.required],
-      'whyWorkFewHours': ['', Validators.required],
-      'whyIsItImposible': ['', Validators.required],
-      'haveABusiness': ['', Validators.required],
-      'sellProducts': ['', Validators.required],
-      'clients': ['', Validators.required]
+      'doYouHaveWork': [''],
+      'occupation': [''],
+      'unemploynmentReason': [''],
+      'unemploymentDate': [''],
+      'workFrecuency': [''],
+      'workFewHours': [''],
+      'whyWorkFewHours': [''],
+      'whyIsItImposible': [''],
+      'haveABusiness': [''],
+      'sellProducts': [''],
+      'clients': ['']
     })
     
   }

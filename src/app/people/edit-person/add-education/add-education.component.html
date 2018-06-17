@@ -1,13 +1,13 @@
 <h3 style="margin-top: 2%" class="text-center text-secondary">En proceso / In process : {{person.Name}} {{person.LastName}}</h3>
 <form class="text-center container" [formGroup]="educationGroup" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <mat-select placeholder="¿Sabe Leer / Escribir?" 
+    <mat-select placeholder="¿Sabe Leer y Escribir? / Read and Write" 
     [formControl]="educationGroup.get('read')" [(ngModel)]="education.Read">
       <mat-option [value]="true">
-        Sabe leer y escribir
+        Sabe leer y escribir / Can read and write
       </mat-option>
       <mat-option [value]="false">
-        No sabe leer y escribir
+        No sabe leer y escribir / Can't read and write
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -23,7 +23,7 @@
   <mat-divider></mat-divider>
   <div class="container text-center">
       <mat-form-field>
-        <input matInput placeholder="Cursos" #course>
+        <input matInput placeholder="Cursos / Courses" #course>
       </mat-form-field>
     <button style="background-color: #75e900; color: white" mat-raised-button (click)="addCourse(course.value); false"><mat-icon>add</mat-icon></button>
   </div>
