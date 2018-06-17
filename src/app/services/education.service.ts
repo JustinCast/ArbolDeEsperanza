@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Education } from '../models/Education';
 import { environment } from '../../environments/environment';
 import { MatSnackBar, SELECT_PANEL_VIEWPORT_PADDING } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 @Injectable()
 export class EducationService {
 

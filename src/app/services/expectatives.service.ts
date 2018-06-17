@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material';
 import { Expectatives } from '../models/Expectatives';
 import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 @Injectable()
 export class ExpectativesService {
   expectatives: Array<Expectatives>
