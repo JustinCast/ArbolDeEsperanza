@@ -30,7 +30,6 @@
     Necesidades por resolver: {{ shoes.options.length - shoes.selectedOptions.selected.length}}
   </p>
   <div *ngIf="shoes.selectedOptions.selected.length !== 0" id="actions-container" class="container text-center">
-    <!-- <button mat-button (click)="makeResolution(shoes)">Deshacer</button> -->
     <button mat-raised-button color="primary" (click)="makeResolution(shoes)">Aceptar</button>
   </div>
 </div> -->
