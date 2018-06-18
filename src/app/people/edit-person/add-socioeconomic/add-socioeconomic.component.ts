@@ -17,7 +17,7 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   socioEconomic: SocioEconomic
   constructor(
     private _fb: FormBuilder,
-    private data: DataService,
+    public data: DataService,
     private socioEconomicService: SocioEconomicService
   ) { 
     this.createForm()

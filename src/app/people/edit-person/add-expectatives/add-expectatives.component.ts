@@ -17,7 +17,7 @@ export class AddExpectativesComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private expectativesService: ExpectativesService,
-    private data: DataService
+    public data: DataService
   ) { 
     this.expectativesGroup = this._fb.group({
       'hearAboutWay': ['', Validators.required],
