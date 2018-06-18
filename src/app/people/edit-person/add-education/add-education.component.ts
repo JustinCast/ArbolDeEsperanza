@@ -18,7 +18,7 @@ export class AddEducationComponent implements OnInit {
   education: Education
   constructor(
     private _fb: FormBuilder,
-    private data: DataService,
+    public data: DataService,
     private educationService: EducationService,
     private snackBar: MatSnackBar
   ) { 

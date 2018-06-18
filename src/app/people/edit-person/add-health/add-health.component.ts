@@ -19,7 +19,7 @@ export class AddHealthComponent implements OnInit {
   health: Health
   constructor(
     private _fb: FormBuilder,
-    private data: DataService,
+    public data: DataService,
     private healthService: HealthService
   ) { }
 
