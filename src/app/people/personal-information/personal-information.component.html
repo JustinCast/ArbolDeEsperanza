@@ -61,7 +61,7 @@
   <!---->
   <hr>
   <mat-form-field>
-    <mat-select placeholder="Referida por.." [formControl]="personalInfoGroup.get('reference')" [(ngModel)]="person.Reference">
+    <mat-select placeholder="Referida por.." [formControl]="personalInfoGroup.get('reference')" [(ngModel)]="person.ReferenceBy">
       <mat-option *ngFor="let ref of dataService.referecedBy" [value]="ref">
         {{ ref }}
       </mat-option>

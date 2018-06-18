@@ -55,7 +55,7 @@
     </mat-form-field>
     <button style="background-color: #75e900; color: white" mat-raised-button (click)="addMedicine(medicine.value); false"><mat-icon>add</mat-icon></button>
   </div>
-  <mat-list role="list" *ngIf="health.TakeMedication.length !== 0">
+  <mat-list role="list" *ngIf="health.TakeMedication">
     <mat-list-item role="listitem" *ngFor="let m of health.Medication">
       {{m}}
       <button mat-button><mat-icon>delete</mat-icon></button>
@@ -106,10 +106,10 @@
       <mat-checkbox [(ngModel)]="health.Violence.Patrimonial" [formControl]="healthGroup.get('patrimonial')">Patrimonial / Patrimonial</mat-checkbox>
     </li>
     <li>
-      <mat-checkbox [(ngModel)]="health.Violence.economical" [formControl]="healthGroup.get('economical')">Económica / Economical</mat-checkbox>
+      <mat-checkbox [(ngModel)]="health.Violence.Economical" [formControl]="healthGroup.get('economical')">Económica / Economical</mat-checkbox>
     </li>
     <li>
-      <mat-checkbox [(ngModel)]="health.Violence.physical" [formControl]="healthGroup.get('physical')">Física / Physical</mat-checkbox>
+      <mat-checkbox [(ngModel)]="health.Violence.Physical" [formControl]="healthGroup.get('physical')">Física / Physical</mat-checkbox>
     </li>
   </ul>
   <mat-form-field>

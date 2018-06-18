@@ -1,7 +1,7 @@
 export class EmergencyContact {
     constructor(
-        FullNameContact: string,
-        Relationship: string,
-        EmergencyContactNumber: number
+        public FullNameContact: string,
+        public Relationship: string,
+        public EmergencyContactNumber: number
     ){}
 }
