@@ -27,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './services/data.service';
 // registerLocaleData(es, 'Es');
+
 @NgModule({
   declarations: [
     AppComponent,
