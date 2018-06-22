@@ -1,6 +1,5 @@
 'use strict'
 var Education = require('../models/EducationSchema')
-
 function getEducationDocs(req, res) {
     Education.find({})
         .then(data => {
@@ -17,7 +16,7 @@ function getEducationDocs(req, res) {
 }
 
 function getEducationByPersonID(req, res) {
-    let personID = req.params.personID
+    let personID = req.params.PersonID
     Education.find({PersonID: personID})
         .then(data => {
             res.json(data)
@@ -32,26 +31,34 @@ function getEducationByPersonID(req, res) {
 }
 
 function saveEducationDoc(req, res) {
+    console.log(req.body)
     let education = new Education(req.body)
-    
     education.save((err, educationStored) => {
         if(err) res.status(500).send({message: `Error al guardar el documento: ${err}`})
-        
+        else
+            res.status(200).send({message: `Documento guardado con éxito`}) 
+    }) 
+}
+
+function updateEducationDoc(req, res) {
+    let update = req.body
+    console.log(req.body)
+    Education.findOneAndUpdate({PersonID: update.PersonID}, update, (err, educationUpdated) => {
+        if(err)
+            res.status(500).send({message: `Error al actualizar el documento: ${err}`})
         else{
-            res.status(200).send({_id: educationStored._id})
+            res.status(201).send({message: 'Documento actualizado con éxito'})
         }
     })
 }
 
-function updateEducationDoc(req, res) {
-    let education_id  = req.params._id
-    let update = req.body
-    Education.findByIdAndUpdate(education_id, update, (err, educationUpdated) => {
+function verifyExistency(req, res) {
+    let PersonID = req.params.PersonID
+    Education.find({PersonID: PersonID}, (err, education) => {
         if(err)
-            res.status(500).send({message: `Error al actualizar el documento: ${err}`})
-        else{
-            res.status(201).send({_id: educationUpdated._id})
-        }
+            res.status(500).send({message: `Documento no encontrado`})
+        else
+            res.status(200).send({status: true})
     })
 }
 
@@ -75,5 +82,6 @@ module.exports = {
     getEducationByPersonID,
     saveEducationDoc,
     updateEducationDoc,
+    verifyExistency,
     deleteEducationDoc
 }

@@ -17,7 +17,7 @@ function getEmploynmentsDocs(req, res) {
 }
 
 function getEmploynmentByPersonID(req, res) {
-    let personID = req.params.personID
+    let personID = req.params.PersonID
     Employnment.find({PersonID: personID})
         .then(data => {
             res.json(data)
@@ -55,6 +55,16 @@ function updateEmploynmentDoc(req, res) {
     })
 }
 
+function verifyExistency(req, res) {
+    let PersonID = req.params.PersonID
+    Employnment.find({PersonID: PersonID}, (err, employnment) => {
+        if(err)
+            res.status(500).send({message: `Documento no encontrado`})
+        else
+            res.status(200).send({status: true})
+    })
+}
+
 function deleteEmploynmentDoc(req, res) {
     let employnment_id  = req.params._id
     Employnment.findById(employnment_id, (err, employnment) => {
@@ -75,5 +85,6 @@ module.exports = {
     getEmploynmentByPersonID,
     saveEmploynmentDoc,
     updateEmploynmentDoc,
+    verifyExistency,
     deleteEmploynmentDoc
 }

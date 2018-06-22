@@ -17,7 +17,7 @@ function getSocioEconomicsDocs(req, res) {
 }
 
 function getSocioEconomicByPersonID(req, res) {
-    let personID = req.params.personID
+    let personID = req.params.PersonID
     SocioEconomic.find({PersonID: personID})
         .then(data => {
             res.json(data)
@@ -55,6 +55,16 @@ function updateSocioEconomicDoc(req, res) {
     })
 }
 
+function verifyExistency(req, res) {
+    let PersonID = req.params.PersonID
+    SocioEconomic.find({PersonID: PersonID}, (err, socioEconomic) => {
+        if(err)
+            res.status(500).send({message: `Documento no encontrado`})
+        else
+            res.status(200).send({status: true})
+    })
+}
+
 function deleteSocioEconomicDoc(req, res) {
     let socioEconomic_id  = req.params._id
     SocioEconomic.findById(socioEconomic_id, (err, socioEconomic) => {
@@ -75,5 +85,6 @@ module.exports = {
     getSocioEconomicByPersonID,
     saveSocioEconomicDoc,
     updateSocioEconomicDoc,
+    verifyExistency,
     deleteSocioEconomicDoc
 }

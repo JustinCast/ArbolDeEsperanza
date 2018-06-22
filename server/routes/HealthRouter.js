@@ -17,7 +17,7 @@ function getHealthsDocs(req, res) {
 }
 
 function getHealthByPersonID(req, res) {
-    let personID = req.params.personID
+    let personID = req.params.PersonID
     Health.find({PersonID: personID})
         .then(data => {
             res.json(data)
@@ -55,6 +55,16 @@ function updateHealthDoc(req, res) {
     })
 }
 
+function verifyExistency(req, res) {
+    let PersonID = req.params.PersonID
+    Health.find({PersonID: PersonID}, (err, health) => {
+        if(err)
+            res.status(500).send({message: `Documento no encontrado`})
+        else
+            res.status(200).send({status: true})
+    })
+}
+
 function deleteHealthDoc(req, res) {
     let health_id  = req.params._id
     Health.findById(health_id, (err, health) => {
@@ -75,5 +85,6 @@ module.exports = {
     getHealthByPersonID,
     saveHealthDoc,
     updateHealthDoc,
+    verifyExistency,
     deleteHealthDoc
 }

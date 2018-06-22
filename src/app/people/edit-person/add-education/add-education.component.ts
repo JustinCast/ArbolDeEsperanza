@@ -35,7 +35,6 @@ export class AddEducationComponent implements OnInit {
       success => {
         if(success.Read !== undefined)
           this.education = success[0]
-        console.log(success)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -50,10 +49,14 @@ export class AddEducationComponent implements OnInit {
       }
     )
     this.education = new Education(false, '', [], this.person._id)
+    this.educationService.verifyExistency(this.person._id)
   }
 
   onSubmit(){
-    this.educationService.saveEducationDoc(this.education)
+    if(!this.educationService.existency)
+      this.educationService.saveEducationDoc(this.education)
+    else
+      this.educationService.updateEducationDoc(this.education)
   }
 
   addCourse(course: string) {

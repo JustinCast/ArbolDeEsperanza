@@ -1,7 +1,7 @@
 'use strict'
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
+const findOrCreate = require('mongoose-find-or-create')
 const EducationSchema = new Schema({
     Read: {
         type: Boolean,
@@ -22,4 +22,5 @@ const EducationSchema = new Schema({
         required: false
     }
 })
+EducationSchema.plugin(findOrCreate)
 module.exports  = mongoose.model('education', EducationSchema)

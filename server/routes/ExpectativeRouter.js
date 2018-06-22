@@ -17,7 +17,7 @@ function getExpectativesDocs(req, res) {
 }
 
 function getExpectativeByPersonID(req, res) {
-    let personID = req.params.personID
+    let personID = req.params.PersonID
     Expectative.find({PersonID: personID})
         .then(data => {
             res.json(data)
@@ -55,6 +55,16 @@ function updateExpectativeDoc(req, res) {
     })
 }
 
+function verifyExistency(req, res) {
+    let PersonID = req.params.PersonID
+    Expectative.find({PersonID: PersonID}, (err, expectative) => {
+        if(err)
+            res.status(500).send({message: `Documento no encontrado`})
+        else
+            res.status(200).send({status: true})
+    })
+}
+
 function deleteExpectativeDoc(req, res) {
     let expectative_id  = req.params._id
     Expectative.findById(expectative_id, (err, expectative) => {
@@ -75,5 +85,6 @@ module.exports = {
     getExpectativeByPersonID,
     saveExpectativeDoc,
     updateExpectativeDoc,
+    verifyExistency,
     deleteExpectativeDoc
 }
