@@ -43,7 +43,10 @@ export class EducationService {
     this._http.get(`${environment.SERVER_BASE_URL}api/education/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
-          this.existency = true
+          if(Object.keys(success).length === 0 && success.constructor === Object)
+            this.existency = false
+          else
+            this.existency = true
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

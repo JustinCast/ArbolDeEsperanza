@@ -19,7 +19,10 @@ export class ExpectativesService {
     this._http.get<Expectatives[]>(`${environment.SERVER_BASE_URL}api/expectative`)
       .subscribe(
         success => {
-          this.expectatives = success
+          if(Object.keys(success).length === 0 && success.constructor === Object)
+            this.existency = false
+          else
+            this.existency = true
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

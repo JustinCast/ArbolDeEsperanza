@@ -65,7 +65,6 @@ export class HealthService {
     this._http.get(`${environment.SERVER_BASE_URL}api/health/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
-          console.log(success)
           if(Object.keys(success).length === 0 && success.constructor === Object)
             this.existency = false
           else

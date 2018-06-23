@@ -60,7 +60,7 @@ function verifyExistency(req, res) {
         if(err)
             res.status(500).send({message: `Documento no encontrado`})
         else
-            res.status(200).send({status: true})
+            res.json(expectative)
     })
 }
 
