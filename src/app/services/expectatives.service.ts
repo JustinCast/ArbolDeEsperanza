@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ExpectativesService {
   expectatives: Array<Expectatives>
-
+  public existency: boolean = false
   constructor(
     private _http: HttpClient,
     private snackBar: MatSnackBar
@@ -62,7 +62,7 @@ export class ExpectativesService {
   }
 
   updateExpectative(expectative: Expectatives) {
-    this._http.put(`${environment.SERVER_BASE_URL}api/expectative/updateExpectativeDoc/${expectative._id}`, expectative)
+    this._http.put(`${environment.SERVER_BASE_URL}api/expectative/updateExpectativeDoc`, expectative)
       .subscribe(
         success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
       ),
@@ -77,6 +77,27 @@ export class ExpectativesService {
           this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
         }
       }
+  }
+
+  verifyExistency(PersonID: string) {
+    this._http.get(`${environment.SERVER_BASE_URL}api/expectative/verifyExistency/${PersonID}`)
+      .subscribe(
+        success => {
+          this.existency = true
+          console.log('existe')
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Error del lado del cliente
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // Error del lado del backend
+            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
+            this.openSnackBar(`Error con la verificación`, 'Ok', 'red-snackbar')
+          }
+        }
+      )
   }
 
   deleteExpectative(_id: string) {

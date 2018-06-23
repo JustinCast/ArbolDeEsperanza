@@ -36,7 +36,7 @@ api.get('/employnment', EmploynmentCtrl.getEmploynmentsDocs) // METODO GET
 api.get('/employnment/getEmploynmentByPersonID/:PersonID', EmploynmentCtrl.getEmploynmentByPersonID) // METODO GET
 api.get('/employnment/verifyExistency/:PersonID', EmploynmentCtrl.verifyExistency)
 api.post('/employnment/saveEmploynmentDoc', EmploynmentCtrl.saveEmploynmentDoc) // METODO POST
-api.put('/employnment/updateEmploynmentDoc/:_id', EmploynmentCtrl.updateEmploynmentDoc) // METODO PUT
+api.put('/employnment/updateEmploynmentDoc', EmploynmentCtrl.updateEmploynmentDoc) // METODO PUT
 api.delete('/employnment/deleteEmploynmentDoc/:_id', EmploynmentCtrl.deleteEmploynmentDoc) // METODO DELETE
 
 // expectatives endpoints
@@ -44,7 +44,7 @@ api.get('/expectative', ExpectativeCtrl.getExpectativesDocs) // METODO GET
 api.get('/expectative/getExpectativeByPersonID/:PersonID', ExpectativeCtrl.getExpectativeByPersonID) // METODO GET
 api.get('/expectative/verifyExistency/:PersonID', ExpectativeCtrl.verifyExistency) // METODO GET
 api.post('/expectative/saveExpectativeDoc', ExpectativeCtrl.saveExpectativeDoc) // METODO POST
-api.put('/expectative/updateExpectativeDoc/:_id', ExpectativeCtrl.updateExpectativeDoc) // METODO PUT
+api.put('/expectative/updateExpectativeDoc', ExpectativeCtrl.updateExpectativeDoc) // METODO PUT
 api.delete('/expectative/deleteExpectativeDoc/:_id', ExpectativeCtrl.deleteExpectativeDoc) // METODO DELETE
 
 // health endpoints
@@ -52,7 +52,7 @@ api.get('/health', HealthCtrl.getHealthsDocs) // METODO GET
 api.get('/health/getHealthByPersonID/:PersonID', HealthCtrl.getHealthByPersonID) // METODO GET
 api.get('/health/verifyExistency/:PersonID', HealthCtrl.verifyExistency) // METODO GET
 api.post('/health/saveHealthDoc', HealthCtrl.saveHealthDoc) // METODO POST
-api.put('/health/updateHealthDoc/:_id', HealthCtrl.updateHealthDoc) // METODO PUT
+api.put('/health/updateHealthDoc', HealthCtrl.updateHealthDoc) // METODO PUT
 api.delete('/health/deleteHealthDoc/:_id', HealthCtrl.deleteHealthDoc) // METODO DELETE
 
 // socioeconomic endpoints
@@ -60,7 +60,7 @@ api.get('/socioeconomic', SocioEconomicCtrl.getSocioEconomicsDocs) // METODO GET
 api.get('/socioeconomic/getSocioEconomicByPersonID/:PersonID', SocioEconomicCtrl.getSocioEconomicByPersonID) // METODO GET
 api.get('/socioeconomic/verifyExistency/:PersonID', SocioEconomicCtrl.verifyExistency) // METODO GET
 api.post('/socioeconomic/saveSocioEconomicDoc', SocioEconomicCtrl.saveSocioEconomicDoc) // METODO POST
-api.put('/socioeconomic/updateSocioEconomicDoc/:_id', SocioEconomicCtrl.updateSocioEconomicDoc) // METODO PUT
+api.put('/socioeconomic/updateSocioEconomicDoc', SocioEconomicCtrl.updateSocioEconomicDoc) // METODO PUT
 api.delete('/socioeconomic/deleteSocioEconomicDoc/:_id', SocioEconomicCtrl.deleteSocioEconomicDoc) // METODO DELETE
 
 // auxiliar endpoints

@@ -44,13 +44,12 @@ function saveExpectativeDoc(req, res) {
 }
 
 function updateExpectativeDoc(req, res) {
-    let expectative_id  = req.params._id
     let update = req.body
-    Expectative.findByIdAndUpdate(expectative_id, update, (err, expectativeUpdated) => {
+    Expectative.findOneAndUpdate({PersonID: update.PersonID}, update, (err, expectativeUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el documento: ${err}`})
         else{
-            res.status(201).send({_id: expectativeUpdated._id})
+            res.status(201).send({message: 'Documento actualizado con éxito'})
         }
     })
 }

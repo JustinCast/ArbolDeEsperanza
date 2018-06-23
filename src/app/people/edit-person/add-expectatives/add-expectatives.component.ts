@@ -28,17 +28,20 @@ export class AddExpectativesComponent implements OnInit {
 
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('person'))
-    console.log(this.person)
     this.expectatives = new Expectatives(
-      '',
+      'jjj',
       '',
       '',
       this.person._id
     )
+    this.expectativesService.verifyExistency(this.person._id)
   }
 
   onSubmit(){
-    //localStorage.setItem('addedInProcess', JSON.stringify(this.person))
-    this.expectativesService.saveExpectative(this.expectatives)
+    console.log(this.expectativesService.existency)
+    if(!this.expectativesService.existency)
+      this.expectativesService.saveExpectative(this.expectatives)
+    else
+      this.expectativesService.updateExpectative(this.expectatives)
   }
 }

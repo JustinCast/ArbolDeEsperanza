@@ -44,13 +44,12 @@ function saveEmploynmentDoc(req, res) {
 }
 
 function updateEmploynmentDoc(req, res) {
-    let employnment_id  = req.params._id
     let update = req.body
-    Employnment.findByIdAndUpdate(employnment_id, update, (err, employnmentUpdated) => {
+    Employnment.findOneAndUpdate({PersonID: update.PersonID}, update, (err, employnmentUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el documento: ${err}`})
         else{
-            res.status(201).send({_id: employnmentUpdated._id})
+            res.status(201).send({message: 'Documento actualizado con éxito'})
         }
     })
 }

@@ -30,24 +30,6 @@ export class AddEducationComponent implements OnInit {
 
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('person'))
-    this.educationService.getEducationByPersonID(this.person._id)
-    .subscribe(
-      success => {
-        if(success.Read !== undefined)
-          this.education = success[0]
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          // Error del lado del cliente
-          console.log('An error occurred:', err.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          // Error del lado del backend
-          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-          this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
-        }
-      }
-    )
     this.education = new Education(false, '', [], this.person._id)
     this.educationService.verifyExistency(this.person._id)
   }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class EmploynmentService {
-
+  public existency: boolean = false
   constructor(
     private _http: HttpClient,
     private snackBar: MatSnackBar
@@ -57,6 +57,26 @@ export class EmploynmentService {
         }
       }
     )
+  }
+
+  verifyExistency(PersonID: string) {
+    this._http.get(`${environment.SERVER_BASE_URL}api/education/verifyExistency/${PersonID}`)
+      .subscribe(
+        success => {
+          this.existency = true
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Error del lado del cliente
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // Error del lado del backend
+            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
+            this.openSnackBar(`Error con la verificación`, 'Ok', 'red-snackbar')
+          }
+        }
+      )
   }
 
   deleteEmploynmentDoc(_id: string){

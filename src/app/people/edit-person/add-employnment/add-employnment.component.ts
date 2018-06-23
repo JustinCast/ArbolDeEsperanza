@@ -51,6 +51,7 @@ export class AddEmploynmentComponent implements OnInit {
       'sellProducts': [''],
       'clients': ['']
     })
+    this.employnmentService.verifyExistency(this.person._id)
     
   }
   
@@ -62,6 +63,9 @@ export class AddEmploynmentComponent implements OnInit {
     this.addedClients.splice(index, 1)
   }
   onSubmit() {
-    this.employnmentService.saveEmploynmentDoc(this.employnment)
+    if(!this.employnmentService.existency)
+      this.employnmentService.saveEmploynmentDoc(this.employnment)
+    else
+      this.employnmentService.updateEmploynmentDoc(this.employnment)
   }
 }
