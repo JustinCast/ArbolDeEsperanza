@@ -44,13 +44,12 @@ function saveHealthDoc(req, res) {
 }
 
 function updateHealthDoc(req, res) {
-    let health_id  = req.params._id
     let update = req.body
-    Health.findByIdAndUpdate(health_id, update, (err, healthUpdated) => {
+    Health.findOneAndUpdate({PersonID: update.PersonID}, update, (err, healthUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el documento: ${err}`})
         else{
-            res.status(201).send({_id: healthUpdated._id})
+            res.status(201).send({message: 'Documento actualizado con éxito'._id})
         }
     })
 }
@@ -61,7 +60,7 @@ function verifyExistency(req, res) {
         if(err)
             res.status(500).send({message: `Documento no encontrado`})
         else
-            res.status(200).send({status: true})
+            res.status(200).send({status: health._id})
     })
 }
 

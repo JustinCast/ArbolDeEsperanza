@@ -34,7 +34,7 @@ api.delete('/education/deleteEducationDoc/:_id', EducationCtrl.deleteEducationDo
 // employnment endpoints
 api.get('/employnment', EmploynmentCtrl.getEmploynmentsDocs) // METODO GET
 api.get('/employnment/getEmploynmentByPersonID/:PersonID', EmploynmentCtrl.getEmploynmentByPersonID) // METODO GET
-api.get('/employnment/verifyExistency/:PersonID', EmploynmentCtrl.verifyExistency)
+api.get('/employnment/verifyExistency/:PersonID', EmploynmentCtrl.getEmploynmentByPersonID)
 api.post('/employnment/saveEmploynmentDoc', EmploynmentCtrl.saveEmploynmentDoc) // METODO POST
 api.put('/employnment/updateEmploynmentDoc', EmploynmentCtrl.updateEmploynmentDoc) // METODO PUT
 api.delete('/employnment/deleteEmploynmentDoc/:_id', EmploynmentCtrl.deleteEmploynmentDoc) // METODO DELETE

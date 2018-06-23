@@ -25,6 +25,7 @@ export class AddHealthComponent implements OnInit {
 
   ngOnInit() {
     this.person = JSON.parse(localStorage.getItem('person'))
+    this.healthService.verifyExistency(this.person._id)
     this.health = new Health(
           '',
           new Need(
@@ -110,7 +111,10 @@ export class AddHealthComponent implements OnInit {
   }
 
   onSubmit(){
-    this.healthService.saveHealthDoc(this.health)
+    if(!this.healthService.existency)
+      this.healthService.saveHealthDoc(this.health)
+    else
+      this.healthService.updateHealthDoc(this.health)
   }
   
 
