@@ -62,10 +62,10 @@ export class HealthService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get(`${environment.SERVER_BASE_URL}api/health/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/health/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
-          if(Object.keys(success).length === 0 && success.constructor === Object)
+          if(success.length === 0)
             this.existency = false
           else
             this.existency = true

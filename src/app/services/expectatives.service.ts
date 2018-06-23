@@ -19,10 +19,7 @@ export class ExpectativesService {
     this._http.get<Expectatives[]>(`${environment.SERVER_BASE_URL}api/expectative`)
       .subscribe(
         success => {
-          if(Object.keys(success).length === 0 && success.constructor === Object)
-            this.existency = false
-          else
-            this.existency = true
+          this.expectatives = success
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -83,11 +80,13 @@ export class ExpectativesService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get(`${environment.SERVER_BASE_URL}api/expectative/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/expectative/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
-          this.existency = true
-          console.log('existe')
+          if(success.length === 0)
+            this.existency = false
+          else
+            this.existency = true
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

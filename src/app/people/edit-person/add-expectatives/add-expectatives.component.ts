@@ -38,7 +38,6 @@ export class AddExpectativesComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.expectativesService.existency)
     if(!this.expectativesService.existency)
       this.expectativesService.saveExpectative(this.expectatives)
     else

@@ -65,7 +65,10 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
 
 
   onSubmit() {
-    this.socioEconomicService.saveSocioEconomicDoc(this.socioEconomic)
+    if(!this.socioEconomicService.existency)
+      this.socioEconomicService.saveSocioEconomicDoc(this.socioEconomic)
+    else
+      this.socioEconomicService.updateSocioEconomicDoc(this.socioEconomic)
   }
 
   addHomeService(service: string) {
