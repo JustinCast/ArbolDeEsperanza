@@ -9,7 +9,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
 import { GraphComponent } from './graph/graph.component';
 import { ErrorHandleComponent } from './error-handle/error-handle.component';
 import { ROUTES } from './app.routing';
@@ -32,7 +31,6 @@ import { DataService } from './services/data.service';
     AppComponent,
     HomeComponent,
     ContactComponent,
-    AboutComponent,
     GraphComponent,
     ErrorHandleComponent,
     LoginComponent,
