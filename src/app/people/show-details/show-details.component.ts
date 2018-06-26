@@ -28,6 +28,7 @@ export class ShowDetailsComponent implements OnInit {
   s: SocioEconomic
   emp: Employnment
   h: Health
+  loading: boolean = true
   constructor(
     public personService: PeopleService, 
     public dialog: MatDialog,
@@ -117,7 +118,7 @@ export class ShowDetailsComponent implements OnInit {
     .subscribe(
       success => {
         this.emp = success[0]
-        console.log(this.emp)
+        console.log(success)
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -139,6 +140,7 @@ export class ShowDetailsComponent implements OnInit {
       success => {
         this.h = success[0]
         console.log(this.h.Need.Need_Doctor)
+        this.loading = false
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

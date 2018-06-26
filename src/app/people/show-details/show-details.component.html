@@ -3,7 +3,10 @@
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
   </button>
 </div>
-<div id="main-container" class="container card">
+<div *ngIf="loading ; else loadingFalse">
+  Cargando datos
+</div>
+<ng-template id="main-container" class="container card" #loadingFalse>
   <h2 class="text-center text-primary">Información Personal</h2>
   <h6><strong>Nombre / Name:</strong> {{p.Name}}</h6>
   <h6><strong>Apellidos / Last Name:</strong> {{p.LastName}}</h6>
@@ -28,15 +31,15 @@
   <h6><strong>Relación con el cliente / Client Relationship:</strong> {{p.EmergencyContact.Relationship}}</h6>
   <h6><strong>Número de teléfono / Phone Number:</strong> {{p.EmergencyContact.EmergencyContactNumber}}</h6>
   <hr>
-  <!---->
+
   <h2 class="text-center text-primary">Expectativas acerca de la organización / Expectatives about the organization</h2>
   <h6><strong>¿Cómo se enteró de la Asociación? / How did you hear about the organization?:</strong> {{e.HearAboutWay}}</h6>
   <h6><strong>Antes de venir a la Árbol de Esperanza, ¿qué le dijeron que la organización hacía? / Before coming to the Arbol de Esperanza, what did they tell you that the organization was doing?:</strong> {{e.WhatYouKnow}}</h6>
   <h6><strong>¿Por qué motivo quiero asistir a la Asociación? / Why do I want to attend the Association?:</strong> {{e.EntryReason}}</h6>
   <hr>
-  <!---->
+
   <h2 class="text-center text-primary">Educación / Education</h2>
-  <h6 *ngIf="ed.Read; else noR"><strong>Lee y escribe / Read and Write:</strong>Si / Yes</h6>
+  <h6 *ngIf="ed.Read !== undefined && ed.Read else noR"><strong>Lee y escribe / Read and Write:</strong>Si / Yes</h6>
   <ng-template #noR>
     <h6><strong>Lee y escribe / Read and Write:</strong> No</h6>
   </ng-template>
@@ -46,7 +49,7 @@
     <li *ngFor="let c of ed.Courses">{{c}}</li>
   </ol>
   <hr>
-  <!---->
+
   <h2 class="text-center text-primary">Aspectos socioeconómicos / Socioeconomics</h2>
   <h6><strong>Cantidad de personal en el hogar / People in the house:</strong> {{s.PeopleInTheHouse}}</h6>
   <h6><strong>Cantidad de menores en la casa / Underage people in the house:</strong> {{s.UnderagePeople}}</h6>
@@ -68,9 +71,10 @@
   <ol>
     <li *ngFor="let i of s.InstitutionsHelp">{{i}}</li>
   </ol>
+  <hr>
   <h2 class="text-center text-primary">Aspectos laborales / Employnment</h2>
   <h6><strong>Situación laboral actual / Laboral situation:</strong> {{emp.DoYouHaveWork}}</h6>
-  <div *ngIf="emp.DoYouHaveWork === 'Si / Yes' else noW">
+  <div *ngIf="emp.DoYouHaveWork === 'Si / Yes'; else noW">
     <h6><strong>Ocupación / Occupation:</strong> {{emp.occupation}}</h6>
     <h6><strong>Frecuencia con la que trabaja / Work frecuency:</strong> {{emp.WorkFrecuency}}</h6>
   </div>
@@ -94,6 +98,7 @@
       <li *ngFor="let c of emp.Clients">{{c}}</li>
     </ol>
   </div>
+  <hr>
   <h2 class="text-center text-primary">Aspectos sobre salud / Health</h2>
   <h6><strong>Tipo de seguro social / Social security type:</strong> {{h.SocialSecurityType}}</h6>
   <h5 class="text-center text-secondary">Necesidades / Needs</h5>
@@ -133,6 +138,7 @@
   <ng-template #noP>
     <h6><strong>Necesita piscólogo / Need psychologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
   </ng-template>
+  <hr>
   <h5 class="text-center text-secondary">Razones de consulta / Consultation reasons</h5>
   <ol>
     <li *ngIf="h.ConsultationReasons.Anxiety">Ansiedad / Anxiety</li>
@@ -153,4 +159,4 @@
     <li *ngIf="h.ConsultationReasons.SexualDiversity">Diversidad sexual / Sexual diversity</li>
     <li *ngIf="h.ConsultationReasons.Other">Otro / Other</li>
   </ol>
-</div>
+</ng-template>

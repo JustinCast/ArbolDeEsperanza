@@ -60,7 +60,7 @@ export class EmploynmentService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/education/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/employnment/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)
