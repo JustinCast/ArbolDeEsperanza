@@ -16,7 +16,7 @@ export class ExpectativesService {
 
 
   getExpectatives() {
-    this._http.get<Expectatives[]>(`api/expectative`)
+    this._http.get<Expectatives[]>(`${environment.SERVER_BASE_URL}api/expectative`)
       .subscribe(
         success => {
           this.expectatives = success
@@ -36,15 +36,15 @@ export class ExpectativesService {
   }
 
   getExpectativeByPersonID(personID: string): Observable<Expectatives>{
-    return this._http.get<Expectatives>(`api/expectative/getExpectativeByPersonID/${personID}`)
+    return this._http.get<Expectatives>(`${environment.SERVER_BASE_URL}api/expectative/getExpectativeByPersonID/${personID}`)
   }
 
   getPeopleWithoutExpectativeDoc(): Observable<Person[]> {
-    return this._http.get<Person[]>(`api/getPeopleWithoutExpectativeDoc`)
+    return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}api/getPeopleWithoutExpectativeDoc`)
   }
 
   saveExpectative(expectative: Expectatives) {
-    this._http.post(`api/expectative/saveExpectativeDoc`, expectative)
+    this._http.post(`${environment.SERVER_BASE_URL}api/expectative/saveExpectativeDoc`, expectative)
       .subscribe(
         success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
       ),
@@ -62,7 +62,7 @@ export class ExpectativesService {
   }
 
   updateExpectative(expectative: Expectatives) {
-    this._http.put(`api/expectative/updateExpectativeDoc`, expectative)
+    this._http.put(`${environment.SERVER_BASE_URL}api/expectative/updateExpectativeDoc`, expectative)
       .subscribe(
         success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
       ),
@@ -80,7 +80,7 @@ export class ExpectativesService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`api/expectative/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/expectative/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)
@@ -103,7 +103,7 @@ export class ExpectativesService {
   }
 
   deleteExpectative(_id: string) {
-    this._http.delete(`api/expectative/deleteExpectativeDoc/${_id}`)
+    this._http.delete(`${environment.SERVER_BASE_URL}api/expectative/deleteExpectativeDoc/${_id}`)
       .subscribe(
         success => {this.openSnackBar('Documento eliminado con éxito', 'Ok', 'green-snackbar')}
       ),

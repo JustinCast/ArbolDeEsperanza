@@ -4,6 +4,11 @@ import {Location} from '@angular/common';
 import { Person } from '../../models/Person';
 import { Resolution } from '../../models/Resolution';
 import { PeopleService } from '../../services/people.service';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute } from '@angular/router';
+import { HealthService } from '../../services/health.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Health } from '../../models/Health';
 
 @Component({
   selector: 'app-resolutions',
@@ -11,16 +16,41 @@ import { PeopleService } from '../../services/people.service';
   styleUrls: ['./resolutions.component.scss']
 })
 export class ResolutionsComponent implements OnInit {
-  person: Person
+  health: Health
+  personID: string
   localResolutions: Array<Resolution> = [] // esto es para evitar que se ingresen resoluciones no deseadas
   checkedStates: Array<boolean> = new Array<boolean>(6)
   constructor(
     public peopleService: PeopleService,
-    private _location: Location
+    private route: ActivatedRoute,
+    private _location: Location,
+    private HealthService: HealthService
   ) { }
 
   ngOnInit() {
-    this.person = JSON.parse(localStorage.getItem('personResolution'))
+    this.personID = this.route.snapshot.paramMap.get('id')
+    this.makeHealthRequest()
+  }
+
+  makeHealthRequest() {
+    this.HealthService.getHealthByPersonID(this.personID)
+    .subscribe(
+      success => {
+        this.health = success
+        console.log(this.health)
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // Error del lado del cliente
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // Error del lado del backend
+          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
+          this.HealthService.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
+        }
+      }
+    )
   }
 
   backClicked() {

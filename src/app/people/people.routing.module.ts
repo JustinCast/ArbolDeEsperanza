@@ -19,17 +19,17 @@ const ROUTES: Routes = [
     path: 'people', component: PeopleComponent,
       children: [
         { path: 'show-people', component: ShowPeopleComponent },
-        { path: 'resolutions', component: ResolutionsComponent, canActivate: [LogguedInGuard] },
       ]
-  },
-  { path: 'edit-person/:index', component: EditPersonComponent, canActivate: [LogguedInGuard] },
-  { path: 'show-details', component: ShowDetailsComponent },
-  { path: 'personal-information/:type', component: PersonalInformationComponent },
-  { path: 'add-expectatives', component: AddExpectativesComponent },
-  { path: 'add-education', component: AddEducationComponent },
-  { path: 'add-socioeconomic', component: AddSocioeconomicComponent },
-  { path: 'add-employnment', component: AddEmploynmentComponent },
-  { path: 'add-health', component: AddHealthComponent }
+    },
+    { path: 'edit-person/:index', component: EditPersonComponent, canActivate: [LogguedInGuard] },
+    { path: 'show-details', component: ShowDetailsComponent },
+    { path: 'personal-information/:type', component: PersonalInformationComponent },
+    { path: 'add-expectatives', component: AddExpectativesComponent },
+    { path: 'add-education', component: AddEducationComponent },
+    { path: 'add-socioeconomic', component: AddSocioeconomicComponent },
+    { path: 'add-employnment', component: AddEmploynmentComponent },
+    { path: 'add-health', component: AddHealthComponent },
+    { path: 'resolutions/:id', component: ResolutionsComponent, canActivate: [LogguedInGuard] },
 ]
 
 @NgModule({

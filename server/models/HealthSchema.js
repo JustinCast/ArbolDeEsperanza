@@ -155,6 +155,10 @@ const HealthSchema = new Schema({
         type: Boolean,
         required: true
     },
+    Resolutions: [{
+        Name: String,
+        ResolutionDate: Date
+    }],
     PersonID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'person',

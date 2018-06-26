@@ -60,7 +60,7 @@ export class EmploynmentService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`api/education/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/education/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)
@@ -83,7 +83,7 @@ export class EmploynmentService {
   }
 
   deleteEmploynmentDoc(_id: string){
-    this._http.delete(`api/employnment/deleteEmploynmentDoc/${_id}`)
+    this._http.delete(`${environment.SERVER_BASE_URL}api/employnment/deleteEmploynmentDoc/${_id}`)
     .subscribe(
       success => {this.openSnackBar('Documento eliminado con éxito', 'Ok', 'green-snackbar')}
       ,

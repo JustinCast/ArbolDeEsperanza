@@ -7,6 +7,7 @@ import { Violence } from '../../../models/Violence';
 import { ConsultationReasons } from '../../../models/ConsultationReason';
 import { Need } from '../../../models/Need';
 import { HealthService } from '../../../services/health.service';
+import { Resolution } from '../../../models/Resolution';
 
 @Component({
   selector: 'app-add-health',
@@ -68,6 +69,7 @@ export class AddHealthComponent implements OnInit {
           false,
           false,
           false,
+          new Array<Resolution>(),
         this.person._id )
     this.healthGroup = this._fb.group({
       'socialSecurityType': ['', Validators.required],

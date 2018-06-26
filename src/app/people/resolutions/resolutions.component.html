@@ -1,4 +1,4 @@
-<!-- <div style="margin-top: 2%" class="container">
+<div style="margin-top: 2%" class="container">
   <button class="btn danger-color btn-sm pull-left" (click)="backClicked()">
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
   </button>
@@ -6,22 +6,22 @@
 <div id="resolutions-container" class="container text-center">
   <h3 class="text-primary">Necesidades de la persona</h3>
   <mat-selection-list class="text-center" #shoes>
-    <mat-list-option *ngIf="person.Need.Need_Doctor" [value]="'Need_Doctor'">
+    <mat-list-option *ngIf="health.Need.Need_Doctor" [value]="'Need_Doctor'">
       Resolver necesidad de Doctor
     </mat-list-option>
-    <mat-list-option *ngIf="person.Need.Need_Ophthalmologist" [value]="'Need_Ophthalmologist'">
+    <mat-list-option *ngIf="health.Need.Need_Ophthalmologist" [value]="'Need_Ophthalmologist'">
       Resolver necesidad de Oftalmólogo
     </mat-list-option>
-    <mat-list-option *ngIf="person.Need.Need_Mammography" [value]="'Need_Mammography'">
+    <mat-list-option *ngIf="health.Need.Need_Mammography" [value]="'Need_Mammography'">
       Resolver necesidad de Mamografía
     </mat-list-option>
-    <mat-list-option *ngIf="person.Need.Need_Dentist" [value]="'Need_Dentist'">
+    <mat-list-option *ngIf="health.Need.Need_Dentist" [value]="'Need_Dentist'">
       Resolver necesidad de Dentista
     </mat-list-option>
-    <mat-list-option *ngIf="person.Need.Need_Gynecologist" [value]="'Need_Gynecologist'">
+    <mat-list-option *ngIf="health.Need.Need_Gynecologist" [value]="'Need_Gynecologist'">
       Resolver necesidad de Ginecólogo
     </mat-list-option>
-    <mat-list-option *ngIf="person.Need.Need_Psychologist" [value]="'Need_Psychologist'">
+    <mat-list-option *ngIf="health.Need.Need_Psychologist" [value]="'Need_Psychologist'">
       Resolver necesidad de Psicólogo
     </mat-list-option>
   </mat-selection-list>
@@ -32,4 +32,4 @@
   <div *ngIf="shoes.selectedOptions.selected.length !== 0" id="actions-container" class="container text-center">
     <button mat-raised-button color="primary" (click)="makeResolution(shoes)">Aceptar</button>
   </div>
-</div> -->
+</div>
