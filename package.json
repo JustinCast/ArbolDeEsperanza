@@ -30,7 +30,7 @@
     "@angular/platform-browser-dynamic": "^5.2.10",
     "@angular/router": "^5.2.10",
     "@types/angular": "^1.6.43",
-    "angular-bootstrap-md": "^6.0.1",
+    "angular-bootstrap-md": "^5.2.3",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "chart.js": "^2.7.2",
