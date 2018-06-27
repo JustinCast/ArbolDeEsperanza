@@ -16,7 +16,8 @@ import { Health } from '../../models/Health';
   styleUrls: ['./resolutions.component.scss']
 })
 export class ResolutionsComponent implements OnInit {
-  health: Health
+  public health: Health
+  public loading: boolean = true
   personID: string
   localResolutions: Array<Resolution> = [] // esto es para evitar que se ingresen resoluciones no deseadas
   checkedStates: Array<boolean> = new Array<boolean>(6)
@@ -36,8 +37,9 @@ export class ResolutionsComponent implements OnInit {
     this.HealthService.getHealthByPersonID(this.personID)
     .subscribe(
       success => {
-        this.health = success
-        console.log(this.health)
+        this.health = success[0]
+        console.log(this.health.Need)
+        this.loading = false
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -58,32 +60,33 @@ export class ResolutionsComponent implements OnInit {
   }
 
   makeResolution(list) {
-    /*list.selectedOptions.selected.map(item => {
-      this.person.Resolutions.push(new Resolution(item.value, new Date()))
+    list.selectedOptions.selected.map(item => {
+      this.health.Resolutions.push(new Resolution(item.value, new Date()))
       switch (String(item.value)) {
         case 'Need_Doctor':
-          this.person.Need.Need_Doctor = false
+          this.health.Need.Need_Doctor = false
           break;
         case 'Need_Ophthalmologist':
-          this.person.Need.Need_Ophthalmologist = false
+          this.health.Need.Need_Ophthalmologist = false
           break;
         case 'Need_Mammography':
-          this.person.Need.Need_Mammography = false
+          this.health.Need.Need_Mammography = false
           break;
         case 'Need_Dentist':
-          this.person.Need.Need_Dentist = false
+          this.health.Need.Need_Dentist = false
           break;
         case 'Need_Gynecologist':
-          this.person.Need.Need_Gynecologist = false
+          this.health.Need.Need_Gynecologist = false
           break;
         case 'Need_Psychologist':
-          this.person.Need.Need_Psychologist = false
+          this.health.Need.Need_Psychologist = false
           break;      
         default:
           break;
       }
     });
-    console.log('RESOLUCIONES ', this.person.Resolutions)
+    this.HealthService.updateHealthDoc(this.health)
+    /*console.log('RESOLUCIONES ', this.person.Resolutions)
     console.log('PERSONA ', this.person)
     this.peopleService.updatePerson(this.person)*/
   }

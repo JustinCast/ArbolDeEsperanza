@@ -5,8 +5,8 @@
 </div>
 <div id="resolutions-container" class="container text-center">
   <h3 class="text-primary">Necesidades de la persona</h3>
-  <mat-selection-list class="text-center" #shoes>
-    <mat-list-option *ngIf="health.Need.Need_Doctor" [value]="'Need_Doctor'">
+  <mat-selection-list class="text-center" #resolutions>
+    <mat-list-option *ngIf="!loading && this.health.Need.Need_Doctor" [value]="'Need_Doctor'">
       Resolver necesidad de Doctor
     </mat-list-option>
     <mat-list-option *ngIf="health.Need.Need_Ophthalmologist" [value]="'Need_Ophthalmologist'">
@@ -27,9 +27,9 @@
   </mat-selection-list>
   
   <p class="text-danger" id="footer-paragraph">
-    Necesidades por resolver: {{ shoes.options.length - shoes.selectedOptions.selected.length}}
+    Necesidades por resolver: {{ resolutions.options.length - resolutions.selectedOptions.selected.length}}
   </p>
-  <div *ngIf="shoes.selectedOptions.selected.length !== 0" id="actions-container" class="container text-center">
-    <button mat-raised-button color="primary" (click)="makeResolution(shoes)">Aceptar</button>
+  <div *ngIf="resolutions.selectedOptions.selected.length !== 0" id="actions-container" class="container text-center">
+    <button mat-raised-button color="primary" (click)="makeResolution(resolutions)">Aceptar</button>
   </div>
 </div>
