@@ -9,13 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 import { HealthService } from '../../services/health.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Health } from '../../models/Health';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { TIME_FORMATS } from '../../models/TimeFormats';
 
 @Component({
   selector: 'app-resolutions',
   templateUrl: './resolutions.component.html',
-  styleUrls: ['./resolutions.component.scss']
+  styleUrls: ['./resolutions.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: TIME_FORMATS }
+  ]
 })
 export class ResolutionsComponent implements OnInit {
+  public resolutionDate: Date = new Date()
   public health: Health
   public loading: boolean = true
   personID: string
@@ -61,7 +69,7 @@ export class ResolutionsComponent implements OnInit {
 
   makeResolution(list) {
     list.selectedOptions.selected.map(item => {
-      this.health.Resolutions.push(new Resolution(item.value, new Date()))
+      this.health.Resolutions.push(new Resolution(item.value, this.resolutionDate)
       switch (String(item.value)) {
         case 'Need_Doctor':
           this.health.Need.Need_Doctor = false

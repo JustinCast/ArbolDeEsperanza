@@ -5,6 +5,11 @@
 </div>
 <div id="resolutions-container" class="container text-center">
   <h3 class="text-primary">Necesidades de la persona</h3>
+  <mat-form-field>
+    <input matInput [(ngModel)]="resolutionDate" [matDatepicker]="resolDate" placeholder="Fecha de resolución">
+    <mat-datepicker-toggle matSuffix [for]="resolDate"></mat-datepicker-toggle>
+    <mat-datepicker #resolDate></mat-datepicker>
+  </mat-form-field>
   <mat-selection-list class="text-center" #resolutions>
     <mat-list-option *ngIf="!loading && this.health.Need.Need_Doctor" [value]="'Need_Doctor'">
       Resolver necesidad de Doctor
