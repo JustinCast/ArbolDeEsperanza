@@ -69,7 +69,7 @@ export class ResolutionsComponent implements OnInit {
 
   makeResolution(list) {
     list.selectedOptions.selected.map(item => {
-      this.health.Resolutions.push(new Resolution(item.value, this.resolutionDate)
+      this.health.Resolutions.push(new Resolution(item.value, this.resolutionDate))
       switch (String(item.value)) {
         case 'Need_Doctor':
           this.health.Need.Need_Doctor = false
@@ -94,9 +94,6 @@ export class ResolutionsComponent implements OnInit {
       }
     });
     this.HealthService.updateHealthDoc(this.health)
-    /*console.log('RESOLUCIONES ', this.person.Resolutions)
-    console.log('PERSONA ', this.person)
-    this.peopleService.updatePerson(this.person)*/
   }
 
 }
