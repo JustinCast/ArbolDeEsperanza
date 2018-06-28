@@ -51,7 +51,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
 
   deletePerson(index: number) {
     this.yesOrNoDialog
-    .confirm('Eliminar Persona', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}`)
+    .confirm('Eliminar Persona', `¿Está seguro que desea eliminar a ${this.personService.people[index].Name}?`)
     .subscribe(result =>{
       console.log(result)
       if(result) {

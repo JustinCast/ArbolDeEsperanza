@@ -74,6 +74,17 @@ export class PeopleService {
     return foundPerson
   }
 
+  getIndexByPersonById(_id: string): number {
+    let index: number = null
+    for(let i = 0; i < this.people.length; i++){
+      if(this.people[i]._id === _id){
+        index = i
+        break;
+      }
+    }
+    return index
+  }
+
   deletePerson(_id: string) {
     this._http.delete(`${environment.SERVER_BASE_URL}api/delete/${_id}`)
     .subscribe(

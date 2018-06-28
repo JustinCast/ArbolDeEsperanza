@@ -12,8 +12,6 @@ export class YesOrNoComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<YesOrNoComponent>) { }
 
   ngOnInit() {
-    this.title = ""
-    this.message = ""
   }
 
 }

@@ -17,5 +17,6 @@ export class YesOrNoService {
     dialogRef.componentInstance.message = message
 
     return dialogRef.afterClosed()
+
   }
 }

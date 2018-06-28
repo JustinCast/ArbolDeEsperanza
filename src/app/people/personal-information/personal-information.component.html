@@ -101,7 +101,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button type="submit" mat-raised-button color="primary">
+  <button [disabled]="!personalInfoGroup.valid" type="submit" mat-raised-button color="primary">
     Enviar
     <mat-icon>send</mat-icon>
   </button>
