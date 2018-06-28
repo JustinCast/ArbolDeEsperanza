@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { PeopleService } from '../../services/people.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-edit-person',
   templateUrl: './edit-person.component.html',
@@ -17,7 +18,26 @@ export class EditPersonComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    localStorage.setItem('person', JSON.stringify(this.peopleService.people[this.route.snapshot.paramMap.get('index')]))
+    if(this.peopleService.people === undefined){
+      this.peopleService.getPersonsRequest()
+      .subscribe(
+        data => {
+          this.peopleService.people = data
+          localStorage.setItem('person', JSON.stringify(this.peopleService.people[this.route.snapshot.paramMap.get('index')]))
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Error del lado del cliente
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // Error del lado del backend
+            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`);
+          }
+        }
+      )
+    }else
+      localStorage.setItem('person', JSON.stringify(this.peopleService.people[this.route.snapshot.paramMap.get('index')]))
   }
 
   editPersonalInfo() {
