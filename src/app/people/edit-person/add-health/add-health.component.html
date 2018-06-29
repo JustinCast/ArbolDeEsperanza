@@ -8,7 +8,7 @@
   </mat-form-field>
   <hr>
   <h3 class="text-center text-secondary">Necesidades</h3>
-  <mat-radio-group [formControl]="healthGroup.get('needDoctor')" [(ngModel)]="health.Need.Need_Doctor">
+  <mat-radio-group [formControl]="healthGroup.get('need_Doctor')" [(ngModel)]="health.Need.Need_Doctor">
     <p>¿Necesita Doctor?</p>
     <mat-radio-button value="true">Si</mat-radio-button>
     <mat-radio-button value="false">No</mat-radio-button>
@@ -62,38 +62,56 @@
     </mat-list-item>
   </mat-list>
   <h4 class="text-center text-secondary">Salud Mental</h4>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Anxiety" [formControl]="healthGroup.get('anxiety')">Asiedad / Anxiety</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Depression" [formControl]="healthGroup.get('depression')">Depresión/ Depression</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.LowSelfEsteem" [formControl]="healthGroup.get('lowSelfEsteem')">Baja autoestima/ Low self-esteem</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.SuicidalActions" [formControl]="healthGroup.get('suicidalActions')">Comportamientos suicidas / Suicidal actions </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DomesticViolence" [formControl]="healthGroup.get('domesticViolence')">Violencia doméstica / Domestic violence </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DifficultyMakingDecision" [formControl]="healthGroup.get('difficultyMakingDecision')">Dificultad para tomar decisiones / Difficulty making decisions </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.MemoryLoss" [formControl]="healthGroup.get('memoryLoss')">Problemas de memoria / Memory loss</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.LearningProblems" [formControl]="healthGroup.get('learningProblems')">Problemas de aprendizaje / Learning Problems</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.DeathHandling" [formControl]="healthGroup.get('deathHandling')">Manejo del duelo / Death handling</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.AngerHandling" [formControl]="healthGroup.get('angerHandling')">Manejo del enojo / Anger handling</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.EatingDisorders" [formControl]="healthGroup.get('eatingDisorders')">Problemas alimenticios / Eating disorders </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Phobias" [formControl]="healthGroup.get('phobias')">Fobias / Phobias </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Sexuality" [formControl]="healthGroup.get('sexuality')">Sexualidad / Sexuality </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.FamilyRightsInquiries" [formControl]="healthGroup.get('familyRightsInquiries')">Consultas legales sobre derecho de familia / Legal inquiries about family rights</mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.SexualDiversity" [formControl]="healthGroup.get('sexualDiversity')">Diversidad sexual / Sexual diversity </mat-checkbox>
-  <br>
-  <mat-checkbox [(ngModel)]="health.ConsultationReasons.Other" [formControl]="healthGroup.get('other')">Otra / Another</mat-checkbox>
-  <br>
+  <ul style="list-style-type: none; padding: 0" class="text-left">
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.Anxiety" [formControl]="healthGroup.get('anxiety')">Asiedad / Anxiety</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.Depression" [formControl]="healthGroup.get('depression')">Depresión/ Depression</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.LowSelfEsteem" [formControl]="healthGroup.get('lowSelfEsteem')">Baja autoestima/ Low self-esteem</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.SuicidalActions" [formControl]="healthGroup.get('suicidalActions')">Comportamientos suicidas / Suicidal actions </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.DomesticViolence" [formControl]="healthGroup.get('domesticViolence')">Violencia doméstica / Domestic violence </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.DifficultyMakingDecision" [formControl]="healthGroup.get('difficultyMakingDecision')">Dificultad para tomar decisiones / Difficulty making decisions </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.MemoryLoss" [formControl]="healthGroup.get('memoryLoss')">Problemas de memoria / Memory loss</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.LearningProblems" [formControl]="healthGroup.get('learningProblems')">Problemas de aprendizaje / Learning Problems</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.DeathHandling" [formControl]="healthGroup.get('deathHandling')">Manejo del duelo / Death handling</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.AngerHandling" [formControl]="healthGroup.get('angerHandling')">Manejo del enojo / Anger handling</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.EatingDisorders" [formControl]="healthGroup.get('eatingDisorders')">Problemas alimenticios / Eating disorders </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.Phobias" [formControl]="healthGroup.get('phobias')">Fobias / Phobias </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.Sexuality" [formControl]="healthGroup.get('sexuality')">Sexualidad / Sexuality </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.FamilyRightsInquiries" [formControl]="healthGroup.get('familyRightsInquiries')">Consultas legales sobre derecho de familia / Legal inquiries about family rights</mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.SexualDiversity" [formControl]="healthGroup.get('sexualDiversity')">Diversidad sexual / Sexual diversity </mat-checkbox>
+    </li>
+    <li>
+      <mat-checkbox [(ngModel)]="health.ConsultationReasons.Other" [formControl]="healthGroup.get('other')">Otra / Another</mat-checkbox>
+    </li>
+  </ul>
   <h4 class="text-center text-secondary">Violencia</h4>
   <ul style="list-style-type: none; padding: 0" class="text-left">
     <li>
