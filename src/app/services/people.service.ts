@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Person } from '../models/Person';
 import { stringify } from 'querystring';
 import { MatSnackBar } from '@angular/material';
+import { Observable } from 'rxjs';
 @Injectable()
 export class PeopleService {
   people: Array<Person>
@@ -14,7 +15,7 @@ export class PeopleService {
     private snackBar: MatSnackBar
   ) { }
 
-  getPersonsRequest(): any {
+  getPeopleRequest(): Observable<Person[]> {
     // `${environment.SERVER_BASE_URL}person/getAllPersons`
     return this._http.get<Person[]>(`${environment.SERVER_BASE_URL}api/getAllPersons`)
   }

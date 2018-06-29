@@ -19,7 +19,7 @@ export class EditPersonComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if(this.peopleService.people === undefined){
-      this.peopleService.getPersonsRequest()
+      this.peopleService.getPeopleRequest()
       .subscribe(
         data => {
           this.peopleService.people = data

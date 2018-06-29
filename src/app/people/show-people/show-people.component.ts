@@ -31,7 +31,7 @@ export class ShowPeopleComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.logguedUser = JSON.parse(this._auth.getUser())
-    this.personService.getPersonsRequest()
+    this.personService.getPeopleRequest()
     .subscribe(
       data => {
         this.personService.people = data

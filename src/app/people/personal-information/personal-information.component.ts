@@ -78,7 +78,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
     })
     this.initialize()
     if(this.peopleService.people === undefined){
-      this.peopleService.getPersonsRequest()
+      this.peopleService.getPeopleRequest()
       .subscribe(
         data => {
           this.peopleService.people = data

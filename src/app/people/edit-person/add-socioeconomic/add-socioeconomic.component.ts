@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../../services/data.service';
 import { Person } from '../../../models/Person';
 import { SocioEconomic } from '../../../models/SocioEconomic';

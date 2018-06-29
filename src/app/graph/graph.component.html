@@ -1,25 +1,35 @@
-<div class="chart">
-  <canvas class="card" mdbChart 
-      [chartType]="chartType"
-      [datasets]="chartDatasets" 
-      [labels]="chartLabels"
-      [colors]="chartColors"
-      [options]="chartOptions"
-      [legend]="true"
-      (chartHover)="chartHovered($event)" 
-      (chartClick)="chartClicked($event)">
-  </canvas>
-</div>
-<div class="chart">
-  <canvas class="card" mdbChart 
-      [chartType]="secondChartType"
-      [data]="chartData" 
-      [labels]="secondChartLabels"
-      [colors]="secondChartColors"
-      [options]="secondChartOptions"
-      [legend]="true"
-      (chartHover)="secondChartHovered($event)" 
-      (chartClick)="secondChartClicked($event)">
-  </canvas>
 
+<form class="container filter-container text-center" [formGroup]="filterGroup" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input [formControl]="filterGroup.get('fromControl')" matInput [matDatepicker]="from" placeholder="Desde">
+    <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+    <mat-datepicker #from></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field style="margin-left: 2%;">
+    <input [formControl]="filterGroup.get('toControl')" matInput [matDatepicker]="to" placeholder="Hasta">
+    <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+    <mat-datepicker #to></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-radio-group [formControl]="filterGroup.get('radioControl')">
+    <mat-radio-button value="1">Activo</mat-radio-button>
+    <mat-radio-button value="2">Inactivo</mat-radio-button>
+    <mat-radio-button value="3">Ambos</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <button [disabled]="!filterGroup.valid" type="submit" mat-button>
+    <mat-icon>shuffle</mat-icon>
+  </button>
+</form>
+<div class="chart">
+  <canvas class="card" mdbChart 
+    [chartType]="secondChartType"
+    [data]="chartData" 
+    [labels]="secondChartLabels"
+    [colors]="secondChartColors"
+    [options]="secondChartOptions"
+    [legend]="true"
+    (chartHover)="secondChartHovered($event)" 
+    (chartClick)="secondChartClicked($event)">
+  </canvas>
 </div>
