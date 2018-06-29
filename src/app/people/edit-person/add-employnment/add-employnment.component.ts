@@ -4,6 +4,7 @@ import { Person } from '../../../models/Person';
 import { DataService } from '../../../services/data.service';
 import { Employnment } from '../../../models/Employnment';
 import { EmploynmentService } from '../../../services/employnment.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-employnment',
@@ -18,7 +19,8 @@ export class AddEmploynmentComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     public data: DataService,
-    public employnmentService: EmploynmentService
+    public employnmentService: EmploynmentService,
+    private snackBar: MatSnackBar
   ) { 
   }
   
@@ -55,8 +57,11 @@ export class AddEmploynmentComponent implements OnInit {
     
   }
   
-  addClient(client: string){
-    this.addedClients.unshift(client)
+  addClient(client: any){
+    if(client.length !== 0)
+      this.addedClients.unshift(client)
+    else
+      this.openSnackBar('El campo cliente está vacío', 'Ok', 'red-snackbar')
   }
 
   deleteClient(index: number) {
@@ -67,5 +72,12 @@ export class AddEmploynmentComponent implements OnInit {
       this.employnmentService.saveEmploynmentDoc(this.employnment)
     else
       this.employnmentService.updateEmploynmentDoc(this.employnment)
+  }
+
+  openSnackBar(message: string, action: string, cssClass: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      extraClasses: [cssClass]
+    });
   }
 }

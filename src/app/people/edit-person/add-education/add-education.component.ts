@@ -42,7 +42,10 @@ export class AddEducationComponent implements OnInit {
   }
 
   addCourse(course: string) {
-    this.education.Courses.unshift(course)
+    if(course.length !== 0)
+      this.education.Courses.unshift(course)
+    else
+      this.openSnackBar('Debe agregar el nombre de un curso', 'Ok', 'red-snackbar')
   }
 
   deleteCourse(index: number) {

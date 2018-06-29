@@ -77,14 +77,16 @@
     </mat-select>
   </mat-form-field>
   <!---->
-  <div class="md-form" *ngIf="employnment.HaveABusiness">
-    <input required [formControl]="employnmentGroup.get('clients')" 
-    mdbActive type="text" id="client-input" class="form-control" #client>
-    <label for="client-input" class="">
-      ¿Quiénes son sus clientes?
-    </label>
-  </div>
-  <button *ngIf="employnment.HaveABusiness" id="add-client-btn" mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
+  <ng-container *ngIf="employnment.HaveABusiness">
+    <div class="md-form">
+      <input required [formControl]="employnmentGroup.get('clients')" 
+      mdbActive type="text" id="client-input" class="form-control" #client>
+      <label for="client-input" class="">
+        ¿Quiénes son sus clientes?
+      </label>
+    </div>  
+    <button id="add-client-btn" mat-raised-button (click)="addClient(client.value); false"><mat-icon>add</mat-icon></button>
+  </ng-container>
   <mat-divider></mat-divider>
   <br>
   <div class="md-form" *ngIf="employnment.HaveABusiness">
@@ -100,9 +102,15 @@
   </button>
   <!---->
   <mat-list role="list" *ngIf="addedClients.length !== 0">
-    <mat-list-item role="listitem" *ngFor="let c of addedClients">
-      {{c}}
-      <button mat-button><mat-icon>delete</mat-icon></button>
+    <mat-list-item role="listitem" *ngFor="let c of addedClients; let index = index">
+      <div>
+        <p>{{c}}</p>
+      </div>
+      <div id="actions-container">
+        <button mat-button (click)="deleteClient(index); false" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-list-item>
   </mat-list>
 </form>
