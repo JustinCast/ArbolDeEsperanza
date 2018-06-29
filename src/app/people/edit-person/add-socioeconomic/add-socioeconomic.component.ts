@@ -5,6 +5,7 @@ import { Person } from '../../../models/Person';
 import { SocioEconomic } from '../../../models/SocioEconomic';
 import { Budget } from '../../../models/Budget';
 import { SocioEconomicService } from '../../../services/socio-economic.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-socioeconomic',
@@ -18,7 +19,8 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   constructor(
     private _fb: FormBuilder,
     public data: DataService,
-    private socioEconomicService: SocioEconomicService
+    private socioEconomicService: SocioEconomicService,
+    private snackBar: MatSnackBar
   ) { 
     this.createForm()
   }
@@ -72,7 +74,10 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   }
 
   addHomeService(service: string) {
-    this.socioEconomic.HomeServices.unshift(service)
+    if(!this.socioEconomic.HomeServices.includes(service))
+      this.socioEconomic.HomeServices.unshift(service)
+    else
+      this.openSnackBar('Ya agregó el servicio', 'Ok', 'red-snackbar')
   }
 
   deleteHomeService(index: number) {
@@ -80,7 +85,10 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   }
 
   addInstitutionHelp(i: any) {
-    this.socioEconomic.InstitutionsHelp.unshift(i)
+    if(!this.socioEconomic.InstitutionsHelp.includes(i))
+      this.socioEconomic.InstitutionsHelp.unshift(i)
+    else
+      this.openSnackBar('Ya agregó la institución', 'Ok', 'red-snackbar')
   }
   
   deleteInstitutionHelp(index: number) {
@@ -88,10 +96,20 @@ export class AddSocioeconomicComponent implements OnInit, AfterViewInit {
   }
 
   addChildrenHelp(c: any){
-    this.socioEconomic.ChildrenHelp.unshift(c)
+    if(!this.socioEconomic.ChildrenHelp.includes(c))
+      this.socioEconomic.ChildrenHelp.unshift(c)
+    else
+      this.openSnackBar('Ya agregó la institución', 'Ok', 'red-snackbar')
   }
 
   deleteChildrenHelp(index: number) {
     this.socioEconomic.ChildrenHelp.splice(index, 1)
+  }
+
+  openSnackBar(message: string, action: string, cssClass: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      extraClasses: [cssClass]
+    });
   }
 }
