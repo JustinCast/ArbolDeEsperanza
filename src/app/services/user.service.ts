@@ -22,7 +22,7 @@ export class UserService {
     // params = params.append('username', username )
     // params = params.append('password', comparePassword )
     // console.log(params)
-    return this._http.get<any>(`${environment.SERVER_BASE_URL}api/user/getUser/${username}/${comparePassword}`)
+    return this._http.get<any>(`api/user/getUser/${username}/${comparePassword}`)
   }
 
   saveUser(user: User) {
