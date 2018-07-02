@@ -19,6 +19,8 @@ import { Chart } from 'chart.js';
 })
 export class GraphComponent implements OnInit {
   chart = []; // This will hold our chart info
+  active: boolean = true
+  inactive: boolean = false
   public fromDate: Date
   public toDate: Date
   people: Person[]
@@ -78,33 +80,32 @@ export class GraphComponent implements OnInit {
   }
 
   onSubmit() {
+    this.chart = [];
     this.chartData = []
     this.secondChartLabels = []
+    let status = this.filterGroup.get('radioControl').value
+    let fromDate = this.filterGroup.get('fromControl').value.toISOString()
+    let toDate = this.filterGroup.get('toControl').value.toISOString()
+
     if(this.people.length !== 0){
       this.people.forEach(p => {
         //console.log("Fecha entrada persona: ", p.EntryDate)
         //console.log("FromControl Value: ", this.filterGroup.get('fromControl').value.toISOString())
-        if(p.EntryDate > this.filterGroup.get('fromControl').value.toISOString() && p.EntryDate < this.filterGroup.get('toControl').value.toISOString()
-            && !this.filteredPeople.includes(p)){
-          this.filteredPeople.unshift(p)
-          if(!this.secondChartLabels.includes(String(p.Age))){
-            this.secondChartLabels.push(String(p.Age))
-            this.chartData.push(1)
+        
+        if(p.EntryDate > fromDate && p.EntryDate < toDate){
+          //this.filteredPeople.unshift(p)
+          if(this.secondChartLabels.includes(p.Age)){
+            let index: number = this.secondChartLabels.indexOf(p.Age)
+            this.chartData[index]++
           }
           else{
-            let index: number = this.secondChartLabels.indexOf(String(p.Age))
-            console.log(this.chartData[index])
-            this.chartData[index]++
-            console.log(this.chartData[index])            
-          }      
-          /*console.log(this.chartData)
-          console.log(this.secondChartLabels)*/
+            this.secondChartLabels.push(p.Age)
+            this.chartData.push(1)
+          }
 
-        }else{
-          let index: number = this.secondChartLabels.indexOf(String(p.Age))
-          this.chartData[index]++
         }
       })
+    
       this.chart = new Chart('canvas', {
         type: this.secondChartType,
         data: {

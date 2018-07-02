@@ -14,7 +14,7 @@
   <mat-radio-group [formControl]="filterGroup.get('radioControl')">
     <mat-radio-button value="1">Activo</mat-radio-button>
     <mat-radio-button value="2">Inactivo</mat-radio-button>
-    <mat-radio-button value="3">Ambos</mat-radio-button>
+    <mat-radio-button value="both">Ambos</mat-radio-button>
   </mat-radio-group>
   <br>
   <button [disabled]="!filterGroup.valid" type="submit" mat-button>

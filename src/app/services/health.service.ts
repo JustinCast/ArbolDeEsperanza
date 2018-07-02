@@ -16,15 +16,15 @@ export class HealthService {
   ) { }
 
   getHealthDocs(){
-    return this._http.get<Health[]>(`${environment.SERVER_BASE_URL}api/health`)
+    return this._http.get<Health[]>(`api/health`)
   }
 
   getHealthByPersonID(personID: string): Observable<Health>{
-    return this._http.get<Health>(`${environment.SERVER_BASE_URL}api/health/getHealthByPersonID/${personID}`)
+    return this._http.get<Health>(`api/health/getHealthByPersonID/${personID}`)
   }
 
   saveHealthDoc(doc: Health) {
-    this._http.post(`${environment.SERVER_BASE_URL}api/health/saveHealthDoc`, doc)
+    this._http.post(`api/health/saveHealthDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -43,7 +43,7 @@ export class HealthService {
   }
 
   updateHealthDoc(doc: Health) {
-    this._http.put(`${environment.SERVER_BASE_URL}api/health/updateHealthDoc`, doc)
+    this._http.put(`api/health/updateHealthDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -62,7 +62,7 @@ export class HealthService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/health/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`api/health/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)
