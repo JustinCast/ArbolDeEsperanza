@@ -1,22 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import * as _moment from 'moment';
 import { PeopleService } from '../services/people.service';
 import { Person } from '../models/Person';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { TIME_FORMATS } from '../models/TimeFormats';
+import { Chart } from 'chart.js';
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.scss']
+  styleUrls: ['./graph.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: TIME_FORMATS }
+  ]
 })
 export class GraphComponent implements OnInit {
+  chart = []; // This will hold our chart info
   public fromDate: Date
   public toDate: Date
   people: Person[]
+  filteredPeople: Person[] = new Array<Person>()
   filterGroup: FormGroup
   public secondChartType: string = 'doughnut'
-  public chartData:Array<any> = [300, 50, 100, 40, 120];
+  public chartData:Array<any> = [];
 
-  public secondChartLabels:Array<any> = ['Licor', 'Marihuana', 'Cocaína', 'Pastillas depresivas', 'Transtornos'];
+  // [300, 50, 100, 40, 120];
+  //['Licor', 'Marihuana', 'Cocaína', 'Pastillas depresivas', 'Transtornos'];
+  public secondChartLabels:Array<any> = [];
 
   public secondChartColors:Array<any> = [{
     hoverBorderColor: ['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.1)'], 
@@ -45,18 +58,18 @@ export class GraphComponent implements OnInit {
   };
 
 
-  public chartClicked(e: any): void { 
+  public chartClicked(): void { 
         
   }
   
   public secondChartClicked(e: any): void { 
-        
+    e.update()
   } 
   
-  public chartHovered(e: any): void {
+  public chartHovered(): void {
   }
 
-  public secondChartHovered(e: any): void { 
+  public secondChartHovered(): void { 
         
   }
 
@@ -65,7 +78,65 @@ export class GraphComponent implements OnInit {
   }
 
   onSubmit() {
+    this.chartData = []
+    this.secondChartLabels = []
+    if(this.people.length !== 0){
+      this.people.forEach(p => {
+        //console.log("Fecha entrada persona: ", p.EntryDate)
+        //console.log("FromControl Value: ", this.filterGroup.get('fromControl').value.toISOString())
+        if(p.EntryDate > this.filterGroup.get('fromControl').value.toISOString() && p.EntryDate < this.filterGroup.get('toControl').value.toISOString()
+            && !this.filteredPeople.includes(p)){
+          this.filteredPeople.unshift(p)
+          if(!this.secondChartLabels.includes(String(p.Age))){
+            this.secondChartLabels.push(String(p.Age))
+            this.chartData.push(1)
+          }
+          else{
+            let index: number = this.secondChartLabels.indexOf(String(p.Age))
+            console.log(this.chartData[index])
+            this.chartData[index]++
+            console.log(this.chartData[index])            
+          }      
+          /*console.log(this.chartData)
+          console.log(this.secondChartLabels)*/
 
+        }else{
+          let index: number = this.secondChartLabels.indexOf(String(p.Age))
+          this.chartData[index]++
+        }
+      })
+      this.chart = new Chart('canvas', {
+        type: this.secondChartType,
+        data: {
+          labels: this.secondChartLabels,
+          datasets: [
+            { 
+              data: this.chartData,
+              borderColor: "#3cba9f",
+              fill: false
+            },
+            // { 
+            //   data: temp_min,
+            //   borderColor: "#ffcc00",
+            //   fill: false
+            // },
+          ]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          // scales: {
+          //   xAxes: [{
+          //     display: true
+          //   }],
+          //   yAxes: [{
+          //     display: true
+          //   }],
+          // }
+        }
+      });
+    }
   }
 
   makePeopleRequest() {

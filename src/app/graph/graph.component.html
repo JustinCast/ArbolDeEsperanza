@@ -22,7 +22,7 @@
   </button>
 </form>
 <div class="chart">
-  <canvas class="card" mdbChart 
+  <!-- <canvas class="card" mdbChart #chart
     [chartType]="secondChartType"
     [data]="chartData" 
     [labels]="secondChartLabels"
@@ -30,6 +30,9 @@
     [options]="secondChartOptions"
     [legend]="true"
     (chartHover)="secondChartHovered($event)" 
-    (chartClick)="secondChartClicked($event)">
-  </canvas>
+    (chartClick)="secondChartClicked(chart)">
+  </canvas> -->
+  <div *ngIf="chart">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div>
 </div>
