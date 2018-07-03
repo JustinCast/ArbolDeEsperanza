@@ -91,18 +91,48 @@ export class GraphComponent implements OnInit {
       this.people.forEach(p => {
         //console.log("Fecha entrada persona: ", p.EntryDate)
         //console.log("FromControl Value: ", this.filterGroup.get('fromControl').value.toISOString())
-        
-        if(p.EntryDate > fromDate && p.EntryDate < toDate){
-          //this.filteredPeople.unshift(p)
-          if(this.secondChartLabels.includes(p.Age)){
-            let index: number = this.secondChartLabels.indexOf(p.Age)
-            this.chartData[index]++
-          }
-          else{
-            this.secondChartLabels.push(p.Age)
-            this.chartData.push(1)
-          }
 
+        if(status == 1){
+          if(p.EntryDate > fromDate && p.EntryDate < toDate && p.ActiveOrInactive){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
+        }
+        else if(status == 2){
+          if(p.EntryDate > fromDate && p.EntryDate < toDate && !p.ActiveOrInactive){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
+        }
+        else{
+          if(p.EntryDate > fromDate && p.EntryDate < toDate){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
         }
       })
     

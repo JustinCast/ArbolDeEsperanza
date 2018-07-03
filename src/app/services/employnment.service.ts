@@ -14,15 +14,15 @@ export class EmploynmentService {
   ) { }
 
   getEmploynmentDocs(){
-    return this._http.get<Employnment[]>(`api/employnment`)
+    return this._http.get<Employnment[]>(`${environment.SERVER_BASE_URL}api/employnment`)
   }
 
   getEmploynmentPersonID(personID: string): Observable<Employnment>{
-    return this._http.get<Employnment>(`api/employnment/getEmploynmentByPersonID/${personID}`)
+    return this._http.get<Employnment>(`${environment.SERVER_BASE_URL}api/employnment/getEmploynmentByPersonID/${personID}`)
   }
 
   saveEmploynmentDoc(doc: Employnment){
-    this._http.post(`api/employnment/saveEmploynmentDoc`, doc)
+    this._http.post(`${environment.SERVER_BASE_URL}api/employnment/saveEmploynmentDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -41,7 +41,7 @@ export class EmploynmentService {
   }
 
   updateEmploynmentDoc(doc: Employnment) {
-    this._http.put(`api/employnment/updateEmploynmentDoc`, doc)
+    this._http.put(`${environment.SERVER_BASE_URL}api/employnment/updateEmploynmentDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -60,7 +60,7 @@ export class EmploynmentService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`api/employnment/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/employnment/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)
@@ -83,7 +83,7 @@ export class EmploynmentService {
   }
 
   deleteEmploynmentDoc(_id: string){
-    this._http.delete(`api/employnment/deleteEmploynmentDoc/${_id}`)
+    this._http.delete(`${environment.SERVER_BASE_URL}api/employnment/deleteEmploynmentDoc/${_id}`)
     .subscribe(
       success => {this.openSnackBar('Documento eliminado con éxito', 'Ok', 'green-snackbar')}
       ,
