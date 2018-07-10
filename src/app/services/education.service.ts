@@ -13,15 +13,15 @@ export class EducationService {
   ) { }
 
   getEducationDocs(): any{
-    return this._http.get<Education[]>(`${environment.SERVER_BASE_URL}api/education`)
+    return this._http.get<Education[]>(`api/education`)
   }
 
   getEducationByPersonID(personID: string): Observable<Education>{
-    return this._http.get<Education>(`${environment.SERVER_BASE_URL}api/education/getEducationByPersonID/${personID}`)
+    return this._http.get<Education>(`api/education/getEducationByPersonID/${personID}`)
   }
 
   saveEducationDoc(doc: Education) {
-    this._http.post(`${environment.SERVER_BASE_URL}api/education/saveEducationDoc`, doc)
+    this._http.post(`api/education/saveEducationDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -40,7 +40,7 @@ export class EducationService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/education/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`api/education/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           console.log(success)
@@ -64,7 +64,7 @@ export class EducationService {
   }
 
   updateEducationDoc(doc: Education) {
-    this._http.put(`${environment.SERVER_BASE_URL}api/education/updateEducationDoc`, doc)
+    this._http.put(`api/education/updateEducationDoc`, doc)
     .subscribe(
       success => {
         this.openSnackBar(`Documento actualizado`, 'Ok', 'green-snackbar')
