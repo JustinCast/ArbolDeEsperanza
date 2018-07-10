@@ -91,18 +91,48 @@ export class GraphComponent implements OnInit {
       this.people.forEach(p => {
         //console.log("Fecha entrada persona: ", p.EntryDate)
         //console.log("FromControl Value: ", this.filterGroup.get('fromControl').value.toISOString())
-        
-        if(p.EntryDate > fromDate && p.EntryDate < toDate){
-          //this.filteredPeople.unshift(p)
-          if(this.secondChartLabels.includes(p.Age)){
-            let index: number = this.secondChartLabels.indexOf(p.Age)
-            this.chartData[index]++
-          }
-          else{
-            this.secondChartLabels.push(p.Age)
-            this.chartData.push(1)
-          }
 
+        if(status == 1){
+          if(p.EntryDate > fromDate && p.EntryDate < toDate && p.ActiveOrInactive){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
+        }
+        else if(status == 2){
+          if(p.EntryDate > fromDate && p.EntryDate < toDate && !p.ActiveOrInactive){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
+        }
+        else{
+          if(p.EntryDate > fromDate && p.EntryDate < toDate){
+            //this.filteredPeople.unshift(p)
+            if(this.secondChartLabels.includes(p.Age)){
+              let index: number = this.secondChartLabels.indexOf(p.Age)
+              this.chartData[index]++
+            }
+            else{
+              this.secondChartLabels.push(p.Age)
+              this.chartData.push(1)
+            }
+  
+          }
         }
       })
     
@@ -113,15 +143,36 @@ export class GraphComponent implements OnInit {
           datasets: [
             { 
               data: this.chartData,
-              borderColor: "#3cba9f",
-              fill: false
+              //borderColor: "red",
+              fill: false,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(215, 159, 64, 0.2)',
+                'rgba(255, 122, 64, 0.2)',
+                'rgba(255, 75, 64, 0.2)',
+                'rgba(235, 120, 64, 0.2)',
+                'rgba(212, 159, 64, 0.2)',
+                'rgba(200, 159, 64, 0.2)',
+                'rgba(110, 159, 64, 0.2)',
+                'rgba(100, 159, 64, 0.2)',
+                'rgba(90, 159, 64, 0.2)'
+              ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
             },
-            // { 
-            //   data: temp_min,
-            //   borderColor: "#ffcc00",
-            //   fill: false
-            // },
-          ]
+          ],
         },
         options: {
           legend: {
