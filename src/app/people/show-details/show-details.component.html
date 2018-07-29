@@ -33,132 +33,140 @@
     <h6><strong>Número de teléfono / Phone Number:</strong> {{p.EmergencyContact.EmergencyContactNumber}}</h6>
     <hr>
 
-    <h2 class="text-center text-primary">Expectativas acerca de la organización / Expectatives about the organization</h2>
-    <h6><strong>¿Cómo se enteró de la Asociación? / How did you hear about the organization?:</strong> {{e.HearAboutWay}}</h6>
-    <h6><strong>Antes de venir a la Árbol de Esperanza, ¿qué le dijeron que la organización hacía? / Before coming to the Arbol de Esperanza, what did they tell you that the organization was doing?:</strong> {{e.WhatYouKnow}}</h6>
-    <h6><strong>¿Por qué motivo quiero asistir a la Asociación? / Why do I want to attend the Association?:</strong> {{e.EntryReason}}</h6>
-    <hr>
-
-    <h2 class="text-center text-primary">Educación / Education</h2>
-    <h6 *ngIf="ed.Read !== undefined && ed.Read else noR"><strong>Lee y escribe / Read and Write:</strong>Si / Yes</h6>
-    <ng-template #noR>
-      <h6><strong>Lee y escribe / Read and Write:</strong> No</h6>
-    </ng-template>
-    <h6><strong>Escolaridad / Education Background:</strong> {{ed.EducationBackground}}</h6>
-    <h5 class="text-center text-secondary">Cursos realizados / Courses</h5>
-    <ol>
-      <li *ngFor="let c of ed.Courses">{{c}}</li>
-    </ol>
-    <hr>
-
-    <h2 class="text-center text-primary">Aspectos socioeconómicos / Socioeconomics</h2>
-    <h6><strong>Cantidad de personal en el hogar / People in the house:</strong> {{s.PeopleInTheHouse}}</h6>
-    <h6><strong>Cantidad de menores en la casa / Underage people in the house:</strong> {{s.UnderagePeople}}</h6>
-    <h6><strong>¿Quién paga por los servicios de la casa? / Who pay for the house services?:</strong> {{s.Payman}}</h6>
-    <h6><strong>Principal proveedor del hogar / Main house provider:</strong> {{s.MainHouseProvider}}</h6>
-    <h6><strong>Ingreso mensual / Monthly income:</strong> {{s.MonthlyIncome}}</h6>
-    <h6><strong>Ingreso mensual familiar / Family monthly income:</strong> {{s.FamilyIncome}}</h6>
-    <h6><strong>Condición de propiedad de la casa / House holding:</strong> {{s.HouseHolding}}</h6>
-    <h6><strong>Condición de la casa / House condition:</strong> {{s.HouseCondition}}</h6>
-    <h5 class="text-center text-secondary">Servicios que dispone el hogar / House services</h5>
-    <ol>
-      <li *ngFor="let h of s.HomeServices">{{h}}</li>
-    </ol>
-    <h5 class="text-center text-secondary">Ayuda a los niños por parte de las instituciones / Children help</h5>
-    <ol>
-      <li *ngFor="let c of s.ChildrenHelp">{{c}}</li>
-    </ol>
-    <h5 class="text-center text-secondary">Ayuda por parte de otras instituciones / Institutions help</h5>
-    <ol>
-      <li *ngFor="let i of s.InstitutionsHelp">{{i}}</li>
-    </ol>
-    <hr>
-    <h2 class="text-center text-primary">Aspectos laborales / Employnment</h2>
-    <h6><strong>Situación laboral actual / Laboral situation:</strong> {{emp.DoYouHaveWork}}</h6>
-    <div *ngIf="emp.DoYouHaveWork === 'Si / Yes'; else noW">
-      <h6><strong>Ocupación / Occupation:</strong> {{emp.occupation}}</h6>
-      <h6><strong>Frecuencia con la que trabaja / Work frecuency:</strong> {{emp.WorkFrecuency}}</h6>
+    <div *ngIf="e !== undefined">
+      <h2 class="text-center text-primary">Expectativas acerca de la organización / Expectatives about the organization</h2>
+      <h6><strong>¿Cómo se enteró de la Asociación? / How did you hear about the organization?:</strong> {{e.HearAboutWay}}</h6>
+      <h6><strong>Antes de venir a la Árbol de Esperanza, ¿qué le dijeron que la organización hacía? / Before coming to the Arbol de Esperanza, what did they tell you that the organization was doing?:</strong> {{e.WhatYouKnow}}</h6>
+      <h6><strong>¿Por qué motivo quiero asistir a la Asociación? / Why do I want to attend the Association?:</strong> {{e.EntryReason}}</h6>
+      <hr>
     </div>
-    <ng-template #noW>
-      <h6><strong>Motivo por el cual no tiene trabajo / Unemploynment reason:</strong> {{emp.UnemploynmentReason}}</h6>
-      <h6><strong>Tiempo desempleada / Unenmploynment date:</strong> {{emp.UnemploynmentDate}}</h6>
-    </ng-template>
-    <div *ngIf="emp.WorkFewHours else noWFH">
-      <h6><strong>Desea trabajar pocas horas a la semana / Want to work few hours peer week?:</strong> Si / Yes</h6>
-      <h6><strong>Motivo / Reason:</strong> {{emp.WhyWorkFewHours}}</h6>
-    </div>
-    <ng-template #noWFH>
-      <h6><strong>Desea trabajar pocas horas a la semana? / Do you want to work a few hours a week?:</strong> No</h6>
-      <h6><strong>Motivo que le imposibilita trabajar más horas / Why is it imposible?:</strong> {{emp.WhyIsItImposible}}</h6>
-    </ng-template>
-    <div *ngIf="emp.HaveABusiness">
-      <h6><strong>Negocio:</strong> Tiene un negocio en funcionamiento / Have a business</h6>
-      <h6><strong>Cantidad de productos que vende a la semana / Products per week:</strong> {{emp.SellProducts}}</h6>
-      <h5 *ngIf="emp.Clients.Length" class="text-center text-secondary">Clientes destino del negocio / Business clients</h5>
+    <div *ngIf="ed !== undefined">
+      <h2 class="text-center text-primary">Educación / Education</h2>
+      <h6 *ngIf="ed.Read !== undefined && ed.Read else noR"><strong>Lee y escribe / Read and Write:</strong>Si / Yes</h6>
+      <ng-template #noR>
+        <h6><strong>Lee y escribe / Read and Write:</strong> No</h6>
+      </ng-template>
+      <h6><strong>Escolaridad / Education Background:</strong> {{ed.EducationBackground}}</h6>
+      <h5 class="text-center text-secondary">Cursos realizados / Courses</h5>
       <ol>
-        <li *ngFor="let c of emp.Clients">{{c}}</li>
+        <li *ngFor="let c of ed.Courses">{{c}}</li>
+      </ol>
+      <hr>
+    </div>
+    <div *ngIf="s !== undefined">
+      <h2 class="text-center text-primary">Aspectos socioeconómicos / Socioeconomics</h2>
+      <h6><strong>Cantidad de personal en el hogar / People in the house:</strong> {{s.PeopleInTheHouse}}</h6>
+      <h6><strong>Cantidad de menores en la casa / Underage people in the house:</strong> {{s.UnderagePeople}}</h6>
+      <h6><strong>¿Quién paga por los servicios de la casa? / Who pay for the house services?:</strong> {{s.Payman}}</h6>
+      <h6><strong>Principal proveedor del hogar / Main house provider:</strong> {{s.MainHouseProvider}}</h6>
+      <h6><strong>Ingreso mensual / Monthly income:</strong> {{s.MonthlyIncome}}</h6>
+      <h6><strong>Ingreso mensual familiar / Family monthly income:</strong> {{s.FamilyIncome}}</h6>
+      <h6><strong>Condición de propiedad de la casa / House holding:</strong> {{s.HouseHolding}}</h6>
+      <h6><strong>Condición de la casa / House condition:</strong> {{s.HouseCondition}}</h6>
+      <h5 class="text-center text-secondary">Servicios que dispone el hogar / House services</h5>
+      <ol>
+        <li *ngFor="let h of s.HomeServices">{{h}}</li>
+      </ol>
+      <h5 class="text-center text-secondary">Ayuda a los niños por parte de las instituciones / Children help</h5>
+      <ol>
+        <li *ngFor="let c of s.ChildrenHelp">{{c}}</li>
+      </ol>
+      <h5 class="text-center text-secondary">Ayuda por parte de otras instituciones / Institutions help</h5>
+      <ol>
+        <li *ngFor="let i of s.InstitutionsHelp">{{i}}</li>
+      </ol>
+      <hr>
+    </div>
+    <div *ngIf="emp !== undefined">
+      <h2 class="text-center text-primary">Aspectos laborales / Employnment</h2>
+      <h6><strong>Situación laboral actual / Laboral situation:</strong> {{emp.DoYouHaveWork}}</h6>
+      <div *ngIf="emp.DoYouHaveWork === 'Si / Yes'; else noW">
+        <h6><strong>Ocupación / Occupation:</strong> {{emp.occupation}}</h6>
+        <h6><strong>Frecuencia con la que trabaja / Work frecuency:</strong> {{emp.WorkFrecuency}}</h6>
+      </div>
+      <ng-template #noW>
+        <h6><strong>Motivo por el cual no tiene trabajo / Unemploynment reason:</strong> {{emp.UnemploynmentReason}}</h6>
+        <h6><strong>Tiempo desempleada / Unenmploynment date:</strong> {{emp.UnemploynmentDate}}</h6>
+      </ng-template>
+      <div *ngIf="emp.WorkFewHours else noWFH">
+        <h6><strong>Desea trabajar pocas horas a la semana / Want to work few hours peer week?:</strong> Si / Yes</h6>
+        <h6><strong>Motivo / Reason:</strong> {{emp.WhyWorkFewHours}}</h6>
+      </div>
+      <ng-template #noWFH>
+        <h6><strong>Desea trabajar pocas horas a la semana? / Do you want to work a few hours a week?:</strong> No</h6>
+        <h6><strong>Motivo que le imposibilita trabajar más horas / Why is it imposible?:</strong> {{emp.WhyIsItImposible}}</h6>
+      </ng-template>
+      <div *ngIf="emp.HaveABusiness">
+        <h6><strong>Negocio:</strong> Tiene un negocio en funcionamiento / Have a business</h6>
+        <h6><strong>Cantidad de productos que vende a la semana / Products per week:</strong> {{emp.SellProducts}}</h6>
+        <h5 *ngIf="emp.Clients.Length" class="text-center text-secondary">Clientes destino del negocio / Business clients</h5>
+        <ol>
+          <li *ngFor="let c of emp.Clients">{{c}}</li>
+        </ol>
+      </div>
+      <hr>
+    </div>
+    <div *ngIf="h !== undefined">
+      <h2 class="text-center text-primary">Aspectos sobre salud / Health</h2>
+      <h6><strong>Tipo de seguro social / Social security type:</strong> {{h.SocialSecurityType}}</h6>
+      <h5 class="text-center text-secondary">Necesidades / Needs</h5>
+      <div *ngIf="h.Need.Need_Doctor else noD">
+        <h6><strong>Necesita doctor / Need doctor:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noD>
+        <h6><strong>Necesita doctor / Need doctor:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <div *ngIf="h.Need.Need_Ophthalmologist else noO">
+        <h6><strong>Necesita oftalmólogo / Need ophthalmologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noO>
+        <h6><strong>Necesita oftalmólogo / Need ophthalmologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <div *ngIf="h.Need.Need_Mammography else noM">
+        <h6><strong>Necesita mamografía / Need mammography:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noM>
+        <h6><strong>Necesita mamografía / Need mammography:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <div *ngIf="h.Need.Need_Dentist else noDen">
+        <h6><strong>Necesita dentista / Need dentist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noDen>
+        <h6><strong>Necesita dentista / Need dentist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <div *ngIf="h.Need.Need_Gynecologist else noG">
+        <h6><strong>Necesita ginecólogo / Need gynecologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noG>
+        <h6><strong>Necesita ginecólogo / Need gynecologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <div *ngIf="h.Need.Need_Psychologist else noP">
+        <h6><strong>Necesita psicólogo / Need psychologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
+      </div>
+      <ng-template #noP>
+        <h6><strong>Necesita piscólogo / Need psychologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
+      </ng-template>
+      <hr>
+      <h5 class="text-center text-secondary">Razones de consulta / Consultation reasons</h5>
+      <ol>
+        <li *ngIf="h.ConsultationReasons.Anxiety">Ansiedad / Anxiety</li>
+        <li *ngIf="h.ConsultationReasons.Depression">Depresión / Depression</li>
+        <li *ngIf="h.ConsultationReasons.LowSelfEsteem">Baja autoestima / Low self esteem</li>
+        <li *ngIf="h.ConsultationReasons.SuicidalThoughts">Pensamientos suicidas / Suicidal thoughts</li>
+        <li *ngIf="h.ConsultationReasons.SuicidalActions">Comportamientos suicidas / Suicidal actions</li>
+        <li *ngIf="h.ConsultationReasons.DomesticViolence">Violencia doméstica / Domestic violence</li>
+        <li *ngIf="h.ConsultationReasons.DifficultyMakingDecision">Dificultad para tomar decisiones / Difficulty making decision</li>
+        <li *ngIf="h.ConsultationReasons.MemoryLoss">Pérdida de memoria / Memory loss</li>
+        <li *ngIf="h.ConsultationReasons.LearningProblems">Problemas de aprendizaje / Learning Problems</li>
+        <li *ngIf="h.ConsultationReasons.DeathHandling">Manejo del duelo / Death Handling</li>
+        <li *ngIf="h.ConsultationReasons.AngerHandling">Manejo del enojo / Anger handling</li>
+        <li *ngIf="h.ConsultationReasons.EatingDisorders">Desórdenes alimenticios / Eating disorders</li>
+        <li *ngIf="h.ConsultationReasons.Phobias">Fobias / Phobias</li>
+        <li *ngIf="h.ConsultationReasons.Sexuality">Sexualidad / Sexuality</li>
+        <li *ngIf="h.ConsultationReasons.FamilyRightsInquiries">Consultas legales sobre derecho de familia / Family rights inquiries</li>
+        <li *ngIf="h.ConsultationReasons.SexualDiversity">Diversidad sexual / Sexual diversity</li>
+        <li *ngIf="h.ConsultationReasons.Other">Otro / Other</li>
       </ol>
     </div>
-    <hr>
-    <h2 class="text-center text-primary">Aspectos sobre salud / Health</h2>
-    <h6><strong>Tipo de seguro social / Social security type:</strong> {{h.SocialSecurityType}}</h6>
-    <h5 class="text-center text-secondary">Necesidades / Needs</h5>
-    <div *ngIf="h.Need.Need_Doctor else noD">
-      <h6><strong>Necesita doctor / Need doctor:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noD>
-      <h6><strong>Necesita doctor / Need doctor:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <div *ngIf="h.Need.Need_Ophthalmologist else noO">
-      <h6><strong>Necesita oftalmólogo / Need ophthalmologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noO>
-      <h6><strong>Necesita oftalmólogo / Need ophthalmologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <div *ngIf="h.Need.Need_Mammography else noM">
-      <h6><strong>Necesita mamografía / Need mammography:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noM>
-      <h6><strong>Necesita mamografía / Need mammography:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <div *ngIf="h.Need.Need_Dentist else noDen">
-      <h6><strong>Necesita dentista / Need dentist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noDen>
-      <h6><strong>Necesita dentista / Need dentist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <div *ngIf="h.Need.Need_Gynecologist else noG">
-      <h6><strong>Necesita ginecólogo / Need gynecologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noG>
-      <h6><strong>Necesita ginecólogo / Need gynecologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <div *ngIf="h.Need.Need_Psychologist else noP">
-      <h6><strong>Necesita psicólogo / Need psychologist:</strong> <i class="fa fa-check" aria-hidden="true"></i></h6>
-    </div>
-    <ng-template #noP>
-      <h6><strong>Necesita piscólogo / Need psychologist:</strong> <i class="fa fa-remove" aria-hidden="true"></i></h6>
-    </ng-template>
-    <hr>
-    <h5 class="text-center text-secondary">Razones de consulta / Consultation reasons</h5>
-    <ol>
-      <li *ngIf="h.ConsultationReasons.Anxiety">Ansiedad / Anxiety</li>
-      <li *ngIf="h.ConsultationReasons.Depression">Depresión / Depression</li>
-      <li *ngIf="h.ConsultationReasons.LowSelfEsteem">Baja autoestima / Low self esteem</li>
-      <li *ngIf="h.ConsultationReasons.SuicidalThoughts">Pensamientos suicidas / Suicidal thoughts</li>
-      <li *ngIf="h.ConsultationReasons.SuicidalActions">Comportamientos suicidas / Suicidal actions</li>
-      <li *ngIf="h.ConsultationReasons.DomesticViolence">Violencia doméstica / Domestic violence</li>
-      <li *ngIf="h.ConsultationReasons.DifficultyMakingDecision">Dificultad para tomar decisiones / Difficulty making decision</li>
-      <li *ngIf="h.ConsultationReasons.MemoryLoss">Pérdida de memoria / Memory loss</li>
-      <li *ngIf="h.ConsultationReasons.LearningProblems">Problemas de aprendizaje / Learning Problems</li>
-      <li *ngIf="h.ConsultationReasons.DeathHandling">Manejo del duelo / Death Handling</li>
-      <li *ngIf="h.ConsultationReasons.AngerHandling">Manejo del enojo / Anger handling</li>
-      <li *ngIf="h.ConsultationReasons.EatingDisorders">Desórdenes alimenticios / Eating disorders</li>
-      <li *ngIf="h.ConsultationReasons.Phobias">Fobias / Phobias</li>
-      <li *ngIf="h.ConsultationReasons.Sexuality">Sexualidad / Sexuality</li>
-      <li *ngIf="h.ConsultationReasons.FamilyRightsInquiries">Consultas legales sobre derecho de familia / Family rights inquiries</li>
-      <li *ngIf="h.ConsultationReasons.SexualDiversity">Diversidad sexual / Sexual diversity</li>
-      <li *ngIf="h.ConsultationReasons.Other">Otro / Other</li>
-    </ol>
   </div>
 </ng-template>
