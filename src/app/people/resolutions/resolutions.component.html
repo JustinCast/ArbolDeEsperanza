@@ -3,7 +3,7 @@
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
   </button>
 </div>
-<div *ngIf="!loading" id="resolutions-container" class="container text-center">
+<div *ngIf="!loading && health !== undefined;else noResolutions" id="resolutions-container" class="container text-center">
   <h3 class="text-primary">Necesidades de la persona</h3>
   <mat-form-field>
     <input matInput [(ngModel)]="resolutionDate" [matDatepicker]="resolDate" placeholder="Fecha de resolución">
@@ -30,6 +30,7 @@
       Resolver necesidad de Psicólogo
     </mat-list-option>
   </mat-selection-list>
+
   
   <p class="text-danger" id="footer-paragraph">
     Necesidades por resolver: {{ resolutions.options.length - resolutions.selectedOptions.selected.length}}
@@ -38,3 +39,6 @@
     <button mat-raised-button color="primary" (click)="makeResolution(resolutions)">Aceptar</button>
   </div>
 </div>
+<ng-template #noResolutions>
+  <h2 class="text-center text-primary">Sin necesidades por resolver / No needs to be solved</h2>
+</ng-template>
