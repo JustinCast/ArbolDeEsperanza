@@ -14,7 +14,7 @@ export class UserService {
 
   getUsers(): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
-    return this._http.get<User[]>(`api/user/getAllUsers`)
+    return this._http.get<User[]>(`${environment.SERVER_BASE_URL}api/user/getAllUsers`)
   }
   getUser(username: string, comparePassword: string): any{
     // `${environment.SERVER_BASE_URL}person/getAllUsers`
@@ -22,11 +22,11 @@ export class UserService {
     // params = params.append('username', username )
     // params = params.append('password', comparePassword )
     // console.log(params)
-    return this._http.get<any>(`api/user/getUser/${username}/${comparePassword}`)
+    return this._http.get<any>(`${environment.SERVER_BASE_URL}api/user/getUser/${username}/${comparePassword}`)
   }
 
   saveUser(user: User) {
-    this._http.post(`api/user/createUser`, user)
+    this._http.post(`${environment.SERVER_BASE_URL}api/user/createUser`, user)
       .subscribe(
         success => {
           console.log(success)
@@ -50,7 +50,7 @@ export class UserService {
     //let params = new HttpParams().set('personId', person._id);
     //`${environment.SERVER_BASE_URL}person/update/${person._id}`, person
     console.log(user)
-    this._http.put(`api/user/updateUser/${user._id}`, user)
+    this._http.put(`${environment.SERVER_BASE_URL}api/user/updateUser/${user._id}`, user)
       .subscribe(
         success => {
           console.log('Usuario actualizado con éxito')
@@ -72,7 +72,7 @@ export class UserService {
   }
 
   deleteUser(_id: string) {
-    this._http.delete(`api/user/deleteUser/${_id}`)
+    this._http.delete(`${environment.SERVER_BASE_URL}api/user/deleteUser/${_id}`)
     .subscribe(
       success => {
         this.openSnackBar('Usuario eliminado con éxito', 'Ok', 'green-snackbar')

@@ -9,27 +9,27 @@ import { Employnment } from "./Employnment";
 import { Health } from "./Health";
 
 export class Person {
-    constructor(
-        public Name?: string,
-        public LastName?: string,
-        public ActiveOrInactive?: boolean,
-        public EntryDate?: Date,
-        public BornDate?: Date,
-        public Age?: number,
-        public PhoneNumber?: string,
-        public Email?: string,
-        public EmergencyContact?: EmergencyContact,
-        public ReferencedBy?: string,
-        public DNI?: string,
-        public Documented?: string,
-        public Nationality?: string,
-        public MaritalStatus?: string,
-        public Residence?: string,
-        public Expectatives?: Expectatives,
-        public Education?: Education,
-        public SocioEconomic?: SocioEconomic,
-        public Employnment?: Employnment,
-        public Health?: Health,
-        public _id?: string
-    ) {}
+  constructor(
+    public Name?: string,
+    public LastName?: string,
+    public ActiveOrInactive?: boolean,
+    public EntryDate?: Date,
+    public BornDate?: Date,
+    public Age?: number,
+    public PhoneNumber?: string,
+    public Email?: string,
+    public EmergencyContact?: EmergencyContact,
+    public ReferencedBy?: string,
+    public DNI?: string,
+    public Documented?: string,
+    public Nationality?: string,
+    public MaritalStatus?: string,
+    public Residence?: string,
+    public Expectatives?: Expectatives,
+    public Education?: Education,
+    public SocioEconomic?: SocioEconomic,
+    public Employnment?: Employnment,
+    public Health?: Health,
+    public _id?: string
+  ) {}
 }

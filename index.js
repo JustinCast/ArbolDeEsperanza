@@ -7,25 +7,7 @@ const app = express();
 
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false}));
-// const MONGO_URI = 'mongodb://heroku_bfd3g8lf:ceikiofr9hospap8spgevnofho@ds233228.mlab.com:33228/heroku_bfd3g8lf'; 
-// mongoose.connect(process.env.MONGODB_URI || MONGO_URI, (err, res) => {
-//     if(err){
-//         console.log('No se pudo establecer conexión con la BD' + err)
-//         return
-//     }
-//     console.log("Conexión exitosa con la BD")
-// })
 
-// app.use(express.static(__dirname + '/dist'));
-// app.use('/person', api);
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/dist/index.html'));
-// });
-/**
- * Mongoose connection
- */
 function DBConnection() {
     const MONGO_URI = 'mongodb://heroku_bfd3g8lf:ceikiofr9hospap8spgevnofho@ds233228.mlab.com:33228/heroku_bfd3g8lf'
     mongoose.connect(process.env.MONGODB_URI || MONGO_URI, (err, res) => {

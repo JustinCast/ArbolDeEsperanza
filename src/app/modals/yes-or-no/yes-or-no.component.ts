@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { Component, OnInit } from "@angular/core";
+import { MatDialogRef } from "@angular/material";
 
 @Component({
-  selector: 'app-yes-or-no',
-  templateUrl: './yes-or-no.component.html',
-  styleUrls: ['./yes-or-no.component.scss']
+  selector: "app-yes-or-no",
+  templateUrl: "./yes-or-no.component.html",
+  styleUrls: ["./yes-or-no.component.scss"]
 })
 export class YesOrNoComponent implements OnInit {
   public title: string;
   public message: string;
-  constructor(public dialogRef: MatDialogRef<YesOrNoComponent>) { }
+  constructor(public dialogRef: MatDialogRef<YesOrNoComponent>) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

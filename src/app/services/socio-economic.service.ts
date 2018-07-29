@@ -14,15 +14,15 @@ export class SocioEconomicService {
   ) { }
 
   getSocioEconomicDocs(): any{
-    return this._http.get<SocioEconomic[]>(`api/socioeconomic`)
+    return this._http.get<SocioEconomic[]>(`${environment.SERVER_BASE_URL}api/socioeconomic`)
   }
 
   getSocioEconomicByPersonID(personID: string): Observable<SocioEconomic>{
-    return this._http.get<SocioEconomic>(`api/socioeconomic/getSocioeconomicByPersonID/${personID}`)
+    return this._http.get<SocioEconomic>(`${environment.SERVER_BASE_URL}api/socioeconomic/getSocioeconomicByPersonID/${personID}`)
   }
 
   saveSocioEconomicDoc(doc: SocioEconomic) {
-    this._http.post(`api/socioeconomic/saveSocioEconomicDoc`, doc)
+    this._http.post(`${environment.SERVER_BASE_URL}api/socioeconomic/saveSocioEconomicDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -41,7 +41,7 @@ export class SocioEconomicService {
   }
 
   updateSocioEconomicDoc(doc: SocioEconomic) {
-    this._http.put(`api/socioeconomic/updateSocioEconomicDoc`, doc)
+    this._http.put(`${environment.SERVER_BASE_URL}api/socioeconomic/updateSocioEconomicDoc`, doc)
     .subscribe(
       success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
       ,
@@ -60,7 +60,7 @@ export class SocioEconomicService {
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`api/health/verifyExistency/${PersonID}`)
+    this._http.get<Array<any>>(`${environment.SERVER_BASE_URL}api/health/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
           if(success.length === 0)

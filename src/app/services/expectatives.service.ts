@@ -1,123 +1,174 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { MatSnackBar } from '@angular/material';
-import { Expectatives } from '../models/Expectatives';
-import { environment } from '../../environments/environment';
-import { Person } from '../models/Person';
-import { Observable } from 'rxjs';
+import { MatSnackBar } from "@angular/material";
+import { Expectatives } from "../models/Expectatives";
+import { environment } from "../../environments/environment";
+import { Person } from "../models/Person";
+import { Observable } from "rxjs";
 @Injectable()
 export class ExpectativesService {
-  expectatives: Array<Expectatives>
-  public existency: boolean = false
-  constructor(
-    private _http: HttpClient,
-    private snackBar: MatSnackBar
-  ) { }
-
+  expectatives: Array<Expectatives>;
+  public existency: boolean = false;
+  constructor(private _http: HttpClient, private snackBar: MatSnackBar) {}
 
   getExpectatives() {
-    this._http.get<Expectatives[]>(`api/expectative`)
-      .subscribe(
-        success => {
-          this.expectatives = success
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // Error del lado del cliente
-            console.log('An error occurred:', err.error.message);
-          } else {
-            // The backend returned an unsuccessful response code.
-            // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-            this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
-          }
+    this._http.get<Expectatives[]>(`${environment.SERVER_BASE_URL}api/expectative`).subscribe(
+      success => {
+        this.expectatives = success;
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // Error del lado del cliente
+          console.log("An error occurred:", err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // Error del lado del backend
+          console.log(
+            `Backend returned code ${err.status}, body was: ${JSON.stringify(
+              err.error
+            )}`
+          );
+          this.openSnackBar(
+            `Error al ingresar el documento`,
+            "Ok",
+            "red-snackbar"
+          );
         }
-      )
+      }
+    );
   }
 
-  getExpectativeByPersonID(personID: string): Observable<Expectatives>{
-    return this._http.get<Expectatives>(`api/expectative/getExpectativeByPersonID/${personID}`)
+  getExpectativeByPersonID(personID: string): Observable<Expectatives> {
+    return this._http.get<Expectatives>(
+      `${environment.SERVER_BASE_URL}api/expectative/getExpectativeByPersonID/${personID}`
+    );
   }
 
   getPeopleWithoutExpectativeDoc(): Observable<Person[]> {
-    return this._http.get<Person[]>(`api/getPeopleWithoutExpectativeDoc`)
+    return this._http.get<Person[]>(`api/getPeopleWithoutExpectativeDoc`);
   }
 
   saveExpectative(expectative: Expectatives) {
-    this._http.post(`api/expectative/saveExpectativeDoc`, expectative)
-      .subscribe(
-        success => {this.openSnackBar('Documento guardado con éxito', 'Ok', 'green-snackbar')}
-      ),
+    this._http
+      .post(`${environment.SERVER_BASE_URL}api/expectative/saveExpectativeDoc`, expectative)
+      .subscribe(success => {
+        this.openSnackBar(
+          "Documento guardado con éxito",
+          "Ok",
+          "green-snackbar"
+        );
+      }),
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           // Error del lado del cliente
-          console.log('An error occurred:', err.error.message);
+          console.log("An error occurred:", err.error.message);
         } else {
           // The backend returned an unsuccessful response code.
           // Error del lado del backend
-          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-          this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
+          console.log(
+            `Backend returned code ${err.status}, body was: ${JSON.stringify(
+              err.error
+            )}`
+          );
+          this.openSnackBar(
+            `Error al ingresar el documento`,
+            "Ok",
+            "red-snackbar"
+          );
         }
-      }
+      };
   }
 
   updateExpectative(expectative: Expectatives) {
-    this._http.put(`api/expectative/updateExpectativeDoc`, expectative)
-      .subscribe(
-        success => {this.openSnackBar('Documento actualizado con éxito', 'Ok', 'green-snackbar')}
-      ),
+    this._http
+      .put(`${environment.SERVER_BASE_URL}api/expectative/updateExpectativeDoc`, expectative)
+      .subscribe(success => {
+        this.openSnackBar(
+          "Documento actualizado con éxito",
+          "Ok",
+          "green-snackbar"
+        );
+      }),
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           // Error del lado del cliente
-          console.log('An error occurred:', err.error.message);
+          console.log("An error occurred:", err.error.message);
         } else {
           // The backend returned an unsuccessful response code.
           // Error del lado del backend
-          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-          this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
+          console.log(
+            `Backend returned code ${err.status}, body was: ${JSON.stringify(
+              err.error
+            )}`
+          );
+          this.openSnackBar(
+            `Error al ingresar el documento`,
+            "Ok",
+            "red-snackbar"
+          );
         }
-      }
+      };
   }
 
   verifyExistency(PersonID: string) {
-    this._http.get<Array<any>>(`api/expectative/verifyExistency/${PersonID}`)
+    this._http
+      .get<Array<any>>(`${environment.SERVER_BASE_URL}api/expectative/verifyExistency/${PersonID}`)
       .subscribe(
         success => {
-          if(success.length === 0)
-            this.existency = false
-          else
-            this.existency = true
+          if (success.length === 0) this.existency = false;
+          else this.existency = true;
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
             // Error del lado del cliente
-            console.log('An error occurred:', err.error.message);
+            console.log("An error occurred:", err.error.message);
           } else {
             // The backend returned an unsuccessful response code.
             // Error del lado del backend
-            console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-            this.openSnackBar(`Error con la verificación`, 'Ok', 'red-snackbar')
+            console.log(
+              `Backend returned code ${err.status}, body was: ${JSON.stringify(
+                err.error
+              )}`
+            );
+            this.openSnackBar(
+              `Error con la verificación`,
+              "Ok",
+              "red-snackbar"
+            );
           }
         }
-      )
+      );
   }
 
   deleteExpectative(_id: string) {
-    this._http.delete(`api/expectative/deleteExpectativeDoc/${_id}`)
-      .subscribe(
-        success => {this.openSnackBar('Documento eliminado con éxito', 'Ok', 'green-snackbar')}
-      ),
+    this._http
+      .delete(`${environment.SERVER_BASE_URL}api/expectative/deleteExpectativeDoc/${_id}`)
+      .subscribe(success => {
+        this.openSnackBar(
+          "Documento eliminado con éxito",
+          "Ok",
+          "green-snackbar"
+        );
+      }),
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           // Error del lado del cliente
-          console.log('An error occurred:', err.error.message);
+          console.log("An error occurred:", err.error.message);
         } else {
           // The backend returned an unsuccessful response code.
           // Error del lado del backend
-          console.log(`Backend returned code ${err.status}, body was: ${JSON.stringify(err.error)}`)
-          this.openSnackBar(`Error al ingresar el documento`, 'Ok', 'red-snackbar')
+          console.log(
+            `Backend returned code ${err.status}, body was: ${JSON.stringify(
+              err.error
+            )}`
+          );
+          this.openSnackBar(
+            `Error al ingresar el documento`,
+            "Ok",
+            "red-snackbar"
+          );
         }
-      }
+      };
   }
 
   openSnackBar(message: string, action: string, cssClass: string) {
@@ -126,5 +177,4 @@ export class ExpectativesService {
       extraClasses: [cssClass]
     });
   }
-
 }
