@@ -53,7 +53,6 @@ export class ResolutionsComponent implements OnInit {
     this.HealthService.getHealthByPersonID(this.personID).subscribe(
       success => {
         this.health = success[0];
-        console.log(this.health.Need);
         this.loading = false;
       },
       (err: HttpErrorResponse) => {

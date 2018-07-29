@@ -206,7 +206,7 @@ export class GraphComponent implements OnInit {
             )}`
           );
           this.peopleService.openSnackBar(
-            `Persona no guardada debido al error: ${err}`,
+            `Ha ocurrido un problema al obtener las personas: ${err}`,
             "Ok",
             "red-snackbar"
           );
