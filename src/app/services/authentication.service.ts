@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { stringify } from "querystring";
 import { User } from "../models/User";
 @Injectable()
 export class AuthenticationService {
